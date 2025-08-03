@@ -1,0 +1,66 @@
+---
+alwaysApply: true
+---
+
+### 📁 Structure & Conventions
+
+- Use the **App Router** (`app/` directory); structure by domain/feature.
+- Default to **Server Components**. Use `'use client'` only when interactivity requires it.
+- Limit files to \~500 LOC. Extract concerns into smaller files.
+- Use `route.ts` for API routes colocated by feature.
+- Shared logic: `/lib`; shared types: `/types`.
+
+### 🧱 Components & Code Style
+
+- Use **functional components** with **modern TypeScript syntax**.
+- Let TypeScript infer return types unless explicit types add clarity.
+- Use **named exports** for components, **default exports** for pages.
+- Prefer `interface` for props, `type` for unions and utility types.
+- Use Tailwind utility classes only. No custom CSS unless essential.
+
+### 🎨 Styling & Accessibility
+
+- Apply **responsive design** using Tailwind's responsive classes.
+- Maintain consistent utility class order.
+- Build accessible components: use semantic HTML and ARIA attributes.
+- Use `next/image` with `sizes`, `priority`, and layout props.
+
+### ⚙️ Data Layer & API
+
+- Use **Prisma** for DB access (server-only).
+- Integrate **Supabase Auth** using `getUser()` or `getSession()` on the server.
+- Validate inputs/outputs with **Zod**.
+- Fetch data using `fetch()` with `{ cache, next }` for revalidation.
+
+### 🚦 TypeScript
+
+- Avoid `any`; use `unknown` with type guards if needed.
+- Explicitly type all function parameters and return values.
+- Use advanced TS features: utility types, mapped types, discriminated unions.
+
+### ⚡ Performance & Web Vitals
+
+- Avoid unnecessary Client Components.
+- Use `loading.tsx`, `error.tsx`, and `<Suspense>` to enhance UX.
+- Use SSG, SSR, or ISR based on content update frequency.
+- Preload fonts/images where needed.
+- Monitor Web Vitals with Vercel Analytics.
+
+### 🧪 Testing & Validation
+
+- Write Playwright tests for critical flows with `data-testid` selectors.
+- Validate both success and error states.
+- Prefer isolated tests (3–5 per file). Mock API responses.
+
+### 🧹 Tooling & Linting
+
+- Use Bun as the package manager.
+- Use **ESLint** for linting. Add as pre-commit hook.
+- Clean up all warnings/errors before commit.
+- Use Conventional Commits (`feat:`, `fix:`, etc.).
+- Automatically organize imports.
+- Keep dependencies lean and up to date.
+
+---
+
+Focus on readability, strict typing, small files, and performance-driven architecture. Prioritize accessibility and DRY code organization.
