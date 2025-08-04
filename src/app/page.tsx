@@ -1,5 +1,4 @@
-import { ModeToggle } from "@/components/mode-toggle";
-import { auth, signIn, signOut } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 
 export default async function Home() {
   const session = await auth();
@@ -8,29 +7,10 @@ export default async function Home() {
     <>
       <h1>Denman Dines</h1>
 
-      <ModeToggle />
-
       {session?.user ? (
-        <>
-          <p>Welcome {session.user.name}!</p>
-          <form
-            action={async () => {
-              "use server";
-              await signOut();
-            }}
-          >
-            <button type="submit">Signout</button>
-          </form>
-        </>
+        <p>Welcome {session.user.name}!</p>
       ) : (
-        <form
-          action={async () => {
-            "use server";
-            await signIn("google");
-          }}
-        >
-          <button type="submit">Signin with Google</button>
-        </form>
+        <p>You should login!</p>
       )}
     </>
   );
