@@ -1,17 +1,146 @@
-import { auth } from "@/lib/auth";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import prisma from "@/lib/prisma";
+import Image from "next/image";
+import Link from "next/link";
+
+async function getRecipes() {
+  return await prisma.recipe.findMany({
+    include: {
+      user: {
+        select: {
+          name: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+}
+
+function formatTime(minutes: number): string {
+  if (!minutes) return "N/A";
+
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+
+  if (hours > 0) {
+    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+  }
+  return `${mins}m`;
+}
+
+function getTotalTime(
+  prepTime: number | null,
+  cookTime: number | null
+): string {
+  const total = (prepTime ?? 0) + (cookTime ?? 0);
+  return formatTime(total);
+}
 
 export default async function Home() {
-  const session = await auth();
+  const recipes = await getRecipes();
 
   return (
-    <>
-      <h1>Denman Dines</h1>
+    <div className="container mx-auto px-4 py-8">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold text-center mb-4">Denman Dines</h1>
+        <p className="text-center text-muted-foreground text-lg">
+          The GOAT of recipe sites
+        </p>
+      </div>
 
-      {session?.user ? (
-        <p>Welcome {session.user.name}!</p>
+      {recipes.length === 0 ? (
+        <div className="text-center py-12">
+          <h2 className="text-2xl font-semibold mb-4">No recipes yet</h2>
+          <p className="text-muted-foreground">
+            Be the first to share a recipe!
+          </p>
+        </div>
       ) : (
-        <p>You should login!</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {recipes.map((recipe) => (
+            <Link key={recipe.id} href={`/recipes/${recipe.slug}`}>
+              <Card className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer">
+                <CardHeader className="pb-3">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
+                    {recipe.photo ? (
+                      <Image
+                        src={recipe.photo}
+                        alt={recipe.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center h-full bg-muted">
+                        <div className="text-muted-foreground text-center">
+                          <div className="text-4xl mb-2">🍽️</div>
+                          <div className="text-sm">No image</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </CardHeader>
+
+                <CardContent className="flex-1 flex flex-col">
+                  <CardTitle className="mb-2">
+                    <div className="overflow-hidden text-ellipsis whitespace-nowrap">
+                      {recipe.title}
+                    </div>
+                  </CardTitle>
+
+                  {recipe.description && (
+                    <CardDescription className="mb-4 flex-1">
+                      <div
+                        className="overflow-hidden"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: "3",
+                          WebkitBoxOrient: "vertical",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {recipe.description}
+                      </div>
+                    </CardDescription>
+                  )}
+
+                  <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4">
+                      {recipe.servings && (
+                        <span className="flex items-center gap-1">
+                          <span>👥</span>
+                          <span>{recipe.servings} servings</span>
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-1">
+                      <span>⏱️</span>
+                      <span>
+                        {getTotalTime(recipe.prepTime, recipe.cookTime)}
+                      </span>
+                    </div>
+                  </div>
+
+                  {recipe.user.name && (
+                    <div className="text-xs text-muted-foreground mt-2">
+                      by {recipe.user.name}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       )}
-    </>
+    </div>
   );
 }
