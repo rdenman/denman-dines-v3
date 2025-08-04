@@ -11,7 +11,7 @@
     "dev": "next dev --turbopack --experimental-https",
     "prebuild": "prisma migrate deploy",
     "build": "next build",
-    "postinstall": "prisma generate --no-engine",
+    "postinstall": "prisma generate",
     "start": "next start -p 3001",
     "proxy": "bun ./scripts/proxy.mjs",
     "lint": "next lint"
