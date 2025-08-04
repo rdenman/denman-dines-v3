@@ -8,6 +8,7 @@
     "bun": ">=1.0.0"
   },
   "scripts": {
+    "predev": "prisma generate",
     "dev": "next dev --turbopack --experimental-https",
     "prebuild": "prisma migrate deploy && prisma generate --no-engine",
     "build": "next build",
