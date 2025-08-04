@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/mode-toggle";
 import { auth, signIn, signOut } from "@/lib/auth";
 
 export default async function Home() {
@@ -6,6 +7,8 @@ export default async function Home() {
   return (
     <>
       <h1>Denman Dines</h1>
+
+      <ModeToggle />
 
       {session?.user ? (
         <>
