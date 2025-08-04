@@ -1,16 +1,11 @@
 import { auth, signIn, signOut } from "@/lib/auth";
-import prisma from "@/lib/prisma";
 
 export default async function Home() {
   const session = await auth();
 
-  const users = await prisma.user.count();
-
   return (
     <>
       <h1>Denman Dines</h1>
-
-      <p>Total users: {users}</p>
 
       {session?.user ? (
         <>
