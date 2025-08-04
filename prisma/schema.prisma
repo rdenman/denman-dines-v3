@@ -9,9 +9,10 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
@@ -20,8 +21,10 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
+
+  accounts Account[]
+  sessions Session[]
+  recipes  Recipe[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -65,4 +68,78 @@ model VerificationToken {
   expires    DateTime
 
   @@id([identifier, token])
+}
+
+model Recipe {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String?
+  photo       String?
+  servings    Int?
+  prepTime    Int? // in minutes
+  cookTime    Int? // in minutes
+  tips        String[]
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  ingredientSections  IngredientSection[]
+  instructionSections InstructionSection[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([slug])
+  @@index([userId])
+}
+
+model IngredientSection {
+  id    String @id @default(cuid())
+  name  String
+  order Int
+
+  recipeId String
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  ingredients Ingredient[]
+
+  @@index([recipeId, order])
+}
+
+model Ingredient {
+  id          String  @id @default(cuid())
+  name        String
+  amount      String?
+  preparation String?
+  order       Int
+
+  sectionId String
+  section   IngredientSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@index([sectionId, order])
+}
+
+model InstructionSection {
+  id    String @id @default(cuid())
+  name  String
+  order Int
+
+  recipeId String
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  instructions Instruction[]
+
+  @@index([recipeId, order])
+}
+
+model Instruction {
+  id    String @id @default(cuid())
+  text  String
+  order Int
+
+  sectionId String
+  section   InstructionSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@index([sectionId, order])
 }
