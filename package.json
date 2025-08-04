@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "next dev --turbopack --experimental-https",
-    "prebuild": "prisma generate --no-engine",
+    "prebuild": "prisma migrate deploy && prisma generate --no-engine",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -1,5 +1,4 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import { globalIgnores } from "eslint/config";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -11,7 +10,6 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  globalIgnores([".next/*", "src/app/generated/*"]),
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
