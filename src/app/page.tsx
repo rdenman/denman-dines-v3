@@ -1,3 +1,4 @@
+import { SmartPagination } from "@/components/smart-pagination";
 import {
   Card,
   CardContent,
@@ -9,19 +10,32 @@ import prisma from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 
-async function getRecipes() {
-  return await prisma.recipe.findMany({
-    include: {
-      user: {
-        select: {
-          name: true,
+const RECIPES_PER_PAGE = 24;
+async function getRecipes(page: number = 1) {
+  const [recipes, totalCount] = await Promise.all([
+    prisma.recipe.findMany({
+      include: {
+        user: {
+          select: {
+            name: true,
+          },
         },
       },
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+      orderBy: {
+        createdAt: "desc",
+      },
+      skip: (page - 1) * RECIPES_PER_PAGE,
+      take: RECIPES_PER_PAGE,
+    }),
+    prisma.recipe.count(),
+  ]);
+
+  return {
+    recipes,
+    totalCount,
+    totalPages: Math.ceil(totalCount / RECIPES_PER_PAGE),
+    currentPage: page,
+  };
 }
 
 function formatTime(minutes: number): string {
@@ -44,8 +58,15 @@ function getTotalTime(
   return formatTime(total);
 }
 
-export default async function Home() {
-  const recipes = await getRecipes();
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const page = parseInt((await searchParams).page || "1");
+  const { recipes, totalCount, totalPages, currentPage } = await getRecipes(
+    page
+  );
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -64,82 +85,91 @@ export default async function Home() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {recipes.map((recipe) => (
-            <Link key={recipe.id} href={`/recipes/${recipe.slug}`}>
-              <Card className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer">
-                <CardHeader className="pb-3">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
-                    {recipe.photo ? (
-                      <Image
-                        src={recipe.photo}
-                        alt={recipe.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    ) : (
-                      <div className="flex items-center justify-center h-full bg-muted">
-                        <div className="text-muted-foreground text-center">
-                          <div className="text-4xl mb-2">🍽️</div>
-                          <div className="text-sm">No image</div>
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {recipes.map((recipe) => (
+              <Link key={recipe.id} href={`/recipes/${recipe.slug}`}>
+                <Card className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer">
+                  <CardHeader className="pb-3">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
+                      {recipe.photo ? (
+                        <Image
+                          src={recipe.photo}
+                          alt={recipe.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className="flex items-center justify-center h-full bg-muted">
+                          <div className="text-muted-foreground text-center">
+                            <div className="text-4xl mb-2">🍽️</div>
+                            <div className="text-sm">No image</div>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                </CardHeader>
-
-                <CardContent className="flex-1 flex flex-col">
-                  <CardTitle className="mb-2">
-                    <div className="overflow-hidden text-ellipsis whitespace-nowrap">
-                      {recipe.title}
-                    </div>
-                  </CardTitle>
-
-                  {recipe.description && (
-                    <CardDescription className="mb-4 flex-1">
-                      <div
-                        className="overflow-hidden"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: "3",
-                          WebkitBoxOrient: "vertical",
-                          textOverflow: "ellipsis",
-                        }}
-                      >
-                        {recipe.description}
-                      </div>
-                    </CardDescription>
-                  )}
-
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <div className="flex items-center gap-4">
-                      {recipe.servings && (
-                        <span className="flex items-center gap-1">
-                          <span>👥</span>
-                          <span>{recipe.servings} servings</span>
-                        </span>
                       )}
                     </div>
+                  </CardHeader>
 
-                    <div className="flex items-center gap-1">
-                      <span>⏱️</span>
-                      <span>
-                        {getTotalTime(recipe.prepTime, recipe.cookTime)}
-                      </span>
-                    </div>
-                  </div>
+                  <CardContent className="flex-1 flex flex-col">
+                    <CardTitle className="mb-2">
+                      <div className="overflow-hidden text-ellipsis whitespace-nowrap">
+                        {recipe.title}
+                      </div>
+                    </CardTitle>
 
-                  {recipe.user.name && (
-                    <div className="text-xs text-muted-foreground mt-2">
-                      by {recipe.user.name}
+                    {recipe.description && (
+                      <CardDescription className="mb-4 flex-1">
+                        <div
+                          className="overflow-hidden"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitLineClamp: "3",
+                            WebkitBoxOrient: "vertical",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          {recipe.description}
+                        </div>
+                      </CardDescription>
+                    )}
+
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <div className="flex items-center gap-4">
+                        {recipe.servings && (
+                          <span className="flex items-center gap-1">
+                            <span>👥</span>
+                            <span>{recipe.servings} servings</span>
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex items-center gap-1">
+                        <span>⏱️</span>
+                        <span>
+                          {getTotalTime(recipe.prepTime, recipe.cookTime)}
+                        </span>
+                      </div>
                     </div>
-                  )}
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
+
+                    {recipe.user.name && (
+                      <div className="text-xs text-muted-foreground mt-2">
+                        by {recipe.user.name}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          <SmartPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            totalCount={totalCount}
+            itemsPerPage={RECIPES_PER_PAGE}
+          />
+        </>
       )}
     </div>
   );
