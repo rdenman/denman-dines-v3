@@ -1,5 +1,5 @@
+import { FormLoadingButton } from "@/components/form-loading-button";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/user-menu";
 import { auth, signIn } from "@/lib/auth";
 import Image from "next/image";
@@ -41,9 +41,9 @@ export async function Header() {
                 await signIn("google");
               }}
             >
-              <Button type="submit" variant="outline">
+              <FormLoadingButton type="submit" variant="outline">
                 Sign In
-              </Button>
+              </FormLoadingButton>
             </form>
           )}
         </div>
