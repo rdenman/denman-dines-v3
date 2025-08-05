@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
+import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,18 +37,6 @@ async function getRecipes(page: number = 1) {
     totalPages: Math.ceil(totalCount / RECIPES_PER_PAGE),
     currentPage: page,
   };
-}
-
-function formatTime(minutes: number): string {
-  if (!minutes) return "N/A";
-
-  const hours = Math.floor(minutes / 60);
-  const mins = minutes % 60;
-
-  if (hours > 0) {
-    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
-  }
-  return `${mins}m`;
 }
 
 function getTotalTime(
