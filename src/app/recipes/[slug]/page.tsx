@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import prisma from "@/lib/prisma";
+import { getRecipeBySlug } from "@/lib/recipe";
 import { exists, formatTime } from "@/lib/utils";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -8,32 +8,6 @@ interface RecipePageProps {
   params: Promise<{
     slug: string;
   }>;
-}
-
-async function getRecipeBySlug(slug: string) {
-  const recipe = await prisma.recipe.findUnique({
-    where: { slug },
-    include: {
-      ingredientSections: {
-        include: {
-          ingredients: {
-            orderBy: { order: "asc" },
-          },
-        },
-        orderBy: { order: "asc" },
-      },
-      instructionSections: {
-        include: {
-          instructions: {
-            orderBy: { order: "asc" },
-          },
-        },
-        orderBy: { order: "asc" },
-      },
-    },
-  });
-
-  return recipe;
 }
 
 export default async function RecipePage({ params }: RecipePageProps) {

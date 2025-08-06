@@ -6,38 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import prisma from "@/lib/prisma";
+import { getPaginatedRecipes } from "@/lib/recipe";
 import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
 const RECIPES_PER_PAGE = 24;
-async function getRecipes(page: number = 1) {
-  const [recipes, totalCount] = await Promise.all([
-    prisma.recipe.findMany({
-      include: {
-        user: {
-          select: {
-            name: true,
-          },
-        },
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      skip: (page - 1) * RECIPES_PER_PAGE,
-      take: RECIPES_PER_PAGE,
-    }),
-    prisma.recipe.count(),
-  ]);
-
-  return {
-    recipes,
-    totalCount,
-    totalPages: Math.ceil(totalCount / RECIPES_PER_PAGE),
-    currentPage: page,
-  };
-}
 
 function getTotalTime(
   prepTime: number | null,
@@ -53,9 +27,8 @@ export default async function Home({
   searchParams: Promise<{ page?: string }>;
 }) {
   const page = parseInt((await searchParams).page || "1");
-  const { recipes, totalCount, totalPages, currentPage } = await getRecipes(
-    page
-  );
+  const { recipes, totalCount, totalPages, currentPage } =
+    await getPaginatedRecipes(page);
 
   return (
     <div className="container mx-auto px-4 py-8">
