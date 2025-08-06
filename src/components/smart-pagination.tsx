@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Pagination,
   PaginationContent,
@@ -7,6 +9,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useSearchParams } from "next/navigation";
 
 interface SmartPaginationProps {
   currentPage: number;
@@ -89,11 +92,20 @@ export function SmartPagination({
   itemsPerPage,
   baseUrl = "/",
 }: SmartPaginationProps) {
+  const searchParams = useSearchParams();
+
   if (totalCount <= itemsPerPage) {
     return null;
   }
 
   const paginationItems = generatePaginationItems(currentPage, totalPages);
+
+  // Helper function to generate URLs with preserved query parameters
+  const generatePageUrl = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", page.toString());
+    return `${baseUrl}?${params.toString()}`;
+  };
 
   return (
     <div className="mt-8">
@@ -101,7 +113,7 @@ export function SmartPagination({
         <PaginationContent>
           {currentPage > 1 && (
             <PaginationItem>
-              <PaginationPrevious href={`${baseUrl}?page=${currentPage - 1}`} />
+              <PaginationPrevious href={generatePageUrl(currentPage - 1)} />
             </PaginationItem>
           )}
 
@@ -109,7 +121,7 @@ export function SmartPagination({
             <PaginationItem key={item.key}>
               {item.type === "page" ? (
                 <PaginationLink
-                  href={`${baseUrl}?page=${item.value}`}
+                  href={generatePageUrl(item.value)}
                   isActive={item.value === currentPage}
                 >
                   {item.value}
@@ -122,7 +134,7 @@ export function SmartPagination({
 
           {currentPage < totalPages && (
             <PaginationItem>
-              <PaginationNext href={`${baseUrl}?page=${currentPage + 1}`} />
+              <PaginationNext href={generatePageUrl(currentPage + 1)} />
             </PaginationItem>
           )}
         </PaginationContent>

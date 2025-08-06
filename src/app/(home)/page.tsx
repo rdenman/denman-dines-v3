@@ -1,3 +1,4 @@
+import { RecipeSort } from "@/components/recipe-sort";
 import { SmartPagination } from "@/components/smart-pagination";
 import {
   Card,
@@ -6,7 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { DEFAULT_RECIPES_PER_PAGE, getPaginatedRecipes } from "@/lib/recipe";
+import {
+  DEFAULT_RECIPES_PER_PAGE,
+  getPaginatedRecipes,
+  type SortOption,
+} from "@/lib/recipe";
 import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,11 +27,14 @@ function getTotalTime(
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; sort?: string }>;
 }) {
-  const page = parseInt((await searchParams).page || "1");
+  const params = await searchParams;
+  const page = parseInt(params.page || "1");
+  const sort = (params.sort as SortOption) || "newest";
+
   const { recipes, totalCount, totalPages, currentPage } =
-    await getPaginatedRecipes(page);
+    await getPaginatedRecipes(page, DEFAULT_RECIPES_PER_PAGE, sort);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -46,6 +54,10 @@ export default async function Home({
         </div>
       ) : (
         <>
+          <div className="flex justify-end items-center mb-6 w-full sm:w-auto">
+            <RecipeSort currentSort={sort} />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {recipes.map((recipe) => (
               <Link key={recipe.id} href={`/recipes/${recipe.slug}`}>
