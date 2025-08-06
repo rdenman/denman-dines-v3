@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { unstable_cache } from "next/cache";
 
-const RECIPES_PER_PAGE = 24;
+export const DEFAULT_RECIPES_PER_PAGE = 24;
 
 export const CACHE_TAGS = {
   RECIPES: "recipes",
@@ -12,11 +12,14 @@ export const CACHE_TAGS = {
 /**
  * Get paginated recipes with user information
  */
-export async function getPaginatedRecipes(page: number = 1) {
+export async function getPaginatedRecipes(
+  page: number = 1,
+  pageSize: number = DEFAULT_RECIPES_PER_PAGE
+) {
   const getCachedRecipes = unstable_cache(
-    async (pageNumber: number) => {
+    async (pageNumber: number, recipesPerPage: number) => {
       console.log(
-        `🔄 Cache MISS: Fetching recipes for page ${pageNumber} from database`
+        `🔄 Cache MISS: Fetching recipes for page ${pageNumber} with page size ${recipesPerPage} from database`
       );
 
       const [recipes, totalCount] = await Promise.all([
@@ -31,8 +34,8 @@ export async function getPaginatedRecipes(page: number = 1) {
           orderBy: {
             createdAt: "desc",
           },
-          skip: (pageNumber - 1) * RECIPES_PER_PAGE,
-          take: RECIPES_PER_PAGE,
+          skip: (pageNumber - 1) * recipesPerPage,
+          take: recipesPerPage,
         }),
         prisma.recipe.count(),
       ]);
@@ -40,7 +43,7 @@ export async function getPaginatedRecipes(page: number = 1) {
       return {
         recipes,
         totalCount,
-        totalPages: Math.ceil(totalCount / RECIPES_PER_PAGE),
+        totalPages: Math.ceil(totalCount / recipesPerPage),
         currentPage: pageNumber,
       };
     },
@@ -50,7 +53,7 @@ export async function getPaginatedRecipes(page: number = 1) {
     }
   );
 
-  return getCachedRecipes(page);
+  return getCachedRecipes(page, pageSize);
 }
 
 /**

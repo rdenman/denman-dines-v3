@@ -6,12 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getPaginatedRecipes } from "@/lib/recipe";
+import { DEFAULT_RECIPES_PER_PAGE, getPaginatedRecipes } from "@/lib/recipe";
 import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-
-const RECIPES_PER_PAGE = 24;
 
 function getTotalTime(
   prepTime: number | null,
@@ -129,7 +127,7 @@ export default async function Home({
             currentPage={currentPage}
             totalPages={totalPages}
             totalCount={totalCount}
-            itemsPerPage={RECIPES_PER_PAGE}
+            itemsPerPage={DEFAULT_RECIPES_PER_PAGE}
           />
         </>
       )}
