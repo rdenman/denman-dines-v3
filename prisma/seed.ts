@@ -8,226 +8,302 @@ const email = "robertkarldenman@gmail.com";
 const recipes = [
   {
     title: "Air Fryer Chicken Tenders",
+    slug: "air-fryer-chicken-tenders",
     description:
-      "Crispy, golden chicken tenders made in the air fryer for a healthier alternative to deep frying.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 12,
-    tips: [
-      "For extra crispy tenders, spray with cooking oil before air frying",
-      "Don't overcrowd the air fryer basket for best results",
-      "Serve with your favorite dipping sauce",
-    ],
+      "Crispy chicken tenders made in the air fryer with panko breading.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-05-27T17:25:21.268Z",
+    updatedAt: "2025-05-27T17:25:21.268Z",
     ingredientSections: [
       {
-        name: "Main Ingredients",
-        order: 1,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
-          { name: "Chicken tenders", amount: "1 pound", order: 1 },
-          { name: "All-purpose flour", amount: "1/2 cup", order: 2 },
-          { name: "Eggs", amount: "2", preparation: "beaten", order: 3 },
-          { name: "Panko breadcrumbs", amount: "1 cup", order: 4 },
-          { name: "Salt", amount: "1 teaspoon", order: 5 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 6 },
-          { name: "Garlic powder", amount: "1/2 teaspoon", order: 7 },
-          { name: "Paprika", amount: "1/2 teaspoon", order: 8 },
+          {
+            name: "chicken breast, cut into tenders",
+            amount: "1.5 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "salt",
+            amount: "2 tablespoon + 1 tsp",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "sugar",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "paprika",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "onion powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "cayenne",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "flour",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "eggs",
+            amount: "2",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "panko breadcrumbs",
+            amount: "2 cup",
+            preparation: null,
+            order: 10,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
-          { text: "Preheat air fryer to 400°F for 5 minutes.", order: 1 },
           {
-            text: "Season chicken tenders with salt, pepper, garlic powder, and paprika.",
+            text: "Mix 4 cups water with 2 tbsp salt and 1 tbsp sugar in a large bowl. Add the tenders and let them brine for at least 30 minutes or up to overnight.",
+            order: 0,
+          },
+          {
+            text: "In a small bowl, mix together remaining 1 tsp salt, pepper, paprika, garlic powder, onion powder, and cayenne.",
+            order: 1,
+          },
+          {
+            text: "In a separate bowl, add flour, eggs, and 1 tsp of the seasoning mix. Mix well until you get a batter-like consistency. Add water if too thick as needed.",
             order: 2,
           },
           {
-            text: "Set up breading station: flour in one bowl, beaten eggs in another, panko breadcrumbs in third.",
+            text: "On a large plate/pan, mix the breadcrumbs with the remaining seasoning mix.",
             order: 3,
           },
           {
-            text: "Dredge each tender in flour, then egg, then panko breadcrumbs.",
+            text: "Remove tenders from the brine and pat dry. Dip the tenders in the egg mix first, then in the breadcrumbs. Lay them on a parchment paper lined baking sheet.",
             order: 4,
           },
           {
-            text: "Place breaded tenders in air fryer basket in single layer.",
+            text: "Preheat air fryer to 400 degrees (will cook for 14 minutes).",
             order: 5,
           },
           {
-            text: "Cook for 6 minutes, flip, and cook additional 6 minutes until golden and crispy.",
+            text: "Spray the top side of the chicken with oil spray. Place the sprayed side face down in the air fryer basket and spray the other side. Cook tenders for 14 minutes, flipping about halfway through.",
             order: 6,
           },
-          { text: "Serve hot with your favorite dipping sauce.", order: 7 },
         ],
       },
     ],
   },
   {
     title: "Argentinian Steak",
+    slug: "argentinian-steak",
     description:
-      "Authentic Argentinian-style grilled steak with chimichurri sauce, perfect for a special dinner.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 15,
-    tips: [
-      "Let steak come to room temperature before grilling",
-      "Don't move the steak too much while grilling for perfect sear marks",
-      "Rest the steak for 5-10 minutes before slicing",
-    ],
+      "Marinated steak strips cooked in a cast iron skillet with citrus and soy sauce.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:22:52.868Z",
+    updatedAt: "2024-02-29T12:52:58.191Z",
     ingredientSections: [
       {
-        name: "Steak",
-        order: 1,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
           {
-            name: "Ribeye steaks",
-            amount: "4",
-            preparation: "1 inch thick",
-            order: 1,
+            name: "steak",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
           },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          { name: "Kosher salt", amount: "2 tablespoons", order: 3 },
           {
-            name: "Black pepper",
-            amount: "1 tablespoon",
-            preparation: "freshly ground",
-            order: 4,
-          },
-        ],
-      },
-      {
-        name: "Chimichurri Sauce",
-        order: 2,
-        ingredients: [
-          {
-            name: "Fresh parsley",
-            amount: "1 cup",
-            preparation: "finely chopped",
+            name: "olive oil",
+            amount: "0.667 cup",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "finely chopped",
+            name: "orange juice",
+            amount: "0.5 cup",
+            preparation: null,
             order: 2,
           },
           {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
+            name: "lime juice",
+            amount: "0.333 cup",
+            preparation: null,
             order: 3,
           },
-          { name: "Red wine vinegar", amount: "1/4 cup", order: 4 },
-          { name: "Olive oil", amount: "1/2 cup", order: 5 },
-          { name: "Red pepper flakes", amount: "1/2 teaspoon", order: 6 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 7 },
+          {
+            name: "soy sauce",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "Worcestershire sauce",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "red wine vinegar",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "garlic",
+            amount: "6 clove",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "red pepper flakes",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "Freshly ground pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 9,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Let steaks come to room temperature for 30 minutes before grilling.",
+            text: "Mix all ingredients except the steak together in a bowl to make the marinade.",
+            order: 0,
+          },
+          {
+            text: 'Cut the steak into roughly 1/2" strips and add to the marinade. Put in the fridge for several hours.',
             order: 1,
           },
           {
-            text: "Make chimichurri: combine all ingredients in a bowl and let sit for 30 minutes.",
+            text: "Take steak out from marinade and pat dry. Sprinkle with coarse salt.",
             order: 2,
           },
-          { text: "Preheat grill to high heat (450-500°F).", order: 3 },
           {
-            text: "Pat steaks dry and season generously with salt and pepper.",
-            order: 4,
+            text: "Preheat a cast iron skillet on high. Add steak strips to pan and cook for about a minute per side.",
+            order: 3,
           },
-          {
-            text: "Grill steaks for 4-5 minutes per side for medium-rare.",
-            order: 5,
-          },
-          {
-            text: "Let steaks rest for 5-10 minutes before slicing.",
-            order: 6,
-          },
-          { text: "Serve with chimichurri sauce on the side.", order: 7 },
         ],
       },
     ],
   },
   {
     title: "Avocado Chimichurri",
+    slug: "avocado-chimichurri",
     description:
-      "Creamy avocado chimichurri sauce perfect for grilled meats, fish, or as a dip.",
-    servings: 6,
-    prepTime: 10,
-    cookTime: 0,
-    tips: [
-      "Use ripe avocados for the best texture",
-      "Add more lime juice if you prefer a tangier sauce",
-      "Store in refrigerator for up to 2 days",
-    ],
+      "Creamy avocado-based chimichurri sauce with cilantro and lime.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:24:15.887Z",
+    updatedAt: "2024-04-26T23:18:19.710Z",
     ingredientSections: [
       {
         name: "Ingredients",
-        order: 1,
+        order: 0,
         ingredients: [
           {
-            name: "Ripe avocados",
-            amount: "2",
-            preparation: "peeled and pitted",
+            name: "avocado",
+            amount: "1",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "cilantro",
+            amount: "0.333 cup",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Fresh parsley",
-            amount: "1/2 cup",
-            preparation: "finely chopped",
+            name: "garlic",
+            amount: "3 clove",
+            preparation: null,
             order: 2,
           },
           {
-            name: "Fresh cilantro",
-            amount: "1/4 cup",
-            preparation: "finely chopped",
+            name: "red wine vinegar",
+            amount: "1 tablespoon",
+            preparation: null,
             order: 3,
           },
           {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
+            name: "olive oil",
+            amount: "2 tablespoon",
+            preparation: null,
             order: 4,
           },
-          { name: "Lime juice", amount: "2 tablespoons", order: 5 },
-          { name: "Olive oil", amount: "1/4 cup", order: 6 },
-          { name: "Red wine vinegar", amount: "1 tablespoon", order: 7 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 8 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 9 },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "lime juice",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 6,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "In a food processor, combine avocados, parsley, cilantro, and garlic.",
-            order: 1,
-          },
-          {
-            text: "Pulse until well combined but still slightly chunky.",
-            order: 2,
-          },
-          {
-            text: "Add lime juice, olive oil, and vinegar. Pulse to combine.",
-            order: 3,
-          },
-          { text: "Season with salt and pepper to taste.", order: 4 },
-          {
-            text: "Serve immediately or refrigerate for up to 2 days.",
-            order: 5,
+            text: "Combine all ingredients in a food processor or blender and mix until creamy.",
+            order: 0,
           },
         ],
       },
@@ -235,156 +311,223 @@ const recipes = [
   },
   {
     title: "Baked Salmon",
-    description:
-      "Simple and delicious baked salmon with herbs and lemon, perfect for a healthy weeknight dinner.",
-    servings: 4,
-    prepTime: 10,
-    cookTime: 20,
-    tips: [
-      "Don't overcook salmon - it should be slightly pink in the center",
-      "Use fresh herbs for the best flavor",
-      "Serve with roasted vegetables for a complete meal",
-    ],
+    slug: "baked-salmon",
+    description: "Simple baked salmon with herbs and lemon.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-25T17:26:34.524Z",
+    updatedAt: "2025-01-25T17:26:34.524Z",
     ingredientSections: [
       {
         name: "Ingredients",
-        order: 1,
+        order: 0,
         ingredients: [
           {
-            name: "Salmon fillets",
+            name: "6 oz salmon fillets",
             amount: "4",
-            preparation: "6-8 oz each",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "olive oil",
+            amount: "2 tablespoon",
+            preparation: null,
             order: 1,
           },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          { name: "Lemon", amount: "1", preparation: "sliced", order: 3 },
           {
-            name: "Fresh dill",
-            amount: "1/4 cup",
-            preparation: "chopped",
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "pepper",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "garlic cloves, minced",
+            amount: "4",
+            preparation: null,
             order: 4,
           },
           {
-            name: "Fresh parsley",
-            amount: "1/4 cup",
-            preparation: "chopped",
+            name: "Italian seasoning",
+            amount: "1 teaspoon",
+            preparation: null,
             order: 5,
           },
           {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
+            name: "lemon",
+            amount: "1",
+            preparation: null,
             order: 6,
           },
-          { name: "Salt", amount: "1 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 8 },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Preheat oven to 400°F and line a baking sheet with parchment paper.",
+            text: "Preheat over to 400 degrees.",
+            order: 0,
+          },
+          {
+            text: "In a small bowl, mix together olive oil, garlic, herbs, and juice from half the lemon.",
             order: 1,
           },
-          { text: "Place salmon fillets on prepared baking sheet.", order: 2 },
           {
-            text: "Drizzle with olive oil and season with salt and pepper.",
+            text: "Place salmon on a baking sheet (they stick to aluminum pretty bad, so directly on the sheet is best) and spoon over the dressing. Try to cover the salmon entirely.",
+            order: 2,
+          },
+          {
+            text: "Thinly slice the remainder of the lemon and place the slices on top of the salmon.",
             order: 3,
           },
-          { text: "Sprinkle minced garlic and herbs over salmon.", order: 4 },
-          { text: "Place lemon slices on top of salmon.", order: 5 },
           {
-            text: "Bake for 15-20 minutes until salmon flakes easily with a fork.",
-            order: 6,
+            text: "Bake salmon for 12-15 minutes, until flaky. Can broil the last couple minutes for some extra char.",
+            order: 4,
           },
-          { text: "Serve hot with additional lemon wedges.", order: 7 },
         ],
       },
     ],
   },
   {
     title: "Balsamic Chicken & Veggies",
-    description:
-      "One-pan balsamic chicken with roasted vegetables, a healthy and flavorful dinner.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 25,
-    tips: [
-      "Cut vegetables in similar sizes for even cooking",
-      "Don't overcrowd the pan for better browning",
-      "Use good quality balsamic vinegar for best flavor",
-    ],
+    slug: "balsamic-chicken-&-veggies",
+    description: "Chicken and vegetables roasted with balsamic glaze.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-02-27T12:35:46.176Z",
+    updatedAt: "2024-02-27T12:35:46.176Z",
     ingredientSections: [
       {
         name: "Ingredients",
-        order: 1,
+        order: 0,
         ingredients: [
           {
-            name: "Chicken breasts",
-            amount: "4",
-            preparation: "cut into 1-inch pieces",
+            name: "chicken breast",
+            amount: "1.5 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "olive oil",
+            amount: "2 tablespoon",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Broccoli",
-            amount: "1 head",
-            preparation: "cut into florets",
+            name: "balsamic vinegar",
+            amount: "0.25 cup",
+            preparation: null,
             order: 2,
           },
           {
-            name: "Bell peppers",
-            amount: "2",
-            preparation: "sliced",
+            name: "brown sugar",
+            amount: "1 tablespoon",
+            preparation: null,
             order: 3,
           },
-          { name: "Cherry tomatoes", amount: "1 cup", order: 4 },
-          { name: "Balsamic vinegar", amount: "1/4 cup", order: 5 },
-          { name: "Olive oil", amount: "3 tablespoons", order: 6 },
           {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
+            name: "dried oregano",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "dried basil",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
             order: 7,
           },
-          { name: "Italian seasoning", amount: "1 tablespoon", order: 8 },
-          { name: "Salt", amount: "1 teaspoon", order: 9 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 10 },
+          {
+            name: "garlic, minced",
+            amount: "2 clove",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "cherry tomatoes",
+            amount: "2 cup",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "red onion",
+            amount: "1",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "mozzarella",
+            amount: "1 cup",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "White rice",
+            amount: "0",
+            preparation: null,
+            order: 12,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Preheat oven to 425°F and line a large baking sheet with parchment paper.",
+            text: "Combine olive oil, balsamic vinegar, brown sugar, oregano, basil, salt, pepper, and garlic in a medium bowl.",
+            order: 0,
+          },
+          {
+            text: "Slice several slits width-wise in chicken breasts. Add chicken to the bowl and let marinate for at least an hour.",
             order: 1,
           },
           {
-            text: "In a large bowl, combine balsamic vinegar, olive oil, garlic, and seasonings.",
+            text: "Preheat oven to 430 degrees.",
             order: 2,
           },
-          { text: "Add chicken pieces and toss to coat evenly.", order: 3 },
           {
-            text: "Add vegetables to the bowl and toss with remaining marinade.",
+            text: "Add tomatoes and onion to a 9x13 baking pan. Drizzle with olive oil and salt, then mix together.",
+            order: 3,
+          },
+          {
+            text: "Put chicken over veggies and pour remaining sauce over. Bake for 25 minutes.",
             order: 4,
           },
           {
-            text: "Spread chicken and vegetables in a single layer on baking sheet.",
+            text: "Remove from oven and top chicken with mozzarella. Put back in the oven until cheese is melted.",
             order: 5,
           },
           {
-            text: "Bake for 20-25 minutes, stirring halfway through cooking time.",
+            text: "Serve over rice.",
             order: 6,
-          },
-          {
-            text: "Serve hot with additional balsamic drizzle if desired.",
-            order: 7,
           },
         ],
       },
@@ -392,253 +535,307 @@ const recipes = [
   },
   {
     title: "Blackened Shrimp Bowls",
-    description:
-      "Spicy blackened shrimp served over rice with fresh vegetables and creamy sauce.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 15,
-    tips: [
-      "Don't overcook shrimp - they cook quickly",
-      "Use a well-seasoned cast iron skillet for best blackening",
-      "Prepare all ingredients before starting to cook",
-    ],
+    slug: "blackened-shrimp-bowls",
+    description: "Spicy blackened shrimp served over rice with vegetables.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:29:57.015Z",
+    updatedAt: "2023-12-28T13:29:57.015Z",
     ingredientSections: [
       {
-        name: "Shrimp",
-        order: 1,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
           {
-            name: "Large shrimp",
+            name: "shrimp",
             amount: "1 pound",
-            preparation: "peeled and deveined",
-            order: 1,
+            preparation: null,
+            order: 0,
           },
-          { name: "Blackening seasoning", amount: "2 tablespoons", order: 2 },
-          { name: "Butter", amount: "2 tablespoons", order: 3 },
-          { name: "Olive oil", amount: "1 tablespoon", order: 4 },
-        ],
-      },
-      {
-        name: "Bowl Components",
-        order: 2,
-        ingredients: [
           {
-            name: "White rice",
-            amount: "2 cups",
-            preparation: "cooked",
-            order: 1,
-          },
-          { name: "Avocado", amount: "1", preparation: "sliced", order: 2 },
-          {
-            name: "Cherry tomatoes",
+            name: "rice",
             amount: "1 cup",
-            preparation: "halved",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "corn",
+            amount: "1 cup",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "red bell pepper",
+            amount: "1",
+            preparation: null,
             order: 3,
           },
-          { name: "Cucumber", amount: "1", preparation: "diced", order: 4 },
           {
-            name: "Red onion",
-            amount: "1/4 cup",
-            preparation: "thinly sliced",
+            name: "cilantro",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "lime",
+            amount: "1",
+            preparation: null,
             order: 5,
           },
           {
-            name: "Lime",
-            amount: "1",
-            preparation: "cut into wedges",
+            name: "olive oil",
+            amount: "2 tablespoon",
+            preparation: null,
             order: 6,
           },
-        ],
-      },
-      {
-        name: "Creamy Sauce",
-        order: 3,
-        ingredients: [
-          { name: "Sour cream", amount: "1/2 cup", order: 1 },
-          { name: "Lime juice", amount: "2 tablespoons", order: 2 },
-          { name: "Hot sauce", amount: "1 tablespoon", order: 3 },
-          { name: "Salt", amount: "1/4 teaspoon", order: 4 },
+          {
+            name: "avocado",
+            amount: "1",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "ground cumin",
+            amount: "1.5 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "paprika",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "garlic powder",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "onion powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "Salt & pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 12,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Cook rice according to package directions and set aside.",
+            text: "Cook rice according to directions.",
+            order: 0,
+          },
+          {
+            text: "In a large bowl, toss shrimp with cumin, paprika, garlic powder, onion powder, salt, and pepper until evenly coated.",
             order: 1,
           },
           {
-            text: "Make creamy sauce by combining sour cream, lime juice, hot sauce, and salt.",
+            text: "Heat 1 tbsp of olive oil over medium-high heat and cook shrimp until opaque, about 5 minutes.",
             order: 2,
           },
           {
-            text: "Heat butter and oil in a large skillet over high heat.",
+            text: "In a medium bowl, combine corn, red bell pepper (chopped), cilantro, 1 tbsp olive oil, juice of 1/2 lime, salt, and pepper.",
             order: 3,
           },
           {
-            text: "Toss shrimp with blackening seasoning until well coated.",
+            text: "To serve, add rice and shrimp to your bowls, then top with corn salsa and slices of avocado. Squeeze remaining lime juice on top.",
             order: 4,
           },
-          {
-            text: "Add shrimp to hot skillet and cook 2-3 minutes per side until blackened.",
-            order: 5,
-          },
-          {
-            text: "Assemble bowls: rice, shrimp, vegetables, and drizzle with creamy sauce.",
-            order: 6,
-          },
-          { text: "Serve with lime wedges on the side.", order: 7 },
         ],
       },
     ],
   },
   {
     title: "Buffalo Chicken Alfredo Pasta",
-    description:
-      "Creamy alfredo pasta with spicy buffalo chicken, the perfect comfort food with a kick.",
-    servings: 6,
-    prepTime: 15,
-    cookTime: 20,
-    tips: [
-      "Reserve pasta water to adjust sauce consistency",
-      "Use freshly grated parmesan for best flavor",
-      "Adjust buffalo sauce amount to your spice preference",
-    ],
+    slug: "buffalo-chicken-alfredo-pasta",
+    description: "Creamy alfredo pasta with buffalo chicken and blue cheese.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:34:52.711Z",
+    updatedAt: "2023-12-28T13:34:52.711Z",
     ingredientSections: [
       {
-        name: "Pasta",
-        order: 1,
-        ingredients: [
-          { name: "Fettuccine", amount: "1 pound", order: 1 },
-          { name: "Salt", amount: "1 tablespoon", order: 2 },
-        ],
-      },
-      {
-        name: "Chicken",
-        order: 2,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
           {
-            name: "Chicken breasts",
-            amount: "2",
-            preparation: "cut into 1-inch pieces",
+            name: "chickpea pasta",
+            amount: "8 ounce",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "chicken breast",
+            amount: "1 pound",
+            preparation: null,
             order: 1,
           },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          { name: "Salt", amount: "1 teaspoon", order: 3 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Alfredo Sauce",
-        order: 3,
-        ingredients: [
-          { name: "Butter", amount: "1/2 cup", order: 1 },
-          { name: "Heavy cream", amount: "2 cups", order: 2 },
           {
-            name: "Parmesan cheese",
+            name: "hot wing sauce",
             amount: "1 cup",
-            preparation: "freshly grated",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "ranch",
+            amount: "0.25 cup",
+            preparation: null,
             order: 3,
           },
-          { name: "Buffalo sauce", amount: "1/2 cup", order: 4 },
           {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
+            name: "mozzarella cheese",
+            amount: "0.75 cup",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "avocado oil",
+            amount: "1 tablespoon",
+            preparation: null,
             order: 5,
           },
-          { name: "Salt", amount: "1/2 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 7 },
+          {
+            name: "salt",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "pepper",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "onion powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "smoked paprika",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "brown sugar",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "ground cumin",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "chili powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 13,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Bring large pot of salted water to boil and cook fettuccine according to package directions.",
+            text: "In a bowl, add avocado oil, salt, pepper, garlic powder, onion powder, paprika, brown sugar, cumin, and chili powder. Mix together.",
+            order: 0,
+          },
+          {
+            text: "Cut chicken into small cubes. Add to the marinate and let sit for a while.",
             order: 1,
           },
           {
-            text: "While pasta cooks, heat oil in large skillet over medium-high heat.",
+            text: "Cook pasta according to directions on the box. Drain, then shock with cold water.",
             order: 2,
           },
           {
-            text: "Season chicken with salt and pepper, then cook until golden and cooked through.",
+            text: "While pasta cooks, throw a pan over high heat. Once very hot, add chicken and cook, about 7-8 minute",
             order: 3,
           },
-          { text: "Remove chicken from skillet and set aside.", order: 4 },
           {
-            text: "In same skillet, melt butter and sauté garlic until fragrant.",
-            order: 5,
+            text: "In a large bowl, add pasta, hot sauce, ranch, mozzarella, and chicken. Mix well and enjoy!",
+            order: 4,
           },
-          {
-            text: "Add heavy cream and bring to simmer, then stir in parmesan until melted.",
-            order: 6,
-          },
-          { text: "Add buffalo sauce and stir to combine.", order: 7 },
-          {
-            text: "Return chicken to skillet and toss with cooked pasta.",
-            order: 8,
-          },
-          { text: "Serve hot with additional parmesan if desired.", order: 9 },
         ],
       },
     ],
   },
   {
     title: "Buffalo Chicken Dip",
-    description:
-      "Creamy, spicy buffalo chicken dip perfect for parties and game day gatherings.",
-    servings: 8,
-    prepTime: 10,
-    cookTime: 25,
-    tips: [
-      "Use rotisserie chicken for quick prep",
-      "Serve with celery sticks, crackers, or tortilla chips",
-      "Can be made ahead and reheated",
-    ],
+    slug: "buffalo-chicken-dip",
+    description: "Creamy buffalo chicken dip perfect for parties and game day.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:19:08.039Z",
+    updatedAt: "2023-12-28T13:19:08.039Z",
     ingredientSections: [
       {
         name: "Ingredients",
-        order: 1,
+        order: 0,
         ingredients: [
           {
-            name: "Cream cheese",
-            amount: "8 ounces",
-            preparation: "softened",
+            name: "cream cheese",
+            amount: "8 ounce",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "hot wing sauce",
+            amount: "1 cup",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Chicken",
-            amount: "2 cups",
-            preparation: "cooked and shredded",
+            name: "ranch dressing",
+            amount: "1 cup",
+            preparation: null,
             order: 2,
           },
-          { name: "Buffalo sauce", amount: "1/2 cup", order: 3 },
-          { name: "Ranch dressing", amount: "1/2 cup", order: 4 },
           {
-            name: "Cheddar cheese",
+            name: "canned chicken",
+            amount: "12.5 ounce",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "shredded cheddar",
             amount: "1 cup",
-            preparation: "shredded",
-            order: 5,
-          },
-          {
-            name: "Blue cheese",
-            amount: "1/2 cup",
-            preparation: "crumbled",
-            order: 6,
-          },
-          {
-            name: "Green onions",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 7,
+            preparation: null,
+            order: 4,
           },
         ],
       },
@@ -646,32 +843,19 @@ const recipes = [
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Preheat oven to 350°F and grease a 9x13 baking dish.",
+            text: "Preheat oven to 350 degrees & let cream cheese soften.",
+            order: 0,
+          },
+          {
+            text: "In a bowl, combine cream cheese, hot sauce, and ranch dressing. Stir in the chicken.",
             order: 1,
           },
           {
-            text: "In a large bowl, beat cream cheese until smooth.",
+            text: "Spread mixture into a 11x7 baking sheet. Sprinkle cheddar on top and bake for about 20 minutes.",
             order: 2,
-          },
-          {
-            text: "Add buffalo sauce and ranch dressing, mix until combined.",
-            order: 3,
-          },
-          {
-            text: "Stir in shredded chicken, cheddar cheese, and blue cheese.",
-            order: 4,
-          },
-          {
-            text: "Transfer mixture to prepared baking dish and spread evenly.",
-            order: 5,
-          },
-          { text: "Bake for 20-25 minutes until hot and bubbly.", order: 6 },
-          {
-            text: "Garnish with green onions and serve hot with dippers.",
-            order: 7,
           },
         ],
       },
@@ -679,74 +863,135 @@ const recipes = [
   },
   {
     title: "Buffalo Mac & Cheese",
-    description:
-      "Creamy mac and cheese with a spicy buffalo kick, perfect comfort food with heat.",
-    servings: 6,
-    prepTime: 15,
-    cookTime: 20,
-    tips: [
-      "Use a good melting cheese like cheddar or gruyere",
-      "Reserve pasta water to adjust sauce consistency",
-      "Add more buffalo sauce if you like it spicier",
-    ],
+    slug: "buffalo-mac-&-cheese",
+    description: "Mac and cheese with buffalo sauce and chicken.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-29T18:54:48.072Z",
+    updatedAt: "2025-01-29T18:54:48.072Z",
     ingredientSections: [
       {
-        name: "Pasta",
-        order: 1,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
-          { name: "Elbow macaroni", amount: "1 pound", order: 1 },
-          { name: "Salt", amount: "1 tablespoon", order: 2 },
-        ],
-      },
-      {
-        name: "Cheese Sauce",
-        order: 2,
-        ingredients: [
-          { name: "Butter", amount: "1/2 cup", order: 1 },
-          { name: "All-purpose flour", amount: "1/4 cup", order: 2 },
-          { name: "Milk", amount: "3 cups", order: 3 },
           {
-            name: "Cheddar cheese",
-            amount: "2 cups",
-            preparation: "shredded",
+            name: "chickpea pasta",
+            amount: "12 ounce",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "butter",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "flour",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "2% milk",
+            amount: "1 cup",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "salt",
+            amount: "0.25 teaspoon",
+            preparation: null,
             order: 4,
           },
-          { name: "Buffalo sauce", amount: "1/3 cup", order: 5 },
-          { name: "Salt", amount: "1 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 7 },
+          {
+            name: "pepper",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "light cream cheese",
+            amount: "4 ounce",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "hot sauce (like Frank's wing sauce)",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "plain Greek yogurt",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "ranch",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "shredded cheddar",
+            amount: "1.5 cup",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "chicken, shredded",
+            amount: "1.5 pound",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "Green onion, chopped (for topping)",
+            amount: "0",
+            preparation: null,
+            order: 13,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Bring large pot of salted water to boil and cook macaroni according to package directions.",
+            text: "Cook and shred chicken. Use a marinade if desired.",
+            order: 0,
+          },
+          {
+            text: "Cook pasta as directed. Follow al dente instructions if available.",
             order: 1,
           },
           {
-            text: "While pasta cooks, melt butter in large saucepan over medium heat.",
+            text: "Make a roux. In a large pot, melt butter over medium heat and whisk in flour until all clumps are out. Slowly whisk in milk and heat until it starts to thicken. Stir in the seasonings.",
             order: 2,
           },
           {
-            text: "Whisk in flour and cook for 1 minute to make roux.",
+            text: "Add the cream cheese, hot sauce, yogurt, and ranch. Whisk until the cream cheese has melted.",
             order: 3,
           },
           {
-            text: "Gradually whisk in milk and bring to simmer, stirring constantly.",
+            text: "Add the cheddar and whisk until melted and everything is fully incorporated and the sauce is smooth.",
             order: 4,
           },
-          { text: "Add cheese and stir until melted and smooth.", order: 5 },
-          { text: "Stir in buffalo sauce, salt, and pepper.", order: 6 },
           {
-            text: "Drain pasta and return to pot. Pour cheese sauce over pasta and stir to combine.",
-            order: 7,
-          },
-          {
-            text: "Serve hot with additional buffalo sauce on the side if desired.",
-            order: 8,
+            text: "Turn the heat to low and mix in the chicken & pasta. Serve topped with green onions if desired.",
+            order: 5,
           },
         ],
       },
@@ -754,253 +999,91 @@ const recipes = [
   },
   {
     title: "Cheeseburger Sliders",
+    slug: "cheeseburger-sliders",
     description:
-      "Mini cheeseburger sliders perfect for parties, game day, or family dinner.",
-    servings: 8,
-    prepTime: 20,
-    cookTime: 25,
-    tips: [
-      "Use Hawaiian rolls for a sweet contrast to the savory filling",
-      "Don't overstuff the sliders or they won't close properly",
-      "Brush with butter and sprinkle with sesame seeds for extra flavor",
-    ],
-    ingredientSections: [
-      {
-        name: "Sliders",
-        order: 1,
-        ingredients: [
-          { name: "Hawaiian rolls", amount: "12", order: 1 },
-          { name: "Ground beef", amount: "1 pound", order: 2 },
-          { name: "American cheese", amount: "6 slices", order: 3 },
-          {
-            name: "Onion",
-            amount: "1",
-            preparation: "thinly sliced",
-            order: 4,
-          },
-          {
-            name: "Pickles",
-            amount: "1/2 cup",
-            preparation: "sliced",
-            order: 5,
-          },
-          { name: "Ketchup", amount: "1/4 cup", order: 6 },
-          { name: "Mustard", amount: "2 tablespoons", order: 7 },
-          { name: "Salt", amount: "1 teaspoon", order: 8 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 9 },
-        ],
-      },
-      {
-        name: "Topping",
-        order: 2,
-        ingredients: [
-          {
-            name: "Butter",
-            amount: "3 tablespoons",
-            preparation: "melted",
-            order: 1,
-          },
-          { name: "Sesame seeds", amount: "1 tablespoon", order: 2 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Preheat oven to 350°F and line a 9x13 baking dish with foil.",
-            order: 1,
-          },
-          {
-            text: "Form ground beef into 6 thin patties and season with salt and pepper.",
-            order: 2,
-          },
-          {
-            text: "Cook patties in skillet over medium heat until cooked through.",
-            order: 3,
-          },
-          {
-            text: "Place bottom half of rolls in baking dish and layer with cheese, beef patties, onions, and pickles.",
-            order: 4,
-          },
-          {
-            text: "Spread ketchup and mustard on top half of rolls and place on top.",
-            order: 5,
-          },
-          {
-            text: "Brush melted butter over tops and sprinkle with sesame seeds.",
-            order: 6,
-          },
-          {
-            text: "Cover with foil and bake for 15 minutes, then uncover and bake 5 more minutes.",
-            order: 7,
-          },
-          { text: "Cut into individual sliders and serve hot.", order: 8 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Chicken Enchilada Rice Bowls",
-    description:
-      "Mexican-inspired rice bowls with tender chicken, black beans, and fresh toppings.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 25,
-    tips: [
-      "Use leftover chicken or rotisserie chicken for quick prep",
-      "Make extra rice for meal prep throughout the week",
-      "Customize toppings based on your preferences",
-    ],
-    ingredientSections: [
-      {
-        name: "Rice",
-        order: 1,
-        ingredients: [
-          {
-            name: "White rice",
-            amount: "2 cups",
-            preparation: "cooked",
-            order: 1,
-          },
-          { name: "Enchilada sauce", amount: "1/2 cup", order: 2 },
-          { name: "Cumin", amount: "1 teaspoon", order: 3 },
-          { name: "Chili powder", amount: "1 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Chicken",
-        order: 2,
-        ingredients: [
-          {
-            name: "Chicken breasts",
-            amount: "2",
-            preparation: "cooked and shredded",
-            order: 1,
-          },
-          { name: "Enchilada sauce", amount: "1/2 cup", order: 2 },
-          { name: "Cumin", amount: "1/2 teaspoon", order: 3 },
-          { name: "Chili powder", amount: "1/2 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Toppings",
-        order: 3,
-        ingredients: [
-          {
-            name: "Black beans",
-            amount: "1 can",
-            preparation: "drained and rinsed",
-            order: 1,
-          },
-          { name: "Corn", amount: "1 cup", preparation: "cooked", order: 2 },
-          { name: "Avocado", amount: "1", preparation: "sliced", order: 3 },
-          {
-            name: "Cherry tomatoes",
-            amount: "1 cup",
-            preparation: "halved",
-            order: 4,
-          },
-          {
-            name: "Cheddar cheese",
-            amount: "1 cup",
-            preparation: "shredded",
-            order: 5,
-          },
-          { name: "Sour cream", amount: "1/2 cup", order: 6 },
-          {
-            name: "Cilantro",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 7,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          { text: "Cook rice according to package directions.", order: 1 },
-          {
-            text: "In a large skillet, combine cooked rice with enchilada sauce and seasonings.",
-            order: 2,
-          },
-          {
-            text: "Cook over medium heat for 5 minutes until flavors combine.",
-            order: 3,
-          },
-          {
-            text: "In another skillet, combine shredded chicken with enchilada sauce and seasonings.",
-            order: 4,
-          },
-          {
-            text: "Heat chicken mixture for 5 minutes until warmed through.",
-            order: 5,
-          },
-          {
-            text: "Assemble bowls: rice, chicken, beans, corn, and desired toppings.",
-            order: 6,
-          },
-          { text: "Garnish with cilantro and serve hot.", order: 7 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Chicken Fried Rice",
-    description:
-      "Classic Chinese takeout-style fried rice with tender chicken and vegetables.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 10,
-    tips: [
-      "Use day-old rice for best results",
-      "Have all ingredients prepped before starting",
-      "Cook over high heat for authentic restaurant taste",
-    ],
+      "Mini cheeseburgers on slider buns with all the classic toppings.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-03-15T15:09:29.705Z",
+    updatedAt: "2025-03-15T15:09:29.705Z",
     ingredientSections: [
       {
         name: "Ingredients",
-        order: 1,
+        order: 0,
         ingredients: [
           {
-            name: "Cooked white rice",
-            amount: "4 cups",
-            preparation: "day-old, chilled",
+            name: "Hawaiian rolls (24 total)",
+            amount: "2 pack",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "ground beef",
+            amount: "2 pound",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Chicken breast",
-            amount: "1 pound",
-            preparation: "cut into small pieces",
+            name: "packets French onion soup mix",
+            amount: "2",
+            preparation: null,
             order: 2,
           },
-          { name: "Eggs", amount: "3", preparation: "beaten", order: 3 },
-          { name: "Carrots", amount: "2", preparation: "diced", order: 4 },
-          { name: "Peas", amount: "1 cup", preparation: "frozen", order: 5 },
           {
-            name: "Green onions",
-            amount: "4",
-            preparation: "chopped",
+            name: "shredded cheddar",
+            amount: "1.5 cup",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "onion",
+            amount: "1",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "worchestire",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "mustard",
+            amount: "2 tablespoon",
+            preparation: null,
             order: 6,
           },
-          { name: "Soy sauce", amount: "3 tablespoons", order: 7 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 8 },
-          { name: "Vegetable oil", amount: "2 tablespoons", order: 9 },
           {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
+            name: "mayonnaise",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "sandwich-style cheddar cheese slices",
+            amount: "8",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "butter",
+            amount: "0.5 stick",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "Sesame seeds",
+            amount: "0",
+            preparation: null,
             order: 10,
           },
           {
-            name: "Ginger",
-            amount: "1 tablespoon",
-            preparation: "minced",
+            name: "Pickles, chopped (maybe like 4 spears-worth)",
+            amount: "0",
+            preparation: null,
             order: 11,
           },
         ],
@@ -1009,103 +1092,150 @@ const recipes = [
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Heat vegetable oil in a large wok or skillet over high heat.",
+            text: "Heat a pan and add the beef. About halfway through cooking, add the onion. Once beef is fully cooked, drain the mix.",
+            order: 0,
+          },
+          {
+            text: "Add the mix back to the pan and add the shredded cheddar, French onion mix, worchestire, mayo, and mustard. Combine until cheese is melted.",
             order: 1,
           },
           {
-            text: "Add chicken and cook until golden and cooked through, about 5 minutes.",
+            text: "Preheat oven to 350 degrees.",
             order: 2,
           },
           {
-            text: "Push chicken to one side and add beaten eggs to empty space.",
+            text: "Chop the rolls in half and put the bottom layer on some tinfoil. Leave enough foil to wrap everything at the end.",
             order: 3,
           },
           {
-            text: "Scramble eggs until just set, then mix with chicken.",
+            text: "Layer cheese slices on the bottom, then add the meat over the cheese, and the pickles over the meat. Put the top half of the rolls on top.",
             order: 4,
           },
-          { text: "Add carrots and peas, stir-fry for 2 minutes.", order: 5 },
-          { text: "Add rice, breaking up any clumps with spatula.", order: 6 },
-          { text: "Add soy sauce, sesame oil, garlic, and ginger.", order: 7 },
           {
-            text: "Stir-fry for 3-4 minutes until rice is heated through.",
-            order: 8,
+            text: "Slightly melt the butter so it's very easy to spread, and top the rolls with it. Sprinkle on the sesame seeds.",
+            order: 5,
           },
-          { text: "Add green onions and serve hot.", order: 9 },
+          {
+            text: "Cover the rolls with foil so their enclosed (try not to have it touch the top of the rolls). Back for about 15 minutes, directly on the rack.",
+            order: 6,
+          },
+          {
+            text: "Once the cheese is melted and the top is lightly toasted, they're ready! Serve with ketchup or some sort of burger sauce.",
+            order: 7,
+          },
         ],
       },
     ],
   },
   {
-    title: "Chicken Larb Bowls",
+    title: "Chicken Enchilada Rice Bowls",
+    slug: "chicken-enchilada-rice-bowls",
     description:
-      "Thai-inspired ground chicken salad with fresh herbs and lime dressing.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 10,
-    tips: [
-      "Use fresh herbs for authentic flavor",
-      "Adjust fish sauce and lime to taste",
-      "Serve with sticky rice for traditional presentation",
-    ],
+      "Mexican-inspired rice bowls with chicken and enchilada sauce.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-03-11T14:50:34.307Z",
+    updatedAt: "2024-03-11T14:50:34.307Z",
     ingredientSections: [
       {
-        name: "Chicken",
-        order: 1,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
-          { name: "Ground chicken", amount: "1 pound", order: 1 },
           {
-            name: "Shallots",
-            amount: "2",
-            preparation: "thinly sliced",
-            order: 2,
+            name: "chicken",
+            amount: "1.5 pound",
+            preparation: null,
+            order: 0,
           },
-          { name: "Fish sauce", amount: "2 tablespoons", order: 3 },
-          { name: "Lime juice", amount: "2 tablespoons", order: 4 },
-          { name: "Chili powder", amount: "1 teaspoon", order: 5 },
-        ],
-      },
-      {
-        name: "Dressing",
-        order: 2,
-        ingredients: [
-          { name: "Lime juice", amount: "3 tablespoons", order: 1 },
-          { name: "Fish sauce", amount: "1 tablespoon", order: 2 },
-          { name: "Brown sugar", amount: "1 teaspoon", order: 3 },
-          { name: "Red chili", amount: "1", preparation: "minced", order: 4 },
-        ],
-      },
-      {
-        name: "Toppings",
-        order: 3,
-        ingredients: [
           {
-            name: "Fresh mint",
-            amount: "1/2 cup",
-            preparation: "chopped",
+            name: "salt",
+            amount: "1 teaspoon",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "chopped",
+            name: "ground cumin",
+            amount: "1 teaspoon",
+            preparation: null,
             order: 2,
           },
           {
-            name: "Green onions",
-            amount: "4",
-            preparation: "chopped",
+            name: "tomato sauce",
+            amount: "8 ounce",
+            preparation: null,
             order: 3,
           },
-          { name: "Cucumber", amount: "1", preparation: "sliced", order: 4 },
           {
-            name: "Lettuce leaves",
-            amount: "1 head",
-            preparation: "for serving",
+            name: "garlic cloves, minced",
+            amount: "3",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "chipotle peppers in adobo sauce",
+            amount: "0.5 tablespoon",
+            preparation: null,
             order: 5,
+          },
+          {
+            name: "chili powder",
+            amount: "0.125 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "cheddar cheese, shredded",
+            amount: "0.75 cup",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "onion, sliced",
+            amount: "1",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "bell pepper, sliced",
+            amount: "1",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "Rice",
+            amount: "0",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "Cilantro, chopped",
+            amount: "0",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "jalapeño, chopped",
+            amount: "1",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "green onions, sliced",
+            amount: "3",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "Sour cream",
+            amount: "0",
+            preparation: null,
+            order: 14,
           },
         ],
       },
@@ -1113,33 +1243,260 @@ const recipes = [
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Heat oil in a large skillet over medium-high heat.",
+            text: "Season chicken with 1/2 tsp salt and 1/2 tsp cumin. Place in slow cooker.",
+            order: 0,
+          },
+          {
+            text: "Combine tomato sauce with remaining salt & cumin, garlic, chipotle peppers, and chili powder. Mix together and pour over chicken.",
             order: 1,
           },
           {
-            text: "Add ground chicken and cook, breaking up with spatula.",
+            text: "Cover slow cooker and cook on low for 4 hours.",
             order: 2,
           },
           {
-            text: "Add shallots and cook until chicken is browned and cooked through.",
+            text: "When cooked, shred chicken. Top with cheese and cover, allowing cheese to melt (about 20 minutes).",
             order: 3,
           },
           {
-            text: "Stir in fish sauce, lime juice, and chili powder.",
+            text: "Sauté onion and pepper. Add to the slow cooker and mix everything together.",
             order: 4,
           },
-          { text: "Remove from heat and let cool slightly.", order: 5 },
           {
-            text: "Make dressing by combining lime juice, fish sauce, sugar, and chili.",
+            text: "Serve over rice.",
+            order: 5,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Chicken Fried Rice",
+    slug: "chicken-fried-rice",
+    description: "Classic fried rice with chicken, vegetables, and soy sauce.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-08-02T18:02:04.478Z",
+    updatedAt: "2025-08-02T18:02:27.736Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chicken, cubed",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "soy sauce",
+            amount: "2 teaspoon + 1/4 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "cornstarch",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "vegetable oil",
+            amount: "2 teaspoon + 1 tbsp",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "butter",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "eggs, whisked",
+            amount: "3",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "frozen peas & carrots",
+            amount: "1 cup",
+            preparation: null,
             order: 6,
           },
-          { text: "Toss chicken with fresh herbs and green onions.", order: 7 },
           {
-            text: "Serve in lettuce cups with cucumber and dressing on the side.",
+            name: "onion, diced",
+            amount: "1",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "garlic, minced",
+            amount: "5 clove",
+            preparation: null,
             order: 8,
+          },
+          {
+            name: "cooked rice",
+            amount: "3 cup",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "green onions, sliced",
+            amount: "3",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "sesame oil",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Start by velveting the chicken. In a medium bowl, mix 2 tbsp water and 2 tsp soy sauce, then add the chicken and mix. Set aside for 5-10 minutes, in which time most liquid should be absorbed into the chicken. Next, add the cornstarch and 2 tsp vegetable oil, mixing again. Let the chicken marinate for 15-20 minutes.",
+            order: 0,
+          },
+          {
+            text: "Heat a wok over medium-high heat. Add 1 tbsp vegetable oil, then add the chicken and cook through. Remove cooked chicken from pan and set aside. Note that you don't want to stack the chicken too much. Sometimes I used a normal pan instead of the wok here.",
+            order: 1,
+          },
+          {
+            text: "Heat 1/2 tbsp butter in the wok over medium-high heat, until melted. Add the eggs and cook until scrambled. Remove and set aside.",
+            order: 2,
+          },
+          {
+            text: "Add 1 tbsp butter to the pan and melt. Add peas, carrots, onion, and garlic, and season with a pinch of salt and pepper. Sauté for about 5 minutes, until soft.",
+            order: 3,
+          },
+          {
+            text: "Increase heat to high, add the remaining 1 1/2 tbsp butter, and melt. Add the rice, green onions, and 1/4 cup soy sauce. Stir until combined, then continue sautéing for a few more minutes.",
+            order: 4,
+          },
+          {
+            text: "Add the egg & chicken back to the wok, then stir to combine. Remove from heat, then stir in the sesame oil.",
+            order: 5,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Chicken Larb Bowls",
+    slug: "chicken-larb-bowls",
+    description:
+      "Thai-inspired ground chicken salad with fresh herbs and lime.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-03-04T04:35:40.949Z",
+    updatedAt: "2024-03-04T04:35:40.949Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "ground chicken",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "shallot, chopped",
+            amount: "1 small",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "soy sauce",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "lime juice",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "chili paste",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "cilantro, chopped",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "fresh mint, chopped",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "green onions",
+            amount: "4",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "cucumber",
+            amount: "1",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "Rice",
+            amount: "0",
+            preparation: null,
+            order: 9,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Heat a large skillet over high heat and spray with oil. Cook the chicken until no longer pink.",
+            order: 0,
+          },
+          {
+            text: "Add the shallot and cook until softened. Then add the soy sauce, lime juice, and chili paste. Mix in well and cook for a couple minutes to meld the flavors.",
+            order: 1,
+          },
+          {
+            text: "Remove from heat and stir in cilantro, mint, and green onions.",
+            order: 2,
+          },
+          {
+            text: "Serve over rice and top with cucumber slices and additional chili paste if desired.",
+            order: 3,
           },
         ],
       },
@@ -1147,200 +1504,205 @@ const recipes = [
   },
   {
     title: "Chimichurri Rice",
-    description:
-      "Flavorful rice dish with fresh chimichurri sauce, perfect as a side or main dish.",
-    servings: 6,
-    prepTime: 10,
-    cookTime: 20,
-    tips: [
-      "Use fresh herbs for the best flavor",
-      "Let chimichurri sit for 30 minutes before mixing with rice",
-      "Serve with grilled meats for a complete meal",
-    ],
+    slug: "chimichurri-rice",
+    description: "Flavorful rice seasoned with fresh chimichurri sauce.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:32:09.242Z",
+    updatedAt: "2023-12-28T13:32:09.242Z",
     ingredientSections: [
       {
-        name: "Rice",
-        order: 1,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
           {
-            name: "White rice",
-            amount: "2 cups",
-            preparation: "uncooked",
-            order: 1,
-          },
-          { name: "Chicken broth", amount: "4 cups", order: 2 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 3 },
-          { name: "Salt", amount: "1 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Chimichurri",
-        order: 2,
-        ingredients: [
-          {
-            name: "Fresh parsley",
+            name: "white rice",
             amount: "1 cup",
-            preparation: "finely chopped",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "beef stock",
+            amount: "1 cup",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "finely chopped",
+            name: "garlic",
+            amount: "4 clove",
+            preparation: null,
             order: 2,
           },
           {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
+            name: "lime juice",
+            amount: "3 tablespoon",
+            preparation: null,
             order: 3,
           },
-          { name: "Red wine vinegar", amount: "1/4 cup", order: 4 },
-          { name: "Olive oil", amount: "1/2 cup", order: 5 },
-          { name: "Red pepper flakes", amount: "1/2 teaspoon", order: 6 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 7 },
+          {
+            name: "red wine vinegar",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "oregano",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "fresh parsley",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "fresh cilantro",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 7,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
-          { text: "Rinse rice until water runs clear, then drain.", order: 1 },
           {
-            text: "In a large pot, heat olive oil over medium heat.",
-            order: 2,
+            text: "Add rice, beef stock, minced garlic, and lime juice to rice cooker and cook.",
+            order: 0,
           },
           {
-            text: "Add rice and stir for 1 minute until lightly toasted.",
-            order: 3,
+            text: "Add remaining ingredients and mix together.",
+            order: 1,
           },
-          { text: "Add chicken broth and salt, bring to boil.", order: 4 },
-          {
-            text: "Reduce heat to low, cover, and simmer for 18 minutes.",
-            order: 5,
-          },
-          {
-            text: "Make chimichurri by combining all ingredients in a bowl.",
-            order: 6,
-          },
-          {
-            text: "Let chimichurri sit for 30 minutes to develop flavors.",
-            order: 7,
-          },
-          {
-            text: "Fluff rice with fork and gently fold in chimichurri.",
-            order: 8,
-          },
-          { text: "Serve warm or at room temperature.", order: 9 },
         ],
       },
     ],
   },
   {
     title: "Cilantro Feta Stuffed Peppers",
-    description:
-      "Colorful bell peppers stuffed with a flavorful mixture of rice, feta, and fresh herbs.",
-    servings: 6,
-    prepTime: 20,
-    cookTime: 30,
-    tips: [
-      "Choose peppers that can stand upright for best presentation",
-      "Pre-cook the rice to save time",
-      "Serve with a fresh green salad for a complete meal",
-    ],
+    slug: "cilantro-feta-stuffed-peppers",
+    description: "Bell peppers stuffed with feta cheese and fresh cilantro.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:54:05.347Z",
+    updatedAt: "2025-03-01T16:36:39.842Z",
     ingredientSections: [
       {
-        name: "Peppers",
-        order: 1,
+        name: "Ingredients",
+        order: 0,
         ingredients: [
           {
-            name: "Bell peppers",
-            amount: "6",
-            preparation: "tops cut off, seeded",
+            name: "bell peppers",
+            amount: "4",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "ground turkey",
+            amount: "1 pound",
+            preparation: null,
             order: 1,
           },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 3 },
-        ],
-      },
-      {
-        name: "Filling",
-        order: 2,
-        ingredients: [
-          { name: "Cooked rice", amount: "2 cups", order: 1 },
           {
-            name: "Feta cheese",
+            name: "cooked rice",
             amount: "1 cup",
-            preparation: "crumbled",
+            preparation: null,
             order: 2,
           },
           {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "chopped",
+            name: "onion",
+            amount: "1",
+            preparation: null,
             order: 3,
           },
           {
-            name: "Green onions",
-            amount: "4",
-            preparation: "chopped",
+            name: "garlic",
+            amount: "3 clove",
+            preparation: null,
             order: 4,
           },
           {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
+            name: "smoked paprika",
+            amount: "1 teaspoon",
+            preparation: null,
             order: 5,
           },
-          { name: "Lemon juice", amount: "2 tablespoons", order: 6 },
-          { name: "Olive oil", amount: "1/4 cup", order: 7 },
-          { name: "Salt", amount: "1 teaspoon", order: 8 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 9 },
+          {
+            name: "ground cumin",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "oregano",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "chicken broth",
+            amount: "1 cup",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "fresh parsley, chopped",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "cilantro, chopped",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "feta cheese",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "parmesan cheese",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 12,
+          },
         ],
       },
     ],
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Preheat oven to 375°F and grease a 9x13 baking dish.",
+            text: "Preheat oven to 400 degrees.",
+            order: 0,
+          },
+          {
+            text: "Cook turkey over medium-high heat. Once brown, add in minced garlic, diced onion, paprika, cumin, & oregano. Cook until onions are soft, 2-3 minutes.",
             order: 1,
           },
           {
-            text: "Cook rice according to package directions and let cool.",
+            text: "Drain the mixture and add back to the pan. Add broth, parsley, cilantro, feta, and rice. Let simmer until broth is nearly evaporated/absorbed.",
             order: 2,
           },
           {
-            text: "In a large bowl, combine rice, feta, cilantro, green onions, and garlic.",
+            text: "Chop tops off peppers and empty. Fill each pepper with the meat/rice mixture and top with parmesan. Bake until peppers are soft, about 40 minutes.",
             order: 3,
-          },
-          {
-            text: "Stir in lemon juice, olive oil, salt, and pepper.",
-            order: 4,
-          },
-          {
-            text: "Brush peppers with olive oil and season with salt.",
-            order: 5,
-          },
-          {
-            text: "Fill each pepper with rice mixture, packing gently.",
-            order: 6,
-          },
-          {
-            text: "Place peppers in prepared baking dish and cover with foil.",
-            order: 7,
-          },
-          {
-            text: "Bake for 25-30 minutes until peppers are tender.",
-            order: 8,
-          },
-          {
-            text: "Serve hot with additional feta on top if desired.",
-            order: 9,
           },
         ],
       },
@@ -1348,3021 +1710,84 @@ const recipes = [
   },
   {
     title: "Cilantro Lime Chicken",
-    description:
-      "Zesty grilled chicken marinated in fresh cilantro, lime, and garlic.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 15,
-    tips: [
-      "Marinate chicken for at least 2 hours for best flavor",
-      "Don't overcook chicken to keep it juicy",
-      "Serve with rice and beans for a complete meal",
-    ],
-    ingredientSections: [
-      {
-        name: "Marinade",
-        order: 1,
-        ingredients: [
-          {
-            name: "Fresh cilantro",
-            amount: "1 cup",
-            preparation: "chopped",
-            order: 1,
-          },
-          { name: "Lime juice", amount: "1/4 cup", order: 2 },
-          { name: "Lime zest", amount: "2 tablespoons", order: 3 },
-          {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
-            order: 4,
-          },
-          { name: "Olive oil", amount: "1/3 cup", order: 5 },
-          { name: "Cumin", amount: "1 teaspoon", order: 6 },
-          { name: "Salt", amount: "1 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 8 },
-        ],
-      },
-      {
-        name: "Chicken",
-        order: 2,
-        ingredients: [
-          {
-            name: "Chicken breasts",
-            amount: "4",
-            preparation: "6-8 oz each",
-            order: 1,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a blender, combine all marinade ingredients until smooth.",
-            order: 1,
-          },
-          {
-            text: "Place chicken in a large resealable bag and pour marinade over.",
-            order: 2,
-          },
-          {
-            text: "Seal bag and refrigerate for at least 2 hours, up to overnight.",
-            order: 3,
-          },
-          { text: "Preheat grill to medium-high heat.", order: 4 },
-          {
-            text: "Remove chicken from marinade and discard marinade.",
-            order: 5,
-          },
-          {
-            text: "Grill chicken for 6-8 minutes per side until cooked through.",
-            order: 6,
-          },
-          { text: "Let rest for 5 minutes before slicing.", order: 7 },
-          { text: "Serve with additional lime wedges and cilantro.", order: 8 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Cilantro Lime Dressing",
-    description:
-      "Fresh and tangy dressing perfect for salads, tacos, or as a marinade.",
-    servings: 8,
-    prepTime: 10,
-    cookTime: 0,
-    tips: [
-      "Use fresh cilantro for the best flavor",
-      "Adjust lime juice to your taste preference",
-      "Store in refrigerator for up to 1 week",
-    ],
+    slug: "cilantro-lime-chicken",
+    description: "Grilled chicken marinated in cilantro and lime.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-03-01T14:00:27.213Z",
+    updatedAt: "2025-03-01T14:00:27.213Z",
     ingredientSections: [
       {
         name: "Ingredients",
-        order: 1,
+        order: 0,
         ingredients: [
           {
-            name: "Fresh cilantro",
-            amount: "1 cup",
-            preparation: "packed",
-            order: 1,
+            name: "chicken broth",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 0,
           },
-          { name: "Lime juice", amount: "1/4 cup", order: 2 },
-          { name: "Olive oil", amount: "1/2 cup", order: 3 },
           {
-            name: "Garlic",
-            amount: "2 cloves",
-            preparation: "minced",
-            order: 4,
-          },
-          { name: "Honey", amount: "1 tablespoon", order: 5 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 7 },
-          { name: "Cumin", amount: "1/4 teaspoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a food processor, combine cilantro, lime juice, and garlic.",
-            order: 1,
-          },
-          { text: "Pulse until cilantro is finely chopped.", order: 2 },
-          {
-            text: "With processor running, slowly drizzle in olive oil.",
-            order: 3,
-          },
-          { text: "Add honey, salt, pepper, and cumin.", order: 4 },
-          { text: "Process until smooth and well combined.", order: 5 },
-          { text: "Taste and adjust seasoning as needed.", order: 6 },
-          {
-            text: "Transfer to a jar and refrigerate until ready to use.",
-            order: 7,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Corn Salsa",
-    description:
-      "Fresh and vibrant corn salsa perfect for tacos, chips, or as a side dish.",
-    servings: 6,
-    prepTime: 15,
-    cookTime: 0,
-    tips: [
-      "Use fresh corn when in season for best flavor",
-      "Let salsa sit for 30 minutes to develop flavors",
-      "Adjust jalapeño amount based on your spice preference",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Corn kernels",
-            amount: "2 cups",
-            preparation: "fresh or frozen, thawed",
+            name: "lime juice",
+            amount: "0.25 cup",
+            preparation: null,
             order: 1,
           },
           {
-            name: "Red onion",
-            amount: "1/2 cup",
-            preparation: "finely diced",
+            name: "olive oil",
+            amount: "0.25 cup",
+            preparation: null,
             order: 2,
           },
           {
-            name: "Jalapeño",
+            name: "garlic, smashed",
+            amount: "6 clove",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "jalapeño, chopped",
             amount: "1",
-            preparation: "seeded and minced",
-            order: 3,
-          },
-          {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "chopped",
-            order: 4,
-          },
-          { name: "Lime juice", amount: "2 tablespoons", order: 5 },
-          { name: "Olive oil", amount: "1 tablespoon", order: 6 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a large bowl, combine corn, red onion, jalapeño, and cilantro.",
-            order: 1,
-          },
-          { text: "Add lime juice, olive oil, salt, and pepper.", order: 2 },
-          { text: "Toss gently to combine all ingredients.", order: 3 },
-          {
-            text: "Let salsa sit at room temperature for 30 minutes.",
-            order: 4,
-          },
-          { text: "Taste and adjust seasoning as needed.", order: 5 },
-          {
-            text: "Serve with tortilla chips or as a topping for tacos.",
-            order: 6,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Cowboy Caviar",
-    description:
-      "Texas-style bean and vegetable dip perfect for parties and potlucks.",
-    servings: 8,
-    prepTime: 20,
-    cookTime: 0,
-    tips: [
-      "Make ahead for best flavor development",
-      "Serve with tortilla chips or as a side salad",
-      "Adjust jalapeño amount to your spice preference",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Black beans",
-            amount: "1 can",
-            preparation: "drained and rinsed",
-            order: 1,
-          },
-          {
-            name: "Black-eyed peas",
-            amount: "1 can",
-            preparation: "drained and rinsed",
-            order: 2,
-          },
-          {
-            name: "Corn kernels",
-            amount: "1 cup",
-            preparation: "fresh or frozen, thawed",
-            order: 3,
-          },
-          {
-            name: "Red bell pepper",
-            amount: "1",
-            preparation: "diced",
+            preparation: null,
             order: 4,
           },
           {
-            name: "Red onion",
-            amount: "1/2 cup",
-            preparation: "diced",
+            name: "cumin",
+            amount: "2 teaspoon",
+            preparation: null,
             order: 5,
           },
           {
-            name: "Jalapeño",
-            amount: "1",
-            preparation: "seeded and minced",
-            order: 6,
-          },
-          {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "chopped",
-            order: 7,
-          },
-          { name: "Lime juice", amount: "3 tablespoons", order: 8 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 9 },
-          { name: "Salt", amount: "1 teaspoon", order: 10 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 11 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a large bowl, combine beans, peas, corn, bell pepper, and onion.",
-            order: 1,
-          },
-          {
-            text: "Add jalapeño and cilantro, toss gently to combine.",
-            order: 2,
-          },
-          {
-            text: "In a small bowl, whisk together lime juice, olive oil, salt, and pepper.",
-            order: 3,
-          },
-          {
-            text: "Pour dressing over bean mixture and toss to coat evenly.",
-            order: 4,
-          },
-          {
-            text: "Cover and refrigerate for at least 2 hours, up to overnight.",
-            order: 5,
-          },
-          {
-            text: "Serve chilled with tortilla chips or as a side dish.",
-            order: 6,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Cream of Mushroom Chicken",
-    description:
-      "Creamy chicken dish with mushrooms and herbs, perfect comfort food.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 25,
-    tips: [
-      "Use a mix of mushroom varieties for more flavor",
-      "Don't overcrowd the pan when cooking chicken",
-      "Serve over rice or pasta for a complete meal",
-    ],
-    ingredientSections: [
-      {
-        name: "Chicken",
-        order: 1,
-        ingredients: [
-          {
-            name: "Chicken breasts",
-            amount: "4",
-            preparation: "cut into 1-inch pieces",
-            order: 1,
-          },
-          { name: "All-purpose flour", amount: "1/4 cup", order: 2 },
-          { name: "Salt", amount: "1 teaspoon", order: 3 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 4 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 5 },
-        ],
-      },
-      {
-        name: "Sauce",
-        order: 2,
-        ingredients: [
-          {
-            name: "Mushrooms",
-            amount: "8 ounces",
-            preparation: "sliced",
-            order: 1,
-          },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 2,
-          },
-          { name: "Chicken broth", amount: "1 cup", order: 3 },
-          { name: "Heavy cream", amount: "1/2 cup", order: 4 },
-          {
-            name: "Fresh thyme",
-            amount: "1 tablespoon",
-            preparation: "chopped",
-            order: 5,
-          },
-          { name: "Butter", amount: "2 tablespoons", order: 6 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Season chicken pieces with salt and pepper, then dredge in flour.",
-            order: 1,
-          },
-          {
-            text: "Heat olive oil in large skillet over medium-high heat.",
-            order: 2,
-          },
-          {
-            text: "Cook chicken in batches until golden and cooked through.",
-            order: 3,
-          },
-          { text: "Remove chicken from skillet and set aside.", order: 4 },
-          { text: "In same skillet, melt butter and add mushrooms.", order: 5 },
-          { text: "Cook mushrooms until golden, then add garlic.", order: 6 },
-          {
-            text: "Add chicken broth and scrape up browned bits from pan.",
-            order: 7,
-          },
-          {
-            text: "Stir in heavy cream and thyme, simmer for 5 minutes.",
-            order: 8,
-          },
-          { text: "Return chicken to skillet and heat through.", order: 9 },
-          { text: "Serve hot over rice or pasta.", order: 10 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Creamy Feta & Roasted Red Pepper Chicken",
-    description:
-      "Tender chicken in a creamy feta and roasted red pepper sauce.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 20,
-    tips: [
-      "Use jarred roasted red peppers for convenience",
-      "Don't overcook the chicken to keep it juicy",
-      "Serve with crusty bread to soak up the sauce",
-    ],
-    ingredientSections: [
-      {
-        name: "Chicken",
-        order: 1,
-        ingredients: [
-          {
-            name: "Chicken breasts",
-            amount: "4",
-            preparation: "6-8 oz each",
-            order: 1,
-          },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          { name: "Salt", amount: "1 teaspoon", order: 3 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Sauce",
-        order: 2,
-        ingredients: [
-          {
-            name: "Roasted red peppers",
-            amount: "1 cup",
-            preparation: "chopped",
-            order: 1,
-          },
-          {
-            name: "Feta cheese",
-            amount: "1/2 cup",
-            preparation: "crumbled",
-            order: 2,
-          },
-          { name: "Heavy cream", amount: "1 cup", order: 3 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 4,
-          },
-          { name: "Chicken broth", amount: "1/2 cup", order: 5 },
-          {
-            name: "Fresh basil",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 6,
-          },
-          { name: "Salt", amount: "1/2 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          { text: "Season chicken breasts with salt and pepper.", order: 1 },
-          {
-            text: "Heat olive oil in large skillet over medium-high heat.",
-            order: 2,
-          },
-          {
-            text: "Cook chicken for 6-8 minutes per side until golden and cooked through.",
-            order: 3,
-          },
-          { text: "Remove chicken from skillet and set aside.", order: 4 },
-          {
-            text: "In same skillet, add garlic and cook until fragrant.",
-            order: 5,
-          },
-          { text: "Add roasted red peppers and cook for 2 minutes.", order: 6 },
-          {
-            text: "Stir in heavy cream and chicken broth, bring to simmer.",
-            order: 7,
-          },
-          {
-            text: "Add feta cheese and stir until melted and smooth.",
-            order: 8,
-          },
-          {
-            text: "Return chicken to skillet and simmer for 5 minutes.",
-            order: 9,
-          },
-          { text: "Garnish with fresh basil and serve hot.", order: 10 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Crockpot Chicken Tacos",
-    description: "Easy slow cooker chicken tacos with tender, flavorful meat.",
-    servings: 6,
-    prepTime: 10,
-    cookTime: 240,
-    tips: [
-      "Use boneless, skinless chicken thighs for best results",
-      "Shred chicken with two forks for perfect texture",
-      "Serve with your favorite taco toppings",
-    ],
-    ingredientSections: [
-      {
-        name: "Chicken",
-        order: 1,
-        ingredients: [
-          { name: "Chicken breasts", amount: "2 pounds", order: 1 },
-          { name: "Taco seasoning", amount: "1 packet", order: 2 },
-          { name: "Chicken broth", amount: "1/2 cup", order: 3 },
-          { name: "Lime juice", amount: "2 tablespoons", order: 4 },
-        ],
-      },
-      {
-        name: "For Serving",
-        order: 2,
-        ingredients: [
-          {
-            name: "Tortillas",
-            amount: "12",
-            preparation: "corn or flour",
-            order: 1,
-          },
-          { name: "Shredded cheese", amount: "1 cup", order: 2 },
-          { name: "Sour cream", amount: "1/2 cup", order: 3 },
-          { name: "Salsa", amount: "1 cup", order: 4 },
-          {
-            name: "Lettuce",
-            amount: "1 head",
-            preparation: "shredded",
-            order: 5,
-          },
-          { name: "Tomatoes", amount: "2", preparation: "diced", order: 6 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          { text: "Place chicken breasts in slow cooker.", order: 1 },
-          { text: "Sprinkle taco seasoning over chicken.", order: 2 },
-          { text: "Add chicken broth and lime juice.", order: 3 },
-          {
-            text: "Cover and cook on low for 6-8 hours or high for 3-4 hours.",
-            order: 4,
-          },
-          {
-            text: "Remove chicken from slow cooker and shred with two forks.",
-            order: 5,
-          },
-          {
-            text: "Return shredded chicken to slow cooker and stir to coat with juices.",
-            order: 6,
-          },
-          { text: "Serve hot in tortillas with desired toppings.", order: 7 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Crystal's Famous Cheese Dip",
-    description:
-      "Creamy, cheesy dip perfect for parties and game day gatherings.",
-    servings: 8,
-    prepTime: 10,
-    cookTime: 15,
-    tips: [
-      "Use a good melting cheese like Velveeta or American",
-      "Serve with tortilla chips, crackers, or vegetables",
-      "Can be kept warm in a slow cooker for parties",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Velveeta cheese",
-            amount: "16 ounces",
-            preparation: "cubed",
-            order: 1,
-          },
-          {
-            name: "Rotel tomatoes",
-            amount: "1 can",
-            preparation: "with green chiles",
-            order: 2,
-          },
-          {
-            name: "Ground beef",
-            amount: "1 pound",
-            preparation: "cooked and drained",
-            order: 3,
-          },
-          { name: "Taco seasoning", amount: "1 packet", order: 4 },
-          { name: "Milk", amount: "1/4 cup", order: 5 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          { text: "In a large saucepan, combine Velveeta and milk.", order: 1 },
-          {
-            text: "Cook over medium heat, stirring constantly, until cheese melts.",
-            order: 2,
-          },
-          { text: "Add Rotel tomatoes and stir to combine.", order: 3 },
-          { text: "Stir in cooked ground beef and taco seasoning.", order: 4 },
-          {
-            text: "Continue cooking until heated through, about 5 minutes.",
-            order: 5,
-          },
-          { text: "Serve hot with tortilla chips or crackers.", order: 6 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Fish Tacos",
-    description:
-      "Fresh and crispy fish tacos with cabbage slaw and creamy sauce.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 15,
-    tips: [
-      "Use firm white fish like cod or tilapia",
-      "Don't overcrowd the pan when frying fish",
-      "Serve immediately for the crispiest texture",
-    ],
-    ingredientSections: [
-      {
-        name: "Fish",
-        order: 1,
-        ingredients: [
-          {
-            name: "White fish fillets",
-            amount: "1 pound",
-            preparation: "cut into strips",
-            order: 1,
-          },
-          { name: "All-purpose flour", amount: "1/2 cup", order: 2 },
-          { name: "Cornmeal", amount: "1/2 cup", order: 3 },
-          { name: "Salt", amount: "1 teaspoon", order: 4 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 5 },
-          { name: "Vegetable oil", amount: "1/2 cup", order: 6 },
-        ],
-      },
-      {
-        name: "Slaw",
-        order: 2,
-        ingredients: [
-          {
-            name: "Cabbage",
-            amount: "2 cups",
-            preparation: "shredded",
-            order: 1,
-          },
-          {
-            name: "Red onion",
-            amount: "1/4 cup",
-            preparation: "thinly sliced",
-            order: 2,
-          },
-          { name: "Lime juice", amount: "2 tablespoons", order: 3 },
-          { name: "Olive oil", amount: "1 tablespoon", order: 4 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 5 },
-        ],
-      },
-      {
-        name: "Sauce",
-        order: 3,
-        ingredients: [
-          { name: "Sour cream", amount: "1/2 cup", order: 1 },
-          { name: "Lime juice", amount: "1 tablespoon", order: 2 },
-          { name: "Hot sauce", amount: "1 teaspoon", order: 3 },
-          { name: "Salt", amount: "1/4 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "For Serving",
-        order: 4,
-        ingredients: [
-          {
-            name: "Tortillas",
-            amount: "8",
-            preparation: "corn or flour",
-            order: 1,
-          },
-          { name: "Lime wedges", amount: "2", order: 2 },
-          {
-            name: "Fresh cilantro",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 3,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Make slaw by combining cabbage, onion, lime juice, olive oil, and salt.",
-            order: 1,
-          },
-          {
-            text: "Make sauce by combining sour cream, lime juice, hot sauce, and salt.",
-            order: 2,
-          },
-          {
-            text: "In a shallow dish, combine flour, cornmeal, salt, and pepper.",
-            order: 3,
-          },
-          {
-            text: "Heat vegetable oil in large skillet over medium-high heat.",
-            order: 4,
-          },
-          {
-            text: "Dredge fish strips in flour mixture, shaking off excess.",
-            order: 5,
-          },
-          {
-            text: "Fry fish in batches until golden and crispy, about 3-4 minutes per side.",
-            order: 6,
-          },
-          {
-            text: "Drain on paper towels and season with additional salt if needed.",
-            order: 7,
-          },
-          {
-            text: "Serve fish in tortillas with slaw, sauce, and desired toppings.",
-            order: 8,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "French Dip Sandwiches",
-    description:
-      "Classic French dip sandwiches with tender roast beef and au jus for dipping.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 10,
-    tips: [
-      "Use good quality roast beef from the deli",
-      "Toast the bread for better texture",
-      "Serve with extra au jus on the side",
-    ],
-    ingredientSections: [
-      {
-        name: "Sandwiches",
-        order: 1,
-        ingredients: [
-          { name: "Hoagie rolls", amount: "4", preparation: "split", order: 1 },
-          {
-            name: "Roast beef",
-            amount: "1 pound",
-            preparation: "thinly sliced",
-            order: 2,
-          },
-          { name: "Provolone cheese", amount: "8 slices", order: 3 },
-          {
-            name: "Butter",
-            amount: "2 tablespoons",
-            preparation: "softened",
-            order: 4,
-          },
-        ],
-      },
-      {
-        name: "Au Jus",
-        order: 2,
-        ingredients: [
-          { name: "Beef broth", amount: "2 cups", order: 1 },
-          { name: "Worcestershire sauce", amount: "1 tablespoon", order: 2 },
-          { name: "Soy sauce", amount: "1 tablespoon", order: 3 },
-          { name: "Garlic powder", amount: "1/2 teaspoon", order: 4 },
-          { name: "Onion powder", amount: "1/2 teaspoon", order: 5 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 6 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Preheat oven to 400°F and line a baking sheet with foil.",
-            order: 1,
-          },
-          {
-            text: "In a small saucepan, combine all au jus ingredients.",
-            order: 2,
-          },
-          { text: "Bring au jus to simmer and keep warm.", order: 3 },
-          { text: "Butter the cut sides of hoagie rolls.", order: 4 },
-          {
-            text: "Layer roast beef and cheese on bottom half of each roll.",
-            order: 5,
-          },
-          { text: "Place sandwiches on prepared baking sheet.", order: 6 },
-          {
-            text: "Bake for 5-8 minutes until cheese melts and bread is toasted.",
-            order: 7,
-          },
-          { text: "Serve hot with warm au jus for dipping.", order: 8 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Gochujang Sauce",
-    description:
-      "Spicy Korean chili sauce perfect for marinades, dipping, or glazing.",
-    servings: 8,
-    prepTime: 10,
-    cookTime: 0,
-    tips: [
-      "Store in refrigerator for up to 2 weeks",
-      "Adjust spice level by adding more or less gochujang",
-      "Use as a marinade for meats or as a dipping sauce",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          { name: "Gochujang paste", amount: "1/4 cup", order: 1 },
-          { name: "Soy sauce", amount: "2 tablespoons", order: 2 },
-          { name: "Rice vinegar", amount: "2 tablespoons", order: 3 },
-          { name: "Honey", amount: "2 tablespoons", order: 4 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 5 },
-          {
-            name: "Garlic",
-            amount: "2 cloves",
-            preparation: "minced",
-            order: 6,
-          },
-          {
-            name: "Ginger",
+            name: "paprika",
             amount: "1 teaspoon",
-            preparation: "minced",
-            order: 7,
-          },
-          { name: "Sesame seeds", amount: "1 tablespoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a small bowl, whisk together gochujang and soy sauce.",
-            order: 1,
-          },
-          { text: "Add rice vinegar and honey, whisk until smooth.", order: 2 },
-          { text: "Stir in sesame oil, garlic, and ginger.", order: 3 },
-          { text: "Add sesame seeds and stir to combine.", order: 4 },
-          { text: "Taste and adjust seasoning as needed.", order: 5 },
-          {
-            text: "Transfer to a jar and refrigerate until ready to use.",
-            order: 6,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Guacamole",
-    description:
-      "Fresh and creamy guacamole perfect for chips, tacos, or as a topping.",
-    servings: 6,
-    prepTime: 15,
-    cookTime: 0,
-    tips: [
-      "Use ripe avocados for the best texture",
-      "Add lime juice to prevent browning",
-      "Serve immediately for the freshest taste",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Ripe avocados",
-            amount: "3",
-            preparation: "peeled and pitted",
-            order: 1,
-          },
-          { name: "Lime juice", amount: "2 tablespoons", order: 2 },
-          {
-            name: "Red onion",
-            amount: "1/4 cup",
-            preparation: "finely diced",
-            order: 3,
-          },
-          {
-            name: "Jalapeño",
-            amount: "1",
-            preparation: "seeded and minced",
-            order: 4,
-          },
-          {
-            name: "Fresh cilantro",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 5,
-          },
-          { name: "Salt", amount: "1/2 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 7 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a medium bowl, mash avocados with a fork until smooth.",
-            order: 1,
-          },
-          { text: "Stir in lime juice to prevent browning.", order: 2 },
-          { text: "Add red onion, jalapeño, and cilantro.", order: 3 },
-          { text: "Season with salt and pepper to taste.", order: 4 },
-          { text: "Stir gently to combine all ingredients.", order: 5 },
-          {
-            text: "Serve immediately with tortilla chips or as a topping.",
-            order: 6,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Jamaican Jerk Chicken",
-    description:
-      "Spicy and flavorful Jamaican jerk chicken with authentic Caribbean spices.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 25,
-    tips: [
-      "Marinate chicken for at least 4 hours for best flavor",
-      "Use a grill for authentic smoky flavor",
-      "Adjust spice level by adding more or less scotch bonnet peppers",
-    ],
-    ingredientSections: [
-      {
-        name: "Marinade",
-        order: 1,
-        ingredients: [
-          {
-            name: "Scotch bonnet peppers",
-            amount: "2",
-            preparation: "seeded and minced",
-            order: 1,
-          },
-          {
-            name: "Garlic",
-            amount: "6 cloves",
-            preparation: "minced",
-            order: 2,
-          },
-          {
-            name: "Ginger",
-            amount: "2 tablespoons",
-            preparation: "minced",
-            order: 3,
-          },
-          {
-            name: "Green onions",
-            amount: "6",
-            preparation: "chopped",
-            order: 4,
-          },
-          {
-            name: "Fresh thyme",
-            amount: "2 tablespoons",
-            preparation: "chopped",
-            order: 5,
-          },
-          {
-            name: "Allspice",
-            amount: "1 tablespoon",
-            preparation: "ground",
-            order: 6,
-          },
-          { name: "Nutmeg", amount: "1/2 teaspoon", order: 7 },
-          { name: "Cinnamon", amount: "1/2 teaspoon", order: 8 },
-          { name: "Soy sauce", amount: "1/4 cup", order: 9 },
-          { name: "Lime juice", amount: "1/4 cup", order: 10 },
-          { name: "Brown sugar", amount: "2 tablespoons", order: 11 },
-          { name: "Olive oil", amount: "1/4 cup", order: 12 },
-        ],
-      },
-      {
-        name: "Chicken",
-        order: 2,
-        ingredients: [
-          {
-            name: "Chicken pieces",
-            amount: "4 pounds",
-            preparation: "legs, thighs, or breasts",
-            order: 1,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a food processor, combine all marinade ingredients until smooth.",
-            order: 1,
-          },
-          {
-            text: "Place chicken in a large resealable bag and pour marinade over.",
-            order: 2,
-          },
-          {
-            text: "Seal bag and refrigerate for at least 4 hours, up to overnight.",
-            order: 3,
-          },
-          { text: "Preheat grill to medium-high heat.", order: 4 },
-          {
-            text: "Remove chicken from marinade and discard marinade.",
-            order: 5,
-          },
-          {
-            text: "Grill chicken for 20-25 minutes, turning occasionally.",
-            order: 6,
-          },
-          { text: "Cook until internal temperature reaches 165°F.", order: 7 },
-          { text: "Let rest for 5 minutes before serving.", order: 8 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "KenZie's Dessert Dip",
-    description:
-      "Sweet and creamy dessert dip perfect for fruit, cookies, or pretzels.",
-    servings: 8,
-    prepTime: 10,
-    cookTime: 0,
-    tips: [
-      "Use room temperature cream cheese for smooth mixing",
-      "Serve with fresh fruit, cookies, or pretzels",
-      "Can be made ahead and refrigerated",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Cream cheese",
-            amount: "8 ounces",
-            preparation: "softened",
-            order: 1,
-          },
-          { name: "Powdered sugar", amount: "1 cup", order: 2 },
-          { name: "Vanilla extract", amount: "1 teaspoon", order: 3 },
-          { name: "Heavy cream", amount: "1/4 cup", order: 4 },
-          {
-            name: "Chocolate chips",
-            amount: "1/2 cup",
-            preparation: "mini",
-            order: 5,
-          },
-          { name: "Sprinkles", amount: "1/4 cup", order: 6 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a large bowl, beat cream cheese until smooth.",
-            order: 1,
-          },
-          {
-            text: "Add powdered sugar and vanilla extract, beat until combined.",
-            order: 2,
-          },
-          {
-            text: "Gradually add heavy cream and beat until light and fluffy.",
-            order: 3,
-          },
-          { text: "Fold in chocolate chips and sprinkles.", order: 4 },
-          {
-            text: "Transfer to serving bowl and refrigerate for 30 minutes.",
-            order: 5,
-          },
-          { text: "Serve with fresh fruit, cookies, or pretzels.", order: 6 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Korean Beef Bowls",
-    description:
-      "Flavorful Korean-style beef bowls with rice and fresh vegetables.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 15,
-    tips: [
-      "Use thinly sliced beef for quick cooking",
-      "Don't overcook the beef to keep it tender",
-      "Serve with kimchi for authentic Korean flavor",
-    ],
-    ingredientSections: [
-      {
-        name: "Beef",
-        order: 1,
-        ingredients: [
-          { name: "Ground beef", amount: "1 pound", order: 1 },
-          { name: "Soy sauce", amount: "3 tablespoons", order: 2 },
-          { name: "Brown sugar", amount: "2 tablespoons", order: 3 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 4 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 5,
-          },
-          {
-            name: "Ginger",
-            amount: "1 tablespoon",
-            preparation: "minced",
-            order: 6,
-          },
-          { name: "Gochujang", amount: "1 tablespoon", order: 7 },
-        ],
-      },
-      {
-        name: "For Serving",
-        order: 2,
-        ingredients: [
-          {
-            name: "White rice",
-            amount: "2 cups",
-            preparation: "cooked",
-            order: 1,
-          },
-          { name: "Cucumber", amount: "1", preparation: "sliced", order: 2 },
-          { name: "Carrots", amount: "2", preparation: "julienned", order: 3 },
-          {
-            name: "Green onions",
-            amount: "4",
-            preparation: "chopped",
-            order: 4,
-          },
-          { name: "Sesame seeds", amount: "2 tablespoons", order: 5 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a small bowl, whisk together soy sauce, brown sugar, sesame oil, garlic, ginger, and gochujang.",
-            order: 1,
-          },
-          { text: "Heat a large skillet over medium-high heat.", order: 2 },
-          {
-            text: "Add ground beef and cook, breaking up with spatula.",
-            order: 3,
-          },
-          {
-            text: "When beef is browned, add sauce mixture and stir to combine.",
-            order: 4,
-          },
-          {
-            text: "Cook for 2-3 minutes until sauce thickens and coats beef.",
-            order: 5,
-          },
-          {
-            text: "Serve beef over rice with cucumber, carrots, and green onions.",
-            order: 6,
-          },
-          { text: "Garnish with sesame seeds and serve hot.", order: 7 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Lemon Garlic Shrimp",
-    description:
-      "Quick and easy lemon garlic shrimp perfect for pasta or as an appetizer.",
-    servings: 4,
-    prepTime: 10,
-    cookTime: 8,
-    tips: [
-      "Don't overcook shrimp - they cook quickly",
-      "Use fresh lemon juice for the best flavor",
-      "Serve over pasta or with crusty bread",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Large shrimp",
-            amount: "1 pound",
-            preparation: "peeled and deveined",
-            order: 1,
-          },
-          { name: "Olive oil", amount: "3 tablespoons", order: 2 },
-          {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
-            order: 3,
-          },
-          { name: "Lemon juice", amount: "2 tablespoons", order: 4 },
-          { name: "Lemon zest", amount: "1 tablespoon", order: 5 },
-          {
-            name: "Fresh parsley",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 6,
-          },
-          { name: "Salt", amount: "1/2 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 8 },
-          { name: "Red pepper flakes", amount: "1/4 teaspoon", order: 9 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Pat shrimp dry with paper towels and season with salt and pepper.",
-            order: 1,
-          },
-          {
-            text: "Heat olive oil in large skillet over medium-high heat.",
-            order: 2,
-          },
-          {
-            text: "Add garlic and cook until fragrant, about 30 seconds.",
-            order: 3,
-          },
-          { text: "Add shrimp to skillet in single layer.", order: 4 },
-          {
-            text: "Cook shrimp for 2-3 minutes per side until pink and opaque.",
-            order: 5,
-          },
-          {
-            text: "Add lemon juice, lemon zest, and red pepper flakes.",
-            order: 6,
-          },
-          { text: "Stir in fresh parsley and cook for 1 minute.", order: 7 },
-          {
-            text: "Serve hot with additional lemon wedges if desired.",
-            order: 8,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Lemon Parmesan Broccoli",
-    description:
-      "Simple and flavorful broccoli with lemon and parmesan cheese.",
-    servings: 4,
-    prepTime: 10,
-    cookTime: 15,
-    tips: [
-      "Don't overcook broccoli to keep it crisp-tender",
-      "Use freshly grated parmesan for best flavor",
-      "Serve as a side dish with any main course",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Broccoli",
-            amount: "1 head",
-            preparation: "cut into florets",
-            order: 1,
-          },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          { name: "Lemon juice", amount: "2 tablespoons", order: 3 },
-          { name: "Lemon zest", amount: "1 tablespoon", order: 4 },
-          {
-            name: "Parmesan cheese",
-            amount: "1/2 cup",
-            preparation: "freshly grated",
-            order: 5,
-          },
-          {
-            name: "Garlic",
-            amount: "2 cloves",
-            preparation: "minced",
-            order: 6,
-          },
-          { name: "Salt", amount: "1/2 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Preheat oven to 425°F and line a baking sheet with parchment paper.",
-            order: 1,
-          },
-          {
-            text: "In a large bowl, toss broccoli with olive oil, lemon juice, and garlic.",
-            order: 2,
-          },
-          {
-            text: "Season with salt and pepper and spread on prepared baking sheet.",
-            order: 3,
-          },
-          {
-            text: "Roast broccoli for 12-15 minutes until tender and slightly charred.",
-            order: 4,
-          },
-          {
-            text: "Remove from oven and sprinkle with parmesan cheese and lemon zest.",
-            order: 5,
-          },
-          { text: "Toss gently to combine and serve hot.", order: 6 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Lemon Parmesan Rice",
-    description:
-      "Flavorful rice dish with lemon and parmesan, perfect as a side dish.",
-    servings: 6,
-    prepTime: 10,
-    cookTime: 20,
-    tips: [
-      "Use freshly grated parmesan for best flavor",
-      "Add more lemon zest for extra brightness",
-      "Serve with grilled chicken or fish",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "White rice",
-            amount: "2 cups",
-            preparation: "uncooked",
-            order: 1,
-          },
-          { name: "Chicken broth", amount: "4 cups", order: 2 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 3 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 4,
-          },
-          { name: "Lemon zest", amount: "2 tablespoons", order: 5 },
-          { name: "Lemon juice", amount: "2 tablespoons", order: 6 },
-          {
-            name: "Parmesan cheese",
-            amount: "1 cup",
-            preparation: "freshly grated",
-            order: 7,
-          },
-          {
-            name: "Fresh parsley",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 8,
-          },
-          { name: "Salt", amount: "1 teaspoon", order: 9 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 10 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          { text: "Rinse rice until water runs clear, then drain.", order: 1 },
-          {
-            text: "In a large pot, heat olive oil over medium heat.",
-            order: 2,
-          },
-          {
-            text: "Add garlic and cook until fragrant, about 30 seconds.",
-            order: 3,
-          },
-          {
-            text: "Add rice and stir for 1 minute until lightly toasted.",
-            order: 4,
-          },
-          { text: "Add chicken broth, lemon zest, and salt.", order: 5 },
-          {
-            text: "Bring to boil, then reduce heat to low and cover.",
-            order: 6,
-          },
-          { text: "Simmer for 18 minutes until rice is tender.", order: 7 },
-          {
-            text: "Remove from heat and stir in lemon juice, parmesan, and parsley.",
-            order: 8,
-          },
-          {
-            text: "Season with additional salt and pepper to taste.",
-            order: 9,
-          },
-          { text: "Serve hot as a side dish.", order: 10 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Mediterranean Stir Fry",
-    description:
-      "Fresh Mediterranean-style stir fry with vegetables and herbs.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 10,
-    tips: [
-      "Use high heat for authentic stir fry",
-      "Don't overcrowd the pan",
-      "Serve with rice or quinoa for a complete meal",
-    ],
-    ingredientSections: [
-      {
-        name: "Vegetables",
-        order: 1,
-        ingredients: [
-          {
-            name: "Broccoli",
-            amount: "2 cups",
-            preparation: "cut into florets",
-            order: 1,
-          },
-          {
-            name: "Bell peppers",
-            amount: "2",
-            preparation: "sliced",
-            order: 2,
-          },
-          { name: "Zucchini", amount: "2", preparation: "sliced", order: 3 },
-          {
-            name: "Cherry tomatoes",
-            amount: "1 cup",
-            preparation: "halved",
-            order: 4,
-          },
-          { name: "Red onion", amount: "1", preparation: "sliced", order: 5 },
-        ],
-      },
-      {
-        name: "Sauce",
-        order: 2,
-        ingredients: [
-          { name: "Olive oil", amount: "3 tablespoons", order: 1 },
-          {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
-            order: 2,
-          },
-          { name: "Lemon juice", amount: "2 tablespoons", order: 3 },
-          {
-            name: "Oregano",
-            amount: "1 tablespoon",
-            preparation: "dried",
-            order: 4,
-          },
-          {
-            name: "Basil",
-            amount: "1 tablespoon",
-            preparation: "dried",
-            order: 5,
-          },
-          { name: "Salt", amount: "1 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 7 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Heat olive oil in large wok or skillet over high heat.",
-            order: 1,
-          },
-          {
-            text: "Add garlic and cook until fragrant, about 30 seconds.",
-            order: 2,
-          },
-          {
-            text: "Add broccoli and bell peppers, stir-fry for 3 minutes.",
-            order: 3,
-          },
-          {
-            text: "Add zucchini and onion, continue stir-frying for 2 minutes.",
-            order: 4,
-          },
-          { text: "Add cherry tomatoes and cook for 1 minute.", order: 5 },
-          {
-            text: "Stir in lemon juice, oregano, basil, salt, and pepper.",
+            preparation: null,
             order: 6,
           },
           {
-            text: "Cook for 1-2 minutes until vegetables are crisp-tender.",
-            order: 7,
-          },
-          { text: "Serve hot with rice or quinoa.", order: 8 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Mexican Salad",
-    description:
-      "Fresh and vibrant Mexican salad with beans, corn, and lime dressing.",
-    servings: 6,
-    prepTime: 20,
-    cookTime: 0,
-    tips: [
-      "Use fresh ingredients for the best flavor",
-      "Let salad sit for 30 minutes to develop flavors",
-      "Serve with tortilla chips on the side",
-    ],
-    ingredientSections: [
-      {
-        name: "Salad",
-        order: 1,
-        ingredients: [
-          {
-            name: "Romaine lettuce",
-            amount: "1 head",
-            preparation: "chopped",
-            order: 1,
-          },
-          {
-            name: "Black beans",
-            amount: "1 can",
-            preparation: "drained and rinsed",
-            order: 2,
-          },
-          {
-            name: "Corn kernels",
-            amount: "1 cup",
-            preparation: "fresh or frozen, thawed",
-            order: 3,
-          },
-          {
-            name: "Cherry tomatoes",
-            amount: "1 cup",
-            preparation: "halved",
-            order: 4,
-          },
-          {
-            name: "Red onion",
-            amount: "1/2 cup",
-            preparation: "diced",
-            order: 5,
-          },
-          { name: "Avocado", amount: "1", preparation: "diced", order: 6 },
-          {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "chopped",
-            order: 7,
-          },
-        ],
-      },
-      {
-        name: "Dressing",
-        order: 2,
-        ingredients: [
-          { name: "Lime juice", amount: "3 tablespoons", order: 1 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          { name: "Cumin", amount: "1 teaspoon", order: 3 },
-          { name: "Chili powder", amount: "1/2 teaspoon", order: 4 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 5 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 6 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          { text: "In a large bowl, combine all salad ingredients.", order: 1 },
-          {
-            text: "In a small bowl, whisk together all dressing ingredients.",
-            order: 2,
-          },
-          {
-            text: "Pour dressing over salad and toss gently to combine.",
-            order: 3,
-          },
-          {
-            text: "Let salad sit for 30 minutes to develop flavors.",
-            order: 4,
-          },
-          {
-            text: "Serve chilled with additional lime wedges if desired.",
-            order: 5,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Orange Chicken",
-    description:
-      "Sweet and tangy orange chicken with crispy coating and sticky sauce.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 15,
-    tips: [
-      "Don't overcrowd the pan when frying chicken",
-      "Use fresh orange juice for the best flavor",
-      "Serve with steamed rice for a complete meal",
-    ],
-    ingredientSections: [
-      {
-        name: "Chicken",
-        order: 1,
-        ingredients: [
-          {
-            name: "Chicken breast",
-            amount: "1 pound",
-            preparation: "cut into 1-inch pieces",
-            order: 1,
-          },
-          { name: "All-purpose flour", amount: "1/2 cup", order: 2 },
-          { name: "Cornstarch", amount: "1/4 cup", order: 3 },
-          { name: "Eggs", amount: "2", preparation: "beaten", order: 4 },
-          { name: "Vegetable oil", amount: "1/2 cup", order: 5 },
-          { name: "Salt", amount: "1 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 7 },
-        ],
-      },
-      {
-        name: "Orange Sauce",
-        order: 2,
-        ingredients: [
-          {
-            name: "Orange juice",
-            amount: "1 cup",
-            preparation: "fresh",
-            order: 1,
-          },
-          { name: "Orange zest", amount: "2 tablespoons", order: 2 },
-          { name: "Soy sauce", amount: "2 tablespoons", order: 3 },
-          { name: "Rice vinegar", amount: "1 tablespoon", order: 4 },
-          { name: "Brown sugar", amount: "1/4 cup", order: 5 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 6,
-          },
-          {
-            name: "Ginger",
-            amount: "1 tablespoon",
-            preparation: "minced",
-            order: 7,
-          },
-          {
-            name: "Cornstarch",
-            amount: "1 tablespoon",
-            preparation: "mixed with 2 tbsp water",
-            order: 8,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a shallow dish, combine flour, cornstarch, salt, and pepper.",
-            order: 1,
-          },
-          {
-            text: "Dip chicken pieces in beaten eggs, then coat in flour mixture.",
-            order: 2,
-          },
-          {
-            text: "Heat vegetable oil in large skillet over medium-high heat.",
-            order: 3,
-          },
-          {
-            text: "Fry chicken in batches until golden and crispy, about 4-5 minutes.",
-            order: 4,
-          },
-          { text: "Remove chicken and drain on paper towels.", order: 5 },
-          {
-            text: "In a saucepan, combine all sauce ingredients except cornstarch mixture.",
-            order: 6,
-          },
-          { text: "Bring to simmer and cook for 5 minutes.", order: 7 },
-          {
-            text: "Stir in cornstarch mixture and cook until sauce thickens.",
-            order: 8,
-          },
-          { text: "Return chicken to skillet and toss with sauce.", order: 9 },
-          { text: "Serve hot over steamed rice.", order: 10 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Orzo with Zucchini & Tomato",
-    description:
-      "Simple and flavorful orzo pasta with fresh zucchini and tomatoes.",
-    servings: 4,
-    prepTime: 10,
-    cookTime: 15,
-    tips: [
-      "Don't overcook the orzo - it should be al dente",
-      "Use fresh herbs for the best flavor",
-      "Serve as a side dish or light main course",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          { name: "Orzo pasta", amount: "1 pound", order: 1 },
-          { name: "Zucchini", amount: "2", preparation: "diced", order: 2 },
-          {
-            name: "Cherry tomatoes",
-            amount: "1 cup",
-            preparation: "halved",
-            order: 3,
-          },
-          { name: "Olive oil", amount: "3 tablespoons", order: 4 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 5,
-          },
-          {
-            name: "Fresh basil",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 6,
-          },
-          {
-            name: "Parmesan cheese",
-            amount: "1/2 cup",
-            preparation: "freshly grated",
-            order: 7,
-          },
-          { name: "Salt", amount: "1 teaspoon", order: 8 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 9 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Bring large pot of salted water to boil and cook orzo according to package directions.",
-            order: 1,
-          },
-          {
-            text: "While pasta cooks, heat olive oil in large skillet over medium heat.",
-            order: 2,
-          },
-          {
-            text: "Add garlic and cook until fragrant, about 30 seconds.",
-            order: 3,
-          },
-          {
-            text: "Add zucchini and cook for 3-4 minutes until tender.",
-            order: 4,
-          },
-          {
-            text: "Add cherry tomatoes and cook for 2 minutes until slightly softened.",
-            order: 5,
-          },
-          { text: "Drain orzo and add to skillet with vegetables.", order: 6 },
-          {
-            text: "Stir in basil, parmesan cheese, salt, and pepper.",
-            order: 7,
-          },
-          { text: "Toss gently to combine and serve hot.", order: 8 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Pico de Gallo",
-    description: "Fresh Mexican salsa with tomatoes, onions, and cilantro.",
-    servings: 6,
-    prepTime: 15,
-    cookTime: 0,
-    tips: [
-      "Use fresh, ripe tomatoes for the best flavor",
-      "Let salsa sit for 30 minutes to develop flavors",
-      "Serve with tortilla chips or as a topping",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Roma tomatoes",
-            amount: "4",
-            preparation: "diced",
-            order: 1,
-          },
-          {
-            name: "Red onion",
-            amount: "1/2 cup",
-            preparation: "finely diced",
-            order: 2,
-          },
-          {
-            name: "Jalapeño",
-            amount: "1",
-            preparation: "seeded and minced",
-            order: 3,
-          },
-          {
-            name: "Fresh cilantro",
-            amount: "1/2 cup",
-            preparation: "chopped",
-            order: 4,
-          },
-          { name: "Lime juice", amount: "2 tablespoons", order: 5 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 7 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a medium bowl, combine tomatoes, red onion, and jalapeño.",
-            order: 1,
-          },
-          { text: "Add cilantro, lime juice, salt, and pepper.", order: 2 },
-          { text: "Stir gently to combine all ingredients.", order: 3 },
-          {
-            text: "Let salsa sit at room temperature for 30 minutes.",
-            order: 4,
-          },
-          { text: "Taste and adjust seasoning as needed.", order: 5 },
-          {
-            text: "Serve with tortilla chips or as a topping for tacos.",
-            order: 6,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Ramen Salad Bowls with Grilled Chicken",
-    description:
-      "Fresh and crunchy ramen salad with grilled chicken and Asian-inspired dressing.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 15,
-    tips: [
-      "Use fresh vegetables for the best crunch",
-      "Don't overcook the chicken to keep it juicy",
-      "Serve immediately for the crispiest ramen noodles",
-    ],
-    ingredientSections: [
-      {
-        name: "Chicken",
-        order: 1,
-        ingredients: [
-          {
-            name: "Chicken breasts",
-            amount: "2",
-            preparation: "6-8 oz each",
-            order: 1,
-          },
-          { name: "Soy sauce", amount: "2 tablespoons", order: 2 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 3 },
-          { name: "Garlic powder", amount: "1 teaspoon", order: 4 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 5 },
-        ],
-      },
-      {
-        name: "Salad",
-        order: 2,
-        ingredients: [
-          {
-            name: "Ramen noodles",
-            amount: "2 packages",
-            preparation: "crushed, uncooked",
-            order: 1,
-          },
-          {
-            name: "Cabbage",
-            amount: "2 cups",
-            preparation: "shredded",
-            order: 2,
-          },
-          { name: "Carrots", amount: "2", preparation: "julienned", order: 3 },
-          {
-            name: "Green onions",
-            amount: "4",
-            preparation: "chopped",
-            order: 4,
-          },
-          {
-            name: "Almonds",
-            amount: "1/2 cup",
-            preparation: "sliced",
-            order: 5,
-          },
-          { name: "Sesame seeds", amount: "2 tablespoons", order: 6 },
-        ],
-      },
-      {
-        name: "Dressing",
-        order: 3,
-        ingredients: [
-          { name: "Rice vinegar", amount: "1/4 cup", order: 1 },
-          { name: "Soy sauce", amount: "2 tablespoons", order: 2 },
-          { name: "Sesame oil", amount: "2 tablespoons", order: 3 },
-          { name: "Sugar", amount: "2 tablespoons", order: 4 },
-          {
-            name: "Garlic",
-            amount: "2 cloves",
-            preparation: "minced",
-            order: 5,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Season chicken with soy sauce, sesame oil, garlic powder, and pepper.",
-            order: 1,
-          },
-          {
-            text: "Grill chicken for 6-8 minutes per side until cooked through.",
-            order: 2,
-          },
-          {
-            text: "Let chicken rest for 5 minutes, then slice thinly.",
-            order: 3,
-          },
-          {
-            text: "In a large bowl, combine all salad ingredients except almonds and sesame seeds.",
-            order: 4,
-          },
-          {
-            text: "In a small bowl, whisk together all dressing ingredients.",
-            order: 5,
-          },
-          { text: "Pour dressing over salad and toss to combine.", order: 6 },
-          {
-            text: "Top with sliced chicken, almonds, and sesame seeds.",
-            order: 7,
-          },
-          { text: "Serve immediately for best texture.", order: 8 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Roasted Broccolini",
-    description:
-      "Simple roasted broccolini with garlic and lemon, perfect as a side dish.",
-    servings: 4,
-    prepTime: 10,
-    cookTime: 15,
-    tips: [
-      "Don't overcrowd the baking sheet for even roasting",
-      "Use fresh broccolini for the best flavor",
-      "Serve immediately for the crispiest texture",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Broccolini",
-            amount: "2 bunches",
-            preparation: "trimmed",
-            order: 1,
-          },
-          { name: "Olive oil", amount: "2 tablespoons", order: 2 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 3,
-          },
-          { name: "Lemon juice", amount: "1 tablespoon", order: 4 },
-          { name: "Lemon zest", amount: "1 teaspoon", order: 5 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 7 },
-          { name: "Red pepper flakes", amount: "1/4 teaspoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Preheat oven to 425°F and line a baking sheet with parchment paper.",
-            order: 1,
-          },
-          {
-            text: "In a large bowl, toss broccolini with olive oil, garlic, and seasonings.",
-            order: 2,
-          },
-          {
-            text: "Spread broccolini in a single layer on prepared baking sheet.",
-            order: 3,
-          },
-          {
-            text: "Roast for 12-15 minutes until tender and slightly charred.",
-            order: 4,
-          },
-          { text: "Remove from oven and drizzle with lemon juice.", order: 5 },
-          { text: "Sprinkle with lemon zest and serve hot.", order: 6 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Roasted Potatoes",
-    description:
-      "Crispy roasted potatoes with herbs and garlic, perfect as a side dish.",
-    servings: 6,
-    prepTime: 15,
-    cookTime: 35,
-    tips: [
-      "Cut potatoes in similar sizes for even cooking",
-      "Don't overcrowd the baking sheet",
-      "Use fresh herbs for the best flavor",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Potatoes",
-            amount: "2 pounds",
-            preparation: "cut into 1-inch pieces",
-            order: 1,
-          },
-          { name: "Olive oil", amount: "3 tablespoons", order: 2 },
-          {
-            name: "Garlic",
-            amount: "4 cloves",
-            preparation: "minced",
-            order: 3,
-          },
-          {
-            name: "Fresh rosemary",
-            amount: "2 tablespoons",
-            preparation: "chopped",
-            order: 4,
-          },
-          {
-            name: "Fresh thyme",
-            amount: "1 tablespoon",
-            preparation: "chopped",
-            order: 5,
-          },
-          { name: "Salt", amount: "1 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 7 },
-          { name: "Paprika", amount: "1/2 teaspoon", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Preheat oven to 425°F and line a large baking sheet with parchment paper.",
-            order: 1,
-          },
-          {
-            text: "In a large bowl, toss potatoes with olive oil, garlic, and herbs.",
-            order: 2,
-          },
-          { text: "Season with salt, pepper, and paprika.", order: 3 },
-          {
-            text: "Spread potatoes in a single layer on prepared baking sheet.",
-            order: 4,
-          },
-          {
-            text: "Roast for 30-35 minutes, stirring halfway through cooking time.",
-            order: 5,
-          },
-          {
-            text: "Cook until potatoes are golden and crispy on the outside.",
-            order: 6,
-          },
-          { text: "Serve hot as a side dish.", order: 7 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Ropa Vieja",
-    description:
-      "Traditional Cuban shredded beef stew with peppers and onions.",
-    servings: 6,
-    prepTime: 20,
-    cookTime: 180,
-    tips: [
-      "Use a tough cut of beef like flank steak for best results",
-      "Cook low and slow for tender meat",
-      "Serve with rice and black beans for a complete meal",
-    ],
-    ingredientSections: [
-      {
-        name: "Beef",
-        order: 1,
-        ingredients: [
-          { name: "Flank steak", amount: "2 pounds", order: 1 },
-          { name: "Beef broth", amount: "4 cups", order: 2 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 3 },
-          { name: "Salt", amount: "1 teaspoon", order: 4 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 5 },
-        ],
-      },
-      {
-        name: "Sauce",
-        order: 2,
-        ingredients: [
-          {
-            name: "Bell peppers",
-            amount: "2",
-            preparation: "sliced",
-            order: 1,
-          },
-          { name: "Onion", amount: "1 large", preparation: "sliced", order: 2 },
-          {
-            name: "Garlic",
-            amount: "6 cloves",
-            preparation: "minced",
-            order: 3,
-          },
-          { name: "Tomato paste", amount: "2 tablespoons", order: 4 },
-          { name: "Cumin", amount: "1 tablespoon", order: 5 },
-          { name: "Oregano", amount: "1 teaspoon", order: 6 },
-          { name: "Bay leaves", amount: "2", order: 7 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 8 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          { text: "Season flank steak with salt and pepper.", order: 1 },
-          {
-            text: "In a large pot, heat olive oil over medium-high heat.",
-            order: 2,
-          },
-          {
-            text: "Sear steak on both sides until browned, about 3-4 minutes per side.",
-            order: 3,
-          },
-          {
-            text: "Add beef broth and bring to boil, then reduce heat to low.",
-            order: 4,
-          },
-          {
-            text: "Cover and simmer for 2-3 hours until meat is very tender.",
-            order: 5,
-          },
-          { text: "Remove meat from pot and shred with two forks.", order: 6 },
-          {
-            text: "In same pot, heat olive oil and sauté onions and peppers.",
-            order: 7,
-          },
-          {
-            text: "Add garlic, tomato paste, cumin, oregano, and bay leaves.",
-            order: 8,
-          },
-          {
-            text: "Return shredded beef to pot and simmer for 30 minutes.",
-            order: 9,
-          },
-          { text: "Remove bay leaves and serve hot over rice.", order: 10 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Salmon Sushi Bake",
-    description: "Baked sushi casserole with salmon, rice, and creamy sauce.",
-    servings: 6,
-    prepTime: 30,
-    cookTime: 20,
-    tips: [
-      "Use sushi rice for authentic texture",
-      "Don't overcook the salmon",
-      "Serve with soy sauce and wasabi on the side",
-    ],
-    ingredientSections: [
-      {
-        name: "Rice",
-        order: 1,
-        ingredients: [
-          {
-            name: "Sushi rice",
-            amount: "2 cups",
-            preparation: "cooked",
-            order: 1,
-          },
-          { name: "Rice vinegar", amount: "2 tablespoons", order: 2 },
-          { name: "Sugar", amount: "1 tablespoon", order: 3 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Salmon",
-        order: 2,
-        ingredients: [
-          {
-            name: "Salmon fillet",
-            amount: "1 pound",
-            preparation: "skin removed",
-            order: 1,
-          },
-          { name: "Soy sauce", amount: "2 tablespoons", order: 2 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 3 },
-          { name: "Garlic powder", amount: "1 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Sauce",
-        order: 3,
-        ingredients: [
-          { name: "Mayonnaise", amount: "1/2 cup", order: 1 },
-          { name: "Sriracha", amount: "2 tablespoons", order: 2 },
-          { name: "Soy sauce", amount: "1 tablespoon", order: 3 },
-          { name: "Sesame oil", amount: "1 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Toppings",
-        order: 4,
-        ingredients: [
-          { name: "Avocado", amount: "1", preparation: "sliced", order: 1 },
-          { name: "Cucumber", amount: "1", preparation: "julienned", order: 2 },
-          {
-            name: "Green onions",
-            amount: "2",
-            preparation: "chopped",
-            order: 3,
-          },
-          { name: "Sesame seeds", amount: "2 tablespoons", order: 4 },
-          {
-            name: "Nori sheets",
-            amount: "2",
-            preparation: "crumbled",
-            order: 5,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Preheat oven to 400°F and grease a 9x13 baking dish.",
-            order: 1,
-          },
-          {
-            text: "Mix cooked rice with rice vinegar, sugar, and salt.",
-            order: 2,
-          },
-          {
-            text: "Press rice mixture into bottom of prepared baking dish.",
-            order: 3,
-          },
-          {
-            text: "Season salmon with soy sauce, sesame oil, and garlic powder.",
-            order: 4,
-          },
-          {
-            text: "Place salmon on top of rice and bake for 15-20 minutes.",
-            order: 5,
-          },
-          {
-            text: "Make sauce by combining mayonnaise, sriracha, soy sauce, and sesame oil.",
-            order: 6,
-          },
-          { text: "Remove from oven and flake salmon with a fork.", order: 7 },
-          { text: "Spread sauce over salmon and add toppings.", order: 8 },
-          { text: "Garnish with sesame seeds and nori, serve hot.", order: 9 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Salmon Sushi Bowls",
-    description:
-      "Fresh salmon sushi bowls with rice, vegetables, and spicy mayo.",
-    servings: 4,
-    prepTime: 25,
-    cookTime: 0,
-    tips: [
-      "Use fresh, high-quality salmon",
-      "Prepare all ingredients before assembling",
-      "Serve immediately for the best texture",
-    ],
-    ingredientSections: [
-      {
-        name: "Rice",
-        order: 1,
-        ingredients: [
-          {
-            name: "Sushi rice",
-            amount: "2 cups",
-            preparation: "cooked",
-            order: 1,
-          },
-          { name: "Rice vinegar", amount: "2 tablespoons", order: 2 },
-          { name: "Sugar", amount: "1 tablespoon", order: 3 },
-          { name: "Salt", amount: "1/2 teaspoon", order: 4 },
-        ],
-      },
-      {
-        name: "Salmon",
-        order: 2,
-        ingredients: [
-          {
-            name: "Fresh salmon",
-            amount: "1 pound",
-            preparation: "sashimi-grade, diced",
-            order: 1,
-          },
-          { name: "Soy sauce", amount: "2 tablespoons", order: 2 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 3 },
-        ],
-      },
-      {
-        name: "Toppings",
-        order: 3,
-        ingredients: [
-          { name: "Avocado", amount: "1", preparation: "sliced", order: 1 },
-          { name: "Cucumber", amount: "1", preparation: "julienned", order: 2 },
-          { name: "Carrots", amount: "1", preparation: "julienned", order: 3 },
-          {
-            name: "Green onions",
-            amount: "2",
-            preparation: "chopped",
-            order: 4,
-          },
-          { name: "Sesame seeds", amount: "2 tablespoons", order: 5 },
-          {
-            name: "Nori sheets",
-            amount: "2",
-            preparation: "crumbled",
-            order: 6,
-          },
-        ],
-      },
-      {
-        name: "Spicy Mayo",
-        order: 4,
-        ingredients: [
-          { name: "Mayonnaise", amount: "1/2 cup", order: 1 },
-          { name: "Sriracha", amount: "2 tablespoons", order: 2 },
-          { name: "Soy sauce", amount: "1 tablespoon", order: 3 },
-          { name: "Lime juice", amount: "1 tablespoon", order: 4 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Mix cooked rice with rice vinegar, sugar, and salt.",
-            order: 1,
-          },
-          {
-            text: "In a small bowl, combine salmon with soy sauce and sesame oil.",
-            order: 2,
-          },
-          { text: "Make spicy mayo by combining all ingredients.", order: 3 },
-          { text: "Divide rice among 4 bowls.", order: 4 },
-          {
-            text: "Top each bowl with salmon, avocado, cucumber, and carrots.",
-            order: 5,
-          },
-          {
-            text: "Drizzle with spicy mayo and garnish with green onions.",
-            order: 6,
-          },
-          { text: "Sprinkle with sesame seeds and nori.", order: 7 },
-          {
-            text: "Serve immediately with additional soy sauce on the side.",
-            order: 8,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Salsa Criolla",
-    description: "Fresh Peruvian salsa with onions, tomatoes, and lime juice.",
-    servings: 6,
-    prepTime: 15,
-    cookTime: 0,
-    tips: [
-      "Use red onions for authentic flavor",
-      "Let salsa sit for 30 minutes to develop flavors",
-      "Serve with grilled meats or as a topping",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          {
-            name: "Red onions",
-            amount: "2",
-            preparation: "thinly sliced",
-            order: 1,
-          },
-          {
-            name: "Roma tomatoes",
-            amount: "3",
-            preparation: "diced",
-            order: 2,
-          },
-          { name: "Lime juice", amount: "3 tablespoons", order: 3 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 4 },
-          {
-            name: "Fresh cilantro",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 5,
-          },
-          { name: "Salt", amount: "1/2 teaspoon", order: 6 },
-          { name: "Black pepper", amount: "1/4 teaspoon", order: 7 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a medium bowl, combine red onions and lime juice.",
-            order: 1,
-          },
-          {
-            text: "Let onions marinate in lime juice for 10 minutes.",
-            order: 2,
-          },
-          {
-            text: "Add tomatoes, olive oil, cilantro, salt, and pepper.",
-            order: 3,
-          },
-          { text: "Toss gently to combine all ingredients.", order: 4 },
-          {
-            text: "Let salsa sit at room temperature for 30 minutes.",
-            order: 5,
-          },
-          {
-            text: "Serve with grilled meats or as a topping for tacos.",
-            order: 6,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Sheet Pan Fajitas",
-    description: "Easy sheet pan fajitas with chicken, peppers, and onions.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 25,
-    tips: [
-      "Don't overcrowd the sheet pan for even cooking",
-      "Use a mix of colorful bell peppers",
-      "Serve with warm tortillas and your favorite toppings",
-    ],
-    ingredientSections: [
-      {
-        name: "Fajitas",
-        order: 1,
-        ingredients: [
-          {
-            name: "Chicken breasts",
-            amount: "2",
-            preparation: "cut into strips",
-            order: 1,
-          },
-          {
-            name: "Bell peppers",
-            amount: "3",
-            preparation: "sliced",
-            order: 2,
-          },
-          { name: "Onion", amount: "1 large", preparation: "sliced", order: 3 },
-          { name: "Olive oil", amount: "3 tablespoons", order: 4 },
-          { name: "Fajita seasoning", amount: "2 tablespoons", order: 5 },
-          { name: "Lime juice", amount: "2 tablespoons", order: 6 },
-          { name: "Salt", amount: "1 teaspoon", order: 7 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 8 },
-        ],
-      },
-      {
-        name: "For Serving",
-        order: 2,
-        ingredients: [
-          {
-            name: "Tortillas",
-            amount: "8",
-            preparation: "flour or corn",
-            order: 1,
-          },
-          { name: "Sour cream", amount: "1/2 cup", order: 2 },
-          { name: "Salsa", amount: "1 cup", order: 3 },
-          { name: "Shredded cheese", amount: "1 cup", order: 4 },
-          {
-            name: "Fresh cilantro",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 5,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Preheat oven to 425°F and line a large baking sheet with parchment paper.",
-            order: 1,
-          },
-          {
-            text: "In a large bowl, combine chicken, peppers, and onion.",
-            order: 2,
-          },
-          {
-            text: "Add olive oil, fajita seasoning, lime juice, salt, and pepper.",
-            order: 3,
-          },
-          {
-            text: "Toss to coat evenly and spread on prepared baking sheet.",
-            order: 4,
-          },
-          {
-            text: "Bake for 20-25 minutes, stirring halfway through cooking time.",
-            order: 5,
-          },
-          {
-            text: "Cook until chicken is cooked through and vegetables are tender.",
-            order: 6,
-          },
-          {
-            text: "Serve hot with warm tortillas and desired toppings.",
-            order: 7,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Stir Fry Sauce",
-    description:
-      "Versatile stir fry sauce perfect for any Asian-inspired dish.",
-    servings: 8,
-    prepTime: 10,
-    cookTime: 0,
-    tips: [
-      "Store in refrigerator for up to 2 weeks",
-      "Adjust spice level by adding more or less chili paste",
-      "Use as a marinade or finishing sauce",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          { name: "Soy sauce", amount: "1/2 cup", order: 1 },
-          { name: "Oyster sauce", amount: "1/4 cup", order: 2 },
-          { name: "Rice vinegar", amount: "2 tablespoons", order: 3 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 4 },
-          { name: "Brown sugar", amount: "2 tablespoons", order: 5 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 6,
-          },
-          {
-            name: "Ginger",
-            amount: "1 tablespoon",
-            preparation: "minced",
-            order: 7,
-          },
-          {
-            name: "Cornstarch",
-            amount: "1 tablespoon",
-            preparation: "mixed with 2 tbsp water",
-            order: 8,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a small bowl, whisk together soy sauce, oyster sauce, and rice vinegar.",
-            order: 1,
-          },
-          {
-            text: "Add sesame oil, brown sugar, garlic, and ginger.",
-            order: 2,
-          },
-          {
-            text: "Stir in cornstarch mixture and whisk until smooth.",
-            order: 3,
-          },
-          {
-            text: "Transfer to a jar and refrigerate until ready to use.",
-            order: 4,
-          },
-          {
-            text: "Shake well before using as marinade or finishing sauce.",
-            order: 5,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Street Corn Chicken Rice Bowls",
-    description:
-      "Mexican street corn-inspired rice bowls with grilled chicken.",
-    servings: 4,
-    prepTime: 20,
-    cookTime: 15,
-    tips: [
-      "Use fresh corn when in season for best flavor",
-      "Don't overcook the chicken to keep it juicy",
-      "Serve with lime wedges for extra brightness",
-    ],
-    ingredientSections: [
-      {
-        name: "Chicken",
-        order: 1,
-        ingredients: [
-          {
-            name: "Chicken breasts",
-            amount: "2",
-            preparation: "6-8 oz each",
-            order: 1,
-          },
-          { name: "Chili powder", amount: "1 tablespoon", order: 2 },
-          { name: "Cumin", amount: "1 teaspoon", order: 3 },
-          { name: "Salt", amount: "1 teaspoon", order: 4 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 5 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 6 },
-        ],
-      },
-      {
-        name: "Street Corn",
-        order: 2,
-        ingredients: [
-          {
-            name: "Corn kernels",
-            amount: "2 cups",
-            preparation: "fresh or frozen",
-            order: 1,
-          },
-          { name: "Mayonnaise", amount: "1/4 cup", order: 2 },
-          { name: "Sour cream", amount: "1/4 cup", order: 3 },
-          { name: "Lime juice", amount: "2 tablespoons", order: 4 },
-          { name: "Chili powder", amount: "1 teaspoon", order: 5 },
-          {
-            name: "Cotija cheese",
-            amount: "1/2 cup",
-            preparation: "crumbled",
-            order: 6,
-          },
-          {
-            name: "Fresh cilantro",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 7,
-          },
-        ],
-      },
-      {
-        name: "For Serving",
-        order: 3,
-        ingredients: [
-          {
-            name: "White rice",
-            amount: "2 cups",
-            preparation: "cooked",
-            order: 1,
-          },
-          { name: "Lime wedges", amount: "2", order: 2 },
-          {
-            name: "Additional cotija cheese",
-            amount: "1/4 cup",
-            preparation: "for garnish",
-            order: 3,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "Season chicken with chili powder, cumin, salt, and pepper.",
-            order: 1,
-          },
-          {
-            text: "Grill chicken for 6-8 minutes per side until cooked through.",
-            order: 2,
-          },
-          {
-            text: "Let chicken rest for 5 minutes, then slice thinly.",
-            order: 3,
-          },
-          {
-            text: "In a large bowl, combine corn with mayonnaise, sour cream, and lime juice.",
-            order: 4,
-          },
-          {
-            text: "Stir in chili powder, cotija cheese, and cilantro.",
-            order: 5,
-          },
-          { text: "Divide rice among 4 bowls.", order: 6 },
-          {
-            text: "Top each bowl with street corn mixture and sliced chicken.",
-            order: 7,
-          },
-          {
-            text: "Garnish with additional cotija cheese and lime wedges.",
-            order: 8,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Teriyaki Sauce",
-    description: "Homemade teriyaki sauce perfect for marinades and glazes.",
-    servings: 8,
-    prepTime: 10,
-    cookTime: 10,
-    tips: [
-      "Store in refrigerator for up to 2 weeks",
-      "Use as a marinade or finishing sauce",
-      "Adjust sweetness by adding more or less brown sugar",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          { name: "Soy sauce", amount: "1/2 cup", order: 1 },
-          { name: "Brown sugar", amount: "1/4 cup", order: 2 },
-          { name: "Honey", amount: "2 tablespoons", order: 3 },
-          { name: "Rice vinegar", amount: "2 tablespoons", order: 4 },
-          { name: "Sesame oil", amount: "1 tablespoon", order: 5 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 6,
-          },
-          {
-            name: "Ginger",
-            amount: "1 tablespoon",
-            preparation: "minced",
-            order: 7,
-          },
-          {
-            name: "Cornstarch",
-            amount: "1 tablespoon",
-            preparation: "mixed with 2 tbsp water",
-            order: 8,
-          },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
-          {
-            text: "In a small saucepan, combine soy sauce, brown sugar, honey, and rice vinegar.",
-            order: 1,
-          },
-          { text: "Add sesame oil, garlic, and ginger.", order: 2 },
-          {
-            text: "Bring to simmer over medium heat and cook for 5 minutes.",
-            order: 3,
-          },
-          {
-            text: "Stir in cornstarch mixture and cook until sauce thickens.",
-            order: 4,
-          },
-          { text: "Remove from heat and let cool slightly.", order: 5 },
-          {
-            text: "Transfer to a jar and refrigerate until ready to use.",
-            order: 6,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Turkey Meatballs",
-    description:
-      "Lean turkey meatballs with herbs and parmesan, perfect for pasta or sandwiches.",
-    servings: 6,
-    prepTime: 20,
-    cookTime: 20,
-    tips: [
-      "Don't overmix the meatball mixture",
-      "Use a cookie scoop for uniform meatballs",
-      "Serve with marinara sauce and pasta",
-    ],
-    ingredientSections: [
-      {
-        name: "Meatballs",
-        order: 1,
-        ingredients: [
-          { name: "Ground turkey", amount: "1 pound", order: 1 },
-          { name: "Breadcrumbs", amount: "1/2 cup", order: 2 },
-          {
-            name: "Parmesan cheese",
-            amount: "1/2 cup",
-            preparation: "freshly grated",
-            order: 3,
-          },
-          { name: "Egg", amount: "1", preparation: "beaten", order: 4 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 5,
-          },
-          {
-            name: "Fresh parsley",
-            amount: "1/4 cup",
-            preparation: "chopped",
-            order: 6,
-          },
-          {
-            name: "Oregano",
+            name: "salt",
             amount: "1 teaspoon",
-            preparation: "dried",
+            preparation: null,
             order: 7,
           },
-          { name: "Salt", amount: "1 teaspoon", order: 8 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 9 },
-          { name: "Olive oil", amount: "2 tablespoons", order: 10 },
-        ],
-      },
-    ],
-    instructionSections: [
-      {
-        name: "Instructions",
-        order: 1,
-        instructions: [
           {
-            text: "Preheat oven to 400°F and line a baking sheet with parchment paper.",
-            order: 1,
+            name: "pepper",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 8,
           },
           {
-            text: "In a large bowl, combine ground turkey, breadcrumbs, parmesan, and egg.",
-            order: 2,
-          },
-          { text: "Add garlic, parsley, oregano, salt, and pepper.", order: 3 },
-          {
-            text: "Mix gently until just combined, being careful not to overmix.",
-            order: 4,
+            name: "chicken breast",
+            amount: "2 pound",
+            preparation: null,
+            order: 9,
           },
           {
-            text: "Form mixture into 1-inch meatballs and place on prepared baking sheet.",
-            order: 5,
-          },
-          {
-            text: "Drizzle with olive oil and bake for 18-20 minutes until cooked through.",
-            order: 6,
-          },
-          { text: "Serve hot with marinara sauce and pasta.", order: 7 },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Turkey Potato Skillet",
-    description: "One-pan turkey and potato skillet with vegetables and herbs.",
-    servings: 4,
-    prepTime: 15,
-    cookTime: 25,
-    tips: [
-      "Cut potatoes in similar sizes for even cooking",
-      "Don't overcrowd the skillet",
-      "Serve with a fresh green salad for a complete meal",
-    ],
-    ingredientSections: [
-      {
-        name: "Ingredients",
-        order: 1,
-        ingredients: [
-          { name: "Ground turkey", amount: "1 pound", order: 1 },
-          { name: "Potatoes", amount: "4", preparation: "diced", order: 2 },
-          { name: "Bell pepper", amount: "1", preparation: "diced", order: 3 },
-          { name: "Onion", amount: "1", preparation: "diced", order: 4 },
-          {
-            name: "Garlic",
-            amount: "3 cloves",
-            preparation: "minced",
-            order: 5,
-          },
-          { name: "Olive oil", amount: "2 tablespoons", order: 6 },
-          { name: "Italian seasoning", amount: "1 tablespoon", order: 7 },
-          { name: "Salt", amount: "1 teaspoon", order: 8 },
-          { name: "Black pepper", amount: "1/2 teaspoon", order: 9 },
-          {
-            name: "Fresh parsley",
-            amount: "1/4 cup",
-            preparation: "chopped",
+            name: "cilantro, chopped",
+            amount: "0.5 cup",
+            preparation: null,
             order: 10,
           },
         ],
@@ -4371,49 +1796,3899 @@ const recipes = [
     instructionSections: [
       {
         name: "Instructions",
-        order: 1,
+        order: 0,
         instructions: [
           {
-            text: "Heat olive oil in large skillet over medium-high heat.",
+            text: "Add all ingredients except chicken and cilantro to food processor and blend until smooth.",
+            order: 0,
+          },
+          {
+            text: "Add chicken to crockpot and pour sauce over. Cook on low for 5 hours.",
             order: 1,
           },
           {
-            text: "Add potatoes and cook for 8-10 minutes until starting to brown.",
+            text: "Shred the chicken, add the cilantro, and mix well.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Cilantro Lime Dressing",
+    slug: "cilantro-lime-dressing",
+    description: "Fresh cilantro and lime vinaigrette dressing.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-11-14T00:04:54.961Z",
+    updatedAt: "2025-03-01T16:36:17.615Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "jalapeño, seeded and chopped",
+            amount: "1",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "garlic",
+            amount: "5 clove",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "mayonnaise",
+            amount: "0.5 cup",
+            preparation: null,
             order: 2,
           },
           {
-            text: "Add bell pepper and onion, cook for 3-4 minutes.",
+            name: "sour cream",
+            amount: "0.5 cup",
+            preparation: null,
             order: 3,
           },
           {
-            text: "Push vegetables to one side and add ground turkey.",
+            name: "lime juice",
+            amount: "0.25 cup",
+            preparation: null,
             order: 4,
           },
           {
-            text: "Cook turkey, breaking up with spatula, until browned.",
+            name: "honey",
+            amount: "2 tablespoon",
+            preparation: null,
             order: 5,
           },
           {
-            text: "Add garlic, Italian seasoning, salt, and pepper.",
+            name: "salt",
+            amount: "0.75 teaspoon",
+            preparation: null,
             order: 6,
           },
           {
-            text: "Stir everything together and cook for 5 minutes until potatoes are tender.",
+            name: "cilantro",
+            amount: "0.5 cup",
+            preparation: null,
             order: 7,
           },
-          { text: "Garnish with fresh parsley and serve hot.", order: 8 },
+          {
+            name: "olive oil",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 8,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Add jalapeño and garlic to food processor and pulse until finely chopped.",
+            order: 0,
+          },
+          {
+            text: "Add mayo, sour cream, lime juice, honey, salt, and cilantro to the processor. Pulse until fully blended.",
+            order: 1,
+          },
+          {
+            text: "With processor running, slowly add in the oil until fully incorporated. Add more salt as needed.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Corn Salsa",
+    slug: "corn-salsa",
+    description: "Fresh corn salsa with tomatoes, onions, and lime.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:56:01.685Z",
+    updatedAt: "2023-12-28T13:56:01.685Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "corn",
+            amount: "3 cup",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "red onion",
+            amount: "1 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "avocados",
+            amount: "2",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "cilantro",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "jalapeños",
+            amount: "2",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "lime juice",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "apple cider vinegar",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "chili powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "ground cumin",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "salt",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 9,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Finely chop the red onion, cilantro, and jalapeños, and dice the avocado. Mix all ingredients together.",
+            order: 0,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Cowboy Caviar",
+    slug: "cowboy-caviar",
+    description: "Black bean and corn salad with fresh vegetables.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-25T17:06:14.587Z",
+    updatedAt: "2025-01-25T17:06:14.587Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "Roma tomatoes, diced",
+            amount: "3",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "avocados, diced",
+            amount: "2",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "red onion, diced",
+            amount: "0.5",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "15 ounce can of black beans, rinsed & drained",
+            amount: "1",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "15 ounce can of corn",
+            amount: "1",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "green bell pepper, diced",
+            amount: "1",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "jalapeño, diced",
+            amount: "1",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "cilantro, chopped",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "olive oil",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "lime juice",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "red wine vinegar",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "sugar",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 14,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "In a large bowl, whisk together the olive oil, lime juice, vinegar, sugar, salt, pepper, and garlic powder.",
+            order: 0,
+          },
+          {
+            text: "Add chopped veggies to the bowl and thoroughly mix together.",
+            order: 1,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Cream of Mushroom Chicken",
+    slug: "cream-of-mushroom-chicken",
+    description: "Chicken cooked in creamy mushroom sauce.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-29T18:59:36.213Z",
+    updatedAt: "2025-01-29T18:59:50.736Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chicken",
+            amount: "1.5 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "onion, chopped",
+            amount: "1 medium",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "10.5 oz can condensed cream of mushroom soup",
+            amount: "1",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "butter",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "chicken broth",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "Salt & pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "Chopped parsley, for garnish",
+            amount: "0",
+            preparation: null,
+            order: 8,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Cut chicken in half length-wise & season with salt, pepper, and garlic powder.",
+            order: 0,
+          },
+          {
+            text: "Add olive oil & 1 tbsp butter to a skillet and heat over medium-high. Cook the chicken for 4-5 minutes per side, then transfer to a plate.",
+            order: 1,
+          },
+          {
+            text: "Reduce the heat to medium and add the other tbsp of butter and the onions to the skillet. Cook until onions are lightly browned.",
+            order: 2,
+          },
+          {
+            text: "Add the broth & condensed soup to the skillet and stir until smooth.",
+            order: 3,
+          },
+          {
+            text: "Reduce heat to medium-low and add the chicken back in (with juices from the plate). Cook for another 5 minutes until the chicken is fully done.",
+            order: 4,
+          },
+          {
+            text: "Serve topped with parsley if desired.",
+            order: 5,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Creamy Feta & Roasted Red Pepper Chicken",
+    slug: "creamy-feta-&-roasted-red-pepper-chicken",
+    description: "Chicken in creamy feta sauce with roasted red peppers.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-03-11T14:31:27.149Z",
+    updatedAt: "2024-03-11T14:31:27.149Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "onion, diced",
+            amount: "0.5",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "garlic, minced",
+            amount: "4 clove",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "cauliflower florets",
+            amount: "0.5 pound",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "jar roasted red peppers, drained",
+            amount: "12 ounce",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "chicken breasts",
+            amount: "2 pound",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "paprika",
+            amount: "1.5 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "oregano",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "salt",
+            amount: "1.5 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "black pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "red pepper flakes",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "chicken broth",
+            amount: "2 cup",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "spinach, chopped",
+            amount: "1 cup",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "feta, crumbled",
+            amount: "0.75 cup",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "cream cheese",
+            amount: "8 ounce",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "lemon, juiced",
+            amount: "1",
+            preparation: null,
+            order: 15,
+          },
+          {
+            name: "Rice",
+            amount: "0",
+            preparation: null,
+            order: 16,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Heat a large pot over medium heat with olive oil. Add onions and garlic and sauté for 3 minutes.",
+            order: 0,
+          },
+          {
+            text: "Add cauliflower, red peppers, chicken, seasonings, and broth, ensuring everything is fully submerged. Bring to a simmer & cover. Simmer for 10-15 minutes, until chicken is cooked through.",
+            order: 1,
+          },
+          {
+            text: "Shred the chicken and add spinach, feta, cream cheese, and lemon juice. Simmer for 5-10 more minutes to allow liquid to thicken.",
+            order: 2,
+          },
+          {
+            text: "Serve over rice.",
+            order: 3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Crockpot Chicken Tacos",
+    slug: "crockpot-chicken-tacos",
+    description: "Slow-cooked chicken tacos made in the crockpot.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-04-28T20:02:00.253Z",
+    updatedAt: "2025-04-28T20:02:00.253Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chicken breast",
+            amount: "2 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "salsa",
+            amount: "1 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "canned diced tomatoes with chilies (Rotel)",
+            amount: "1 cup",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "onion, diced",
+            amount: "0.5",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "chili powder",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "ground cumin",
+            amount: "1.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "pepper",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "onion powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "oregano",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "red pepper flakes",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "Pinch of cayenne pepper",
+            amount: "0",
+            preparation: null,
+            order: 12,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Combine salsa, canned tomatoes, and seasonings.",
+            order: 0,
+          },
+          {
+            text: "Place onions and chicken in the slow cooker and top with the mixture.",
+            order: 1,
+          },
+          {
+            text: "Cook on low for 8 hours. Shred the chicken and serve.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Crystal's Famous Cheese Dip",
+    slug: "crystal's-famous-cheese-dip",
+    description: "Creamy cheese dip perfect for parties and gatherings.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-01-02T19:55:38.614Z",
+    updatedAt: "2024-01-02T19:55:38.614Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "Velveeta cheese",
+            amount: "2 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "Hormel chili (no beans)",
+            amount: "2 can",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "onions, chopped",
+            amount: "2",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "green chilis",
+            amount: "2 can",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "Tabasco sauce to taste",
+            amount: "0",
+            preparation: null,
+            order: 4,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Add Velveeta, chili, onions, and green chilis to a crockpot and cook on low for 8 hours (or high for 4 hours). Stir occasionally.",
+            order: 0,
+          },
+          {
+            text: "Stir in some Tabasco sauce to taste.",
+            order: 1,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Fish Tacos",
+    slug: "fish-tacos",
+    description: "Fresh fish tacos with cabbage slaw and lime crema.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-02-28T12:46:11.713Z",
+    updatedAt: "2024-02-28T12:46:11.713Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "cod",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "chili powder",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "oregano",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic powder",
+            amount: "1.5 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "paprika",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "cayenne",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "onion powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "cumin",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "coleslaw mix",
+            amount: "2 cup",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "Cotija cheese, grated",
+            amount: "1 cup",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "sour cream",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "mayo",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "lime juice",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "Sriracha",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 15,
+          },
+          {
+            name: "Pico de Gallo",
+            amount: "0",
+            preparation: null,
+            order: 16,
+          },
+          {
+            name: "Guacamole",
+            amount: "0",
+            preparation: null,
+            order: 17,
+          },
+          {
+            name: "Lime wedges",
+            amount: "0",
+            preparation: null,
+            order: 18,
+          },
+          {
+            name: "Tortillas",
+            amount: "0",
+            preparation: null,
+            order: 19,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Mix 1/2 tsp garlic powder and the rest of the spices in a small bowl. Pat fish dry and generously cover the fish with the spice rub.",
+            order: 0,
+          },
+          {
+            text: "Preheat air fryer to 400 degrees. Spray air fryer with oil and add fish to the basket. Spritz top of fish with a bit of oil.",
+            order: 1,
+          },
+          {
+            text: "Heat fish at 400 degrees for about 8-10 minutes. Once cooked, remove from air fryer and cut into small pieces.",
+            order: 2,
+          },
+          {
+            text: "While fish cooks, mix remaining 1 tsp garlic powder, sour cream, mayo, lime juice, and Sriracha in a small bowl.",
+            order: 3,
+          },
+          {
+            text: "Warm your tortillas. Add fish and top with slaw mix, guac, pico, cotija, and sauce. Squeeze some lime juice on top.",
+            order: 4,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "French Dip Sandwiches",
+    slug: "french-dip-sandwiches",
+    description: "Classic French dip sandwiches with au jus for dipping.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-08-05T15:11:08.442Z",
+    updatedAt: "2024-08-05T15:11:08.442Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "beef chuck roast",
+            amount: "2 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "beef broth",
+            amount: "3 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "Worcestershire sauce",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "olive oil",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "onions, sliced",
+            amount: "2",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "garlic, minced",
+            amount: "5 clove",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "bay leaf",
+            amount: "1",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "Salt & pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "hoagie rolls",
+            amount: "6",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "slices of white cheese (e.g. provolone)",
+            amount: "6",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "Butter",
+            amount: "0",
+            preparation: null,
+            order: 10,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Liberally salt & pepper the roast.",
+            order: 0,
+          },
+          {
+            text: "Heat a large cast iron skillet over medium-high heat. Sear the roast on all sides until a nice crust has formed.",
+            order: 1,
+          },
+          {
+            text: "While searing, combine broth & Worcestershire sauce and set aside.",
+            order: 2,
+          },
+          {
+            text: "Transfer meat to slow cooker. Reduce heat to medium for cast iron, then add the olive oil and onions. Cook for 5 minutes, then add the garlic. Cook for an additional minute or two until fragrant.",
+            order: 3,
+          },
+          {
+            text: "Transfer the onion mix over the meat in the slow cooker, then pour the broth mixture over. Add the bay leaf, and cook on low for about 5 hours.",
+            order: 4,
+          },
+          {
+            text: "Remove meat and slice into thin pieces. Pour the juices in the slow cooker through a strainer (keep them for au jus). Return the mean and onions back to the cooker and mix in about a tablespoon of the au jus.",
+            order: 5,
+          },
+          {
+            text: "Preheat oven to 375 degrees. Butter the hoagies and toast them in the oven for a few minutes, until they start getting slightly toasted.",
+            order: 6,
+          },
+          {
+            text: "Remove the hoagies from the oven and add the meat, followed by the cheese. Change the over to broil and add the sandwiches back in for another minute, until the cheese has melted.",
+            order: 7,
+          },
+          {
+            text: "Finish assembling the sandwiches and serve with bowls of au jus.",
+            order: 8,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Gochujang Sauce",
+    slug: "gochujang-sauce",
+    description: "Spicy Korean gochujang sauce for marinades and dipping.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-04-28T16:08:13.566Z",
+    updatedAt: "2024-04-28T16:09:37.913Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chili paste",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "rice vinegar",
+            amount: "1.5 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "sesame oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "maple syrup",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Mix all ingredients in a small bowl.",
+            order: 0,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Guacamole",
+    slug: "guacamole",
+    description: "Fresh guacamole with avocado, lime, and cilantro.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:57:06.345Z",
+    updatedAt: "2023-12-28T13:57:06.345Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "avocados",
+            amount: "3",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "red onion",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "cilantro",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "jalapeño",
+            amount: "0.5",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "garlic",
+            amount: "3 clove",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "lime juice",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "freshly ground pepper",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "coarse salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Finely chop the red onion & jalapeño, and mince the cilantro & garlic. Mix all ingredients in a bowl and mash together.",
+            order: 0,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Jamaican Jerk Chicken",
+    slug: "jamaican-jerk-chicken",
+    description: "Spicy Jamaican jerk chicken with authentic seasonings.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-03-15T15:17:57.479Z",
+    updatedAt: "2025-03-15T15:17:57.479Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "onion, chopped",
+            amount: "1",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "green onions, chopped",
+            amount: "3",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "habaneros, seeded and chopped",
+            amount: "2",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic, chopped",
+            amount: "6 clove",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "five-spice powder",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "allspice berries, coarsely ground",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "black pepper, coarsely ground",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "dried thyme",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "nutmeg, freshly grated",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "salt",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "soy sauce",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "vegetable oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "chicken (breast, thighs, whatever)",
+            amount: "2 pound",
+            preparation: null,
+            order: 12,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "In a food processor, add onion, green onion, habaneros, garlic, and spices. Process to a paste. With the machine on low, slowly add the soy sauce and oil until well combined.",
+            order: 0,
+          },
+          {
+            text: "Add the chicken and marinade to a container and marinate for several hours (ideally overnight).",
+            order: 1,
+          },
+          {
+            text: "Bring the chicken to room temperature first for better cooking results! Start the grill and cook chicken through. Note that the air fryer isn't great for this marinade, as it gets pretty charred around the edges - grill is recommended!",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "KenZie's Dessert Dip",
+    slug: "kenzies-dessert-dip",
+    description: "Sweet dessert dip with cream cheese and chocolate chips.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-04-26T23:14:18.203Z",
+    updatedAt: "2024-04-26T23:18:41.776Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "vanilla extract",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "brown sugar",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "marshmallow cream",
+            amount: "7 ounce",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "heavy whipping cream",
+            amount: "1 cup",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "mini chocolate chips",
+            amount: "1.5 cup",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "cream cheese",
+            amount: "8 ounce",
+            preparation: null,
+            order: 5,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Mix together cream cheese and vanilla in a mixing bowl until smooth and fluffy",
+            order: 0,
+          },
+          {
+            text: "Beat the brown sugar into the cream cheese mixture and add the marshmallow cream",
+            order: 1,
+          },
+          {
+            text: "While mixing, gradually add the heavy cream, continuing to beat until the mixture is smooth and fluffy",
+            order: 2,
+          },
+          {
+            text: "Fold in or beat in the mini chocolate chips, just until combined",
+            order: 3,
+          },
+          {
+            text: "Serve with graham crackers or berries!!",
+            order: 4,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Korean Beef Bowls",
+    slug: "korean-beef-bowls",
+    description: "Korean-style beef bowls with rice and vegetables.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-02-27T12:27:22.035Z",
+    updatedAt: "2024-03-17T21:08:03.330Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "soy sauce",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "tsps brown sugar",
+            amount: "2",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "sesame oil",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "crushed red pepper flakes",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "ground beef",
+            amount: "1 pound",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "onion, chopped",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "garlic, crushed",
+            amount: "4 clove",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "fresh ginger, minced",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "broccoli",
+            amount: "2 head",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "cucumber, sliced",
+            amount: "1",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "Sesame seeds to taste",
+            amount: "0",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "green onions",
+            amount: "4",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "White rice",
+            amount: "0",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "Sesame Seeds",
+            amount: "0",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "Gochujang",
+            amount: "0",
+            preparation: null,
+            order: 14,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Combine soy sauce, 2 tablespoons water, brown sugar, sesame oil, and pepper flakes in a bowl.",
+            order: 0,
+          },
+          {
+            text: "Heat a wok over high heat. Once hot, spray with cooking oil and cook the beef until no longer pink.",
+            order: 1,
+          },
+          {
+            text: "Add onion, garlic, and ginger and cook for another minute, until soft.",
+            order: 2,
+          },
+          {
+            text: "Add broccoli to the wok and pour sauce over. Mix together, then cover and simmer for about 10 minutes to allow the flavors to meld.",
+            order: 3,
+          },
+          {
+            text: "Serve with white rice and gochujang sauce. Top with sesame seeds.",
+            order: 4,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Lemon Garlic Shrimp",
+    slug: "lemon-garlic-shrimp",
+    description: "Shrimp cooked with lemon and garlic butter sauce.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-25T17:01:48.611Z",
+    updatedAt: "2025-01-25T17:01:48.611Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "shrimp",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon + 1 tsp",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "lemon juice",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic, minced",
+            amount: "3 clove",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "honey",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "paprika",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "onion powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "Italian seasoning",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "Salt & pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 8,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Preheat oven to 400 degrees.",
+            order: 0,
+          },
+          {
+            text: "In a bowl, whisk together everything but the shrimp. Once mixed, add the shrimp to the bowl and toss to coat.",
+            order: 1,
+          },
+          {
+            text: "Transfer shrimp to a baking sheet and roast for 6 - 8 minutes, depending on the size of the shrimp.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Lemon Parmesan Broccoli",
+    slug: "lemon-parmesan-broccoli",
+    description: "Roasted broccoli with lemon and parmesan cheese.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T14:46:29.973Z",
+    updatedAt: "2023-12-28T14:46:29.973Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "broccoli",
+            amount: "1 head",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "olive oil",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "lemon juice",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic",
+            amount: "4 clove",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "parmesan",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "Salt & pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 5,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Preheat oven to 425 degrees.",
+            order: 0,
+          },
+          {
+            text: "Chop broccoli into bite size pieces. Combine broccoli, olive oil, lemon juice, garlic, and salt in a bowl and mix together.",
+            order: 1,
+          },
+          {
+            text: "Put broccoli on an oven-safe baking sheet and bake for 18 minutes.",
+            order: 2,
+          },
+          {
+            text: "Put broccoli back in the mixing bowl and toss in parmesan and pepper. Mix together.",
+            order: 3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Lemon Parmesan Rice",
+    slug: "lemon-parmesan-rice",
+    description: "Fluffy rice with lemon and parmesan cheese.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T14:48:53.366Z",
+    updatedAt: "2023-12-28T14:49:40.071Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "brown rice",
+            amount: "1 cup",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "vegetable stock",
+            amount: "1.5 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "shallots, finely chopped",
+            amount: "2",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "garlic, minced",
+            amount: "3 clove",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "thyme",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "lemon juice",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "parmesan, shredded",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "olive oil",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 8,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Add rice, vegetable stock, 2 tbsp olive oil, shallots, and salt to rice cooker and cook.",
+            order: 0,
+          },
+          {
+            text: "Heat 1 tbsp olive oil in a pan over medium heat. Add garlic and let cook for a minute, then add thyme and lemon juice. Let cook for another minute.",
+            order: 1,
+          },
+          {
+            text: "Add the garlic & lemon juice combo to the rice, along with the parmesan. Mix together.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Mediterranean Stir Fry",
+    slug: "mediterranean-stir-fry",
+    description: "Mediterranean-inspired stir fry with vegetables and herbs.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-03-28T11:27:28.721Z",
+    updatedAt: "2025-03-28T11:27:28.721Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "ground beef",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "red onion, sliced",
+            amount: "1",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic, minced",
+            amount: "5 clove",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "bell pepper, sliced",
+            amount: "1",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "zucchini, sliced",
+            amount: "2",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "cherry tomatoes, halved",
+            amount: "1 cup",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "oregano",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "ground cumin",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "paprika",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "pepper",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "feta",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "lemon, juiced",
+            amount: "1",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "parsley, chopped",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "Rice",
+            amount: "0",
+            preparation: null,
+            order: 15,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Heat olive oil in a large skillet over medium high heat. Add onion and garlic until fragrant.",
+            order: 0,
+          },
+          {
+            text: "Add beef to the skillet and cook through.",
+            order: 1,
+          },
+          {
+            text: "Add bell pepper, zucchini, and tomatoes to the skillet. Cook until soft.",
+            order: 2,
+          },
+          {
+            text: "Add seasonings and mix thoroughly.",
+            order: 3,
+          },
+          {
+            text: "Remove from heat and mix in lemon juice, feta, and parsley. Serve over rice.",
+            order: 4,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Mexican Salad",
+    slug: "mexican-salad",
+    description: "Fresh Mexican salad with beans, corn, and avocado.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-25T22:23:33.586Z",
+    updatedAt: "2025-01-25T22:23:33.586Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "cilantro lime dressing",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "romaine lettuce, chopped",
+            amount: "1 head",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "red onion, sliced thin",
+            amount: "0.5",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "grape tomatoes, halved",
+            amount: "1 cup",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "cucumber, chopped",
+            amount: "1",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "15 oz can of corn",
+            amount: "1",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "avocado, sliced thin",
+            amount: "1",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "feta, crumbled",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "Cilantro to taste",
+            amount: "0",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "Tortilla strips",
+            amount: "0",
+            preparation: null,
+            order: 9,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Mix lettuce, onion, tomatoes, cucumber, and corn together in a large bowl and mix together.",
+            order: 0,
+          },
+          {
+            text: "Add the dressing and toss. Garnish with avocado, feta, cilantro, and tortilla strips.",
+            order: 1,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Orange Chicken",
+    slug: "orange-chicken",
+    description: "Chinese-style orange chicken with sweet and tangy sauce.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-08-18T19:06:54.546Z",
+    updatedAt: "2024-12-22T00:05:52.282Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chicken",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "baking soda",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "orange juice",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "soy sauce",
+            amount: "2.5 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "cornstarch",
+            amount: "1.5 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "garlic cloves",
+            amount: "6",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "ginger",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "rice vinegar",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "chili garlic sauce",
+            amount: "1.5 tablespoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "orange zest",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "red pepper flakes",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "brown sugar",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "sesame oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "green onions, chopped",
+            amount: "2",
+            preparation: null,
+            order: 15,
+          },
+          {
+            name: "broccoli",
+            amount: "1 head",
+            preparation: null,
+            order: 16,
+          },
+          {
+            name: "Sesame seeds",
+            amount: "0",
+            preparation: null,
+            order: 17,
+          },
+          {
+            name: "Rice",
+            amount: "0",
+            preparation: null,
+            order: 18,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Create marinade by combining baking soda, salt, 2 tbsp orange juice, 1 1/2 tbsp soy sauce, pepper, 1 tbsp corn starch, 2 garlic cloves, and 1 tsp ginger in a bowl. Marinate the chicken for a few hours.",
+            order: 0,
+          },
+          {
+            text: "Note! The sauce can be a little spicy (for Tannah). Cut back a bit on the chili garlic sauce & red pepper flakes to ease her pain.",
+            order: 1,
+          },
+          {
+            text: "In a different bowl, combine 1/3 cup orange juice, 1 tbsp soy sauce, rice vinegar, chili garlic sauce, 1/2 tbsp corn starch, orange zest, 4 garlic cloves, 1 tsp ginger, chili flakes, brown sugar, and salt to taste.",
+            order: 2,
+          },
+          {
+            text: "Heat the oil in a large pan and cook the chicken until no longer pink. Add the sauce and simmer until thick, about 5 minutes.",
+            order: 3,
+          },
+          {
+            text: "Steam the broccoli and add to the chicken. Sprinkle green onions and sesame seeds over everything and serve over rice.",
+            order: 4,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Orzo with Zucchini & Tomato",
+    slug: "orzo-with-zucchini-&-tomato",
+    description: "Orzo pasta with fresh zucchini and tomatoes.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-05-27T17:16:04.292Z",
+    updatedAt: "2025-05-27T17:16:04.292Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "orzo, uncooked",
+            amount: "5 ounce",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "zucchini, diced",
+            amount: "1",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "tomato, chopped",
+            amount: "1",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic, minced",
+            amount: "4 clove",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "parmesan, grated",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "Salt & pepper, to taste",
+            amount: "0",
+            preparation: null,
+            order: 6,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Cook orzo as directed for al dente. Reserve about 1/2 cup liquid before draining.",
+            order: 0,
+          },
+          {
+            text: "Add oil to the (now empty) pot. Sauté garlic until fragrant, then add zucchini and tomatoes. Season with salt & pepper and mix together. Cook until tender, 3-4 minutes.",
+            order: 1,
+          },
+          {
+            text: "Add the orzo back to the pot and stir to combine. Add some of the reserved liquid as needed so the orzo isn't too dry. Mix in the cheese and stir.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Pico de Gallo",
+    slug: "pico-de-gallo",
+    description: "Fresh Mexican pico de gallo with tomatoes and onions.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T13:20:28.363Z",
+    updatedAt: "2023-12-28T13:20:28.363Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "Roma tomatoes, chopped",
+            amount: "1 cup",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "onion, chopped",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "cilantro, chopped",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "lime juice",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "Salt & pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 4,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Combine all ingredients in a bowl and mix together.",
+            order: 0,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Ramen Salad Bowls with Grilled Chicken",
+    slug: "ramen-salad-bowls-with-grilled-chicken",
+    description: "Asian-inspired ramen salad bowls with grilled chicken.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2024-03-11T14:44:13.215Z",
+    updatedAt: "2024-03-11T14:44:13.215Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "soy sauce",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "orange juice",
+            amount: "0.667 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "canola oil",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "sesame oil",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "rice vinegar",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "honey",
+            amount: "4 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "chicken",
+            amount: "1.25 pound",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "ramen noodles",
+            amount: "1 package",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "almonds, slivered",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "coleslaw mix",
+            amount: "7 cup",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "red bell pepper, sliced",
+            amount: "0.5",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "green onions, sliced",
+            amount: "3",
+            preparation: null,
+            order: 11,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "In a medium bowl, combine soy sauce, orange juice, canola oil, sesame oil, rice vinegar, and honey. Combine and set half (3/4 cup) aside for the dressing.",
+            order: 0,
+          },
+          {
+            text: "Put chicken in a bag and pound until about 1/2 inch thick. Add remaining 3/4 cup marinade. Let sit for at least 30 minutes in the fridge.",
+            order: 1,
+          },
+          {
+            text: "Preheat grill over medium-high heat. Remove chicken from the marinade and cook for about 5 minutes per side, until no longer pink.",
+            order: 2,
+          },
+          {
+            text: "Preheat oven for 350 degrees.",
+            order: 3,
+          },
+          {
+            text: "While in the package, break ramen into small pieces. Spread the ramen pieces and almonds onto a sheet pan and toast in the oven for about 10 minutes.",
+            order: 4,
+          },
+          {
+            text: "In a large bowl, combine slaw mix, bell pepper, and green onions. Mix well.",
+            order: 5,
+          },
+          {
+            text: "To serve, top salad with ramen-almond mix and grilled chicken. Top with dressing.",
+            order: 6,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Roasted Broccolini",
+    slug: "roasted-broccolini",
+    description: "Simple roasted broccolini with olive oil and seasonings.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-25T17:28:44.084Z",
+    updatedAt: "2025-01-25T17:29:07.409Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "broccolini",
+            amount: "0.5 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "salt",
+            amount: "0.125 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "pepper",
+            amount: "0.125 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Preheat oven to 425 degrees.",
+            order: 0,
+          },
+          {
+            text: "Trim the tips of the broccolini and add to a bowl. Add the remaining ingredients and mix together.",
+            order: 1,
+          },
+          {
+            text: "Spread the broccolini on a baking sheet and cook for 10-15 minutes, until crispy and brown.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Roasted Potatoes",
+    slug: "roasted-potatoes",
+    description: "Crispy roasted potatoes with herbs and spices.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-25T17:09:50.375Z",
+    updatedAt: "2025-01-25T17:09:50.375Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "Yukon gold potatoes",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "salt",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "oregano",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "thyme",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "Pepper to taste",
+            amount: "0",
+            preparation: null,
+            order: 6,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Preheat oven to 425 degrees.",
+            order: 0,
+          },
+          {
+            text: "Wash potatoes and cut to 1/2-inch sized pieces.",
+            order: 1,
+          },
+          {
+            text: "Put potatoes in a bowl and add the remaining ingredients. Mix together well.",
+            order: 2,
+          },
+          {
+            text: "Transfer potatoes to a baking sheet and roast for about 25 minutes, tossing about halfway through.",
+            order: 3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Ropa Vieja",
+    slug: "ropa-vieja",
+    description: "Cuban-style shredded beef stew with peppers and onions.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-03-15T15:32:39.317Z",
+    updatedAt: "2025-03-15T15:32:39.317Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chuck beef",
+            amount: "2 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "onion, sliced",
+            amount: "1",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "green bell pepper, sliced",
+            amount: "1",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "red bell pepper, sliced",
+            amount: "1",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "yellow bell pepper, sliced",
+            amount: "1",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "garlic, minced",
+            amount: "8 clove",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "oregano",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "ground cumin",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "sweet paprika",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "smoked paprika",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "ground allspice",
+            amount: "0.125 teaspoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "ground cloves",
+            amount: "0.125 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "salt",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "black pepper, freshly ground",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "beef broth",
+            amount: "1 cup",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "16 oz can crushed tomatoes",
+            amount: "1",
+            preparation: null,
+            order: 15,
+          },
+          {
+            name: "tomato paste",
+            amount: "6 ounce",
+            preparation: null,
+            order: 16,
+          },
+          {
+            name: "bay leaves",
+            amount: "2",
+            preparation: null,
+            order: 17,
+          },
+          {
+            name: "fresh parsley, chopped",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 18,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 19,
+          },
+          {
+            name: "Rice",
+            amount: "0",
+            preparation: null,
+            order: 20,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Heat oil over high heat in a large skillet. Brown the meat on all sides until a nice crust has formed.",
+            order: 0,
+          },
+          {
+            text: "Transfer the meat to a crockpot. Pour in the broth and add the onion and bell peppers. Then, add the crushed tomatoes and tomato paste, followed by the garlic and spices. Stir everything until well blended.",
+            order: 1,
+          },
+          {
+            text: "Add the bay leaves, then cover and cook on low for 8 hours.",
+            order: 2,
+          },
+          {
+            text: "Once cooked, remove the bay leaves and shred the beef. Add the parsley, give a quick stir, and it's ready to serve over rice!",
+            order: 3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Salmon Sushi Bake",
+    slug: "salmon-sushi-bake",
+    description: "Baked sushi casserole with salmon and rice.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-03-15T15:43:37.622Z",
+    updatedAt: "2025-03-15T15:43:37.622Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "salmon",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "teriyaki sauce",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "brown sugar",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "salt",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "rice",
+            amount: "3 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "avocado, cubed",
+            amount: "1",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "spicy mayo",
+            amount: "3 tablespoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "furikake (optional, but adds a lot)",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "crispy fried onion bits",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "green onions, diced",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 10,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Remove skin from salmon and cut into cubes.",
+            order: 0,
+          },
+          {
+            text: "Combine salmon, teriyaki, and salt in a bowl. Set aside to allow it to marinate for 10-15 minutes.",
+            order: 1,
+          },
+          {
+            text: "In a baking dish, add the rice and pat down to create a flat base. Top with the salmon (and sauce!), then spread garlic powder and brown sugar evenly over the top.",
+            order: 2,
+          },
+          {
+            text: "Turn on broiler and cook on the top rack for 6-10 minutes, until the salmon is flaky.",
+            order: 3,
+          },
+          {
+            text: "Top with avocado, mayo, furikake, fried onions, and green onions.",
+            order: 4,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Salmon Sushi Bowls",
+    slug: "salmon-sushi-bowls",
+    description: "Sushi bowl with salmon, rice, and vegetables.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-08-02T18:15:06.879Z",
+    updatedAt: "2025-08-02T18:15:06.879Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "salmon, cubed",
+            amount: "1.5 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "soy sauce",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "sesame oil",
+            amount: "2 tablespoon + 1/2 tbsp ",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "rice vinegar",
+            amount: "3 tablespoon + 1 tsp ",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "ginger, minced",
+            amount: "1 tablespoon + 1/2 tbsp",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "garlic, minced",
+            amount: "6 clove",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "maple syrup",
+            amount: "1 teaspoon + 1/2 tsp",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "red pepper flakes",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "rice",
+            amount: "1 cup",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "avocado, sliced",
+            amount: "1",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "green onions, sliced",
+            amount: "5",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "seaweed snack chips (or nori)",
+            amount: "1 package",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "Sesame seeds",
+            amount: "0",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "English cucumber",
+            amount: "1 large",
+            preparation: null,
+            order: 13,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Add rice, water, and 1 tsp rice vinegar to rice maker and cook.",
+            order: 0,
+          },
+          {
+            text: "In a medium bowl, mix 3 tbsp soy sauce, 2 tbsp sesame oil, 2 tbsp rice vinegar, 1 tbsp ginger, 4 cloves garlic, 1 tsp maple syrup, and 1/2 tsp pepper flakes. Add the salmon and allow to marinate for about 20 minutes.",
+            order: 1,
+          },
+          {
+            text: "In a different medium bowl, mix 2 cloves garlic, 1/2 tbsp ginger, 1 tbsp rice vinegar, 1 tbsp soy sauce, 1/2 tbsp sesame oil, 1/2 tsp maple syrup, and 1/2 tsp red pepper flakes.",
+            order: 2,
+          },
+          {
+            text: "Trim the ends of the cucumbers, then cut in half lengthwise. Lay the cut side down and lightly smash the cucumbers. After smashing, slice cucumber and add to the bowl. Mix in 3 green onions and 2 tbsp sesame seeds.",
+            order: 3,
+          },
+          {
+            text: "Heat a large skillet over medium-high heat. Add salmon to the skillet (use slotted spoon and leave excess marinade in the bowl) and cook through, about 5-6 minutes.",
+            order: 4,
+          },
+          {
+            text: "To serve, add rice and salmon to bowls, then top with cucumber salad, avocado, green onion, seaweed, and sesame seeds.",
+            order: 5,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Salsa Criolla",
+    slug: "salsa-criolla",
+    description: "Peruvian-style salsa with red onions and lime.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T14:50:46.532Z",
+    updatedAt: "2023-12-28T14:50:46.532Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "red bell pepper",
+            amount: "1",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "yellow bell pepper",
+            amount: "1",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "onion",
+            amount: "1",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic",
+            amount: "2 clove",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "red wine vinegar",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "oregano",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Heat olive oil over medium-high heat in a cast iron skillet.",
+            order: 0,
+          },
+          {
+            text: 'Chop peppers and onions into 3/4" pieces. Add garlic, onion, peppers, and oregano to the skillet and cook until soft, about 3-5 minutes.',
+            order: 1,
+          },
+          {
+            text: "Add in vinegar and sprinkle with some salt & pepper. Turn heat down to medium and cook for another couple minutes.",
+            order: 2,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Sheet Pan Fajitas",
+    slug: "sheet-pan-fajitas",
+    description: "Easy sheet pan fajitas with chicken and vegetables.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T14:53:41.983Z",
+    updatedAt: "2023-12-28T14:53:41.983Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chicken breast",
+            amount: "2 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "red onion",
+            amount: "1",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "red bell pepper",
+            amount: "1",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "yellow bell pepper",
+            amount: "1",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "green bell pepper",
+            amount: "1",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "lime",
+            amount: "1",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "olive oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "chili powder",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "salt",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "smoked paprika",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "ground cumin",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "onion powder",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "oregano",
+            amount: "0.5 tablespoon",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "pepper",
+            amount: "0.25 tablespoon",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "Cilantro to taste",
+            amount: "0",
+            preparation: null,
+            order: 15,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "In a large bowl, create the marinade using all seasonings, olive oil, and lime juice.",
+            order: 0,
+          },
+          {
+            text: "Thinly slice the chicken, onion, and bell peppers. Add all to the marinade and let sit for at least an hour in the fridge.",
+            order: 1,
+          },
+          {
+            text: "Preheat oven to 375 degrees. Spread the chicken & veggie mixture onto a rimmed baking sheet and cook for 15-20 minutes.",
+            order: 2,
+          },
+          {
+            text: "Turn oven to broil to get some char on the veggies, about 3 minutes.",
+            order: 3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Stir Fry Sauce",
+    slug: "stir-fry-sauce",
+    description: "Versatile stir fry sauce for Asian dishes.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T14:54:53.664Z",
+    updatedAt: "2023-12-28T14:54:53.664Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "garlic, minced",
+            amount: "3 clove",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "ginger",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "sesame oil",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "rice vinegar",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "soy sauce",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "chicken broth",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "sriracha",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "brown sugar",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "cornstarch",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 8,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Add all ingredients to a medium bowl and whisk together until smooth.",
+            order: 0,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Street Corn Chicken Rice Bowls",
+    slug: "street-corn-chicken-rice-bowls",
+    description: "Mexican street corn-inspired rice bowls with chicken.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-06-16T15:56:04.972Z",
+    updatedAt: "2025-06-16T15:56:04.972Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "chicken breast",
+            amount: "1.5 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "apple cider vinegar",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "chili powder",
+            amount: "2.5 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic powder",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "onion powder",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "salt",
+            amount: "1.25 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "lime juice",
+            amount: "4 tablespoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "corn",
+            amount: "2 cup",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "mayo",
+            amount: "0.333 cup",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "cotija cheese, crumbled",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "cilantro, chopped",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "garlic, minced",
+            amount: "3 clove",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "paprika",
+            amount: "0.25 teaspoon",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "red onion, diced",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "Rice",
+            amount: "0",
+            preparation: null,
+            order: 15,
+          },
+          {
+            name: "Cherry tomatoes, halved",
+            amount: "0",
+            preparation: null,
+            order: 16,
+          },
+          {
+            name: "Jalapeño, sliced",
+            amount: "0",
+            preparation: null,
+            order: 17,
+          },
+          {
+            name: "Avocado, sliced",
+            amount: "0",
+            preparation: null,
+            order: 18,
+          },
+          {
+            name: "Sour cream",
+            amount: "0",
+            preparation: null,
+            order: 19,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Create marinade by combining vinegar, 2 tsp chili powder, garlic powder, onion powder, 1 tsp salt, 1/4 tsp pepper, and 2 tbsp lime juice. Mix well, add chicken, and let sit for at least an hour.",
+            order: 0,
+          },
+          {
+            text: "Grill chicken until cooked through. Cut into slices.",
+            order: 1,
+          },
+          {
+            text: "Combine corn, mayo, cotjia cheese, cilantro, 2 tbsp lime juice, garlic, 1/2 tsp chili powder, paprika, 1/4 tsp salt, 1/8 tsp pepper, and red onions into a large bowl. Stir to combine.",
+            order: 2,
+          },
+          {
+            text: "Build bowls by adding rice, chicken, and corn mix, along with other toppings as desired!",
+            order: 3,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Teriyaki Sauce",
+    slug: "teriyaki-sauce",
+    description: "Homemade teriyaki sauce for marinades and glazes.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-03-15T15:20:47.907Z",
+    updatedAt: "2025-03-15T15:20:47.907Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "soy sauce",
+            amount: "0.75 cup",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "water",
+            amount: "0.25 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "mirin",
+            amount: "2 tablespoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "brown sugar",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "garlic",
+            amount: "4 clove",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "fresh ginger",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "Pinch of salt",
+            amount: "0",
+            preparation: null,
+            order: 6,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Add all ingredients to a small saucepan and set over medium heat. Whisk everything together.",
+            order: 0,
+          },
+          {
+            text: "Once the mix reaches a simmer, drop heat to low and allow mix to reduce for about 10 minutes.",
+            order: 1,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Turkey Meatballs",
+    slug: "turkey-meatballs",
+    description: "Juicy turkey meatballs with Italian seasoning and parmesan.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2023-12-28T14:58:20.882Z",
+    updatedAt: "2023-12-28T15:12:00.559Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "ground turkey",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "mozzarella, shredded",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "egg",
+            amount: "1",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "Italian seasoning",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "onion powder",
+            amount: "2 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "garlic, minced",
+            amount: "6 clove",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "crushed red pepper",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "parmesan, shredded",
+            amount: "5 tablespoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "butter",
+            amount: "0.5 stick",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "lemon juice",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "rosemary",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "thyme",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "sage",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "pepper",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "sriracha",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "parsley",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 15,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Preheat oven to 425 degrees.",
+            order: 0,
+          },
+          {
+            text: "Combine turkey, mozzarella, egg, Italian seasoning, onion powder, 2 garlic cloves, crushed red peppers, 1 tbsp parmesan, and some salt & pepper in a bowl. Form meatballs.",
+            order: 1,
+          },
+          {
+            text: "Heat a cast iron skillet on high. Once hot, sear meatballs on both sides (1-2 minutes per side).",
+            order: 2,
+          },
+          {
+            text: "Put seared meatballs on a baking sheet and bake for about 15 minutes.",
+            order: 3,
+          },
+          {
+            text: "While baking, create the butter sauce. Melt butter over low heat, then add in the lemon juice, rosemary, thyme, sage, pepper, hot sauce, parsley, and remaining 4 cloves of garlic.",
+            order: 4,
+          },
+          {
+            text: "After 15 minutes, take meatballs out from the oven. Drizzle the butter sauce over them and top with parmesan. Bake for another 5 minutes to let the cheese melt.",
+            order: 5,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Turkey Potato Skillet",
+    slug: "turkey-potato-skillet",
+    description: "One-pan turkey and potato skillet with vegetables.",
+    photo: null,
+    servings: null,
+    prepTime: null,
+    cookTime: null,
+    tips: [],
+    createdAt: "2025-01-25T17:16:00.400Z",
+    updatedAt: "2025-01-25T17:16:00.400Z",
+    ingredientSections: [
+      {
+        name: "Ingredients",
+        order: 0,
+        ingredients: [
+          {
+            name: "ground turkey",
+            amount: "1 pound",
+            preparation: null,
+            order: 0,
+          },
+          {
+            name: "salt",
+            amount: "1.5 teaspoon",
+            preparation: null,
+            order: 1,
+          },
+          {
+            name: "pepper",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 2,
+          },
+          {
+            name: "garlic powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 3,
+          },
+          {
+            name: "chili powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 4,
+          },
+          {
+            name: "oregano",
+            amount: "2.5 teaspoon",
+            preparation: null,
+            order: 5,
+          },
+          {
+            name: "garlic cloves, minced",
+            amount: "3",
+            preparation: null,
+            order: 6,
+          },
+          {
+            name: "basil",
+            amount: "1 teaspoon",
+            preparation: null,
+            order: 7,
+          },
+          {
+            name: "parsley",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 8,
+          },
+          {
+            name: "onion powder",
+            amount: "0.5 teaspoon",
+            preparation: null,
+            order: 9,
+          },
+          {
+            name: "avocado oil",
+            amount: "1 tablespoon",
+            preparation: null,
+            order: 10,
+          },
+          {
+            name: "potatoes, dice small",
+            amount: "1 pound",
+            preparation: null,
+            order: 11,
+          },
+          {
+            name: "onion, diced",
+            amount: "1",
+            preparation: null,
+            order: 12,
+          },
+          {
+            name: "bell pepper, diced",
+            amount: "1",
+            preparation: null,
+            order: 13,
+          },
+          {
+            name: "tomato sauce",
+            amount: "8 ounce",
+            preparation: null,
+            order: 14,
+          },
+          {
+            name: "water",
+            amount: "0.5 cup",
+            preparation: null,
+            order: 15,
+          },
+        ],
+      },
+    ],
+    instructionSections: [
+      {
+        name: "Instructions",
+        order: 0,
+        instructions: [
+          {
+            text: "Heat a large skillet on medium high. Once hot, add turkey and cook through. Stir in 1 tsp salt, 1/2 tsp pepper, 1/2 tsp garlic powder, 1/2 tsp chili powder, and 1/2 tsp oregano. Remove from skillet.",
+            order: 0,
+          },
+          {
+            text: "Add oil to skillet and heat on medium high. Once hot, add the potatoes, onion, and bell pepper. Cook for 5-10 minutes, until potatoes are browned.",
+            order: 1,
+          },
+          {
+            text: "Reduce heat to medium. Add turkey, tomato sauce, water, garlic, and remaining herbs to the skillet. Cover and simmer for about 5 minutes.",
+            order: 2,
+          },
         ],
       },
     ],
   },
 ];
-
-function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
 
 async function main() {
   const user = await prisma.user.findUnique({
@@ -4430,18 +5705,20 @@ async function main() {
 
   for (let i = 0; i < recipes.length; i++) {
     const recipe = recipes[i];
-    const slug = generateSlug(recipe.title);
 
     await prisma.recipe.create({
       data: {
         title: recipe.title,
-        slug: `${slug}-${i + 1}`,
+        slug: recipe.slug,
         description: recipe.description,
         userId: user.id,
         servings: recipe.servings,
         tips: recipe.tips,
+        photo: recipe.photo,
         prepTime: recipe.prepTime,
         cookTime: recipe.cookTime,
+        createdAt: recipe.createdAt,
+        updatedAt: recipe.updatedAt,
         ingredientSections: {
           create: recipe.ingredientSections.map((section) => ({
             name: section.name,
