@@ -1,22 +1,23 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function RecipeLoading() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       {/* Recipe Header Skeleton */}
       <div className="mb-8">
-        <div className="h-10 bg-muted rounded-lg mb-4 animate-pulse"></div>
-        <div className="h-6 bg-muted rounded-lg mb-6 w-3/4 animate-pulse"></div>
-        
+        <Skeleton className="h-10 rounded-lg mb-4" />
+        <Skeleton className="h-6 rounded-lg mb-6 w-3/4" />
+
         {/* Recipe Photo Skeleton */}
-        <div className="w-full h-96 bg-muted rounded-lg mb-6 animate-pulse"></div>
+        <Skeleton className="w-full h-96 rounded-lg mb-6" />
 
         {/* Recipe Meta Information Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="text-center p-4 bg-muted rounded-lg animate-pulse">
-              <div className="h-8 bg-muted-foreground/20 rounded mb-2"></div>
-              <div className="h-4 bg-muted-foreground/20 rounded w-20 mx-auto"></div>
+            <div key={i} className="text-center p-4">
+              <Skeleton className="h-8 rounded mb-2" />
+              <Skeleton className="h-4 rounded w-20 mx-auto" />
             </div>
           ))}
         </div>
@@ -25,17 +26,17 @@ export default function RecipeLoading() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Ingredients Skeleton */}
         <div>
-          <div className="h-8 bg-muted rounded-lg mb-6 animate-pulse"></div>
+          <Skeleton className="h-8 rounded-lg mb-6" />
           <Card>
             <CardHeader>
-              <div className="h-6 bg-muted rounded animate-pulse"></div>
+              <Skeleton className="h-6 rounded" />
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="flex gap-2">
-                    <div className="h-4 bg-muted rounded w-16 animate-pulse"></div>
-                    <div className="h-4 bg-muted rounded flex-1 animate-pulse"></div>
+                    <Skeleton className="h-4 rounded w-16" />
+                    <Skeleton className="h-4 rounded flex-1" />
                   </div>
                 ))}
               </div>
@@ -45,17 +46,17 @@ export default function RecipeLoading() {
 
         {/* Instructions Skeleton */}
         <div>
-          <div className="h-8 bg-muted rounded-lg mb-6 animate-pulse"></div>
+          <Skeleton className="h-8 rounded-lg mb-6" />
           <Card>
             <CardHeader>
-              <div className="h-6 bg-muted rounded animate-pulse"></div>
+              <Skeleton className="h-6 rounded" />
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-8 h-8 bg-muted rounded-full animate-pulse"></div>
-                    <div className="h-4 bg-muted rounded flex-1 animate-pulse"></div>
+                    <Skeleton className="w-8 h-8 rounded-full" />
+                    <Skeleton className="h-4 rounded flex-1" />
                   </div>
                 ))}
               </div>
@@ -66,14 +67,14 @@ export default function RecipeLoading() {
 
       {/* Tips Skeleton */}
       <div className="mt-12">
-        <div className="h-8 bg-muted rounded-lg mb-6 animate-pulse"></div>
+        <Skeleton className="h-8 rounded-lg mb-6" />
         <Card>
           <CardContent className="py-6">
             <div className="space-y-3">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex gap-3">
-                  <div className="w-2 h-2 bg-muted rounded-full mt-2 animate-pulse"></div>
-                  <div className="h-4 bg-muted rounded flex-1 animate-pulse"></div>
+                  <Skeleton className="w-2 h-2 rounded-full mt-2" />
+                  <Skeleton className="h-4 rounded flex-1" />
                 </div>
               ))}
             </div>
@@ -82,4 +83,4 @@ export default function RecipeLoading() {
       </div>
     </div>
   );
-} 
+}
