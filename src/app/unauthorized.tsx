@@ -1,4 +1,4 @@
-import { FormLoadingButton } from "@/components/form-loading-button";
+import { SignInButton } from "@/components/sign-in-button";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { signIn } from "@/lib/auth";
 import Link from "next/link";
 
 export default function UnauthorizedPage() {
@@ -31,16 +30,7 @@ export default function UnauthorizedPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <form
-                action={async () => {
-                  "use server";
-                  await signIn("google");
-                }}
-              >
-                <FormLoadingButton type="submit" variant="outline">
-                  🔐 Sign In
-                </FormLoadingButton>
-              </form>
+              <SignInButton />
               <Button asChild>
                 <Link href="/">🏠 Back to Home</Link>
               </Button>

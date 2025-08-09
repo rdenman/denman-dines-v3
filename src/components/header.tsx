@@ -1,9 +1,9 @@
-import { FormLoadingButton } from "@/components/form-loading-button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { UserMenu } from "@/components/user-menu";
-import { auth, signIn } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
+import { SignInButton } from "./sign-in-button";
 
 export async function Header() {
   const session = await auth();
@@ -32,20 +32,7 @@ export async function Header() {
         <div className="flex items-center space-x-4">
           <ModeToggle />
 
-          {session?.user ? (
-            <UserMenu user={session.user} />
-          ) : (
-            <form
-              action={async () => {
-                "use server";
-                await signIn("google");
-              }}
-            >
-              <FormLoadingButton type="submit" variant="outline">
-                Sign In
-              </FormLoadingButton>
-            </form>
-          )}
+          {session?.user ? <UserMenu user={session.user} /> : <SignInButton />}
         </div>
       </div>
     </header>
