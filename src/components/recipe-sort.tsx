@@ -7,20 +7,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SortOption } from "@/lib/recipe";
+import { SORT_OPTIONS, SortOption } from "@/lib/query";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
-
-const sortOptions = [
-  { value: "newest", label: "Newest First" },
-  { value: "oldest", label: "Oldest First" },
-  { value: "title-asc", label: "Title A-Z" },
-  { value: "title-desc", label: "Title Z-A" },
-  { value: "cook-time-asc", label: "Cook Time (Shortest)" },
-  { value: "cook-time-desc", label: "Cook Time (Longest)" },
-  { value: "servings-asc", label: "Servings (Fewest)" },
-  { value: "servings-desc", label: "Servings (Most)" },
-] as const;
 
 interface RecipeSortProps {
   currentSort?: SortOption;
@@ -49,7 +38,7 @@ export function RecipeSort({ currentSort = "newest" }: RecipeSortProps) {
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        {sortOptions.map((option) => (
+        {SORT_OPTIONS.map((option) => (
           <SelectItem key={option.value} value={option.value}>
             {option.label}
           </SelectItem>

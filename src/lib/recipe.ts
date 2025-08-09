@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { SortOption } from "@/lib/query";
 import type { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 
@@ -9,16 +10,6 @@ export const CACHE_TAGS = {
   RECIPE_DETAILS: "recipe-details",
   RECIPE_COUNT: "recipe-count",
 } as const;
-
-export type SortOption =
-  | "newest"
-  | "oldest"
-  | "title-asc"
-  | "title-desc"
-  | "cook-time-asc"
-  | "cook-time-desc"
-  | "servings-asc"
-  | "servings-desc";
 
 /**
  * Get the orderBy configuration for a given sort option

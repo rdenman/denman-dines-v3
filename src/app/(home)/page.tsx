@@ -7,11 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DEFAULT_RECIPES_PER_PAGE,
-  getPaginatedRecipes,
-  type SortOption,
-} from "@/lib/recipe";
+import { parseRecipeSearchParams, QuerySearchParams } from "@/lib/query";
+import { DEFAULT_RECIPES_PER_PAGE, getPaginatedRecipes } from "@/lib/recipe";
 import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,11 +24,9 @@ function getTotalTime(
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; sort?: string }>;
+  searchParams: Promise<QuerySearchParams>;
 }) {
-  const params = await searchParams;
-  const page = parseInt(params.page || "1");
-  const sort = (params.sort as SortOption) || "newest";
+  const { page, sort } = parseRecipeSearchParams(await searchParams);
 
   const { recipes, totalCount, totalPages, currentPage } =
     await getPaginatedRecipes(page, DEFAULT_RECIPES_PER_PAGE, sort);
