@@ -1,13 +1,11 @@
 import { RecipeForm } from "@/components/recipe-form";
 import { auth } from "@/lib/auth";
-import { redirect } from "next/navigation";
+import { unauthorized } from "next/navigation";
 
 export default async function NewRecipePage() {
-  // TODO make a requireAuth function
   const session = await auth();
   if (!session?.user) {
-    // TODO create an unauthenticated page with a link to sign in
-    redirect("/api/auth/signin");
+    unauthorized();
   }
 
   return (

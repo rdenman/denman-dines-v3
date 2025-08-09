@@ -43,7 +43,7 @@ export function UserMenu({ user }: UserMenuProps) {
         <DropdownMenuItem
           onClick={async () => {
             "use server";
-            await signOut();
+            await signOut({ redirectTo: "/" });
           }}
         >
           <LogOut className="mr-2 h-4 w-4" />
