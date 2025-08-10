@@ -41,11 +41,34 @@ export function RecipeForm() {
     },
   });
 
-  async function onSubmit(data: CreateRecipeInput) {
+  async function onSubmit(
+    data: CreateRecipeInput,
+    event?: React.BaseSyntheticEvent
+  ) {
     try {
+      let photoUrl: string | undefined;
+
+      const input = event?.target.photoFile as HTMLInputElement | undefined;
+      const file = input?.files?.[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+        const uploadResponse = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!uploadResponse.ok) {
+          throw new Error("Failed to upload file");
+        }
+
+        const { url } = await uploadResponse.json();
+        photoUrl = url;
+      }
+
       const response = await fetch("/api/recipes", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, photo: photoUrl }),
       });
 
       if (!response.ok) {
@@ -179,19 +202,14 @@ export function RecipeForm() {
                 />
               </div>
 
-              {/* TODO create a file picker */}
               <FormField
                 control={form.control}
                 name="photo"
-                render={({ field }) => (
+                render={() => (
                   <FormItem>
                     <FormLabel>Photo URL</FormLabel>
                     <FormControl>
-                      <Input
-                        type="url"
-                        placeholder="https://example.com/image.jpg"
-                        {...field}
-                      />
+                      <Input type="file" accept="image/*" name="photoFile" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
