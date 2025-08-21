@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/lib/auth";
 import type { DefaultUser } from "@auth/core/types";
-import { LogOut, Plus } from "lucide-react";
+import { Edit, LogOut, Plus } from "lucide-react";
 import Link from "next/link";
 
 interface UserMenuProps {
@@ -45,6 +45,12 @@ export function UserMenu({ user }: UserMenuProps) {
           <Link href="/recipes/new" className="flex items-center">
             <Plus className="mr-2 h-4 w-4" />
             <span>Create Recipe</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/recipes" className="flex items-center">
+            <Edit className="mr-2 h-4 w-4" />
+            <span>My Recipes</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem

@@ -9,16 +9,14 @@ export default async function NewRecipePage() {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-4">
-          <h1 className="text-3xl font-bold">Create New Recipe</h1>
-          <p className="text-muted-foreground mt-2">
-            Share your favorite recipe with the community
-          </p>
-        </div>
-        <RecipeForm />
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold mb-4">Create New Recipe</h1>
+        <p className="text-lg text-muted-foreground">
+          Share your culinary masterpiece with the world!
+        </p>
       </div>
+      <RecipeForm mode="create" />
     </div>
   );
 }

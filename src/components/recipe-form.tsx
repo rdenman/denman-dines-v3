@@ -21,12 +21,23 @@ import { useForm } from "react-hook-form";
 import { LoadingOverlay } from "./loading-overlay";
 import { Button } from "./ui/button";
 
-export function RecipeForm() {
+type RecipeFormProps =
+  | {
+      mode: "create";
+      initialData?: undefined;
+    }
+  | {
+      mode: "edit";
+      initialData: CreateRecipeInput & { id: string; slug: string };
+    };
+
+export function RecipeForm({ mode, initialData }: RecipeFormProps) {
   const router = useRouter();
+  const isEditMode = mode === "edit";
 
   const form = useForm<CreateRecipeInput>({
     resolver: zodResolver(createRecipeSchema),
-    defaultValues: {
+    defaultValues: initialData || {
       title: "",
       description: "",
       photo: "",
@@ -66,19 +77,27 @@ export function RecipeForm() {
         photoUrl = url;
       }
 
-      const response = await fetch("/api/recipes", {
-        method: "POST",
+      const endpoint = isEditMode
+        ? `/api/recipes/${initialData.id}`
+        : "/api/recipes";
+      const method = isEditMode ? "PUT" : "POST";
+
+      const response = await fetch(endpoint, {
+        method,
         body: JSON.stringify({ ...data, photo: photoUrl }),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to create recipe");
+        throw new Error(`Failed to ${isEditMode ? "update" : "create"} recipe`);
       }
 
       const recipe = await response.json();
       router.push(`/recipes/${recipe.slug}`);
     } catch (error) {
-      console.error("Error creating recipe:", error);
+      console.error(
+        `Error ${isEditMode ? "updating" : "creating"} recipe:`,
+        error
+      );
       // TODO: Add toast notification for error
     }
   }
@@ -207,10 +226,16 @@ export function RecipeForm() {
                 name="photo"
                 render={() => (
                   <FormItem>
-                    <FormLabel>Photo URL</FormLabel>
+                    <FormLabel>Photo</FormLabel>
                     <FormControl>
                       <Input type="file" accept="image/*" name="photoFile" />
                     </FormControl>
+                    {/* TODO add photo preview */}
+                    {initialData?.photo && (
+                      <p className="text-sm text-muted-foreground">
+                        Current photo: {initialData.photo}
+                      </p>
+                    )}
                     <FormMessage />
                   </FormItem>
                 )}
@@ -228,13 +253,20 @@ export function RecipeForm() {
           <TipsSection control={form.control} />
 
           {/* Submit Button */}
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-4">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => router.back()}
+            >
+              Cancel
+            </Button>
             <Button
               type="submit"
               size="lg"
               disabled={form.formState.isSubmitting}
             >
-              Create Recipe
+              {isEditMode ? "Update Recipe" : "Create Recipe"}
             </Button>
           </div>
         </form>

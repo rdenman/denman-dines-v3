@@ -1,7 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { getRecipeBySlug } from "@/lib/recipe";
 import { exists, formatTime } from "@/lib/utils";
+import { auth } from "@/lib/auth";
+import { Edit } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface RecipePageProps {
@@ -12,17 +16,30 @@ interface RecipePageProps {
 
 export default async function RecipePage({ params }: RecipePageProps) {
   const { slug } = await params;
+  const session = await auth();
   const recipe = await getRecipeBySlug(slug);
 
   if (!recipe) {
     notFound();
   }
 
+  const isOwner = session?.user?.id === recipe.userId;
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       {/* Recipe Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">{recipe.title}</h1>
+        <div className="flex justify-between items-start mb-4">
+          <h1 className="text-4xl font-bold">{recipe.title}</h1>
+          {isOwner && (
+            <Button asChild size="sm" variant="outline">
+              <Link href={`/recipes/${slug}/edit`} className="flex items-center gap-2">
+                <Edit className="h-4 w-4" />
+                Edit Recipe
+              </Link>
+            </Button>
+          )}
+        </div>
         {recipe.description && (
           <p className="text-lg text-muted-foreground mb-6">
             {recipe.description}
