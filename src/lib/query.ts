@@ -1,3 +1,5 @@
+import type { Prisma } from "@prisma/client";
+
 export const SORT_OPTIONS = [
   { value: "newest", label: "Newest First" },
   { value: "oldest", label: "Oldest First" },
@@ -14,10 +16,45 @@ export type SortOption = (typeof SORT_OPTIONS)[number]["value"];
 export interface QuerySearchParams {
   page?: string;
   sort?: string;
+  q?: string;
 }
 
-function isValidSortOption(value: string): value is SortOption {
+export function isValidSortOption(value: string): value is SortOption {
   return SORT_OPTIONS.some((option) => option.value === value);
+}
+
+/**
+ * Get the orderBy configuration for a given sort option
+ */
+export function getOrderByForSort(
+  sortOption: SortOption
+):
+  | Prisma.RecipeOrderByWithRelationInput
+  | Prisma.RecipeOrderByWithRelationInput[] {
+  switch (sortOption) {
+    case "newest":
+      return { createdAt: "desc" };
+    case "oldest":
+      return { createdAt: "asc" };
+    case "title-asc":
+      return { title: "asc" };
+    case "title-desc":
+      return { title: "desc" };
+    case "cook-time-asc":
+      return [{ cookTime: "asc" }, { prepTime: "asc" }, { createdAt: "desc" }];
+    case "cook-time-desc":
+      return [
+        { cookTime: "desc" },
+        { prepTime: "desc" },
+        { createdAt: "desc" },
+      ];
+    case "servings-asc":
+      return [{ servings: "asc" }, { createdAt: "desc" }];
+    case "servings-desc":
+      return [{ servings: "desc" }, { createdAt: "desc" }];
+    default:
+      return { createdAt: "desc" };
+  }
 }
 
 export function parseRecipeSearchParams(params: QuerySearchParams) {
@@ -27,5 +64,7 @@ export function parseRecipeSearchParams(params: QuerySearchParams) {
   const sort =
     params.sort && isValidSortOption(params.sort) ? params.sort : "newest";
 
-  return { page, sort };
+  const query = params.q?.trim() || "";
+
+  return { page, sort, query };
 }

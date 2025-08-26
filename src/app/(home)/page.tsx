@@ -1,3 +1,4 @@
+import { RecipeSearch } from "@/components/recipe-search";
 import { RecipeSort } from "@/components/recipe-sort";
 import { SmartPagination } from "@/components/smart-pagination";
 import {
@@ -26,29 +27,54 @@ export default async function Home({
 }: {
   searchParams: Promise<QuerySearchParams>;
 }) {
-  const { page, sort } = parseRecipeSearchParams(await searchParams);
+  const { page, sort, query } = parseRecipeSearchParams(await searchParams);
 
   const { recipes, totalCount, totalPages, currentPage } =
-    await getPaginatedRecipes(page, DEFAULT_RECIPES_PER_PAGE, sort);
+    await getPaginatedRecipes(page, DEFAULT_RECIPES_PER_PAGE, sort, query);
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-center mb-4">Denman Dines</h1>
-        <p className="text-center text-muted-foreground text-lg">
+        <p className="text-center text-muted-foreground text-lg mb-6">
           The GOAT of recipe sites
         </p>
+        <div className="max-w-2xl mx-auto">
+          <RecipeSearch />
+        </div>
       </div>
 
       {recipes.length === 0 ? (
         <div className="text-center py-12">
-          <h2 className="text-2xl font-semibold mb-4">No recipes yet</h2>
-          <p className="text-muted-foreground">
-            Be the first to share a recipe!
-          </p>
+          {query ? (
+            <>
+              <h2 className="text-2xl font-semibold mb-4">No recipes found</h2>
+              <p className="text-muted-foreground">
+                No recipes match your search for &quot;{query}&quot;. Try a
+                different search term.
+              </p>
+            </>
+          ) : (
+            <>
+              <h2 className="text-2xl font-semibold mb-4">No recipes yet</h2>
+              <p className="text-muted-foreground">
+                Be the first to share a recipe!
+              </p>
+            </>
+          )}
         </div>
       ) : (
         <>
+          {query && (
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold mb-2">
+                Search results for &quot;{query}&quot;
+              </h2>
+              <p className="text-muted-foreground">
+                Found {totalCount} recipe{totalCount !== 1 ? "s" : ""}
+              </p>
+            </div>
+          )}
           <div className="flex justify-end items-center mb-6 w-full sm:w-auto">
             <RecipeSort currentSort={sort} />
           </div>

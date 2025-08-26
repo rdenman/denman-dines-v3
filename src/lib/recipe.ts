@@ -1,9 +1,9 @@
 import prisma from "@/lib/prisma";
-import { SortOption } from "@/lib/query";
+import { SortOption, getOrderByForSort } from "@/lib/query";
 import type { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 
-export const DEFAULT_RECIPES_PER_PAGE = 24;
+export const DEFAULT_RECIPES_PER_PAGE = 100;
 
 export const CACHE_TAGS = {
   RECIPES: "recipes",
@@ -12,59 +12,65 @@ export const CACHE_TAGS = {
 } as const;
 
 /**
- * Get the orderBy configuration for a given sort option
- */
-function getOrderByForSort(
-  sortOption: SortOption
-):
-  | Prisma.RecipeOrderByWithRelationInput
-  | Prisma.RecipeOrderByWithRelationInput[] {
-  switch (sortOption) {
-    case "newest":
-      return { createdAt: "desc" };
-    case "oldest":
-      return { createdAt: "asc" };
-    case "title-asc":
-      return { title: "asc" };
-    case "title-desc":
-      return { title: "desc" };
-    case "cook-time-asc":
-      return [{ cookTime: "asc" }, { prepTime: "asc" }, { createdAt: "desc" }];
-    case "cook-time-desc":
-      return [
-        { cookTime: "desc" },
-        { prepTime: "desc" },
-        { createdAt: "desc" },
-      ];
-    case "servings-asc":
-      return [{ servings: "asc" }, { createdAt: "desc" }];
-    case "servings-desc":
-      return [{ servings: "desc" }, { createdAt: "desc" }];
-    default:
-      return { createdAt: "desc" };
-  }
-}
-
-/**
  * Get paginated recipes with user information and sorting
  */
 export async function getPaginatedRecipes(
   page: number = 1,
   pageSize: number = DEFAULT_RECIPES_PER_PAGE,
-  sort: SortOption = "newest"
+  sort: SortOption = "newest",
+  searchQuery?: string
 ) {
   const getCachedRecipes = unstable_cache(
     async (
       pageNumber: number,
       recipesPerPage: number,
-      sortOption: SortOption
+      sortOption: SortOption,
+      query?: string
     ) => {
       console.log(
-        `🔄 Cache MISS: Fetching recipes for page ${pageNumber} with page size ${recipesPerPage} and sort ${sortOption} from database`
+        `🔄 Cache MISS: Fetching recipes for page ${pageNumber} with page size ${recipesPerPage}, sort ${sortOption}, and query "${query}" from database`
       );
+
+      // Create search conditions if query is provided
+      const searchConditions: Prisma.RecipeWhereInput = query
+        ? {
+            OR: [
+              // Search in recipe title
+              {
+                title: {
+                  contains: query,
+                  mode: "insensitive",
+                },
+              },
+              // Search in recipe description
+              {
+                description: {
+                  contains: query,
+                  mode: "insensitive",
+                },
+              },
+              // Search in ingredient names
+              {
+                ingredientSections: {
+                  some: {
+                    ingredients: {
+                      some: {
+                        name: {
+                          contains: query,
+                          mode: "insensitive",
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            ],
+          }
+        : {};
 
       const [recipes, totalCount] = await Promise.all([
         prisma.recipe.findMany({
+          where: searchConditions,
           include: {
             user: {
               select: {
@@ -76,7 +82,9 @@ export async function getPaginatedRecipes(
           skip: (pageNumber - 1) * recipesPerPage,
           take: recipesPerPage,
         }),
-        prisma.recipe.count(),
+        prisma.recipe.count({
+          where: searchConditions,
+        }),
       ]);
 
       return {
@@ -92,7 +100,7 @@ export async function getPaginatedRecipes(
     }
   );
 
-  return getCachedRecipes(page, pageSize, sort);
+  return getCachedRecipes(page, pageSize, sort, searchQuery);
 }
 
 /**
