@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { getRecipeBySlug } from "@/lib/recipe";
-import { exists, formatTime } from "@/lib/utils";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { auth } from "@/lib/auth";
+import { getRecipeBySlug } from "@/lib/recipe";
+import { exists, formatIngredientAmount, formatTime } from "@/lib/utils";
 import { Edit } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,7 +33,10 @@ export default async function RecipePage({ params }: RecipePageProps) {
           <h1 className="text-4xl font-bold">{recipe.title}</h1>
           {isOwner && (
             <Button asChild size="sm" variant="outline">
-              <Link href={`/recipes/${slug}/edit`} className="flex items-center gap-2">
+              <Link
+                href={`/recipes/${slug}/edit`}
+                className="flex items-center gap-2"
+              >
                 <Edit className="h-4 w-4" />
                 Edit Recipe
               </Link>
@@ -105,9 +108,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
                           key={ingredient.id}
                           className="flex items-start gap-2"
                         >
-                          {ingredient.amount && (
+                          {formatIngredientAmount(ingredient.amount) && (
                             <span className="font-medium text-muted-foreground min-w-0">
-                              {ingredient.amount}
+                              {formatIngredientAmount(ingredient.amount)}
                             </span>
                           )}
                           <span className="flex-1">
