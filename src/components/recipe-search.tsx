@@ -78,6 +78,12 @@ export function RecipeSearch({
     if (query.trim().length >= 3 || query.trim().length === 0) {
       handleSearch(query);
     }
+    // Blur the input to hide mobile keyboard
+    const target = e.target as HTMLFormElement;
+    const input = target.querySelector("input");
+    if (input) {
+      input.blur();
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
