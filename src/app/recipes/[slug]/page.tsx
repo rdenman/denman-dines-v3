@@ -1,8 +1,10 @@
+import { InteractiveIngredients } from "@/components/interactive-ingredients";
+import { InteractiveInstructions } from "@/components/interactive-instructions";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { auth } from "@/lib/auth";
 import { getRecipeBySlug } from "@/lib/recipe";
-import { exists, formatIngredientAmount, formatTime } from "@/lib/utils";
+import { exists, formatTime } from "@/lib/utils";
 import { Edit } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -94,87 +96,19 @@ export default async function RecipePage({ params }: RecipePageProps) {
         {/* Ingredients */}
         <div>
           <h2 className="text-2xl font-bold mb-6">Ingredients</h2>
-          {recipe.ingredientSections.length > 0 ? (
-            <div className="space-y-6">
-              {recipe.ingredientSections.map((section) => (
-                <Card key={section.id}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{section.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {section.ingredients.map((ingredient) => (
-                        <li
-                          key={ingredient.id}
-                          className="flex items-start gap-2"
-                        >
-                          {formatIngredientAmount(ingredient.amount) && (
-                            <span className="font-medium text-muted-foreground min-w-0">
-                              {formatIngredientAmount(ingredient.amount)}
-                            </span>
-                          )}
-                          <span className="flex-1">
-                            {ingredient.name}
-                            {ingredient.preparation && (
-                              <span className="text-muted-foreground text-sm ml-2">
-                                ({ingredient.preparation})
-                              </span>
-                            )}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <Card>
-              <CardContent className="py-8">
-                <p className="text-center text-muted-foreground">
-                  No ingredients added yet.
-                </p>
-              </CardContent>
-            </Card>
-          )}
+          <InteractiveIngredients
+            sections={recipe.ingredientSections}
+            recipeSlug={slug}
+          />
         </div>
 
         {/* Instructions */}
         <div>
           <h2 className="text-2xl font-bold mb-6">Instructions</h2>
-          {recipe.instructionSections.length > 0 ? (
-            <div className="space-y-6">
-              {recipe.instructionSections.map((section) => (
-                <Card key={section.id}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{section.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ol className="space-y-4">
-                      {section.instructions.map((instruction, index) => (
-                        <li key={instruction.id} className="flex gap-4">
-                          <span className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium">
-                            {index + 1}
-                          </span>
-                          <span className="flex-1 pt-1">
-                            {instruction.text}
-                          </span>
-                        </li>
-                      ))}
-                    </ol>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <Card>
-              <CardContent className="py-8">
-                <p className="text-center text-muted-foreground">
-                  No instructions added yet.
-                </p>
-              </CardContent>
-            </Card>
-          )}
+          <InteractiveInstructions
+            sections={recipe.instructionSections}
+            recipeSlug={slug}
+          />
         </div>
       </div>
 

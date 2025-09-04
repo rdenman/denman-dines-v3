@@ -1,3 +1,4 @@
+import { Ingredient } from "@prisma/client";
 import { clsx, type ClassValue } from "clsx";
 import Fraction from "fraction.js";
 import { twMerge } from "tailwind-merge";
@@ -44,6 +45,18 @@ export function formatIngredientAmount(amount: string | null): string {
 
   // Return the formatted fraction with the rest of the text
   return rest ? `${formattedNumber} ${rest}` : formattedNumber;
+}
+
+export function formatIngredient(ingredient: Ingredient): string {
+  let formatted = "";
+  if (ingredient.amount) {
+    formatted += formatIngredientAmount(ingredient.amount) + " ";
+  }
+  formatted += ingredient.name;
+  if (ingredient.preparation) {
+    formatted += `, ${ingredient.preparation}`;
+  }
+  return formatted.trim();
 }
 
 export function exists<T>(value: T | null | undefined): value is T {
