@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -11,7 +11,7 @@ interface RecipeSearchProps {
 }
 
 export function RecipeSearch({
-  placeholder = "Search recipes by name or ingredients (min 3 characters)...",
+  placeholder = "Search for a recipe",
   className = "",
 }: RecipeSearchProps) {
   const router = useRouter();
@@ -92,6 +92,11 @@ export function RecipeSearch({
     debouncedSearch(newQuery);
   };
 
+  const handleClear = () => {
+    setQuery("");
+    handleSearch("");
+  };
+
   return (
     <form onSubmit={handleSubmit} className={`relative ${className}`}>
       <div className="relative">
@@ -101,8 +106,18 @@ export function RecipeSearch({
           placeholder={placeholder}
           value={query}
           onChange={handleInputChange}
-          className="pl-10 pr-4 py-2 w-full"
+          className="pl-10 pr-10 py-2 w-full"
         />
+        {query && (
+          <button
+            type="button"
+            onClick={handleClear}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors h-4 w-4 cursor-pointer"
+            aria-label="Clear search"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        )}
       </div>
     </form>
   );
