@@ -1,6 +1,6 @@
 import { RecipeForm } from "@/components/recipe-form";
-import { getRecipeBySlug } from "@/lib/recipe";
 import { auth } from "@/lib/auth";
+import { getRecipeBySlug } from "@/lib/recipe";
 import { notFound, unauthorized } from "next/navigation";
 
 interface EditRecipePageProps {
@@ -11,14 +11,15 @@ interface EditRecipePageProps {
 
 export default async function EditRecipePage({ params }: EditRecipePageProps) {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
   const session = await auth();
-  
+
   if (!session?.user) {
     unauthorized();
   }
 
-  const recipe = await getRecipeBySlug(slug);
-  
+  const recipe = await getRecipeBySlug(decodedSlug);
+
   if (!recipe) {
     notFound();
   }

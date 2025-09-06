@@ -92,7 +92,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
       }
 
       const recipe = await response.json();
-      router.push(`/recipes/${recipe.slug}`);
+      router.push(`/recipes/${encodeURIComponent(recipe.slug)}`);
     } catch (error) {
       console.error(
         `Error ${isEditMode ? "updating" : "creating"} recipe:`,

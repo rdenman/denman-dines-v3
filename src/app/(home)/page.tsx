@@ -81,7 +81,10 @@ export default async function Home({
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {recipes.map((recipe) => (
-              <Link key={recipe.id} href={`/recipes/${recipe.slug}`}>
+              <Link
+                key={recipe.id}
+                href={`/recipes/${encodeURIComponent(recipe.slug)}`}
+              >
                 <Card className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer">
                   {/* Mobile layout: horizontal with image on left */}
                   <div className="md:hidden flex">

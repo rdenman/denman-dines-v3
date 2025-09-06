@@ -18,8 +18,9 @@ interface RecipePageProps {
 
 export default async function RecipePage({ params }: RecipePageProps) {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
   const session = await auth();
-  const recipe = await getRecipeBySlug(slug);
+  const recipe = await getRecipeBySlug(decodedSlug);
 
   if (!recipe) {
     notFound();
@@ -36,7 +37,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
           {isOwner && (
             <Button asChild size="sm" variant="outline">
               <Link
-                href={`/recipes/${slug}/edit`}
+                href={`/recipes/${encodeURIComponent(slug)}/edit`}
                 className="flex items-center gap-2"
               >
                 <Edit className="h-4 w-4" />

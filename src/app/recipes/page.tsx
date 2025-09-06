@@ -65,7 +65,9 @@ export default async function MyRecipesPage() {
                 <div className="flex justify-between items-start">
                   <CardTitle className="line-clamp-2">{recipe.title}</CardTitle>
                   <Button asChild size="sm" variant="outline">
-                    <Link href={`/recipes/${recipe.slug}/edit`}>
+                    <Link
+                      href={`/recipes/${encodeURIComponent(recipe.slug)}/edit`}
+                    >
                       <Edit className="h-4 w-4" />
                     </Link>
                   </Button>
@@ -103,7 +105,9 @@ export default async function MyRecipesPage() {
                     size="sm"
                     className="w-full"
                   >
-                    <Link href={`/recipes/${recipe.slug}`}>View Recipe</Link>
+                    <Link href={`/recipes/${encodeURIComponent(recipe.slug)}`}>
+                      View Recipe
+                    </Link>
                   </Button>
                 </div>
               </CardContent>
