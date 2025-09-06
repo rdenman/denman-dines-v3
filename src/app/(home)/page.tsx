@@ -1,4 +1,3 @@
-import { RecipeSearch } from "@/components/recipe-search";
 import { RecipeSort } from "@/components/recipe-sort";
 import { SmartPagination } from "@/components/smart-pagination";
 import {
@@ -34,14 +33,11 @@ export default async function Home({
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
+      <div className="mb-2">
         <h1 className="text-4xl font-bold text-center mb-4">Denman Dines</h1>
         <p className="text-center text-muted-foreground text-lg mb-6">
           The GOAT of recipe sites
         </p>
-        <div className="max-w-2xl mx-auto">
-          <RecipeSearch />
-        </div>
       </div>
 
       {recipes.length === 0 ? (
