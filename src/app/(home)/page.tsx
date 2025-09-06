@@ -106,13 +106,13 @@ export default async function Home({
                       )}
                     </div>
 
-                    <div className="flex-1 py-2 px-4">
-                      <CardTitle className="mb-2 text-md">
+                    <div className="flex-1 px-4">
+                      <CardTitle className="text-md mb-1">
                         {recipe.title}
                       </CardTitle>
 
                       {recipe.description && (
-                        <CardDescription className="mb-3">
+                        <CardDescription className="mb-1">
                           <div
                             className="overflow-hidden"
                             style={{
@@ -144,12 +144,6 @@ export default async function Home({
                           </span>
                         </div>
                       </div>
-
-                      {recipe.user.name && (
-                        <div className="text-xs text-muted-foreground mt-2">
-                          by {recipe.user.name}
-                        </div>
-                      )}
                     </div>
                   </div>
 
@@ -216,12 +210,6 @@ export default async function Home({
                           </span>
                         </div>
                       </div>
-
-                      {recipe.user.name && (
-                        <div className="text-xs text-muted-foreground mt-2">
-                          by {recipe.user.name}
-                        </div>
-                      )}
                     </CardContent>
                   </div>
                 </Card>
