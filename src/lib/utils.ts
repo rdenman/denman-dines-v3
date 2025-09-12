@@ -20,7 +20,7 @@ export function formatTime(minutes: number): string {
 }
 
 export function formatFraction(num: number): string {
-  const fraction = new Fraction(num);
+  const fraction = new Fraction(num).simplify(0.01);
   return fraction.toFraction(true);
 }
 
