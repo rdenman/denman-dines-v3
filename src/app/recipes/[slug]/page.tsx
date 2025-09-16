@@ -10,6 +10,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }: RecipePageProps) {
+  const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
+  const recipe = await getRecipeBySlug(decodedSlug);
+
+  if (!recipe) {
+    notFound();
+  }
+
+  return {
+    title: recipe.title,
+    description: recipe.description,
+  };
+}
+
 interface RecipePageProps {
   params: Promise<{
     slug: string;
