@@ -26,7 +26,7 @@ export function RecipeSearch({
 
   const handleSearch = useCallback(
     (searchQuery: string) => {
-      const params = new URLSearchParams(searchParams);
+      const params = new URLSearchParams();
 
       if (searchQuery.trim()) {
         params.set("q", searchQuery.trim());
@@ -36,10 +36,11 @@ export function RecipeSearch({
         params.delete("page");
       }
 
-      const newUrl = params.toString() ? `?${params.toString()}` : "/";
+      // Always navigate to home page for search results
+      const newUrl = params.toString() ? `/?${params.toString()}` : "/";
       router.push(newUrl);
     },
-    [router, searchParams]
+    [router]
   );
 
   // Debounced search function
