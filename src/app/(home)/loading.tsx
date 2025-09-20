@@ -4,19 +4,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function HomeLoading() {
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Header Skeleton */}
-      <div className="mb-2">
-        <Skeleton className="h-10 rounded-lg mb-4 w-48 mx-auto" />
-        <Skeleton className="h-6 rounded-lg w-64 mx-auto mb-6" />
-      </div>
-
       {/* Sort Button Skeleton */}
-      <div className="flex justify-end items-center mb-6 w-full sm:w-auto">
+      <div className="flex justify-end items-center mb-4 w-full sm:w-auto">
         <Skeleton className="h-10 w-full sm:w-32 rounded" />
       </div>
 
       {/* Recipe Cards Grid Skeleton */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {Array.from({ length: 12 }).map((_, i) => (
           <Card key={i} className="h-full">
             {/* Mobile layout: horizontal with image on left */}

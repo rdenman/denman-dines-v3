@@ -35,14 +35,7 @@ export default async function Home({
     await getPaginatedRecipes(page, DEFAULT_RECIPES_PER_PAGE, sort, query);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-2">
-        <h1 className="text-4xl font-bold text-center mb-4">Denman Dines</h1>
-        <p className="text-center text-muted-foreground text-lg mb-6">
-          The GOAT of recipe sites
-        </p>
-      </div>
-
+    <div className="container mx-auto px-4 py-4">
       {recipes.length === 0 ? (
         <div className="text-center py-12">
           {query ? (
@@ -65,7 +58,7 @@ export default async function Home({
       ) : (
         <>
           {query && (
-            <div className="mb-6">
+            <div className="mb-4">
               <h2 className="text-xl font-semibold mb-2">
                 Search results for &quot;{query}&quot;
               </h2>
@@ -74,11 +67,11 @@ export default async function Home({
               </p>
             </div>
           )}
-          <div className="flex justify-end items-center mb-6 w-full sm:w-auto">
+          <div className="flex justify-end items-center mb-4 w-full sm:w-auto">
             <RecipeSort currentSort={sort} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {recipes.map((recipe) => (
               <Link
                 key={recipe.id}
