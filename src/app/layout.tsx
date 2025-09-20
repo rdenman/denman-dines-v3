@@ -15,10 +15,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Denman Dines";
+const description =
+  "A clean, ad-free recipe collection where you can easily find and save simple, straightforward recipes you actually want to cook. No distractions, just the recipes you love — organized and ready for your next meal.";
 export const metadata: Metadata = {
-  title: "Denman Dines",
-  description:
-    "A clean, ad-free recipe collection where you can easily find and save simple, straightforward recipes you actually want to cook. No distractions, just the recipes you love — organized and ready for your next meal.",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "https://denmandines.com",
+    type: "article",
+    images: [
+      {
+        url: "https://denmandines.com/logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Denman Dines",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["https://denmandines.com/logo.webp"],
+  },
 };
 
 export default function RootLayout({

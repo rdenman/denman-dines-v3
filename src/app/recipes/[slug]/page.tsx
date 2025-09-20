@@ -22,6 +22,26 @@ export async function generateMetadata({ params }: RecipePageProps) {
   return {
     title: recipe.title,
     description: recipe.description,
+    openGraph: {
+      title: recipe.title,
+      description: recipe.description,
+      url: `https://denmandines.com/recipes/${slug}`,
+      type: "article",
+      images: [
+        {
+          url: recipe.photo,
+          width: 1200,
+          height: 630,
+          alt: recipe.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: recipe.title,
+      description: recipe.description,
+      images: [recipe.photo],
+    },
   };
 }
 
