@@ -7,7 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { parseRecipeSearchParams, QuerySearchParams } from "@/lib/query";
+import { QuerySearchParams } from "@/lib/query";
+import { parseRecipeSearchParams } from "@/lib/query.server";
 import { DEFAULT_RECIPES_PER_PAGE, getPaginatedRecipes } from "@/lib/recipe";
 import { formatTime } from "@/lib/utils";
 import Image from "next/image";
@@ -26,7 +27,9 @@ export default async function Home({
 }: {
   searchParams: Promise<QuerySearchParams>;
 }) {
-  const { page, sort, query } = parseRecipeSearchParams(await searchParams);
+  const { page, sort, query } = await parseRecipeSearchParams(
+    await searchParams
+  );
 
   const { recipes, totalCount, totalPages, currentPage } =
     await getPaginatedRecipes(page, DEFAULT_RECIPES_PER_PAGE, sort, query);

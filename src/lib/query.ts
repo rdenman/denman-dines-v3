@@ -56,15 +56,3 @@ export function getOrderByForSort(
       return { createdAt: "desc" };
   }
 }
-
-export function parseRecipeSearchParams(params: QuerySearchParams) {
-  const pageNum = parseInt(params.page || "1", 10);
-  const page = Number.isNaN(pageNum) || pageNum < 1 ? 1 : pageNum;
-
-  const sort =
-    params.sort && isValidSortOption(params.sort) ? params.sort : "newest";
-
-  const query = params.q?.trim() || "";
-
-  return { page, sort, query };
-}
