@@ -24,6 +24,39 @@ export function isValidSortOption(value: string): value is SortOption {
 }
 
 /**
+ * Check if a sort option requires raw SQL for complex sorting
+ */
+export function requiresRawSqlSort(sortOption: SortOption): boolean {
+  return sortOption === "cook-time-asc" || sortOption === "cook-time-desc";
+}
+
+/**
+ * Get raw SQL ORDER BY clause for complex sorting
+ */
+export function getRawSqlOrderBy(sortOption: SortOption): string {
+  switch (sortOption) {
+    case "cook-time-asc":
+      return `ORDER BY 
+        CASE 
+          WHEN "cookTime" IS NULL AND "prepTime" IS NULL THEN 1 
+          ELSE 0 
+        END ASC,
+        (COALESCE("cookTime", 0) + COALESCE("prepTime", 0)) ASC, 
+        "createdAt" DESC`;
+    case "cook-time-desc":
+      return `ORDER BY 
+        CASE 
+          WHEN "cookTime" IS NULL AND "prepTime" IS NULL THEN 1 
+          ELSE 0 
+        END ASC,
+        (COALESCE("cookTime", 0) + COALESCE("prepTime", 0)) DESC, 
+        "createdAt" DESC`;
+    default:
+      return "";
+  }
+}
+
+/**
  * Get the orderBy configuration for a given sort option
  */
 export function getOrderByForSort(
@@ -41,17 +74,21 @@ export function getOrderByForSort(
     case "title-desc":
       return { title: "desc" };
     case "cook-time-asc":
-      return [{ cookTime: "asc" }, { prepTime: "asc" }, { createdAt: "desc" }];
     case "cook-time-desc":
+      // These require raw SQL for total time calculation
+      throw new Error(
+        "Cook time sorting requires raw SQL - use requiresRawSqlSort() check"
+      );
+    case "servings-asc":
       return [
-        { cookTime: "desc" },
-        { prepTime: "desc" },
+        { servings: { sort: "asc", nulls: "last" } },
         { createdAt: "desc" },
       ];
-    case "servings-asc":
-      return [{ servings: "asc" }, { createdAt: "desc" }];
     case "servings-desc":
-      return [{ servings: "desc" }, { createdAt: "desc" }];
+      return [
+        { servings: { sort: "desc", nulls: "last" } },
+        { createdAt: "desc" },
+      ];
     default:
       return { createdAt: "desc" };
   }
