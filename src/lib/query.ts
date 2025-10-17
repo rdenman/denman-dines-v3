@@ -17,7 +17,15 @@ export type SortDirection = "asc" | "desc";
 
 export interface QuerySearchParams {
   page?: string;
+  size?: string;
   sort?: string;
+  q?: string;
+}
+
+export interface PaginatedQueryParams<T = string> {
+  page?: number;
+  size?: number;
+  sort?: T;
   q?: string;
 }
 

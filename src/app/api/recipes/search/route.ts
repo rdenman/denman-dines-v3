@@ -6,6 +6,7 @@ import {
   isValidSortOption,
   requiresRawSqlSort,
 } from "@/lib/query";
+import { DEFAULT_RECIPES_PER_PAGE } from "@/lib/recipe";
 import type { Prisma } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -40,12 +41,16 @@ export async function GET(request: NextRequest) {
     const query = searchParams.get("q") || "";
     const pageParam = searchParams.get("page") || "1";
     const sortParam = searchParams.get("sort") || "newest";
+    const sizeParam = searchParams.get("size") || `${DEFAULT_RECIPES_PER_PAGE}`;
 
     const page = Math.max(1, parseInt(pageParam, 10) || 1);
+    const size = Math.max(
+      1,
+      parseInt(sizeParam, 10) || DEFAULT_RECIPES_PER_PAGE
+    );
     const sort: SortOption = isValidSortOption(sortParam)
       ? sortParam
       : "newest";
-    const pageSize = 24; // Same as DEFAULT_RECIPES_PER_PAGE
 
     if (!query.trim()) {
       return NextResponse.json({
@@ -126,12 +131,7 @@ export async function GET(request: NextRequest) {
       `;
 
       const [recipeResults, countResults] = await Promise.all([
-        prisma.$queryRawUnsafe(
-          sql,
-          `%${query}%`,
-          pageSize,
-          (page - 1) * pageSize
-        ),
+        prisma.$queryRawUnsafe(sql, `%${query}%`, size, (page - 1) * size),
         prisma.$queryRawUnsafe(countSql, `%${query}%`),
       ]);
 
@@ -166,8 +166,8 @@ export async function GET(request: NextRequest) {
             },
           },
           orderBy: getOrderByForSort(sort),
-          skip: (page - 1) * pageSize,
-          take: pageSize,
+          skip: (page - 1) * size,
+          take: size,
         }),
         prisma.recipe.count({
           where: searchConditions,
@@ -178,7 +178,7 @@ export async function GET(request: NextRequest) {
     const response: SearchResponse = {
       recipes,
       totalCount,
-      totalPages: Math.ceil(totalCount / pageSize),
+      totalPages: Math.ceil(totalCount / size),
       currentPage: page,
     };
 

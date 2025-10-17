@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import {
+  PaginatedQueryParams,
   SortOption,
   getOrderByForSort,
   getRawSqlOrderBy,
@@ -19,38 +20,33 @@ export const CACHE_TAGS = {
 /**
  * Get paginated recipes with user information and sorting
  */
-export async function getPaginatedRecipes(
-  page: number = 1,
-  pageSize: number = DEFAULT_RECIPES_PER_PAGE,
-  sort: SortOption = "newest",
-  searchQuery?: string
-) {
+export async function getPaginatedRecipes({
+  page = 1,
+  size = DEFAULT_RECIPES_PER_PAGE,
+  sort = "newest",
+  q,
+}: PaginatedQueryParams<SortOption>) {
   const getCachedRecipes = unstable_cache(
-    async (
-      pageNumber: number,
-      recipesPerPage: number,
-      sortOption: SortOption,
-      query?: string
-    ) => {
+    async (page: number, size: number, sortOption: SortOption, q?: string) => {
       console.log(
-        `🔄 Cache MISS: Fetching recipes for page ${pageNumber} with page size ${recipesPerPage}, sort ${sortOption}, and query "${query}" from database`
+        `🔄 Cache MISS: Fetching recipes for page ${page} with page size ${size}, sort ${sortOption}, and query "${q}" from database`
       );
 
       // Create search conditions if query is provided
-      const searchConditions: Prisma.RecipeWhereInput = query
+      const searchConditions: Prisma.RecipeWhereInput = q
         ? {
             OR: [
               // Search in recipe title
               {
                 title: {
-                  contains: query,
+                  contains: q,
                   mode: "insensitive",
                 },
               },
               // Search in recipe description
               {
                 description: {
-                  contains: query,
+                  contains: q,
                   mode: "insensitive",
                 },
               },
@@ -61,7 +57,7 @@ export async function getPaginatedRecipes(
                     ingredients: {
                       some: {
                         name: {
-                          contains: query,
+                          contains: q,
                           mode: "insensitive",
                         },
                       },
@@ -84,7 +80,7 @@ export async function getPaginatedRecipes(
         const params: unknown[] = [];
         let paramCount = 0;
 
-        if (query) {
+        if (q) {
           paramCount++;
           whereClause = `
             WHERE (
@@ -98,16 +94,16 @@ export async function getPaginatedRecipes(
               )
             )
           `;
-          params.push(`%${query}%`);
+          params.push(`%${q}%`);
         }
 
         paramCount++;
         const limitParam = paramCount;
-        params.push(recipesPerPage);
+        params.push(size);
 
         paramCount++;
         const offsetParam = paramCount;
-        params.push((pageNumber - 1) * recipesPerPage);
+        params.push((page - 1) * size);
 
         const sql = `
           SELECT r.*, u."name" as "user_name"
@@ -126,7 +122,7 @@ export async function getPaginatedRecipes(
 
         const [recipeResults, countResults] = await Promise.all([
           prisma.$queryRawUnsafe(sql, ...params),
-          prisma.$queryRawUnsafe(countSql, ...params.slice(0, query ? 1 : 0)),
+          prisma.$queryRawUnsafe(countSql, ...params.slice(0, q ? 1 : 0)),
         ]);
 
         // Transform raw results to match Prisma format
@@ -164,8 +160,8 @@ export async function getPaginatedRecipes(
               },
             },
             orderBy: getOrderByForSort(sortOption),
-            skip: (pageNumber - 1) * recipesPerPage,
-            take: recipesPerPage,
+            skip: (page - 1) * size,
+            take: size,
           }),
           prisma.recipe.count({
             where: searchConditions,
@@ -176,8 +172,8 @@ export async function getPaginatedRecipes(
       return {
         recipes,
         totalCount,
-        totalPages: Math.ceil(totalCount / recipesPerPage),
-        currentPage: pageNumber,
+        totalPages: Math.ceil(totalCount / size),
+        currentPage: page,
       };
     },
     [],
@@ -186,7 +182,7 @@ export async function getPaginatedRecipes(
     }
   );
 
-  return getCachedRecipes(page, pageSize, sort, searchQuery);
+  return getCachedRecipes(page, size, sort, q);
 }
 
 /**

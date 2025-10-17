@@ -27,22 +27,22 @@ export default async function Home({
 }: {
   searchParams: Promise<QuerySearchParams>;
 }) {
-  const { page, sort, query } = await parseRecipeSearchParams(
+  const { page, size, sort, q } = await parseRecipeSearchParams(
     await searchParams
   );
 
   const { recipes, totalCount, totalPages, currentPage } =
-    await getPaginatedRecipes(page, DEFAULT_RECIPES_PER_PAGE, sort, query);
+    await getPaginatedRecipes({ page, size, sort, q });
 
   return (
     <div className="container mx-auto px-4 py-4">
       {recipes.length === 0 ? (
         <div className="text-center py-12">
-          {query ? (
+          {q ? (
             <>
               <h2 className="text-2xl font-semibold mb-4">No recipes found</h2>
               <p className="text-muted-foreground">
-                No recipes match your search for &quot;{query}&quot;. Try a
+                No recipes match your search for &quot;{q}&quot;. Try a
                 different search term.
               </p>
             </>
@@ -57,10 +57,10 @@ export default async function Home({
         </div>
       ) : (
         <>
-          {query && (
+          {q && (
             <div className="mb-4">
               <h2 className="text-xl font-semibold mb-2">
-                Search results for &quot;{query}&quot;
+                Search results for &quot;{q}&quot;
               </h2>
               <p className="text-muted-foreground">
                 Found {totalCount} recipe{totalCount !== 1 ? "s" : ""}
@@ -213,7 +213,7 @@ export default async function Home({
             currentPage={currentPage}
             totalPages={totalPages}
             totalCount={totalCount}
-            itemsPerPage={DEFAULT_RECIPES_PER_PAGE}
+            itemsPerPage={size ?? DEFAULT_RECIPES_PER_PAGE}
           />
         </>
       )}
