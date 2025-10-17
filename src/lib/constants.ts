@@ -1,3 +1,5 @@
+/** Cookie name constants used throughout the application. */
 export const Cookies = {
-  SORT_PREFERENCE: "DD-sort-preference",
+  /** Cookie name for storing the user's recipe sorting preference. */
+  SORT_PREFERENCE: "sort",
 } as const;

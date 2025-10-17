@@ -72,7 +72,7 @@ model VerificationToken {
 
 model Recipe {
   id          String   @id @default(cuid())
-  title       String
+  title       String   @db.Citext
   slug        String   @unique
   description String?
   photo       String?

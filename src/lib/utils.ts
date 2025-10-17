@@ -3,10 +3,17 @@ import { clsx, type ClassValue } from "clsx";
 import Fraction from "fraction.js";
 import { twMerge } from "tailwind-merge";
 
+/** Combines and merges CSS class names using clsx and tailwind-merge. */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/** Type guard that checks if a value is not null or undefined. */
+export function exists<T>(value: T | null | undefined): value is T {
+  return value !== null && value !== undefined;
+}
+
+/** Formats minutes into a human-readable time string (e.g., "1h 30m", "45m"). */
 export function formatTime(minutes: number): string {
   if (!minutes) return "N/A";
 
@@ -19,11 +26,13 @@ export function formatTime(minutes: number): string {
   return `${mins}m`;
 }
 
+/** Converts a decimal number to a simplified fraction string. */
 export function formatFraction(num: number): string {
   const fraction = new Fraction(num).simplify(0.01);
   return fraction.toFraction(true);
 }
 
+/** Formats ingredient amounts by converting decimals to fractions and handling units. */
 export function formatIngredientAmount(amount: string | null): string {
   if (!amount) return "";
 
@@ -47,6 +56,7 @@ export function formatIngredientAmount(amount: string | null): string {
   return rest ? `${formattedNumber} ${rest}` : formattedNumber;
 }
 
+/** Formats a complete ingredient string with amount, name, and preparation. */
 export function formatIngredient(ingredient: Ingredient): string {
   let formatted = "";
   if (ingredient.amount) {
@@ -57,8 +67,4 @@ export function formatIngredient(ingredient: Ingredient): string {
     formatted += `, ${ingredient.preparation}`;
   }
   return formatted.trim();
-}
-
-export function exists<T>(value: T | null | undefined): value is T {
-  return value !== null && value !== undefined;
 }

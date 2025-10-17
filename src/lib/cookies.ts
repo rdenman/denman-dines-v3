@@ -1,21 +1,22 @@
 import { Cookies } from "@/lib/constants";
-import { SortOption, isValidSortOption } from "@/lib/query";
-import { cookies } from "next/headers";
+import { isValidSortOption } from "@/lib/query";
+
+const MAX_AGE = 365 * 24 * 60 * 60; // 1 year
 
 /**
- * Server-side function to get sort preference from cookies
+ * Sets the user's recipe sorting preference in a browser cookie.
  */
-export async function getSortPreferenceFromCookie(): Promise<SortOption> {
+export function setSortPreferenceCookie(sortOption: string) {
   try {
-    const cookieStore = await cookies();
-    const sortPreference = cookieStore.get(Cookies.SORT_PREFERENCE)?.value;
-
-    if (sortPreference && isValidSortOption(sortPreference)) {
-      return sortPreference as SortOption;
+    if (!isValidSortOption(sortOption)) {
+      throw new Error(`Invalid sort option: ${sortOption}`);
     }
-  } catch (error) {
-    console.warn("Failed to read sort preference from cookies:", error);
-  }
 
-  return "newest";
+    document.cookie = `${Cookies.SORT_PREFERENCE}=${sortOption}; max-age=${MAX_AGE}; path=/; SameSite=Strict`;
+  } catch (error) {
+    console.warn(
+      `Failed to store ${Cookies.SORT_PREFERENCE} in cookies:`,
+      error
+    );
+  }
 }

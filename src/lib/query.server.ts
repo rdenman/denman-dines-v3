@@ -1,4 +1,4 @@
-import { getSortPreferenceFromCookie } from "@/lib/cookies";
+import { getSortPreferenceFromCookie } from "@/lib/cookies.server";
 import { isValidSortOption, QuerySearchParams, SortOption } from "@/lib/query";
 
 /**

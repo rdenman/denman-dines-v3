@@ -13,14 +13,26 @@ export const SORT_OPTIONS = [
 
 export type SortOption = (typeof SORT_OPTIONS)[number]["value"];
 
+export type SortDirection = "asc" | "desc";
+
 export interface QuerySearchParams {
   page?: string;
   sort?: string;
   q?: string;
 }
 
+/**
+ * Check if a value is a valid sort option
+ */
 export function isValidSortOption(value: string): value is SortOption {
   return SORT_OPTIONS.some((option) => option.value === value);
+}
+
+/**
+ * Check if a value is a valid direction
+ */
+export function isValidSortDirection(value: string): value is SortDirection {
+  return ["asc", "desc"].includes(value);
 }
 
 /**
@@ -34,25 +46,27 @@ export function requiresRawSqlSort(sortOption: SortOption): boolean {
  * Get raw SQL ORDER BY clause for complex sorting
  */
 export function getRawSqlOrderBy(sortOption: SortOption): string {
+  const dir = sortOption.split("-").at(-1);
+  if (!dir || !isValidSortDirection(dir)) {
+    console.error(
+      `Invalid sort option: ${sortOption}. Must end with -asc or -desc.`
+    );
+    return `ORDER BY "createdAt" DESC`;
+  }
+
   switch (sortOption) {
     case "cook-time-asc":
-      return `ORDER BY 
-        CASE 
-          WHEN "cookTime" IS NULL AND "prepTime" IS NULL THEN 1 
-          ELSE 0 
-        END ASC,
-        (COALESCE("cookTime", 0) + COALESCE("prepTime", 0)) ASC, 
-        "createdAt" DESC`;
     case "cook-time-desc":
       return `ORDER BY 
         CASE 
           WHEN "cookTime" IS NULL AND "prepTime" IS NULL THEN 1 
           ELSE 0 
         END ASC,
-        (COALESCE("cookTime", 0) + COALESCE("prepTime", 0)) DESC, 
+        (COALESCE("cookTime", 0) + COALESCE("prepTime", 0)) ${dir.toUpperCase()}, 
         "createdAt" DESC`;
     default:
-      return "";
+      console.error(`Unsupported sort option: ${sortOption}`);
+      return `ORDER BY "createdAt" DESC`;
   }
 }
 
@@ -90,6 +104,7 @@ export function getOrderByForSort(
         { createdAt: "desc" },
       ];
     default:
+      console.error(`Unsupported sort option: ${sortOption}`);
       return { createdAt: "desc" };
   }
 }

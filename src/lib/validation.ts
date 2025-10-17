@@ -12,48 +12,6 @@ function transformOptional(v: string) {
  * - Optional fields like description, photo URL, and tips
  * - Ingredient sections with grouped ingredients and preparation notes
  * - Instruction sections with step-by-step cooking directions
- *
- * @example
- * ```typescript
- * const recipeData = {
- *   title: "Chocolate Chip Cookies",
- *   description: "Classic homemade cookies",
- *   servings: 24,
- *   prepTime: 15,
- *   cookTime: 12,
- *   photo: "https://example.com/cookies.jpg",
- *   tips: ["Use room temperature butter for best results"],
- *   ingredientSections: [
- *     {
- *       name: "Dry Ingredients",
- *       ingredients: [
- *         { name: "Flour", amount: "2 cups" },
- *         { name: "Sugar", amount: "1 cup" }
- *       ]
- *     }
- *   ],
- *   instructionSections: [
- *     {
- *       name: "Preparation",
- *       instructions: [
- *         "Preheat oven to 375°F",
- *         "Mix dry ingredients together"
- *       ]
- *     }
- *   ]
- * };
- *
- * const result = createRecipeSchema.safeParse(recipeData);
- * if (result.success) {
- *   // Recipe data is valid
- *   const validRecipe = result.data;
- * } else {
- *   // Handle validation errors
- *   console.log(result.error.errors);
- * }
- * ```
- *
- * @returns Zod schema that validates recipe creation data
  */
 export const createRecipeSchema = z.object({
   title: z.string().min(1, "Title is required").max(200, "Title too long"),
@@ -103,20 +61,6 @@ export type CreateRecipeInput = z.infer<typeof createRecipeSchema>;
  * - The input is a valid File instance
  * - The file has content (size > 0)
  * - The file is an image type (MIME type starts with "image/")
- *
- * @example
- * ```typescript
- * const result = imageFileSchema.safeParse(fileInput);
- * if (result.success) {
- *   // File is valid image
- *   const imageFile = result.data;
- * } else {
- *   // Handle validation errors
- *   console.log(result.error.errors);
- * }
- * ```
- *
- * @returns Zod schema that validates File instances as images
  */
 export const imageFileSchema = z
   .instanceof(File)

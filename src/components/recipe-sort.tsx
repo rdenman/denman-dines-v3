@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useSortPreference } from "@/lib/hooks/use-sort-preference";
+import { setSortPreferenceCookie } from "@/lib/cookies";
 import { SORT_OPTIONS, SortOption } from "@/lib/query";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
@@ -19,18 +19,17 @@ interface RecipeSortProps {
 export function RecipeSort({ currentSort = "newest" }: RecipeSortProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { setPreference } = useSortPreference();
 
   const handleSortChange = useCallback(
     (value: string) => {
       // Store the user's preference when they explicitly change the sort
-      setPreference(value as SortOption);
+      setSortPreferenceCookie(value);
 
       const params = new URLSearchParams(searchParams.toString());
       params.set("sort", value);
       router.push(`/?${params.toString()}`);
     },
-    [router, searchParams, setPreference]
+    [router, searchParams]
   );
 
   return (
