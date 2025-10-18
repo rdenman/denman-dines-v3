@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -64,6 +65,7 @@ export default function RootLayout({
         </ThemeProvider>
 
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
