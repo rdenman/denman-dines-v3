@@ -14,14 +14,6 @@ import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-function getTotalTime(
-  prepTime: number | null,
-  cookTime: number | null
-): string {
-  const total = (prepTime ?? 0) + (cookTime ?? 0);
-  return formatTime(total);
-}
-
 export default async function Home({
   searchParams,
 }: {
@@ -131,9 +123,7 @@ export default async function Home({
 
                         <div className="flex items-center gap-1">
                           <span>⏱️</span>
-                          <span>
-                            {getTotalTime(recipe.prepTime, recipe.cookTime)}
-                          </span>
+                          <span>{formatTime(recipe.totalTime)}</span>
                         </div>
                       </div>
                     </div>
@@ -197,9 +187,7 @@ export default async function Home({
 
                         <div className="flex items-center gap-1">
                           <span>⏱️</span>
-                          <span>
-                            {getTotalTime(recipe.prepTime, recipe.cookTime)}
-                          </span>
+                          <span>{formatTime(recipe.totalTime)}</span>
                         </div>
                       </div>
                     </CardContent>

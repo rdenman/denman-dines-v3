@@ -79,6 +79,7 @@ model Recipe {
   servings    Int?
   prepTime    Int? // in minutes
   cookTime    Int? // in minutes
+  totalTime   Int?     @default(dbgenerated()) // in minutes
   tips        String[]
 
   userId String

@@ -15,7 +15,7 @@ Get the connection string via [Prisma Data console](https://console.prisma.io/cl
 To make changes to the database, update the schema in `schema.prisma` with the desired changes, then run
 
 ```sh
-npx prisma migrate dev --name my-migration-name
+bunx prisma migrate dev --name my-migration-name
 ```
 
 ### Seeding
@@ -23,7 +23,7 @@ npx prisma migrate dev --name my-migration-name
 To seed the database, run
 
 ```sh
-npx prisma db seed
+bunx prisma db seed
 ```
 
 ### Errors
@@ -31,5 +31,5 @@ npx prisma db seed
 If there's an error around migrations being out of sync, just drop the dev database by runnings
 
 ```sh
-npx prisma migrate reset
+bunx prisma migrate reset
 ```

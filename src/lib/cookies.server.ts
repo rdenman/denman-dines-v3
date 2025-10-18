@@ -20,5 +20,5 @@ export async function getSortPreferenceFromCookie(): Promise<SortOption> {
     );
   }
 
-  return "newest";
+  return "createdAt-desc";
 }

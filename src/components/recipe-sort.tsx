@@ -16,7 +16,9 @@ interface RecipeSortProps {
   currentSort?: SortOption;
 }
 
-export function RecipeSort({ currentSort = "newest" }: RecipeSortProps) {
+export function RecipeSort({
+  currentSort = "createdAt-desc",
+}: RecipeSortProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 

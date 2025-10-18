@@ -14,7 +14,7 @@ export function exists<T>(value: T | null | undefined): value is T {
 }
 
 /** Formats minutes into a human-readable time string (e.g., "1h 30m", "45m"). */
-export function formatTime(minutes: number): string {
+export function formatTime(minutes: number | null): string {
   if (!minutes) return "N/A";
 
   const hours = Math.floor(minutes / 60);
