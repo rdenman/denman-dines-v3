@@ -105,8 +105,8 @@ export async function PUT(
     });
 
     // Revalidate caches
-    revalidateTag(CACHE_TAGS.RECIPES);
-    revalidateTag(`${CACHE_TAGS.RECIPE_DETAILS}:${updatedRecipe.slug}`);
+    revalidateTag(CACHE_TAGS.RECIPES, "max");
+    revalidateTag(`${CACHE_TAGS.RECIPE_DETAILS}:${updatedRecipe.slug}`, "max");
 
     return NextResponse.json(updatedRecipe);
   } catch (error) {

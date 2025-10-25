@@ -101,8 +101,8 @@ export async function POST(request: NextRequest) {
     });
 
     // Revalidate caches
-    revalidateTag(CACHE_TAGS.RECIPES);
-    revalidateTag(`${CACHE_TAGS.RECIPE_DETAILS}:${slug}`);
+    revalidateTag(CACHE_TAGS.RECIPES, "max");
+    revalidateTag(`${CACHE_TAGS.RECIPE_DETAILS}:${slug}`, "max");
 
     return NextResponse.json(recipe, { status: 201 });
   } catch (error) {
