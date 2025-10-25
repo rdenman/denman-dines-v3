@@ -1,8 +1,10 @@
 "use client";
 
-import { IngredientSections } from "@/components/ingredient-sections";
-import { InstructionSections } from "@/components/instruction-sections";
-import { TipsSection } from "@/components/tips-section";
+import { LoadingOverlay } from "@/components/loading-overlay";
+import { IngredientSections } from "@/components/recipe-form/ingredient-sections";
+import { InstructionSections } from "@/components/recipe-form/instruction-sections";
+import { TipsSection } from "@/components/recipe-form/tips-section";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Form,
@@ -18,8 +20,6 @@ import { createRecipeSchema, type CreateRecipeInput } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { LoadingOverlay } from "./loading-overlay";
-import { Button } from "./ui/button";
 
 type RecipeFormProps =
   | {

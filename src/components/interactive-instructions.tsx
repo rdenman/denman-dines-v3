@@ -8,12 +8,10 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Label } from "@/components/ui/label";
-import { Check, ChevronDown, ChevronRight } from "lucide-react";
-
 import { useRecipeProgress } from "@/lib/hooks/use-recipe-progress";
-
 import { cn } from "@/lib/utils";
 import type { Instruction } from "@prisma/client";
+import { Check, ChevronDown, ChevronRight } from "lucide-react";
 
 interface InstructionSection {
   id: string;
