@@ -72,7 +72,7 @@ export default async function Home({
                 <Card className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer">
                   {/* Mobile layout: horizontal with image on left */}
                   <div className="md:hidden flex">
-                    <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-l-lg ml-4">
+                    <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-l-lg ml-4">
                       {recipe.photo ? (
                         <Image
                           src={recipe.photo}
@@ -132,7 +132,7 @@ export default async function Home({
                   {/* Desktop layout: vertical with image on top */}
                   <div className="hidden md:block">
                     <CardHeader className="pb-3">
-                      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
+                      <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg">
                         {recipe.photo ? (
                           <Image
                             src={recipe.photo}

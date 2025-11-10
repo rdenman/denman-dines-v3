@@ -157,7 +157,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
               <ul className="space-y-3">
                 {recipe.tips.map((tip, index) => (
                   <li key={index} className="flex gap-3">
-                    <span className="flex-shrink-0 w-2 h-2 bg-primary rounded-full mt-2"></span>
+                    <span className="shrink-0 w-2 h-2 bg-primary rounded-full mt-2"></span>
                     <span>{tip}</span>
                   </li>
                 ))}

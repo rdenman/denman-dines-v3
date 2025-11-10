@@ -3,7 +3,7 @@ export function LoadingOverlay(
 ) {
   return (
     <div
-      className="fixed top-0 left-0 w-screen h-screen z-[9999] flex items-center justify-center bg-background/80 backdrop-blur-sm"
+      className="fixed top-0 left-0 w-screen h-screen z-9999 flex items-center justify-center bg-background/80 backdrop-blur-sm"
       aria-label="Loading"
       role="status"
     >

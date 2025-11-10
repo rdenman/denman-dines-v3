@@ -88,7 +88,7 @@ export function InteractiveInstructions({
                               key={instruction.id}
                               className="flex gap-3 group"
                             >
-                              <div className="flex-shrink-0 w-8 h-8 p-0 rounded-full border-2 hover:border-primary transition-colors flex items-center justify-center">
+                              <div className="shrink-0 w-8 h-8 p-0 rounded-full border-2 hover:border-primary transition-colors flex items-center justify-center">
                                 <Checkbox
                                   id={`instruction-${instruction.id}`}
                                   checked={isCompleted}
