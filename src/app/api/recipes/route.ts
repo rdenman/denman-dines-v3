@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth";
+import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
 import { CACHE_TAGS } from "@/lib/recipe";
 import { createRecipeSchema } from "@/lib/validation";
@@ -39,7 +39,7 @@ async function generateUniqueSlug(baseSlug: string): Promise<string> {
 // TODO make this a server action
 export async function POST(request: NextRequest) {
   try {
-    const session = await auth();
+    const session = await getSession();
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthenticated" }, { status: 401 });
     }

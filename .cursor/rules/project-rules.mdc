@@ -28,7 +28,6 @@ alwaysApply: true
 ### ⚙️ Data Layer & API
 
 - Use **Prisma** for DB access (server-only).
-- Integrate **Supabase Auth** using `getUser()` or `getSession()` on the server.
 - Validate inputs/outputs with **Zod**.
 - Fetch data using `fetch()` with `{ cache, next }` for revalidation.
 

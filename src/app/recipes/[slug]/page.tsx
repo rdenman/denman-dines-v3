@@ -2,7 +2,7 @@ import { InteractiveIngredients } from "@/components/interactive-ingredients";
 import { InteractiveInstructions } from "@/components/interactive-instructions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { auth } from "@/lib/auth";
+import { getSession } from "@/lib/auth.server";
 import { getRecipeBySlug } from "@/lib/recipe";
 import { exists, formatTime } from "@/lib/utils";
 import { Edit } from "lucide-react";
@@ -54,7 +54,7 @@ interface RecipePageProps {
 export default async function RecipePage({ params }: RecipePageProps) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug);
-  const session = await auth();
+  const session = await getSession();
   const recipe = await getRecipeBySlug(decodedSlug);
 
   if (!recipe) {
