@@ -9,13 +9,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/lib/auth";
-import type { DefaultUser } from "@auth/core/types";
+import { User } from "better-auth";
 import { Edit, LogOut, Plus } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
-  user: DefaultUser;
+  user: User;
 }
 
 export function UserMenu({ user }: UserMenuProps) {
