@@ -123,7 +123,7 @@ function InstructionSection({
       <div className="space-y-3">
         {instructions.map((_, instructionIndex) => (
           <div key={instructionIndex} className="flex gap-2 items-start">
-            <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium mt-2">
+            <div className="shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium mt-2">
               {instructionIndex + 1}
             </div>
 

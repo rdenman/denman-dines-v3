@@ -1,16 +1,16 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import { RecipeSearch } from "@/components/recipe-search";
 import { UserMenu } from "@/components/user-menu";
-import { auth } from "@/lib/auth";
+import { getSession } from "@/lib/auth.server";
 import Image from "next/image";
 import Link from "next/link";
 import { SignInButton } from "./sign-in-button";
 
 export async function Header() {
-  const session = await auth();
+  const session = await getSession();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Mobile layout: stacked */}
         <div className="flex flex-col space-y-3 py-3 md:hidden">

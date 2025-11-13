@@ -60,7 +60,7 @@ export function TipsSection({ control }: TipsSectionProps) {
           <div className="space-y-4">
             {tips.map((_, tipIndex) => (
               <div key={tipIndex} className="flex gap-3 items-start">
-                <div className="flex-shrink-0 w-6 h-6 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-xs font-medium mt-2">
+                <div className="shrink-0 w-6 h-6 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-xs font-medium mt-2">
                   <Lightbulb className="size-3" />
                 </div>
 

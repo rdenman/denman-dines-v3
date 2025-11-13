@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,12 +12,15 @@ import { signOut } from "@/lib/auth";
 import type { DefaultUser } from "@auth/core/types";
 import { Edit, LogOut, Plus } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   user: DefaultUser;
 }
 
 export function UserMenu({ user }: UserMenuProps) {
+  const { refresh } = useRouter();
+
   const initials = user.name
     ? user.name
         .split(" ")
@@ -54,10 +59,7 @@ export function UserMenu({ user }: UserMenuProps) {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={async () => {
-            "use server";
-            await signOut({ redirectTo: "/" });
-          }}
+          onClick={() => signOut({ fetchOptions: { onSuccess: refresh } })}
         >
           <LogOut className="mr-2 h-4 w-4" />
           <span>Sign out</span>

@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth";
+import { getSession } from "@/lib/auth.server";
 import { imageFileSchema } from "@/lib/validation";
 import { put } from "@vercel/blob";
 import { NextRequest, NextResponse } from "next/server";
@@ -6,7 +6,7 @@ import z from "zod";
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await auth();
+    const session = await getSession();
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthenticated" }, { status: 401 });
     }

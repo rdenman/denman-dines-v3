@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { auth } from "@/lib/auth";
+import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
 import { Edit, Plus } from "lucide-react";
 import Link from "next/link";
 import { unauthorized } from "next/navigation";
 
 export default async function MyRecipesPage() {
-  const session = await auth();
+  const session = await getSession();
   if (!session?.user) {
     unauthorized();
   }

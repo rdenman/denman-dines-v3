@@ -33,3 +33,11 @@ If there's an error around migrations being out of sync, just drop the dev datab
 ```sh
 bunx prisma migrate reset
 ```
+
+## Backups
+
+To get a backup of the database, use `pg_dump`:
+
+```sh
+pg_dump --dbname="postgres://USERNAME:PASSWORD@db.prisma.io:5432/?sslmode=require" > ./db.bak
+```
