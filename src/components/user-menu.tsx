@@ -19,7 +19,7 @@ interface UserMenuProps {
 }
 
 export function UserMenu({ user }: UserMenuProps) {
-  const router = useRouter();
+  const { refresh } = useRouter();
 
   const initials = user.name
     ? user.name
@@ -59,15 +59,7 @@ export function UserMenu({ user }: UserMenuProps) {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={async () => {
-            await signOut({
-              fetchOptions: {
-                onSuccess: () => {
-                  router.push("/");
-                },
-              },
-            });
-          }}
+          onClick={() => signOut({ fetchOptions: { onSuccess: refresh } })}
         >
           <LogOut className="mr-2 h-4 w-4" />
           <span>Sign out</span>
