@@ -52,7 +52,7 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.7",
-    "prisma": "^7.1.0",
+    "prisma": "6.19.0",
     "raw-body": "3.0.2",
     "tailwindcss": "4.1.17",
     "tsx": "4.21.0",
