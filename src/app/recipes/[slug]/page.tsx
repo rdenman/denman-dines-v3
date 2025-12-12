@@ -1,13 +1,10 @@
 import { InteractiveIngredients } from "@/components/interactive-ingredients";
 import { InteractiveInstructions } from "@/components/interactive-instructions";
-import { Button } from "@/components/ui/button";
+import { OwnerEditButton } from "@/components/owner-edit-button";
 import { Card, CardContent } from "@/components/ui/card";
-import { getSession } from "@/lib/auth.server";
 import { getRecipeBySlug } from "@/lib/recipe";
 import { exists, formatTime } from "@/lib/utils";
-import { Edit } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: RecipePageProps) {
@@ -45,6 +42,8 @@ export async function generateMetadata({ params }: RecipePageProps) {
   };
 }
 
+export const revalidate = 300;
+
 interface RecipePageProps {
   params: Promise<{
     slug: string;
@@ -54,14 +53,11 @@ interface RecipePageProps {
 export default async function RecipePage({ params }: RecipePageProps) {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug);
-  const session = await getSession();
   const recipe = await getRecipeBySlug(decodedSlug);
 
   if (!recipe) {
     notFound();
   }
-
-  const isOwner = session?.user?.id === recipe.userId;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -69,17 +65,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
       <div className="mb-8">
         <div className="flex justify-between items-start mb-4">
           <h1 className="text-4xl font-bold">{recipe.title}</h1>
-          {isOwner && (
-            <Button asChild size="sm" variant="outline">
-              <Link
-                href={`/recipes/${encodeURIComponent(slug)}/edit`}
-                className="flex items-center gap-2"
-              >
-                <Edit className="h-4 w-4" />
-                Edit Recipe
-              </Link>
-            </Button>
-          )}
+          <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
         </div>
         {recipe.description && (
           <p className="text-lg text-muted-foreground mb-6">

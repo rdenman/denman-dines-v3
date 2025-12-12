@@ -14,6 +14,8 @@ import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+export const revalidate = 120;
+
 export default async function Home({
   searchParams,
 }: {

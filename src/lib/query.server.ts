@@ -1,4 +1,3 @@
-import { getSortPreferenceFromCookie } from "@/lib/cookies.server";
 import {
   isValidSortOption,
   PaginatedQueryParams,
@@ -21,14 +20,10 @@ export async function parseRecipeSearchParams(
   const size =
     Number.isNaN(sizeNum) || sizeNum < 1 ? DEFAULT_RECIPES_PER_PAGE : sizeNum;
 
-  // Check URL params first (highest priority)
-  let sort: SortOption;
-  if (params.sort && isValidSortOption(params.sort)) {
-    sort = params.sort as SortOption;
-  } else {
-    // Fall back to stored preference from cookies
-    sort = await getSortPreferenceFromCookie();
-  }
+  const sort: SortOption =
+    params.sort && isValidSortOption(params.sort)
+      ? (params.sort as SortOption)
+      : "createdAt-desc";
 
   const q = params.q?.trim() || "";
 

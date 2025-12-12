@@ -7,7 +7,7 @@ import {
 import type { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 
-export const DEFAULT_RECIPES_PER_PAGE = 100;
+export const DEFAULT_RECIPES_PER_PAGE = 24;
 
 export const CACHE_TAGS = {
   RECIPES: "recipes",
@@ -82,6 +82,7 @@ export async function getPaginatedRecipes({
     [],
     {
       tags: [CACHE_TAGS.RECIPES],
+      revalidate: 300,
     }
   );
 
@@ -123,6 +124,7 @@ export async function getRecipeBySlug(slug: string) {
     [],
     {
       tags: [CACHE_TAGS.RECIPE_DETAILS, `${CACHE_TAGS.RECIPE_DETAILS}:${slug}`],
+      revalidate: 300,
     }
   );
 
