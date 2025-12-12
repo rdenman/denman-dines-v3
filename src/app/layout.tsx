@@ -16,20 +16,43 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://denmandines.com";
 const title = "Denman Dines";
 const description =
   "A clean, ad-free recipe collection where you can easily find and save simple, straightforward recipes you actually want to cook. No distractions, just the recipes you love — organized and ready for your next meal.";
+const socialImage = "/logo.webp";
+
 export const metadata: Metadata = {
-  title,
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: title,
+    template: "%s | Denman Dines",
+  },
   description,
+  keywords: [
+    "recipes",
+    "home cooking",
+    "easy recipes",
+    "weeknight meals",
+    "denman dines",
+    "ad-free recipes",
+  ],
+  authors: [{ name: "Denman Dines" }],
+  creator: "Denman Dines",
+  publisher: "Denman Dines",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title,
     description,
-    url: "https://denmandines.com",
-    type: "article",
+    url: siteUrl,
+    siteName: "Denman Dines",
+    type: "website",
+    locale: "en_US",
     images: [
       {
-        url: "https://denmandines.com/logo.webp",
+        url: socialImage,
         width: 1200,
         height: 630,
         alt: "Denman Dines",
@@ -40,7 +63,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["https://denmandines.com/logo.webp"],
+    images: [socialImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

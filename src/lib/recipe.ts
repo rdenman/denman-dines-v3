@@ -102,6 +102,11 @@ export async function getRecipeBySlug(slug: string) {
       return prisma.recipe.findUnique({
         where: { slug: recipeSlug },
         include: {
+          user: {
+            select: {
+              name: true,
+            },
+          },
           ingredientSections: {
             include: {
               ingredients: {

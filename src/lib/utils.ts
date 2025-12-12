@@ -26,6 +26,18 @@ export function formatTime(minutes: number | null): string {
   return `${mins}m`;
 }
 
+/** Converts minutes to ISO 8601 duration (e.g., "PT1H30M"). */
+export function formatDurationISO(minutes?: number | null): string | undefined {
+  if (!minutes) return undefined;
+
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  const parts = [];
+  if (hours) parts.push(`${hours}H`);
+  if (mins) parts.push(`${mins}M`);
+  return parts.length ? `PT${parts.join("")}` : undefined;
+}
+
 /** Converts a decimal number to a simplified fraction string. */
 export function formatFraction(num: number): string {
   const fraction = new Fraction(num).simplify(0.01);

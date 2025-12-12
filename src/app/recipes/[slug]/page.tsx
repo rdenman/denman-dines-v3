@@ -3,12 +3,20 @@ import { InteractiveInstructions } from "@/components/interactive-instructions";
 import { OwnerEditButton } from "@/components/owner-edit-button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getRecipeBySlug } from "@/lib/recipe";
-import { exists, formatTime } from "@/lib/utils";
+import {
+  exists,
+  formatDurationISO,
+  formatIngredient,
+  formatTime,
+} from "@/lib/utils";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 
-export async function generateMetadata({ params }: RecipePageProps) {
+export async function generateMetadata({
+  params,
+}: RecipePageProps): Promise<Metadata> {
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug);
   const recipe = await getRecipeBySlug(decodedSlug);
@@ -17,17 +25,31 @@ export async function generateMetadata({ params }: RecipePageProps) {
     notFound();
   }
 
+  const canonicalPath = `/recipes/${slug}`;
+  const socialImage = recipe.photo ?? "/logo.webp";
+  const description =
+    recipe.description ??
+    "A simple, ad-free recipe from the Denman Dines collection.";
+  const authorName = recipe.user?.name ?? "Denman Dines";
+
   return {
-    title: `${recipe.title} | Denman Dines`,
-    description: recipe.description,
+    title: recipe.title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
     openGraph: {
       title: recipe.title,
-      description: recipe.description,
-      url: `https://denmandines.com/recipes/${slug}`,
+      description,
+      url: canonicalPath,
       type: "article",
+      siteName: "Denman Dines",
+      publishedTime: recipe.createdAt?.toISOString(),
+      modifiedTime: recipe.updatedAt?.toISOString(),
+      authors: [authorName],
       images: [
         {
-          url: recipe.photo,
+          url: socialImage,
           width: 1200,
           height: 630,
           alt: recipe.title,
@@ -37,8 +59,8 @@ export async function generateMetadata({ params }: RecipePageProps) {
     twitter: {
       card: "summary_large_image",
       title: recipe.title,
-      description: recipe.description,
-      images: [recipe.photo],
+      description,
+      images: [socialImage],
     },
   };
 }
@@ -65,16 +87,22 @@ export default async function RecipePage({ params }: RecipePageProps) {
     "@type": "Recipe",
     name: recipe.title,
     description: recipe.description,
-    image: recipe.photo,
-    recipeIngredient: Array.from(
-      new Set(
-        recipe.ingredientSections.flatMap((section) =>
-          section.ingredients.map((ingredient) => ingredient.name)
-        )
-      )
+    image: recipe.photo ? [recipe.photo] : undefined,
+    author: recipe.user?.name,
+    datePublished: recipe.createdAt?.toISOString(),
+    dateModified: recipe.updatedAt?.toISOString(),
+    prepTime: formatDurationISO(recipe.prepTime),
+    cookTime: formatDurationISO(recipe.cookTime),
+    totalTime: formatDurationISO(recipe.totalTime),
+    recipeYield: recipe.servings ? [`${recipe.servings} servings`] : undefined,
+    recipeIngredient: recipe.ingredientSections.flatMap((section) =>
+      section.ingredients.map((ingredient) => formatIngredient(ingredient))
     ),
     recipeInstructions: recipe.instructionSections.flatMap((section) =>
-      section.instructions.map((instruction) => instruction.text)
+      section.instructions.map((instruction) => ({
+        "@type": "HowToStep",
+        text: instruction.text,
+      }))
     ),
   };
 
