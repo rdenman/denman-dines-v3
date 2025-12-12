@@ -26,6 +26,14 @@ export function formatTime(minutes: number | null): string {
   return `${mins}m`;
 }
 
+/** Safely formats a date to ISO 8601 string. */
+export function formatDateTimeISO(
+  date: Date | string | null | undefined
+): string | undefined {
+  if (!date) return undefined;
+  return new Date(date).toISOString();
+}
+
 /** Converts minutes to ISO 8601 duration (e.g., "PT1H30M"). */
 export function formatDurationISO(minutes?: number | null): string | undefined {
   if (!minutes) return undefined;

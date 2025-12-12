@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getRecipeBySlug } from "@/lib/recipe";
 import {
   exists,
+  formatDateTimeISO,
   formatDurationISO,
   formatIngredient,
   formatTime,
@@ -25,13 +26,6 @@ export async function generateMetadata({
     notFound();
   }
 
-  console.log({
-    value: recipe.createdAt,
-    type: typeof recipe.createdAt,
-    instance: recipe.createdAt instanceof Date,
-    proto: Object.getPrototypeOf(recipe.createdAt),
-  });
-
   const canonicalPath = `/recipes/${slug}`;
   const socialImage = recipe.photo ?? "/logo.webp";
   const description =
@@ -51,8 +45,8 @@ export async function generateMetadata({
       url: canonicalPath,
       type: "article",
       siteName: "Denman Dines",
-      // publishedTime: recipe.createdAt?.toISOString(),
-      // modifiedTime: recipe.updatedAt?.toISOString(),
+      publishedTime: formatDateTimeISO(recipe.createdAt),
+      modifiedTime: formatDateTimeISO(recipe.updatedAt),
       authors: [authorName],
       images: [
         {
@@ -89,13 +83,6 @@ export default async function RecipePage({ params }: RecipePageProps) {
     notFound();
   }
 
-  console.log({
-    value: recipe.createdAt,
-    type: typeof recipe.createdAt,
-    instance: recipe.createdAt instanceof Date,
-    proto: Object.getPrototypeOf(recipe.createdAt),
-  });
-
   const recipeSchema = {
     "@context": "https://schema.org",
     "@type": "Recipe",
@@ -103,8 +90,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
     description: recipe.description,
     image: recipe.photo ? [recipe.photo] : undefined,
     author: recipe.user?.name,
-    // datePublished: recipe.createdAt?.toISOString(),
-    // dateModified: recipe.updatedAt?.toISOString(),
+    datePublished: formatDateTimeISO(recipe.createdAt),
+    dateModified: formatDateTimeISO(recipe.updatedAt),
     prepTime: formatDurationISO(recipe.prepTime),
     cookTime: formatDurationISO(recipe.cookTime),
     totalTime: formatDurationISO(recipe.totalTime),
