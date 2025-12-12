@@ -6,6 +6,7 @@ import { UserMenu } from "@/components/user-menu";
 import { useSession } from "@/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { SignInButton } from "./sign-in-button";
 
 export function Header() {
@@ -47,7 +48,16 @@ export function Header() {
 
           {/* Mobile search */}
           <div className="w-full">
-            <RecipeSearch placeholder="Search recipes..." className="w-full" />
+            <Suspense
+              fallback={
+                <div className="h-10 w-full bg-muted animate-pulse rounded-md" />
+              }
+            >
+              <RecipeSearch
+                placeholder="Search recipes..."
+                className="w-full"
+              />
+            </Suspense>
           </div>
         </div>
 
@@ -73,7 +83,16 @@ export function Header() {
 
           {/* Desktop search */}
           <div className="flex-1 max-w-md mx-8">
-            <RecipeSearch placeholder="Search recipes..." className="w-full" />
+            <Suspense
+              fallback={
+                <div className="h-10 w-full bg-muted animate-pulse rounded-md" />
+              }
+            >
+              <RecipeSearch
+                placeholder="Search recipes..."
+                className="w-full"
+              />
+            </Suspense>
           </div>
 
           <div className="flex items-center space-x-4">
