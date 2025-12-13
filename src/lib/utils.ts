@@ -1,4 +1,4 @@
-import { Ingredient } from "@prisma/client";
+import { Ingredient } from "@/prisma/generated/client";
 import { clsx, type ClassValue } from "clsx";
 import Fraction from "fraction.js";
 import { twMerge } from "tailwind-merge";
