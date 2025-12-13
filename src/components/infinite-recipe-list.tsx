@@ -144,13 +144,20 @@ export function InfiniteRecipeList({
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div
+        data-testid="recipe-grid"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+      >
         {recipes.map((recipe) => (
           <Link
             key={recipe.id}
             href={`/recipes/${encodeURIComponent(recipe.slug)}`}
+            data-testid="recipe-card-link"
           >
-            <Card className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer">
+            <Card
+              data-testid="recipe-card"
+              className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+            >
               {/* Mobile layout: horizontal with image on left */}
               <div className="md:hidden flex">
                 <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-l-lg ml-4">
@@ -172,7 +179,12 @@ export function InfiniteRecipeList({
                 </div>
 
                 <div className="flex-1 px-4">
-                  <CardTitle className="text-md mb-1">{recipe.title}</CardTitle>
+                  <CardTitle
+                    data-testid="recipe-title-mobile"
+                    className="text-md mb-1"
+                  >
+                    {recipe.title}
+                  </CardTitle>
 
                   {recipe.description && (
                     <CardDescription className="mb-1">
@@ -234,7 +246,10 @@ export function InfiniteRecipeList({
                 </CardHeader>
 
                 <CardContent className="flex-1 flex flex-col">
-                  <CardTitle className="mb-2">
+                  <CardTitle
+                    data-testid="recipe-title-desktop"
+                    className="mb-2"
+                  >
                     <div className="overflow-hidden text-ellipsis whitespace-nowrap">
                       {recipe.title}
                     </div>
@@ -283,14 +298,20 @@ export function InfiniteRecipeList({
       {/* Loading indicator and end message */}
       <div ref={observerTarget} className="mt-8 flex justify-center py-8">
         {isLoading && (
-          <div className="flex items-center gap-2 text-muted-foreground">
+          <div
+            data-testid="loading-indicator"
+            className="flex items-center gap-2 text-muted-foreground"
+          >
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary" />
             <span>Loading more recipes...</span>
           </div>
         )}
 
         {hasReachedEnd && recipes.length > 0 && (
-          <div className="text-center text-muted-foreground">
+          <div
+            data-testid="end-message"
+            className="text-center text-muted-foreground"
+          >
             <p className="text-lg">You&apos;ve reached the end! 🎉</p>
             <p className="text-sm mt-1">
               You&apos;ve viewed all {recipes.length} recipes

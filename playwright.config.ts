@@ -74,9 +74,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "bun run dev",
-    url: "https://localhost:3000",
-    ignoreHTTPSErrors: true,
+    command: "next start -p 3000",
+    url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
   },
 });
