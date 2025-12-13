@@ -39,10 +39,20 @@ export function InfiniteRecipeList({
   );
 
   const observerTarget = useRef<HTMLDivElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
   const searchParams = useSearchParams();
 
   const loadMore = useCallback(async () => {
     if (isLoading || hasReachedEnd) return;
+
+    // Cancel any existing request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    // Create new AbortController for this request
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
 
     setIsLoading(true);
 
@@ -56,20 +66,32 @@ export function InfiniteRecipeList({
         params.set("q", query);
       }
 
-      const response = await fetch(`/api/recipes/list?${params.toString()}`);
+      const response = await fetch(`/api/recipes/list?${params.toString()}`, {
+        signal: abortController.signal,
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch recipes");
       }
 
       const data = await response.json();
 
-      setRecipes((prev) => [...prev, ...data.recipes]);
-      setPage(data.currentPage);
-      setHasReachedEnd(data.currentPage >= data.totalPages);
+      // Only update state if this request wasn't aborted
+      if (!abortController.signal.aborted) {
+        setRecipes((prev) => [...prev, ...data.recipes]);
+        setPage(data.currentPage);
+        setHasReachedEnd(data.currentPage >= data.totalPages);
+      }
     } catch (error) {
+      // Ignore abort errors - they're expected when requests are canceled
+      if (error instanceof Error && error.name === "AbortError") {
+        return;
+      }
       console.error("Error loading more recipes:", error);
     } finally {
-      setIsLoading(false);
+      // Only clear loading state if this request wasn't aborted
+      if (!abortController.signal.aborted) {
+        setIsLoading(false);
+      }
     }
   }, [isLoading, hasReachedEnd, page, pageSize, sort, query]);
 
@@ -99,10 +121,26 @@ export function InfiniteRecipeList({
 
   // Reset when search params change (user performs new search/sort)
   useEffect(() => {
+    // Cancel any in-flight requests when search/sort changes
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+      abortControllerRef.current = null;
+    }
+
     setRecipes(initialRecipes);
     setPage(initialPage);
     setHasReachedEnd(initialPage >= initialTotalPages);
+    setIsLoading(false); // Reset loading state
   }, [initialRecipes, initialPage, initialTotalPages, searchParams]);
+
+  // Cleanup: abort any in-flight requests when component unmounts
+  useEffect(() => {
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
 
   return (
     <>
