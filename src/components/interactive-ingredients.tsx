@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/collapsible";
 import { useRecipeProgress } from "@/lib/hooks/use-recipe-progress";
 import { cn, formatIngredient } from "@/lib/utils";
-import type { Ingredient, IngredientSection } from "@prisma/client";
+import type { Ingredient, IngredientSection } from "@/prisma/generated/client";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { Label } from "./ui/label";
 

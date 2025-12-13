@@ -4,7 +4,7 @@ import {
   SortOption,
   getOrderByForSort,
 } from "@/lib/query";
-import type { Prisma } from "@prisma/client";
+import type { Prisma } from "@/prisma/generated/client";
 import { unstable_cache } from "next/cache";
 
 export const DEFAULT_RECIPES_PER_PAGE = 24;

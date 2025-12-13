@@ -1,6 +1,12 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@/prisma/generated/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import "dotenv/config";
 
-const prisma = new PrismaClient();
+const adapter = new PrismaPg({
+  connectionString: process.env.DIRECT_DATABASE_URL!,
+});
+
+const prisma = new PrismaClient({ adapter });
 
 const email = "robertkarldenman@gmail.com";
 
