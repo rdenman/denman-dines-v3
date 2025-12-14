@@ -48,6 +48,7 @@ export function InteractiveIngredients({
             return (
               <Card
                 key={section.id}
+                data-testid="ingredient-section-card"
                 className={isCompleted ? "border-primary/20 bg-primary/5" : ""}
               >
                 <Collapsible
@@ -84,6 +85,7 @@ export function InteractiveIngredients({
                           return (
                             <li
                               key={ingredient.id}
+                              data-testid="ingredient-item"
                               className="flex gap-3 group"
                             >
                               <Checkbox

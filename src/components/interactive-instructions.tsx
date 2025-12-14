@@ -50,6 +50,7 @@ export function InteractiveInstructions({
             return (
               <Card
                 key={section.id}
+                data-testid="instruction-section-card"
                 className={isCompleted ? "border-primary/20 bg-primary/5" : ""}
               >
                 <Collapsible
@@ -86,6 +87,7 @@ export function InteractiveInstructions({
                           return (
                             <li
                               key={instruction.id}
+                              data-testid="instruction-item"
                               className="flex gap-3 group"
                             >
                               <div className="shrink-0 w-8 h-8 p-0 rounded-full border-2 hover:border-primary transition-colors flex items-center justify-center">
