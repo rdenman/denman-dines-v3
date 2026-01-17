@@ -156,11 +156,11 @@ export function InfiniteRecipeList({
           >
             <Card
               data-testid="recipe-card"
-              className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+              className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer p-0 overflow-hidden"
             >
               {/* Mobile layout: horizontal with image on left */}
-              <div className="md:hidden flex">
-                <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-l-lg ml-4">
+              <div className="md:hidden flex items-center">
+                <div className="relative w-24 h-24 shrink-0 overflow-hidden">
                   {recipe.photo ? (
                     <Image
                       src={recipe.photo}
@@ -178,7 +178,7 @@ export function InfiniteRecipeList({
                   )}
                 </div>
 
-                <div className="flex-1 px-4">
+                <div className="flex-1 px-3 pt-3 pb-2">
                   <CardTitle
                     data-testid="recipe-title-mobile"
                     className="text-md mb-1"
@@ -224,28 +224,26 @@ export function InfiniteRecipeList({
 
               {/* Desktop layout: vertical with image on top */}
               <div className="hidden md:block">
-                <CardHeader className="pb-3">
-                  <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg">
-                    {recipe.photo ? (
-                      <Image
-                        src={recipe.photo}
-                        alt={recipe.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    ) : (
-                      <div className="flex items-center justify-center h-full bg-muted">
-                        <div className="text-muted-foreground text-center">
-                          <div className="text-4xl mb-2">🍽️</div>
-                          <div className="text-sm">No image</div>
-                        </div>
+                <div className="relative aspect-4/3 w-full overflow-hidden rounded-t-lg">
+                  {recipe.photo ? (
+                    <Image
+                      src={recipe.photo}
+                      alt={recipe.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center h-full bg-muted">
+                      <div className="text-muted-foreground text-center">
+                        <div className="text-4xl mb-2">🍽️</div>
+                        <div className="text-sm">No image</div>
                       </div>
-                    )}
-                  </div>
-                </CardHeader>
+                    </div>
+                  )}
+                </div>
 
-                <CardContent className="flex-1 flex flex-col">
+                <CardContent className="flex-1 flex flex-col px-3 pt-3 pb-2">
                   <CardTitle
                     data-testid="recipe-title-desktop"
                     className="mb-2"
