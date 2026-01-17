@@ -146,7 +146,7 @@ export function InfiniteRecipeList({
     <>
       <div
         data-testid="recipe-grid"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2"
       >
         {recipes.map((recipe) => (
           <Link
@@ -159,8 +159,8 @@ export function InfiniteRecipeList({
               className="h-full hover:shadow-lg transition-shadow duration-200 cursor-pointer p-0 overflow-hidden"
             >
               {/* Mobile layout: horizontal with image on left */}
-              <div className="md:hidden flex items-center">
-                <div className="relative w-24 h-24 shrink-0 overflow-hidden">
+              <div className="md:hidden flex">
+                <div className="relative w-30 h-30 shrink-0 overflow-hidden">
                   {recipe.photo ? (
                     <Image
                       src={recipe.photo}
@@ -178,29 +178,31 @@ export function InfiniteRecipeList({
                   )}
                 </div>
 
-                <div className="flex-1 px-3 pt-3 pb-2">
-                  <CardTitle
-                    data-testid="recipe-title-mobile"
-                    className="text-md mb-1"
-                  >
-                    {recipe.title}
-                  </CardTitle>
+                <div className="flex-1 p-2 flex flex-col justify-between">
+                  <div>
+                    <CardTitle
+                      data-testid="recipe-title-mobile"
+                      className="text-md mb-1 leading-5"
+                    >
+                      {recipe.title}
+                    </CardTitle>
 
-                  {recipe.description && (
-                    <CardDescription className="mb-1">
-                      <div
-                        className="overflow-hidden"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: "2",
-                          WebkitBoxOrient: "vertical",
-                          textOverflow: "ellipsis",
-                        }}
-                      >
-                        {recipe.description}
-                      </div>
-                    </CardDescription>
-                  )}
+                    {recipe.description && (
+                      <CardDescription className="mb-2">
+                        <div
+                          className="overflow-hidden text-xs"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitLineClamp: "2",
+                            WebkitBoxOrient: "vertical",
+                            textOverflow: "ellipsis",
+                          }}
+                        >
+                          {recipe.description}
+                        </div>
+                      </CardDescription>
+                    )}
+                  </div>
 
                   <div className="flex items-center justify-between text-sm text-muted-foreground">
                     <div className="flex items-center gap-3">
@@ -212,7 +214,7 @@ export function InfiniteRecipeList({
                       )}
                     </div>
 
-                    {recipe.totalTime !== null && (
+                    {!!recipe.totalTime && (
                       <div className="flex items-center gap-1">
                         <span>⏱️</span>
                         <span>{formatTime(recipe.totalTime)}</span>

@@ -36,10 +36,10 @@ export function InteractiveIngredients({
   } = useRecipeProgress(`recipe-ingredients-${recipeSlug}`);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-2">
       {/* Ingredients */}
       {sections.length > 0 ? (
-        <div className="space-y-4">
+        <div className="space-y-2">
           {sections.map((section) => {
             const isCompleted = isSectionCompleted(section);
             const completedCount = getCompletedCount(section);
@@ -49,16 +49,19 @@ export function InteractiveIngredients({
               <Card
                 key={section.id}
                 data-testid="ingredient-section-card"
-                className={isCompleted ? "border-primary/20 bg-primary/5" : ""}
+                className={cn(
+                  "p-2 gap-2",
+                  isCompleted ? "border-primary/20 bg-primary/5" : ""
+                )}
               >
                 <Collapsible
                   open={!isCollapsed}
                   onOpenChange={() => toggleSection(section.id)}
                 >
                   <CollapsibleTrigger asChild>
-                    <CardHeader className="cursor-pointer gap-0">
+                    <CardHeader className="cursor-pointer gap-0 p-2">
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2">
                           <CardTitle className="text-lg">
                             {section.name}
                           </CardTitle>
@@ -75,8 +78,8 @@ export function InteractiveIngredients({
                     </CardHeader>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
-                    <CardContent className="pt-4">
-                      <ul className="space-y-3">
+                    <CardContent className="p-2">
+                      <ul className="space-y-2">
                         {section.ingredients.map((ingredient) => {
                           const isCompleted =
                             completionState[section.id]?.[ingredient.id] ||
@@ -86,7 +89,7 @@ export function InteractiveIngredients({
                             <li
                               key={ingredient.id}
                               data-testid="ingredient-item"
-                              className="flex gap-3 group"
+                              className="flex gap-2 group"
                             >
                               <Checkbox
                                 id={`ingredient-${ingredient.id}`}
@@ -117,8 +120,8 @@ export function InteractiveIngredients({
           })}
         </div>
       ) : (
-        <Card>
-          <CardContent className="py-8">
+        <Card className="p-2">
+          <CardContent className="p-2">
             <p className="text-center text-muted-foreground">
               No ingredients added yet.
             </p>
