@@ -116,15 +116,12 @@ export default async function RecipePage({ params }: RecipePageProps) {
         strategy="afterInteractive"
       />
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 pt-4 pb-8 max-w-4xl">
         {/* Recipe Header */}
         <div className="mb-8">
-          <div className="flex justify-between items-start mb-4">
-            <h1 data-testid="recipe-title" className="text-4xl font-bold">
-              {recipe.title}
-            </h1>
-            <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
-          </div>
+          <h1 data-testid="recipe-title" className="text-4xl font-bold mb-4">
+            {recipe.title}
+          </h1>
           {recipe.description && (
             <p className="text-lg text-muted-foreground mb-6">
               {recipe.description}
@@ -210,6 +207,11 @@ export default async function RecipePage({ params }: RecipePageProps) {
             </Card>
           </div>
         )}
+
+        {/* Edit Button */}
+        <div className="mt-8 flex justify-end">
+          <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
+        </div>
       </div>
     </>
   );
