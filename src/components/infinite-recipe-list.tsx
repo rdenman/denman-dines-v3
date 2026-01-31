@@ -23,6 +23,74 @@ interface InfiniteRecipeListProps {
   pageSize: number;
 }
 
+interface CachedRecipeListState {
+  recipes: Recipe[];
+  page: number;
+  timestamp: number;
+}
+
+// Cache utilities
+const CACHE_TTL_MS = 60 * 60 * 1000; // 60 minutes
+
+function getCacheKey(sort: string, query?: string): string {
+  return `recipe-list:${sort}:${query || "all"}`;
+}
+
+function saveToCache(
+  cacheKey: string,
+  recipes: Recipe[],
+  page: number
+): void {
+  // Only run in browser environment
+  if (typeof window === "undefined") return;
+  
+  try {
+    const cacheData: CachedRecipeListState = {
+      recipes,
+      page,
+      timestamp: Date.now(),
+    };
+    sessionStorage.setItem(cacheKey, JSON.stringify(cacheData));
+  } catch (error) {
+    // Silently fail if sessionStorage is full or unavailable
+    console.warn("Failed to save to sessionStorage:", error);
+  }
+}
+
+function loadFromCache(cacheKey: string): CachedRecipeListState | null {
+  // Only run in browser environment
+  if (typeof window === "undefined") return null;
+  
+  try {
+    const cached = sessionStorage.getItem(cacheKey);
+    if (!cached) return null;
+
+    const data: CachedRecipeListState = JSON.parse(cached);
+
+    // Check if cache has expired
+    if (Date.now() - data.timestamp > CACHE_TTL_MS) {
+      sessionStorage.removeItem(cacheKey);
+      return null;
+    }
+
+    return data;
+  } catch (error) {
+    console.warn("Failed to load from sessionStorage:", error);
+    return null;
+  }
+}
+
+function clearCache(cacheKey: string): void {
+  // Only run in browser environment
+  if (typeof window === "undefined") return;
+  
+  try {
+    sessionStorage.removeItem(cacheKey);
+  } catch (error) {
+    console.warn("Failed to clear sessionStorage:", error);
+  }
+}
+
 export function InfiniteRecipeList({
   initialRecipes,
   initialPage,
@@ -31,6 +99,10 @@ export function InfiniteRecipeList({
   query,
   pageSize,
 }: InfiniteRecipeListProps) {
+  const cacheKey = getCacheKey(sort, query);
+  const previousCacheKeyRef = useRef<string>(cacheKey);
+  
+  // Always use initialRecipes for SSR/hydration - restore from cache after mount
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
   const [page, setPage] = useState(initialPage);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +113,22 @@ export function InfiniteRecipeList({
   const observerTarget = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
   const searchParams = useSearchParams();
+
+  // Restore from cache after hydration or save initial state if no cache
+  useEffect(() => {
+    const cachedState = loadFromCache(cacheKey);
+    
+    if (cachedState) {
+      // Restore cached state
+      setRecipes(cachedState.recipes);
+      setPage(cachedState.page);
+      setHasReachedEnd(cachedState.page >= initialTotalPages);
+    } else {
+      // No cache, save initial state
+      saveToCache(cacheKey, initialRecipes, initialPage);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
 
   const loadMore = useCallback(async () => {
     if (isLoading || hasReachedEnd) return;
@@ -77,9 +165,13 @@ export function InfiniteRecipeList({
 
       // Only update state if this request wasn't aborted
       if (!abortController.signal.aborted) {
-        setRecipes((prev) => [...prev, ...data.recipes]);
+        const updatedRecipes = [...recipes, ...data.recipes];
+        setRecipes(updatedRecipes);
         setPage(data.currentPage);
         setHasReachedEnd(data.currentPage >= data.totalPages);
+        
+        // Save to cache
+        saveToCache(cacheKey, updatedRecipes, data.currentPage);
       }
     } catch (error) {
       // Ignore abort errors - they're expected when requests are canceled
@@ -93,7 +185,7 @@ export function InfiniteRecipeList({
         setIsLoading(false);
       }
     }
-  }, [isLoading, hasReachedEnd, page, pageSize, sort, query]);
+  }, [isLoading, hasReachedEnd, page, pageSize, sort, query, cacheKey, recipes]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -121,17 +213,29 @@ export function InfiniteRecipeList({
 
   // Reset when search params change (user performs new search/sort)
   useEffect(() => {
-    // Cancel any in-flight requests when search/sort changes
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-      abortControllerRef.current = null;
-    }
+    // Only reset if the cache key has actually changed (different sort/query)
+    if (previousCacheKeyRef.current !== cacheKey) {
+      // Cancel any in-flight requests when search/sort changes
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+        abortControllerRef.current = null;
+      }
 
-    setRecipes(initialRecipes);
-    setPage(initialPage);
-    setHasReachedEnd(initialPage >= initialTotalPages);
-    setIsLoading(false); // Reset loading state
-  }, [initialRecipes, initialPage, initialTotalPages, searchParams]);
+      // Clear old cache and reset to initial state
+      const oldCacheKey = previousCacheKeyRef.current;
+      clearCache(oldCacheKey);
+      setRecipes(initialRecipes);
+      setPage(initialPage);
+      setHasReachedEnd(initialPage >= initialTotalPages);
+      setIsLoading(false);
+      
+      // Save initial state to cache for the new search params
+      saveToCache(cacheKey, initialRecipes, initialPage);
+      
+      // Update the ref to track the new cache key
+      previousCacheKeyRef.current = cacheKey;
+    }
+  }, [cacheKey, initialRecipes, initialPage, initialTotalPages]);
 
   // Cleanup: abort any in-flight requests when component unmounts
   useEffect(() => {
