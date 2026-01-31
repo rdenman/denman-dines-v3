@@ -329,7 +329,7 @@ export function InfiniteRecipeList({
               </div>
 
               {/* Desktop layout: vertical with image on top */}
-              <div className="hidden md:block">
+              <div className="hidden md:flex flex-col h-full">
                 <div className="relative aspect-4/3 w-full overflow-hidden rounded-t-lg">
                   {recipe.photo ? (
                     <Image
