@@ -116,22 +116,21 @@ export default async function RecipePage({ params }: RecipePageProps) {
         strategy="afterInteractive"
       />
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 pt-2 pb-8 max-w-4xl">
         {/* Recipe Header */}
-        <div className="mb-8">
-          <div className="flex justify-between items-start mb-4">
-            <h1 className="text-4xl font-bold">{recipe.title}</h1>
-            <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
-          </div>
+        <div className="mb-2">
+          <h1 data-testid="recipe-title" className="text-4xl font-bold mb-2">
+            {recipe.title}
+          </h1>
           {recipe.description && (
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-lg text-muted-foreground mb-2">
               {recipe.description}
             </p>
           )}
 
           {/* Recipe Photo */}
           {recipe.photo && (
-            <div className="relative w-full h-96 mb-6 rounded-lg overflow-hidden">
+            <div className="relative w-full h-96 mb-2 rounded-lg overflow-hidden">
               <Image
                 src={recipe.photo}
                 alt={recipe.title}
@@ -144,36 +143,42 @@ export default async function RecipePage({ params }: RecipePageProps) {
           )}
 
           {/* Recipe Meta Information */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mb-6 text-xs sm:text-sm">
             {exists(recipe.servings) && (
-              <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-2xl font-bold">{recipe.servings}</div>
-                <div className="text-sm text-muted-foreground">Servings</div>
+              <div className="flex items-center gap-1.5">
+                <span className="font-semibold">{recipe.servings}</span>
+                <span className="text-muted-foreground">Servings</span>
               </div>
+            )}
+            {exists(recipe.servings) && exists(recipe.prepTime) && (
+              <div className="w-px h-4 sm:h-5 bg-border" />
             )}
             {exists(recipe.prepTime) && (
-              <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-2xl font-bold">
+              <div className="flex items-center gap-1.5">
+                <span className="font-semibold">
                   {formatTime(recipe.prepTime)}
-                </div>
-                <div className="text-sm text-muted-foreground">Prep Time</div>
+                </span>
+                <span className="text-muted-foreground">Prep Time</span>
               </div>
             )}
+            {exists(recipe.prepTime) && exists(recipe.cookTime) && (
+              <div className="w-px h-4 sm:h-5 bg-border" />
+            )}
             {exists(recipe.cookTime) && (
-              <div className="text-center p-4 bg-muted rounded-lg">
-                <div className="text-2xl font-bold">
+              <div className="flex items-center gap-1.5">
+                <span className="font-semibold">
                   {formatTime(recipe.cookTime)}
-                </div>
-                <div className="text-sm text-muted-foreground">Cook Time</div>
+                </span>
+                <span className="text-muted-foreground">Cook Time</span>
               </div>
             )}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Ingredients */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Ingredients</h2>
+          <div data-testid="ingredients-section">
+            <h2 className="text-2xl font-bold mb-2">Ingredients</h2>
             <InteractiveIngredients
               sections={recipe.ingredientSections}
               recipeSlug={slug}
@@ -181,8 +186,8 @@ export default async function RecipePage({ params }: RecipePageProps) {
           </div>
 
           {/* Instructions */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Instructions</h2>
+          <div data-testid="instructions-section">
+            <h2 className="text-2xl font-bold mb-2">Instructions</h2>
             <InteractiveInstructions
               sections={recipe.instructionSections}
               recipeSlug={slug}
@@ -208,6 +213,11 @@ export default async function RecipePage({ params }: RecipePageProps) {
             </Card>
           </div>
         )}
+
+        {/* Edit Button */}
+        <div className="mt-8 flex justify-end">
+          <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
+        </div>
       </div>
     </>
   );
