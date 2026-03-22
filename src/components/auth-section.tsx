@@ -4,18 +4,12 @@ import { UserMenu } from "@/components/user-menu";
 import { useSession } from "@/lib/auth";
 import { SignInButton } from "./sign-in-button";
 
-interface AuthSectionProps {
-  skeletonClassName?: string;
-}
-
-export function AuthSection({
-  skeletonClassName = "h-10 w-10",
-}: AuthSectionProps) {
+export function AuthSection() {
   const { data: session, isPending } = useSession();
 
   if (isPending) {
     return (
-      <div className={`${skeletonClassName} rounded-full bg-muted animate-pulse`} />
+      <div className="h-9 w-20 rounded-md bg-muted animate-pulse" />
     );
   }
 

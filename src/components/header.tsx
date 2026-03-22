@@ -30,7 +30,7 @@ export function Header() {
 
             <div className="flex items-center space-x-2">
               <ModeToggle />
-              <AuthSection skeletonClassName="h-9 w-9" />
+              <AuthSection />
             </div>
           </div>
 
@@ -85,7 +85,7 @@ export function Header() {
 
           <div className="flex items-center space-x-4">
             <ModeToggle />
-            <AuthSection skeletonClassName="h-10 w-10" />
+            <AuthSection />
           </div>
         </div>
       </div>
