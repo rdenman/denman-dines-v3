@@ -15,15 +15,18 @@ export default async function MyRecipesPage() {
   const recipes = await prisma.recipe.findMany({
     where: { userId: session.user.id },
     orderBy: { updatedAt: "desc" },
-    include: {
-      ingredientSections: {
-        include: {
-          ingredients: true,
-        },
-      },
-      instructionSections: {
-        include: {
-          instructions: true,
+    select: {
+      id: true,
+      title: true,
+      slug: true,
+      description: true,
+      servings: true,
+      prepTime: true,
+      cookTime: true,
+      _count: {
+        select: {
+          ingredientSections: true,
+          instructionSections: true,
         },
       },
     },
@@ -84,18 +87,12 @@ export default async function MyRecipesPage() {
                   {recipe.prepTime && <p>Prep: {recipe.prepTime} min</p>}
                   {recipe.cookTime && <p>Cook: {recipe.cookTime} min</p>}
                   <p>
-                    {recipe.ingredientSections.reduce(
-                      (total, section) => total + section.ingredients.length,
-                      0
-                    )}{" "}
-                    ingredients
+                    {recipe._count.ingredientSections} ingredient
+                    {recipe._count.ingredientSections !== 1 ? " sections" : " section"}
                   </p>
                   <p>
-                    {recipe.instructionSections.reduce(
-                      (total, section) => total + section.instructions.length,
-                      0
-                    )}{" "}
-                    steps
+                    {recipe._count.instructionSections} step
+                    {recipe._count.instructionSections !== 1 ? " sections" : " section"}
                   </p>
                 </div>
                 <div className="mt-4 pt-4 border-t">

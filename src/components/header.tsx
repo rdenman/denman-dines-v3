@@ -1,17 +1,11 @@
-"use client";
-
+import { AuthSection } from "@/components/auth-section";
 import { ModeToggle } from "@/components/mode-toggle";
 import { RecipeSearch } from "@/components/recipe-search";
-import { UserMenu } from "@/components/user-menu";
-import { useSession } from "@/lib/auth";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import { SignInButton } from "./sign-in-button";
 
 export function Header() {
-  const { data: session, isPending } = useSession();
-
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 pt-safe">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,13 +30,7 @@ export function Header() {
 
             <div className="flex items-center space-x-2">
               <ModeToggle />
-              {isPending ? (
-                <div className="h-9 w-9 rounded-full bg-muted animate-pulse" />
-              ) : session?.user ? (
-                <UserMenu user={session.user} />
-              ) : (
-                <SignInButton />
-              )}
+              <AuthSection skeletonClassName="h-9 w-9" />
             </div>
           </div>
 
@@ -97,13 +85,7 @@ export function Header() {
 
           <div className="flex items-center space-x-4">
             <ModeToggle />
-            {isPending ? (
-              <div className="h-10 w-10 rounded-full bg-muted animate-pulse" />
-            ) : session?.user ? (
-              <UserMenu user={session.user} />
-            ) : (
-              <SignInButton />
-            )}
+            <AuthSection skeletonClassName="h-10 w-10" />
           </div>
         </div>
       </div>

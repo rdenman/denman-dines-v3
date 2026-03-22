@@ -2,6 +2,7 @@ import { InteractiveIngredients } from "@/components/interactive-ingredients";
 import { InteractiveInstructions } from "@/components/interactive-instructions";
 import { OwnerEditButton } from "@/components/owner-edit-button";
 import { Card, CardContent } from "@/components/ui/card";
+import prisma from "@/lib/prisma";
 import { getRecipeBySlug } from "@/lib/recipe";
 import {
   exists,
@@ -13,7 +14,6 @@ import {
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 
 export async function generateMetadata({
   params,
@@ -68,6 +68,13 @@ export async function generateMetadata({
 
 export const revalidate = 300;
 
+export async function generateStaticParams() {
+  const recipes = await prisma.recipe.findMany({
+    select: { slug: true },
+  });
+  return recipes.map((recipe) => ({ slug: recipe.slug }));
+}
+
 interface RecipePageProps {
   params: Promise<{
     slug: string;
@@ -109,11 +116,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
   return (
     <>
-      <Script
-        id="recipe-schema"
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeSchema) }}
-        strategy="afterInteractive"
       />
 
       <div className="container mx-auto px-4 pt-2 pb-8 max-w-4xl">

@@ -26,11 +26,6 @@ export async function getPaginatedRecipes({
 }: PaginatedQueryParams<SortOption>) {
   const getCachedRecipes = unstable_cache(
     async (page: number, size: number, sortOption: SortOption, q?: string) => {
-      console.log(
-        `🔄 Cache MISS: Fetching recipes for page ${page} with page size ${size}, sort ${sortOption}, and query "${q}" from database`
-      );
-
-      // Create search conditions if query is provided
       const searchConditions: Prisma.RecipeWhereInput = q
         ? {
             OR: [
@@ -95,10 +90,6 @@ export async function getPaginatedRecipes({
 export async function getRecipeBySlug(slug: string) {
   const getCachedRecipe = unstable_cache(
     async (recipeSlug: string) => {
-      console.log(
-        `🔄 Cache MISS: Fetching recipe "${recipeSlug}" from database`
-      );
-
       return prisma.recipe.findUnique({
         where: { slug: recipeSlug },
         include: {

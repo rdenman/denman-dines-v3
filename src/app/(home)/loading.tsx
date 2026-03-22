@@ -3,9 +3,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const PLACEHOLDERS = Array.from({ length: 8 });
 
-export default function HomeLoading() {
+export function RecipeListSkeleton() {
   return (
-    <div className="container mx-auto px-4 py-4">
+    <>
       <div className="flex justify-end items-center mb-4">
         <Skeleton className="h-9 w-48" />
       </div>
@@ -29,6 +29,14 @@ export default function HomeLoading() {
           </Card>
         ))}
       </div>
+    </>
+  );
+}
+
+export default function HomeLoading() {
+  return (
+    <div className="container mx-auto px-4 py-4">
+      <RecipeListSkeleton />
     </div>
   );
 }

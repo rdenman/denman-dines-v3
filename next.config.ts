@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   experimental: {
     authInterrupts: true,
     turbopackFileSystemCacheForDev: true,
+    optimizePackageImports: ["lucide-react"],
   },
   images: {
     remotePatterns: [
