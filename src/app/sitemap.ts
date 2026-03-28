@@ -1,7 +1,7 @@
+import type { MetadataRoute } from "next";
+import { unstable_cache } from "next/cache";
 import prisma from "@/lib/prisma";
 import { CACHE_TAGS } from "@/lib/recipe";
-import { unstable_cache } from "next/cache";
-import { MetadataRoute } from "next";
 
 const getCachedRecipeSlugs = unstable_cache(
   async () => {
@@ -19,7 +19,7 @@ const getCachedRecipeSlugs = unstable_cache(
   {
     tags: [CACHE_TAGS.RECIPES],
     revalidate: 3600,
-  }
+  },
 );
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

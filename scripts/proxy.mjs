@@ -21,7 +21,7 @@ https
       headers["accept-encoding"] = "identity";
       headers["x-forwarded-host"] = "localhost:3000";
       headers["x-forwarded-proto"] = "https";
-      headers["host"] = "localhost:3000";
+      headers.host = "localhost:3000";
       delete headers["content-length"];
 
       let body;

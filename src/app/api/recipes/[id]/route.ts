@@ -1,13 +1,13 @@
+import { revalidatePath, revalidateTag } from "next/cache";
+import { type NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
 import { CACHE_TAGS } from "@/lib/recipe";
 import { createRecipeSchema } from "@/lib/validation";
-import { revalidatePath, revalidateTag } from "next/cache";
-import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const session = await getSession();
@@ -59,10 +59,10 @@ export async function PUT(
                     amount: ingredient.amount,
                     preparation: ingredient.preparation,
                     order: ingredientIndex,
-                  })
+                  }),
                 ),
               },
-            })
+            }),
           ),
         },
         // Update instruction sections
@@ -77,10 +77,10 @@ export async function PUT(
                   (instruction, instructionIndex) => ({
                     text: instruction,
                     order: instructionIndex,
-                  })
+                  }),
                 ),
               },
-            })
+            }),
           ),
         },
       },
@@ -115,7 +115,7 @@ export async function PUT(
     console.error("Error updating recipe:", error);
     return NextResponse.json(
       { error: "Failed to update recipe" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

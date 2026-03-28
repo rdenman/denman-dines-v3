@@ -1,16 +1,16 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle
-} from "@/components/ui/card";
-import { formatTime } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
+import { formatTime } from "@/lib/utils";
 import type { Recipe } from "../../prisma/generated/client";
 
 interface InfiniteRecipeListProps {
@@ -35,14 +35,10 @@ function getCacheKey(sort: string, query?: string): string {
   return `recipe-list:${sort}:${query || "all"}`;
 }
 
-function saveToCache(
-  cacheKey: string,
-  recipes: Recipe[],
-  page: number
-): void {
+function saveToCache(cacheKey: string, recipes: Recipe[], page: number): void {
   // Only run in browser environment
   if (typeof window === "undefined") return;
-  
+
   try {
     const cacheData: CachedRecipeListState = {
       recipes,
@@ -59,7 +55,7 @@ function saveToCache(
 function loadFromCache(cacheKey: string): CachedRecipeListState | null {
   // Only run in browser environment
   if (typeof window === "undefined") return null;
-  
+
   try {
     const cached = sessionStorage.getItem(cacheKey);
     if (!cached) return null;
@@ -81,7 +77,7 @@ function loadFromCache(cacheKey: string): CachedRecipeListState | null {
 
 function clearCache(cacheKey: string): void {
   if (typeof window === "undefined") return;
-  
+
   try {
     sessionStorage.removeItem(cacheKey);
   } catch (error) {
@@ -108,7 +104,9 @@ export function clearAllRecipeListCaches(): void {
         keysToRemove.push(key);
       }
     }
-    keysToRemove.forEach((key) => sessionStorage.removeItem(key));
+    for (const key of keysToRemove) {
+      sessionStorage.removeItem(key);
+    }
     sessionStorage.setItem(STALE_MARKER_KEY, "1");
   } catch (error) {
     console.warn("Failed to clear recipe list caches:", error);
@@ -127,19 +125,19 @@ export function InfiniteRecipeList({
   const cacheKey = getCacheKey(sort, query);
   const previousCacheKeyRef = useRef<string>(cacheKey);
   const prevInitialRecipeIdsRef = useRef(
-    initialRecipes.map((r) => r.id).join(",")
+    initialRecipes.map((r) => r.id).join(","),
   );
 
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
   const [page, setPage] = useState(initialPage);
   const [isLoading, setIsLoading] = useState(false);
   const [hasReachedEnd, setHasReachedEnd] = useState(
-    initialPage >= initialTotalPages
+    initialPage >= initialTotalPages,
   );
 
   const observerTarget = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
-  const searchParams = useSearchParams();
+  const _searchParams = useSearchParams();
 
   // If a mutation happened (stale marker set), bypass the client Router Cache
   // by calling router.refresh(). This causes the server component to re-render
@@ -153,8 +151,7 @@ export function InfiniteRecipeList({
     } catch {
       // sessionStorage unavailable
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.refresh]);
 
   // Sync state when initialRecipes changes (e.g. after router.refresh()
   // delivers fresh props from the server).
@@ -173,11 +170,15 @@ export function InfiniteRecipeList({
   // Restore extra infinite-scroll pages from cache, but only if the first
   // page still matches the fresh server data. If the server data has changed
   // (e.g. a recipe was created/edited/deleted), discard the stale cache.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: only run on mount — the sync effect above handles prop changes
   useEffect(() => {
     const cachedState = loadFromCache(cacheKey);
 
     if (cachedState && cachedState.page > initialPage) {
-      const cachedFirstPage = cachedState.recipes.slice(0, initialRecipes.length);
+      const cachedFirstPage = cachedState.recipes.slice(
+        0,
+        initialRecipes.length,
+      );
       const firstPageMatch =
         cachedFirstPage.length === initialRecipes.length &&
         cachedFirstPage.every((r, i) => r.id === initialRecipes[i]?.id);
@@ -192,8 +193,7 @@ export function InfiniteRecipeList({
 
     clearCache(cacheKey);
     saveToCache(cacheKey, initialRecipes, initialPage);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run on mount
+  }, []);
 
   const loadMore = useCallback(async () => {
     if (isLoading || hasReachedEnd) return;
@@ -234,7 +234,7 @@ export function InfiniteRecipeList({
         setRecipes(updatedRecipes);
         setPage(data.currentPage);
         setHasReachedEnd(data.currentPage >= data.totalPages);
-        
+
         // Save to cache
         saveToCache(cacheKey, updatedRecipes, data.currentPage);
       }
@@ -250,7 +250,16 @@ export function InfiniteRecipeList({
         setIsLoading(false);
       }
     }
-  }, [isLoading, hasReachedEnd, page, pageSize, sort, query, cacheKey, recipes]);
+  }, [
+    isLoading,
+    hasReachedEnd,
+    page,
+    pageSize,
+    sort,
+    query,
+    cacheKey,
+    recipes,
+  ]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -261,7 +270,7 @@ export function InfiniteRecipeList({
       },
       {
         rootMargin: "300px", // Trigger 300px before reaching the bottom
-      }
+      },
     );
 
     const currentTarget = observerTarget.current;
@@ -293,10 +302,10 @@ export function InfiniteRecipeList({
       setPage(initialPage);
       setHasReachedEnd(initialPage >= initialTotalPages);
       setIsLoading(false);
-      
+
       // Save initial state to cache for the new search params
       saveToCache(cacheKey, initialRecipes, initialPage);
-      
+
       // Update the ref to track the new cache key
       previousCacheKeyRef.current = cacheKey;
     }

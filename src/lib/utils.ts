@@ -1,4 +1,4 @@
-import { clsx, type ClassValue } from "clsx";
+import { type ClassValue, clsx } from "clsx";
 import Fraction from "fraction.js";
 import { twMerge } from "tailwind-merge";
 import type { Ingredient } from "../../prisma/generated/client";
@@ -28,7 +28,7 @@ export function formatTime(minutes: number | null): string {
 
 /** Safely formats a date to ISO 8601 string. */
 export function formatDateTimeISO(
-  date: Date | string | null | undefined
+  date: Date | string | null | undefined,
 ): string | undefined {
   if (!date) return undefined;
   return new Date(date).toISOString();
@@ -64,7 +64,7 @@ export function formatIngredientAmount(amount: string | null): string {
   const [, numberStr, rest] = decimalMatch;
   const number = parseFloat(numberStr);
 
-  if (isNaN(number)) return amount;
+  if (Number.isNaN(number)) return amount;
 
   // Don't display amounts that are 0
   if (number === 0) return "";
@@ -80,7 +80,7 @@ export function formatIngredientAmount(amount: string | null): string {
 export function formatIngredient(ingredient: Ingredient): string {
   let formatted = "";
   if (ingredient.amount) {
-    formatted += formatIngredientAmount(ingredient.amount) + " ";
+    formatted += `${formatIngredientAmount(ingredient.amount)} `;
   }
   formatted += ingredient.name;
   if (ingredient.preparation) {

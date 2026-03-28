@@ -1,5 +1,5 @@
 export function LoadingOverlay(
-  { text }: { text?: string } = { text: "Loading..." }
+  { text }: { text?: string } = { text: "Loading..." },
 ) {
   return (
     <div

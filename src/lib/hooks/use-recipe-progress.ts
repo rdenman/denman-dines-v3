@@ -14,7 +14,7 @@ interface StoredProgress {
 export function useRecipeProgress(storageKey: string) {
   const [completionState, setCompletionState] = useState<CompletionState>({});
   const [collapsedSections, setCollapsedSections] = useState<Set<string>>(
-    new Set()
+    new Set(),
   );
 
   // Load completion state from sessionStorage on mount

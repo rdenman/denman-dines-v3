@@ -1,5 +1,9 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { clearAllRecipeListCaches } from "@/components/infinite-recipe-list";
 import { LoadingOverlay } from "@/components/loading-overlay";
 import { IngredientSections } from "@/components/recipe-form/ingredient-sections";
 import { InstructionSections } from "@/components/recipe-form/instruction-sections";
@@ -16,11 +20,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { clearAllRecipeListCaches } from "@/components/infinite-recipe-list";
-import { createRecipeSchema, type CreateRecipeInput } from "@/lib/validation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { type CreateRecipeInput, createRecipeSchema } from "@/lib/validation";
 
 type RecipeFormProps =
   | {
@@ -55,7 +55,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
 
   async function onSubmit(
     data: CreateRecipeInput,
-    event?: React.BaseSyntheticEvent
+    event?: React.BaseSyntheticEvent,
   ) {
     try {
       let photoUrl: string | undefined;
@@ -98,7 +98,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
     } catch (error) {
       console.error(
         `Error ${isEditMode ? "updating" : "creating"} recipe:`,
-        error
+        error,
       );
       // TODO: Add toast notification for error
     }
@@ -161,7 +161,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
                           onChange={(e) => {
                             const value = e.target.value;
                             field.onChange(
-                              value ? parseInt(value, 10) : undefined
+                              value ? parseInt(value, 10) : undefined,
                             );
                           }}
                           value={field.value ?? ""}
@@ -186,7 +186,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
                           onChange={(e) => {
                             const value = e.target.value;
                             field.onChange(
-                              value ? parseInt(value, 10) : undefined
+                              value ? parseInt(value, 10) : undefined,
                             );
                           }}
                           value={field.value ?? ""}
@@ -211,7 +211,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
                           onChange={(e) => {
                             const value = e.target.value;
                             field.onChange(
-                              value ? parseInt(value, 10) : undefined
+                              value ? parseInt(value, 10) : undefined,
                             );
                           }}
                           value={field.value ?? ""}

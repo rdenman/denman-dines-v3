@@ -1,9 +1,9 @@
 "use client";
 
-import { LoadingOverlay } from "@/components/loading-overlay";
-import { Button } from "@/components/ui/button";
 import type { ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
+import { LoadingOverlay } from "@/components/loading-overlay";
+import { Button } from "@/components/ui/button";
 
 export function FormLoadingButton(props: ComponentProps<typeof Button>) {
   const { pending } = useFormStatus();

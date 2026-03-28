@@ -1,6 +1,6 @@
 import { InfiniteRecipeList } from "@/components/infinite-recipe-list";
 import { RecipeSort } from "@/components/recipe-sort";
-import { QuerySearchParams } from "@/lib/query";
+import type { QuerySearchParams } from "@/lib/query";
 import { parseRecipeSearchParams } from "@/lib/query.server";
 import { DEFAULT_RECIPES_PER_PAGE, getPaginatedRecipes } from "@/lib/recipe";
 
@@ -10,7 +10,7 @@ interface RecipeContentProps {
 
 export async function RecipeContent({ searchParams }: RecipeContentProps) {
   const { page, size, sort, q } = await parseRecipeSearchParams(
-    await searchParams
+    await searchParams,
   );
 
   const { recipes, totalCount, totalPages, currentPage } =

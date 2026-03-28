@@ -53,7 +53,7 @@
 ## Tooling & Linting
 
 - Use Bun as the package manager.
-- Use **ESLint** for linting. Add as pre-commit hook.
+- Use **Biome** for linting and formatting.
 - Clean up all warnings/errors before commit.
 - Use Conventional Commits (`feat:`, `fix:`, etc.).
 - Automatically organize imports.

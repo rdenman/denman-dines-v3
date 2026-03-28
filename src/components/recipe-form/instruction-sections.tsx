@@ -1,5 +1,7 @@
 "use client";
 
+import { GripVertical, Plus, X } from "lucide-react";
+import { type Control, useFieldArray, useFormContext } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -10,9 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { type CreateRecipeInput } from "@/lib/validation";
-import { GripVertical, Plus, X } from "lucide-react";
-import { Control, useFieldArray, useFormContext } from "react-hook-form";
+import type { CreateRecipeInput } from "@/lib/validation";
 
 interface InstructionSectionsProps {
   control: Control<CreateRecipeInput>;
@@ -90,7 +90,7 @@ function InstructionSection({
   const removeInstruction = (instructionIndex: number) => {
     setValue(
       fieldName,
-      instructions.filter((_, i) => i !== instructionIndex)
+      instructions.filter((_, i) => i !== instructionIndex),
     );
   };
 

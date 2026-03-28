@@ -1,8 +1,8 @@
+import { put } from "@vercel/blob";
+import { type NextRequest, NextResponse } from "next/server";
+import z from "zod";
 import { getSession } from "@/lib/auth.server";
 import { imageFileSchema } from "@/lib/validation";
-import { put } from "@vercel/blob";
-import { NextRequest, NextResponse } from "next/server";
-import z from "zod";
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,13 +26,13 @@ export async function POST(request: NextRequest) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         { error: "Invalid data", details: error.issues },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

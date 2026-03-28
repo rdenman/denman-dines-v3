@@ -1,9 +1,9 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Input } from "@/components/ui/input";
 
 interface RecipeSearchProps {
   placeholder?: string;
@@ -40,7 +40,7 @@ export function RecipeSearch({
       const newUrl = params.toString() ? `/?${params.toString()}` : "/";
       router.push(newUrl);
     },
-    [router]
+    [router],
   );
 
   // Debounced search function
@@ -57,7 +57,7 @@ export function RecipeSearch({
         }
       }, 500); // 500ms delay
     },
-    [handleSearch]
+    [handleSearch],
   );
 
   // Cleanup timeout on unmount

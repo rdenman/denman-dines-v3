@@ -34,10 +34,10 @@ export const createRecipeSchema = z.object({
               name: z.string().min(1, "Ingredient name is required"),
               amount: z.string().optional(),
               preparation: z.string().optional(),
-            })
+            }),
           )
           .min(1, "At least one ingredient is required"),
-      })
+      }),
     )
     .min(1, "At least one ingredient section is required"),
   instructionSections: z
@@ -47,7 +47,7 @@ export const createRecipeSchema = z.object({
         instructions: z
           .array(z.string().min(1, "Instruction cannot be empty"))
           .min(1, "At least one instruction is required"),
-      })
+      }),
     )
     .min(1, "At least one instruction section is required"),
 });

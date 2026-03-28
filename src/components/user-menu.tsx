@@ -1,5 +1,9 @@
 "use client";
 
+import type { User } from "better-auth";
+import { LogOut, Plus, SquarePen } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,10 +13,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/lib/auth";
-import { User } from "better-auth";
-import { LogOut, Plus, SquarePen } from "lucide-react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 interface UserMenuProps {
   user: User;

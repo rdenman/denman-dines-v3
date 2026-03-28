@@ -1,8 +1,8 @@
 import {
   isValidSortOption,
-  PaginatedQueryParams,
-  QuerySearchParams,
-  SortOption,
+  type PaginatedQueryParams,
+  type QuerySearchParams,
+  type SortOption,
 } from "@/lib/query";
 import { DEFAULT_RECIPES_PER_PAGE } from "@/lib/recipe";
 
@@ -11,7 +11,7 @@ import { DEFAULT_RECIPES_PER_PAGE } from "@/lib/recipe";
  * Uses cookies for sort preference when no URL parameter exists
  */
 export async function parseRecipeSearchParams(
-  params: QuerySearchParams
+  params: QuerySearchParams,
 ): Promise<PaginatedQueryParams<SortOption>> {
   const pageNum = parseInt(params.page || "1", 10);
   const page = Number.isNaN(pageNum) || pageNum < 1 ? 1 : pageNum;

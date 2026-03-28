@@ -1,5 +1,5 @@
-import { QuerySearchParams } from "@/lib/query";
 import { Suspense } from "react";
+import type { QuerySearchParams } from "@/lib/query";
 import { RecipeListSkeleton } from "./loading";
 import { RecipeContent } from "./recipe-content";
 

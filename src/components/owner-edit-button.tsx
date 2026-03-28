@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { useSession } from "@/lib/auth";
 import { SquarePen } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useSession } from "@/lib/auth";
 
 interface OwnerEditButtonProps {
   recipeUserId: string;

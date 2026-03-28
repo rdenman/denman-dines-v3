@@ -1,5 +1,6 @@
 "use client";
 
+import { Check, ChevronDown, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -10,7 +11,6 @@ import {
 import { Label } from "@/components/ui/label";
 import { useRecipeProgress } from "@/lib/hooks/use-recipe-progress";
 import { cn } from "@/lib/utils";
-import { Check, ChevronDown, ChevronRight } from "lucide-react";
 import type { Instruction } from "../../prisma/generated/client";
 
 interface InstructionSection {
@@ -53,7 +53,7 @@ export function InteractiveInstructions({
                 data-testid="instruction-section-card"
                 className={cn(
                   "p-2 gap-2",
-                  isCompleted ? "border-primary/20 bg-primary/5" : ""
+                  isCompleted ? "border-primary/20 bg-primary/5" : "",
                 )}
               >
                 <Collapsible
@@ -117,7 +117,7 @@ export function InteractiveInstructions({
                                   {
                                     "line-through text-muted-foreground":
                                       isCompleted,
-                                  }
+                                  },
                                 )}
                               >
                                 {isCompleted ? (

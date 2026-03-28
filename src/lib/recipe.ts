@@ -1,10 +1,10 @@
+import { unstable_cache } from "next/cache";
 import prisma from "@/lib/prisma";
 import {
-  PaginatedQueryParams,
-  SortOption,
   getOrderByForSort,
+  type PaginatedQueryParams,
+  type SortOption,
 } from "@/lib/query";
-import { unstable_cache } from "next/cache";
 import type { Prisma } from "../../prisma/generated/client";
 
 export const DEFAULT_RECIPES_PER_PAGE = 24;
@@ -78,7 +78,7 @@ export async function getPaginatedRecipes({
     {
       tags: [CACHE_TAGS.RECIPES],
       revalidate: 300,
-    }
+    },
   );
 
   return getCachedRecipes(page, size, sort, q);
@@ -121,7 +121,7 @@ export async function getRecipeBySlug(slug: string) {
     {
       tags: [CACHE_TAGS.RECIPE_DETAILS, `${CACHE_TAGS.RECIPE_DETAILS}:${slug}`],
       revalidate: 300,
-    }
+    },
   );
 
   return getCachedRecipe(slug);

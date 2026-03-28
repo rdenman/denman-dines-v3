@@ -1,10 +1,10 @@
+import { Plus, SquarePen } from "lucide-react";
+import Link from "next/link";
+import { unauthorized } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
-import { Plus, SquarePen } from "lucide-react";
-import Link from "next/link";
-import { unauthorized } from "next/navigation";
 
 export default async function MyRecipesPage() {
   const session = await getSession();
@@ -88,11 +88,15 @@ export default async function MyRecipesPage() {
                   {recipe.cookTime && <p>Cook: {recipe.cookTime} min</p>}
                   <p>
                     {recipe._count.ingredientSections} ingredient
-                    {recipe._count.ingredientSections !== 1 ? " sections" : " section"}
+                    {recipe._count.ingredientSections !== 1
+                      ? " sections"
+                      : " section"}
                   </p>
                   <p>
                     {recipe._count.instructionSections} step
-                    {recipe._count.instructionSections !== 1 ? " sections" : " section"}
+                    {recipe._count.instructionSections !== 1
+                      ? " sections"
+                      : " section"}
                   </p>
                 </div>
                 <div className="mt-4 pt-4 border-t">

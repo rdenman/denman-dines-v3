@@ -1,7 +1,7 @@
+import { notFound, unauthorized } from "next/navigation";
 import { RecipeForm } from "@/components/recipe-form";
 import { getSession } from "@/lib/auth.server";
 import { getRecipeBySlug } from "@/lib/recipe";
-import { notFound, unauthorized } from "next/navigation";
 
 interface EditRecipePageProps {
   params: Promise<{

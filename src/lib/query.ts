@@ -49,14 +49,14 @@ const DEFAULT_SORT = { createdAt: "desc" } as const;
  * Get the orderBy configuration for a given sort option
  */
 export function getOrderByForSort(
-  sortOption: SortOption
+  sortOption: SortOption,
 ):
   | Prisma.RecipeOrderByWithRelationInput
   | Prisma.RecipeOrderByWithRelationInput[] {
   const dir = sortOption.split("-").at(-1);
   if (!dir || !isValidSortDirection(dir)) {
     console.error(
-      `Invalid sort option: ${sortOption}. Must end with -asc or -desc.`
+      `Invalid sort option: ${sortOption}. Must end with -asc or -desc.`,
     );
     return DEFAULT_SORT;
   }

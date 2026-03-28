@@ -1,10 +1,10 @@
+import { revalidatePath, revalidateTag } from "next/cache";
+import { type NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
 import { CACHE_TAGS } from "@/lib/recipe";
 import { createRecipeSchema } from "@/lib/validation";
-import { revalidatePath, revalidateTag } from "next/cache";
-import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 
 // Generate URL-friendly slug from title
 function generateSlug(title: string): string {
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
                   amount: ingredient.amount || null,
                   preparation: ingredient.preparation || null,
                   order: ingredientIndex,
-                })
+                }),
               ),
             },
           })),
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
                 (instruction, instructionIndex) => ({
                   text: instruction,
                   order: instructionIndex,
-                })
+                }),
               ),
             },
           })),
@@ -112,13 +112,13 @@ export async function POST(request: NextRequest) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
         { error: "Invalid data", details: error.issues },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

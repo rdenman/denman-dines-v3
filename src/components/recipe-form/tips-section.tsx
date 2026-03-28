@@ -1,5 +1,7 @@
 "use client";
 
+import { Lightbulb, Plus, X } from "lucide-react";
+import { type Control, useFormContext } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -9,9 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { type CreateRecipeInput } from "@/lib/validation";
-import { Lightbulb, Plus, X } from "lucide-react";
-import { Control, useFormContext } from "react-hook-form";
+import type { CreateRecipeInput } from "@/lib/validation";
 
 interface TipsSectionProps {
   control: Control<CreateRecipeInput>;
@@ -29,7 +29,7 @@ export function TipsSection({ control }: TipsSectionProps) {
   const removeTip = (tipIndex: number) => {
     setValue(
       fieldName,
-      tips.filter((_, i) => i !== tipIndex)
+      tips.filter((_, i) => i !== tipIndex),
     );
   };
 

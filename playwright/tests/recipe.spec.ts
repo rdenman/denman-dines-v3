@@ -31,9 +31,9 @@ test("navigates from home to recipe and displays full recipe details", async ({
   await page.waitForFunction(
     () => {
       const title = document.querySelector('[data-testid="recipe-title"]');
-      return title && title.textContent && title.textContent.trim().length > 0;
+      return title?.textContent && title.textContent.trim().length > 0;
     },
-    { timeout: 10000 }
+    { timeout: 10000 },
   );
 
   // Verify ingredients section exists and has content
@@ -93,14 +93,14 @@ test("recipe page has correct title in browser", async ({ page }) => {
   await page.waitForFunction(
     () => {
       const title = document.querySelector('[data-testid="recipe-title"]');
-      return title && title.textContent && title.textContent.trim().length > 0;
+      return title?.textContent && title.textContent.trim().length > 0;
     },
-    { timeout: 10000 }
+    { timeout: 10000 },
   );
 
   // Get the recipe title text
   const titleText = await recipeTitle.textContent();
 
   // Verify the browser title matches the recipe title
-  await expect(page).toHaveTitle(titleText + " | Denman Dines");
+  await expect(page).toHaveTitle(`${titleText} | Denman Dines`);
 });

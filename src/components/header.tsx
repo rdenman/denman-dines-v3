@@ -1,9 +1,9 @@
-import { AuthSection } from "@/components/auth-section";
-import { ModeToggle } from "@/components/mode-toggle";
-import { RecipeSearch } from "@/components/recipe-search";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import { AuthSection } from "@/components/auth-section";
+import { ModeToggle } from "@/components/mode-toggle";
+import { RecipeSearch } from "@/components/recipe-search";
 
 export function Header() {
   return (

@@ -1,6 +1,6 @@
+import { unauthorized } from "next/navigation";
 import { RecipeForm } from "@/components/recipe-form";
 import { getSession } from "@/lib/auth.server";
-import { unauthorized } from "next/navigation";
 
 export default async function NewRecipePage() {
   const session = await getSession();

@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 import {
   Select,
   SelectContent,
@@ -7,9 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SORT_OPTIONS, SortOption } from "@/lib/query";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { SORT_OPTIONS, type SortOption } from "@/lib/query";
 
 interface RecipeSortProps {
   currentSort?: SortOption;
@@ -27,7 +27,7 @@ export function RecipeSort({
       params.set("sort", value);
       router.push(`/?${params.toString()}`);
     },
-    [router, searchParams]
+    [router, searchParams],
   );
 
   return (

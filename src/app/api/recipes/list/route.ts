@@ -1,6 +1,6 @@
+import { type NextRequest, NextResponse } from "next/server";
 import { parseRecipeSearchParams } from "@/lib/query.server";
 import { getPaginatedRecipes } from "@/lib/recipe";
-import { NextRequest, NextResponse } from "next/server";
 
 /**
  * API endpoint for fetching paginated recipes as JSON
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     console.error("Error fetching recipes:", error);
     return NextResponse.json(
       { error: "Failed to fetch recipes" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

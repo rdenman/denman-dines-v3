@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SignInButton } from "@/components/sign-in-button";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Link from "next/link";
 
 export default function UnauthorizedPage() {
   return (

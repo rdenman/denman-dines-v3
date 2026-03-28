@@ -107,19 +107,19 @@ test("infinite scrolling loads more recipes", async ({ page }) => {
       page.waitForFunction(
         (expectedCount) => {
           const cards = document.querySelectorAll(
-            '[data-testid="recipe-card"]'
+            '[data-testid="recipe-card"]',
           );
           return cards.length > expectedCount;
         },
         initialCount,
-        { timeout: 10000 }
+        { timeout: 10000 },
       ),
       // OR wait for end message to appear
       endMessage.waitFor({ state: "visible", timeout: 10000 }),
     ]);
-  } catch (error) {
+  } catch (_error) {
     throw new Error(
-      `Infinite scroll did not trigger - neither more recipes loaded nor end message appeared. Initial count: ${initialCount}`
+      `Infinite scroll did not trigger - neither more recipes loaded nor end message appeared. Initial count: ${initialCount}`,
     );
   }
 

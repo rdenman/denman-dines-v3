@@ -1,9 +1,9 @@
-import { Header } from "@/components/header";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import { Header } from "@/components/header";
 import "./globals.css";
 
 const geistSans = Geist({

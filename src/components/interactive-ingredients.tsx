@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -9,8 +10,10 @@ import {
 } from "@/components/ui/collapsible";
 import { useRecipeProgress } from "@/lib/hooks/use-recipe-progress";
 import { cn, formatIngredient } from "@/lib/utils";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import type { Ingredient, IngredientSection } from "../../prisma/generated/client";
+import type {
+  Ingredient,
+  IngredientSection,
+} from "../../prisma/generated/client";
 import { Label } from "./ui/label";
 
 type InteractiveIngredientsSection = IngredientSection & {
@@ -51,7 +54,7 @@ export function InteractiveIngredients({
                 data-testid="ingredient-section-card"
                 className={cn(
                   "p-2 gap-2",
-                  isCompleted ? "border-primary/20 bg-primary/5" : ""
+                  isCompleted ? "border-primary/20 bg-primary/5" : "",
                 )}
               >
                 <Collapsible

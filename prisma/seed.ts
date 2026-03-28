@@ -5793,7 +5793,7 @@ async function main() {
 
   if (!user) {
     throw Error(
-      `Unable to find user with email ${email}. Create that user before running this script.`
+      `Unable to find user with email ${email}. Create that user before running this script.`,
     );
   }
 
@@ -5848,7 +5848,7 @@ async function main() {
   }
 
   console.log(
-    `Successfully seeded ${recipes.length} recipes from denmandines.com!`
+    `Successfully seeded ${recipes.length} recipes from denmandines.com!`,
   );
 }
 

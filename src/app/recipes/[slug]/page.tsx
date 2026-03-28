@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 import { InteractiveIngredients } from "@/components/interactive-ingredients";
 import { InteractiveInstructions } from "@/components/interactive-instructions";
 import { OwnerEditButton } from "@/components/owner-edit-button";
@@ -11,9 +14,6 @@ import {
   formatIngredient,
   formatTime,
 } from "@/lib/utils";
-import type { Metadata } from "next";
-import Image from "next/image";
-import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -104,13 +104,13 @@ export default async function RecipePage({ params }: RecipePageProps) {
     totalTime: formatDurationISO(recipe.totalTime),
     recipeYield: recipe.servings ? [`${recipe.servings} servings`] : undefined,
     recipeIngredient: recipe.ingredientSections.flatMap((section) =>
-      section.ingredients.map((ingredient) => formatIngredient(ingredient))
+      section.ingredients.map((ingredient) => formatIngredient(ingredient)),
     ),
     recipeInstructions: recipe.instructionSections.flatMap((section) =>
       section.instructions.map((instruction) => ({
         "@type": "HowToStep",
         text: instruction.text,
-      }))
+      })),
     ),
   };
 
