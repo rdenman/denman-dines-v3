@@ -1,16 +1,14 @@
----
-alwaysApply: true
----
+# Project Guidelines
 
-### 📁 Structure & Conventions
+## Structure & Conventions
 
 - Use the **App Router** (`app/` directory); structure by domain/feature.
 - Default to **Server Components**. Use `'use client'` only when interactivity requires it.
-- Limit files to \~500 LOC. Extract concerns into smaller files.
+- Limit files to ~500 LOC. Extract concerns into smaller files.
 - Use `route.ts` for API routes colocated by feature.
 - Shared logic: `/lib`; shared types: `/types`.
 
-### 🧱 Components & Code Style
+## Components & Code Style
 
 - Use **functional components** with **modern TypeScript syntax**.
 - Let TypeScript infer return types unless explicit types add clarity.
@@ -18,40 +16,41 @@ alwaysApply: true
 - Prefer `interface` for props, `type` for unions and utility types.
 - Use Tailwind utility classes only. No custom CSS unless essential.
 
-### 🎨 Styling & Accessibility
+## Styling & Accessibility
 
 - Apply **responsive design** using Tailwind's responsive classes.
 - Maintain consistent utility class order.
 - Build accessible components: use semantic HTML and ARIA attributes.
 - Use `next/image` with `sizes`, `priority`, and layout props.
 
-### ⚙️ Data Layer & API
+## Data Layer & API
 
 - Use **Prisma** for DB access (server-only).
 - Validate inputs/outputs with **Zod**.
 - Fetch data using `fetch()` with `{ cache, next }` for revalidation.
 
-### 🚦 TypeScript
+## TypeScript
 
 - Avoid `any`; use `unknown` with type guards if needed.
 - Explicitly type all function parameters and return values.
 - Use advanced TS features: utility types, mapped types, discriminated unions.
 
-### ⚡ Performance & Web Vitals
+## Performance & Web Vitals
 
 - Avoid unnecessary Client Components.
 - Use `loading.tsx`, `error.tsx`, and `<Suspense>` to enhance UX.
 - Use SSG, SSR, or ISR based on content update frequency.
+- **Never break ISR.** Pages using `revalidate` must remain statically renderable — avoid introducing request-time dependencies (e.g., `cookies()`, `headers()`, dynamic `searchParams`) that would force dynamic rendering.
 - Preload fonts/images where needed.
 - Monitor Web Vitals with Vercel Analytics.
 
-### 🧪 Testing & Validation
+## Testing & Validation
 
 - Write Playwright tests for critical flows with `data-testid` selectors.
 - Validate both success and error states.
 - Prefer isolated tests (3–5 per file). Mock API responses.
 
-### 🧹 Tooling & Linting
+## Tooling & Linting
 
 - Use Bun as the package manager.
 - Use **ESLint** for linting. Add as pre-commit hook.
