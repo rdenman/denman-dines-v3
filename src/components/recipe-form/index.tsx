@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { clearAllRecipeListCaches } from "@/components/infinite-recipe-list";
 import { createRecipeSchema, type CreateRecipeInput } from "@/lib/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -92,6 +93,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
       }
 
       const recipe = await response.json();
+      clearAllRecipeListCaches();
       router.push(`/recipes/${encodeURIComponent(recipe.slug)}`);
     } catch (error) {
       console.error(

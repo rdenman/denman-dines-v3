@@ -1,7 +1,7 @@
-import { Ingredient } from "@prisma/client";
 import { clsx, type ClassValue } from "clsx";
 import Fraction from "fraction.js";
 import { twMerge } from "tailwind-merge";
+import type { Ingredient } from "../../prisma/generated/client";
 
 /** Combines and merges CSS class names using clsx and tailwind-merge. */
 export function cn(...inputs: ClassValue[]) {

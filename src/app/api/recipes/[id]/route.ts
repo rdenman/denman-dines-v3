@@ -2,7 +2,7 @@ import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
 import { CACHE_TAGS } from "@/lib/recipe";
 import { createRecipeSchema } from "@/lib/validation";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
@@ -104,9 +104,11 @@ export async function PUT(
       },
     });
 
-    // Revalidate caches
+    // Revalidate data cache and page-level ISR
     revalidateTag(CACHE_TAGS.RECIPES, "max");
     revalidateTag(`${CACHE_TAGS.RECIPE_DETAILS}:${updatedRecipe.slug}`, "max");
+    revalidatePath("/", "page");
+    revalidatePath(`/recipes/${updatedRecipe.slug}`, "page");
 
     return NextResponse.json(updatedRecipe);
   } catch (error) {

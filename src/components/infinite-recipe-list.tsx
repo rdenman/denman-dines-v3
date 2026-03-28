@@ -4,15 +4,14 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 import { formatTime } from "@/lib/utils";
-import type { Recipe } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { Recipe } from "../../prisma/generated/client";
 
 interface InfiniteRecipeListProps {
   initialRecipes: Recipe[];
@@ -81,13 +80,38 @@ function loadFromCache(cacheKey: string): CachedRecipeListState | null {
 }
 
 function clearCache(cacheKey: string): void {
-  // Only run in browser environment
   if (typeof window === "undefined") return;
   
   try {
     sessionStorage.removeItem(cacheKey);
   } catch (error) {
     console.warn("Failed to clear sessionStorage:", error);
+  }
+}
+
+const CACHE_KEY_PREFIX = "recipe-list:";
+const STALE_MARKER_KEY = "recipe-list-stale";
+
+/**
+ * Clear all sessionStorage recipe list caches and mark the list as stale.
+ * The stale marker tells the component to call router.refresh() on next mount
+ * so the client Router Cache is bypassed.
+ */
+export function clearAllRecipeListCaches(): void {
+  if (typeof window === "undefined") return;
+
+  try {
+    const keysToRemove: string[] = [];
+    for (let i = 0; i < sessionStorage.length; i++) {
+      const key = sessionStorage.key(i);
+      if (key?.startsWith(CACHE_KEY_PREFIX)) {
+        keysToRemove.push(key);
+      }
+    }
+    keysToRemove.forEach((key) => sessionStorage.removeItem(key));
+    sessionStorage.setItem(STALE_MARKER_KEY, "1");
+  } catch (error) {
+    console.warn("Failed to clear recipe list caches:", error);
   }
 }
 
@@ -99,10 +123,13 @@ export function InfiniteRecipeList({
   query,
   pageSize,
 }: InfiniteRecipeListProps) {
+  const router = useRouter();
   const cacheKey = getCacheKey(sort, query);
   const previousCacheKeyRef = useRef<string>(cacheKey);
-  
-  // Always use initialRecipes for SSR/hydration - restore from cache after mount
+  const prevInitialRecipeIdsRef = useRef(
+    initialRecipes.map((r) => r.id).join(",")
+  );
+
   const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
   const [page, setPage] = useState(initialPage);
   const [isLoading, setIsLoading] = useState(false);
@@ -114,19 +141,57 @@ export function InfiniteRecipeList({
   const abortControllerRef = useRef<AbortController | null>(null);
   const searchParams = useSearchParams();
 
-  // Restore from cache after hydration or save initial state if no cache
+  // If a mutation happened (stale marker set), bypass the client Router Cache
+  // by calling router.refresh(). This causes the server component to re-render
+  // with fresh data, which flows into the initialRecipes prop sync below.
   useEffect(() => {
-    const cachedState = loadFromCache(cacheKey);
-    
-    if (cachedState) {
-      // Restore cached state
-      setRecipes(cachedState.recipes);
-      setPage(cachedState.page);
-      setHasReachedEnd(cachedState.page >= initialTotalPages);
-    } else {
-      // No cache, save initial state
+    try {
+      if (sessionStorage.getItem(STALE_MARKER_KEY)) {
+        sessionStorage.removeItem(STALE_MARKER_KEY);
+        router.refresh();
+      }
+    } catch {
+      // sessionStorage unavailable
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Sync state when initialRecipes changes (e.g. after router.refresh()
+  // delivers fresh props from the server).
+  useEffect(() => {
+    const newIds = initialRecipes.map((r) => r.id).join(",");
+    if (prevInitialRecipeIdsRef.current !== newIds) {
+      prevInitialRecipeIdsRef.current = newIds;
+      setRecipes(initialRecipes);
+      setPage(initialPage);
+      setHasReachedEnd(initialPage >= initialTotalPages);
+      clearCache(cacheKey);
       saveToCache(cacheKey, initialRecipes, initialPage);
     }
+  }, [initialRecipes, initialPage, initialTotalPages, cacheKey]);
+
+  // Restore extra infinite-scroll pages from cache, but only if the first
+  // page still matches the fresh server data. If the server data has changed
+  // (e.g. a recipe was created/edited/deleted), discard the stale cache.
+  useEffect(() => {
+    const cachedState = loadFromCache(cacheKey);
+
+    if (cachedState && cachedState.page > initialPage) {
+      const cachedFirstPage = cachedState.recipes.slice(0, initialRecipes.length);
+      const firstPageMatch =
+        cachedFirstPage.length === initialRecipes.length &&
+        cachedFirstPage.every((r, i) => r.id === initialRecipes[i]?.id);
+
+      if (firstPageMatch) {
+        setRecipes(cachedState.recipes);
+        setPage(cachedState.page);
+        setHasReachedEnd(cachedState.page >= initialTotalPages);
+        return;
+      }
+    }
+
+    clearCache(cacheKey);
+    saveToCache(cacheKey, initialRecipes, initialPage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Only run on mount
 

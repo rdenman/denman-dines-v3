@@ -2,7 +2,7 @@ import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
 import { CACHE_TAGS } from "@/lib/recipe";
 import { createRecipeSchema } from "@/lib/validation";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -100,9 +100,10 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Revalidate caches
+    // Revalidate data cache and page-level ISR
     revalidateTag(CACHE_TAGS.RECIPES, "max");
     revalidateTag(`${CACHE_TAGS.RECIPE_DETAILS}:${slug}`, "max");
+    revalidatePath("/", "page");
 
     return NextResponse.json(recipe, { status: 201 });
   } catch (error) {
