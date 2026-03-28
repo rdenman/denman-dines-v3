@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getSession } from "@/lib/auth.server";
 import prisma from "@/lib/prisma";
-import { Edit, Plus } from "lucide-react";
+import { Plus, SquarePen } from "lucide-react";
 import Link from "next/link";
 import { unauthorized } from "next/navigation";
 
@@ -71,7 +71,7 @@ export default async function MyRecipesPage() {
                     <Link
                       href={`/recipes/${encodeURIComponent(recipe.slug)}/edit`}
                     >
-                      <Edit className="h-4 w-4" />
+                      <SquarePen className="h-4 w-4" />
                     </Link>
                   </Button>
                 </div>

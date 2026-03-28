@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/lib/auth";
 import { User } from "better-auth";
-import { Edit, LogOut, Plus } from "lucide-react";
+import { LogOut, Plus, SquarePen } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -54,7 +54,7 @@ export function UserMenu({ user }: UserMenuProps) {
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/recipes" className="flex items-center">
-            <Edit className="mr-2 h-4 w-4" />
+            <SquarePen className="mr-2 h-4 w-4" />
             <span>My Recipes</span>
           </Link>
         </DropdownMenuItem>
