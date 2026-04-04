@@ -202,10 +202,10 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
         {/* Tips */}
         {recipe.tips.length > 0 && (
-          <div className="mt-12">
-            <h2 className="text-2xl font-bold mb-6">Tips</h2>
-            <Card>
-              <CardContent className="py-6">
+          <div className="mt-6">
+            <h2 className="text-2xl font-bold mb-2">Tips</h2>
+            <Card className="gap-0 py-4">
+              <CardContent>
                 <ul className="space-y-3">
                   {recipe.tips.map((tip, index) => (
                     <li key={index} className="flex gap-3">
