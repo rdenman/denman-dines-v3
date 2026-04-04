@@ -23,7 +23,11 @@ export const createRecipeSchema = z.object({
     .union([z.url(), z.literal("")])
     .transform(transformOptional)
     .optional(),
-  tips: z.array(z.string().min(1)),
+  tips: z.array(
+    z.object({
+      text: z.string().min(1, "Tip cannot be empty"),
+    }),
+  ),
   ingredientSections: z
     .array(
       z.object({
@@ -45,7 +49,11 @@ export const createRecipeSchema = z.object({
       z.object({
         name: z.string().min(1, "Section name is required"),
         instructions: z
-          .array(z.string().min(1, "Instruction cannot be empty"))
+          .array(
+            z.object({
+              text: z.string().min(1, "Instruction cannot be empty"),
+            }),
+          )
           .min(1, "At least one instruction is required"),
       }),
     )

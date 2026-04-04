@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
         prepTime: data.prepTime || null,
         cookTime: data.cookTime || null,
         photo: data.photo || null,
-        tips: data.tips,
+        tips: data.tips.map((t) => t.text),
         userId: session.user.id,
         ingredientSections: {
           create: data.ingredientSections.map((section, sectionIndex) => ({
@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
             instructions: {
               create: section.instructions.map(
                 (instruction, instructionIndex) => ({
-                  text: instruction,
+                  text: instruction.text,
                   order: instructionIndex,
                 }),
               ),

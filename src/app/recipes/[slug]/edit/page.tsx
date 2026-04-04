@@ -39,7 +39,7 @@ export default async function EditRecipePage({ params }: EditRecipePageProps) {
     servings: recipe.servings || undefined,
     prepTime: recipe.prepTime || undefined,
     cookTime: recipe.cookTime || undefined,
-    tips: recipe.tips,
+    tips: recipe.tips.map((text) => ({ text })),
     ingredientSections: recipe.ingredientSections.map((section) => ({
       name: section.name,
       ingredients: section.ingredients.map((ingredient) => ({
@@ -50,7 +50,9 @@ export default async function EditRecipePage({ params }: EditRecipePageProps) {
     })),
     instructionSections: recipe.instructionSections.map((section) => ({
       name: section.name,
-      instructions: section.instructions.map((instruction) => instruction.text),
+      instructions: section.instructions.map((instruction) => ({
+        text: instruction.text,
+      })),
     })),
   };
 

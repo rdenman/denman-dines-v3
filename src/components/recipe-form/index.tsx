@@ -49,7 +49,9 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
           ingredients: [{ name: "", amount: "", preparation: "" }],
         },
       ],
-      instructionSections: [{ name: "Instructions", instructions: [""] }],
+      instructionSections: [
+        { name: "Instructions", instructions: [{ text: "" }] },
+      ],
     },
   });
 

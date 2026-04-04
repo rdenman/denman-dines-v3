@@ -44,7 +44,7 @@ export async function PUT(
         servings: validatedData.servings,
         prepTime: validatedData.prepTime,
         cookTime: validatedData.cookTime,
-        tips: validatedData.tips,
+        tips: validatedData.tips.map((t) => t.text),
         // Update ingredient sections
         ingredientSections: {
           deleteMany: {},
@@ -75,7 +75,7 @@ export async function PUT(
               instructions: {
                 create: section.instructions.map(
                   (instruction, instructionIndex) => ({
-                    text: instruction,
+                    text: instruction.text,
                     order: instructionIndex,
                   }),
                 ),
