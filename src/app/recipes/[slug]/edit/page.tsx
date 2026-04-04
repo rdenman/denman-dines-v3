@@ -1,4 +1,6 @@
 import { notFound, unauthorized } from "next/navigation";
+import { PageContainer } from "@/components/page-container";
+import { PageHeader } from "@/components/page-header";
 import { RecipeForm } from "@/components/recipe-form";
 import { getSession } from "@/lib/auth.server";
 import { getRecipeBySlug } from "@/lib/recipe";
@@ -24,12 +26,10 @@ export default async function EditRecipePage({ params }: EditRecipePageProps) {
     notFound();
   }
 
-  // Check if the current user owns this recipe
   if (recipe.userId !== session.user.id) {
     unauthorized();
   }
 
-  // Transform the recipe data to match the form structure
   const initialData = {
     id: recipe.id,
     slug: recipe.slug,
@@ -57,14 +57,12 @@ export default async function EditRecipePage({ params }: EditRecipePageProps) {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Edit Recipe</h1>
-        <p className="text-lg text-muted-foreground">
-          Update your recipe details and make it even better!
-        </p>
-      </div>
+    <PageContainer size="narrow">
+      <PageHeader
+        title="Edit Recipe"
+        description="Update your recipe details"
+      />
       <RecipeForm mode="edit" initialData={initialData} />
-    </div>
+    </PageContainer>
   );
 }

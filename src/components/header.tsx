@@ -2,80 +2,38 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { AuthSection } from "@/components/auth-section";
+import { MobileHeader } from "@/components/mobile-header";
 import { ModeToggle } from "@/components/mode-toggle";
 import { RecipeSearch } from "@/components/recipe-search";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 pt-safe">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 pt-safe backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Mobile layout: stacked */}
-        <div className="flex flex-col space-y-3 py-3 md:hidden">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="relative h-6 w-6">
-                <Image
-                  src="/logo.webp"
-                  alt="Denman Dines Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                  sizes="24px"
-                />
-              </div>
-              <span className="text-lg font-bold whitespace-nowrap">
-                Denman Dines
-              </span>
-            </Link>
-
-            <div className="flex items-center space-x-2">
-              <ModeToggle />
-              <AuthSection />
-            </div>
-          </div>
-
-          {/* Mobile search */}
-          <div className="w-full">
-            <Suspense
-              fallback={
-                <div className="h-10 w-full bg-muted animate-pulse rounded-md" />
-              }
-            >
-              <RecipeSearch
-                placeholder="Search recipes..."
-                className="w-full"
-              />
-            </Suspense>
-          </div>
+        {/* Mobile: expandable search pattern */}
+        <div className="sm:hidden">
+          <MobileHeader />
         </div>
 
-        {/* Desktop layout: horizontal */}
-        <div className="hidden md:flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="relative h-8 w-8">
-                <Image
-                  src="/logo.webp"
-                  alt="Denman Dines Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                  sizes="32px"
-                />
-              </div>
-              <span className="text-xl font-bold whitespace-nowrap">
-                Denman Dines
-              </span>
-            </Link>
-          </div>
+        {/* Desktop: single row with inline search */}
+        <div className="hidden h-16 items-center gap-4 sm:flex">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <div className="relative size-8">
+              <Image
+                src="/logo.webp"
+                alt="Denman Dines Logo"
+                fill
+                className="object-contain"
+                priority
+                sizes="32px"
+              />
+            </div>
+            <span className="font-serif text-xl font-bold">Denman Dines</span>
+          </Link>
 
-          {/* Desktop search */}
-          <div className="flex-1 max-w-md mx-8">
-            <Suspense
-              fallback={
-                <div className="h-10 w-full bg-muted animate-pulse rounded-md" />
-              }
-            >
+          <div className="max-w-md flex-1">
+            <Suspense fallback={<Skeleton className="h-9 w-full" />}>
               <RecipeSearch
                 placeholder="Search recipes..."
                 className="w-full"
@@ -83,7 +41,7 @@ export function Header() {
             </Suspense>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex shrink-0 items-center gap-2">
             <ModeToggle />
             <AuthSection />
           </div>

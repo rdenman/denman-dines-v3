@@ -1,9 +1,11 @@
+import { Clock, Lightbulb, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { InteractiveIngredients } from "@/components/interactive-ingredients";
 import { InteractiveInstructions } from "@/components/interactive-instructions";
 import { OwnerEditButton } from "@/components/owner-edit-button";
+import { PageContainer } from "@/components/page-container";
 import { Card, CardContent } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
 import { getRecipeBySlug } from "@/lib/recipe";
@@ -121,109 +123,126 @@ export default async function RecipePage({ params }: RecipePageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeSchema) }}
       />
 
-      <div className="container mx-auto px-4 pt-2 pb-8 max-w-4xl">
-        {/* Recipe Header */}
-        <div className="mb-2">
-          <h1 data-testid="recipe-title" className="text-4xl font-bold mb-2">
+      <PageContainer size="narrow">
+        {/* Header */}
+        <header className="mb-5 sm:mb-8">
+          <h1
+            data-testid="recipe-title"
+            className="font-serif text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl"
+          >
             {recipe.title}
           </h1>
           {recipe.description && (
-            <p className="text-lg text-muted-foreground mb-2">
+            <p className="mt-1.5 text-base text-muted-foreground sm:mt-2 sm:text-lg">
               {recipe.description}
             </p>
           )}
 
-          {/* Recipe Photo */}
+          {/* Photo */}
           {recipe.photo && (
-            <div className="relative w-full h-96 mb-2 rounded-lg overflow-hidden">
+            <div className="relative mt-4 aspect-4/3 w-full overflow-hidden rounded-lg sm:mt-6 sm:aspect-video sm:rounded-xl">
               <Image
                 src={recipe.photo}
                 alt={recipe.title}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
                 priority
               />
             </div>
           )}
 
-          {/* Recipe Meta Information */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 mb-6 text-xs sm:text-sm">
+          {/* Meta */}
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs sm:mt-6 sm:gap-x-6 sm:gap-y-2 sm:text-sm">
             {exists(recipe.servings) && (
-              <div className="flex items-center gap-1.5">
-                <span className="font-semibold">{recipe.servings}</span>
-                <span className="text-muted-foreground">Servings</span>
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <Users className="size-3.5 text-muted-foreground sm:size-4" />
+                <span className="font-medium">{recipe.servings}</span>
+                <span className="text-muted-foreground">servings</span>
               </div>
             )}
             {exists(recipe.servings) && exists(recipe.prepTime) && (
-              <div className="w-px h-4 sm:h-5 bg-border" />
+              <div
+                className="hidden h-4 w-px bg-border sm:block sm:h-5"
+                aria-hidden="true"
+              />
             )}
             {exists(recipe.prepTime) && (
-              <div className="flex items-center gap-1.5">
-                <span className="font-semibold">
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <Clock className="size-3.5 text-muted-foreground sm:size-4" />
+                <span className="font-medium">
                   {formatTime(recipe.prepTime)}
                 </span>
-                <span className="text-muted-foreground">Prep Time</span>
+                <span className="text-muted-foreground">prep</span>
               </div>
             )}
             {exists(recipe.prepTime) && exists(recipe.cookTime) && (
-              <div className="w-px h-4 sm:h-5 bg-border" />
+              <div
+                className="hidden h-4 w-px bg-border sm:block sm:h-5"
+                aria-hidden="true"
+              />
             )}
             {exists(recipe.cookTime) && (
-              <div className="flex items-center gap-1.5">
-                <span className="font-semibold">
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <Clock className="size-3.5 text-muted-foreground sm:size-4" />
+                <span className="font-medium">
                   {formatTime(recipe.cookTime)}
                 </span>
-                <span className="text-muted-foreground">Cook Time</span>
+                <span className="text-muted-foreground">cook</span>
               </div>
             )}
           </div>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {/* Ingredients */}
-          <div data-testid="ingredients-section">
-            <h2 className="text-2xl font-bold mb-2">Ingredients</h2>
+        {/* Content — stacked on mobile, side-by-side on desktop */}
+        <div className="space-y-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
+          <section data-testid="ingredients-section">
+            <h2 className="mb-2 font-serif text-xl font-semibold sm:mb-3 sm:text-2xl">
+              Ingredients
+            </h2>
             <InteractiveIngredients
               sections={recipe.ingredientSections}
               recipeSlug={slug}
             />
-          </div>
+          </section>
 
-          {/* Instructions */}
-          <div data-testid="instructions-section">
-            <h2 className="text-2xl font-bold mb-2">Instructions</h2>
+          <section data-testid="instructions-section">
+            <h2 className="mb-2 font-serif text-xl font-semibold sm:mb-3 sm:text-2xl">
+              Instructions
+            </h2>
             <InteractiveInstructions
               sections={recipe.instructionSections}
               recipeSlug={slug}
             />
-          </div>
+          </section>
         </div>
 
         {/* Tips */}
         {recipe.tips.length > 0 && (
-          <div className="mt-6">
-            <h2 className="text-2xl font-bold mb-2">Tips</h2>
-            <Card className="gap-0 py-4">
+          <section className="mt-6 sm:mt-8">
+            <h2 className="mb-2 font-serif text-xl font-semibold sm:mb-3 sm:text-2xl">
+              Tips
+            </h2>
+            <Card className="gap-0 py-3 sm:py-4">
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2.5 sm:space-y-3">
                   {recipe.tips.map((tip, index) => (
-                    <li key={index} className="flex gap-3">
-                      <span className="shrink-0 w-2 h-2 bg-primary rounded-full mt-2"></span>
-                      <span>{tip}</span>
+                    <li key={index} className="flex gap-2.5 sm:gap-3">
+                      <Lightbulb className="mt-0.5 size-4 shrink-0 text-primary" />
+                      <span className="text-sm sm:text-base">{tip}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
             </Card>
-          </div>
+          </section>
         )}
 
         {/* Edit Button */}
-        <div className="mt-8 flex justify-end">
+        <div className="mt-6 flex justify-end sm:mt-8">
           <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
         </div>
-      </div>
+      </PageContainer>
     </>
   );
 }

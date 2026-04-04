@@ -1,3 +1,5 @@
+import { SearchX, UtensilsCrossed } from "lucide-react";
+import { EmptyState } from "@/components/empty-state";
 import { InfiniteRecipeList } from "@/components/infinite-recipe-list";
 import { RecipeSort } from "@/components/recipe-sort";
 import type { QuerySearchParams } from "@/lib/query";
@@ -17,41 +19,34 @@ export async function RecipeContent({ searchParams }: RecipeContentProps) {
     await getPaginatedRecipes({ page, size, sort, q });
 
   if (recipes.length === 0) {
-    return (
-      <div className="text-center py-12">
-        {q ? (
-          <>
-            <h2 className="text-2xl font-semibold mb-4">No recipes found</h2>
-            <p className="text-muted-foreground">
-              No recipes match your search for &quot;{q}&quot;. Try a different
-              search term.
-            </p>
-          </>
-        ) : (
-          <>
-            <h2 className="text-2xl font-semibold mb-4">No recipes yet</h2>
-            <p className="text-muted-foreground">
-              Be the first to share a recipe!
-            </p>
-          </>
-        )}
-      </div>
+    return q ? (
+      <EmptyState
+        icon={SearchX}
+        title="No recipes found"
+        description={`No recipes match your search for "${q}". Try a different search term.`}
+      />
+    ) : (
+      <EmptyState
+        icon={UtensilsCrossed}
+        title="No recipes yet"
+        description="Be the first to share a recipe!"
+      />
     );
   }
 
   return (
     <>
       {q && (
-        <div className="mb-4">
-          <h2 className="text-xl font-semibold mb-2">
+        <div className="mb-4 sm:mb-6">
+          <h2 className="font-serif text-lg font-semibold sm:text-xl">
             Search results for &quot;{q}&quot;
           </h2>
-          <p className="text-muted-foreground">
+          <p className="mt-0.5 text-xs text-muted-foreground sm:mt-1 sm:text-sm">
             Found {totalCount} recipe{totalCount !== 1 ? "s" : ""}
           </p>
         </div>
       )}
-      <div className="flex justify-end items-center mb-4 w-full sm:w-auto">
+      <div className="mb-3 flex w-full items-center justify-end sm:mb-4 sm:w-auto">
         <RecipeSort currentSort={sort} />
       </div>
 

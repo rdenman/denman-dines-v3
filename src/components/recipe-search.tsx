@@ -107,7 +107,7 @@ export function RecipeSearch({
           placeholder={placeholder}
           value={query}
           onChange={handleInputChange}
-          className="pl-10 pr-10 py-2 w-full"
+          className="h-10 w-full pl-10 pr-10 sm:h-9"
         />
         {query && (
           <button

@@ -1,4 +1,6 @@
 import { unauthorized } from "next/navigation";
+import { PageContainer } from "@/components/page-container";
+import { PageHeader } from "@/components/page-header";
 import { RecipeForm } from "@/components/recipe-form";
 import { getSession } from "@/lib/auth.server";
 
@@ -9,14 +11,12 @@ export default async function NewRecipePage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Create New Recipe</h1>
-        <p className="text-lg text-muted-foreground">
-          Share your culinary masterpiece with the world!
-        </p>
-      </div>
+    <PageContainer size="narrow">
+      <PageHeader
+        title="Create New Recipe"
+        description="Share your culinary masterpiece with the world"
+      />
       <RecipeForm mode="create" />
-    </div>
+    </PageContainer>
   );
 }

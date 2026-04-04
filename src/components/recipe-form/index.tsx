@@ -109,7 +109,10 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-6 sm:space-y-8"
+        >
           {/* Basic Recipe Information */}
           <Card>
             <CardHeader>
@@ -257,10 +260,11 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
           <TipsSection control={form.control} />
 
           {/* Submit Button */}
-          <div className="flex justify-end gap-4">
+          <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end sm:gap-4">
             <Button
               type="button"
               variant="outline"
+              className="w-full sm:w-auto"
               onClick={() => router.back()}
             >
               Cancel
@@ -268,6 +272,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
             <Button
               type="submit"
               size="lg"
+              className="w-full sm:w-auto"
               disabled={form.formState.isSubmitting}
             >
               {isEditMode ? "Update Recipe" : "Create Recipe"}

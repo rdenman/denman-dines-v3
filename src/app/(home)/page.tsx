@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { PageContainer } from "@/components/page-container";
 import type { QuerySearchParams } from "@/lib/query";
 import { RecipeListSkeleton } from "./loading";
 import { RecipeContent } from "./recipe-content";
@@ -11,10 +12,10 @@ export default function Home({
   searchParams: Promise<QuerySearchParams>;
 }) {
   return (
-    <div className="container mx-auto px-4 py-4">
+    <PageContainer>
       <Suspense fallback={<RecipeListSkeleton />}>
         <RecipeContent searchParams={searchParams} />
       </Suspense>
-    </div>
+    </PageContainer>
   );
 }
