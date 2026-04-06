@@ -32,13 +32,15 @@ export function Header() {
             <span className="font-serif text-xl font-bold">Denman Dines</span>
           </Link>
 
-          <div className="max-w-md flex-1">
-            <Suspense fallback={<Skeleton className="h-9 w-full" />}>
-              <RecipeSearch
-                placeholder="Search recipes..."
-                className="w-full"
-              />
-            </Suspense>
+          <div className="flex min-w-0 flex-1 justify-center">
+            <div className="w-full max-w-md">
+              <Suspense fallback={<Skeleton className="h-9 w-full" />}>
+                <RecipeSearch
+                  placeholder="Search recipes..."
+                  className="w-full"
+                />
+              </Suspense>
+            </div>
           </div>
 
           <div className="flex shrink-0 items-center gap-2">
