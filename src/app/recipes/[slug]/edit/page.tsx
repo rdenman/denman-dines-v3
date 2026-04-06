@@ -3,6 +3,7 @@ import { PageContainer } from "@/components/page-container";
 import { PageHeader } from "@/components/page-header";
 import { RecipeForm } from "@/components/recipe-form";
 import { getSession } from "@/lib/auth.server";
+import { ingredientsToText } from "@/lib/parse-ingredient";
 import { getRecipeBySlug } from "@/lib/recipe";
 
 interface EditRecipePageProps {
@@ -42,11 +43,7 @@ export default async function EditRecipePage({ params }: EditRecipePageProps) {
     tips: recipe.tips.map((text) => ({ text })),
     ingredientSections: recipe.ingredientSections.map((section) => ({
       name: section.name,
-      ingredients: section.ingredients.map((ingredient) => ({
-        name: ingredient.name,
-        amount: ingredient.amount || "",
-        preparation: ingredient.preparation || "",
-      })),
+      ingredientText: ingredientsToText(section.ingredients),
     })),
     instructionSections: recipe.instructionSections.map((section) => ({
       name: section.name,

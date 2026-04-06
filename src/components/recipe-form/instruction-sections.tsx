@@ -22,10 +22,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useIsMdUp } from "@/lib/hooks/use-is-md-up";
 import { cn } from "@/lib/utils";
-import type { CreateRecipeInput } from "@/lib/validation";
+import type { RecipeFormInput } from "@/lib/validation";
 
 interface InstructionSectionsProps {
-  control: Control<CreateRecipeInput>;
+  control: Control<RecipeFormInput>;
 }
 
 export function InstructionSections({ control }: InstructionSectionsProps) {
@@ -99,7 +99,7 @@ export function InstructionSections({ control }: InstructionSectionsProps) {
 }
 
 interface InstructionSectionProps {
-  control: Control<CreateRecipeInput>;
+  control: Control<RecipeFormInput>;
   sectionFieldId: string;
   sectionIndex: number;
   isMdUp: boolean;
@@ -238,7 +238,7 @@ function InstructionSection({
 }
 
 interface SortableInstructionStepProps {
-  control: Control<CreateRecipeInput>;
+  control: Control<RecipeFormInput>;
   stepFieldId: string;
   sectionIndex: number;
   stepIndex: number;

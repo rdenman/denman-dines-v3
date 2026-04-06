@@ -4,21 +4,12 @@ function transformOptional(v: string) {
   return v === "" ? undefined : v;
 }
 
-/**
- * Zod schema for validating recipe creation data.
- *
- * This schema validates all required fields for creating a new recipe including:
- * - Basic recipe information (title, servings, timing)
- * - Optional fields like description, photo URL, and tips
- * - Ingredient sections with grouped ingredients and preparation notes
- * - Instruction sections with step-by-step cooking directions
- */
-export const createRecipeSchema = z.object({
+const recipeBaseFields = {
   title: z.string().min(1, "Title is required").max(200, "Title too long"),
   description: z.string().transform(transformOptional).optional(),
   servings: z.number().min(1).max(100).optional(),
-  prepTime: z.number().min(0).max(1440).optional(), // max 24 hours in minutes
-  cookTime: z.number().min(0).max(1440).optional(), // max 24 hours in minutes
+  prepTime: z.number().min(0).max(1440).optional(),
+  cookTime: z.number().min(0).max(1440).optional(),
   photo: z
     .union([z.url(), z.literal("")])
     .transform(transformOptional)
@@ -28,6 +19,28 @@ export const createRecipeSchema = z.object({
       text: z.string().min(1, "Tip cannot be empty"),
     }),
   ),
+  instructionSections: z
+    .array(
+      z.object({
+        name: z.string().min(1, "Section name is required"),
+        instructions: z
+          .array(
+            z.object({
+              text: z.string().min(1, "Instruction cannot be empty"),
+            }),
+          )
+          .min(1, "At least one instruction is required"),
+      }),
+    )
+    .min(1, "At least one instruction section is required"),
+};
+
+/**
+ * Zod schema for validating recipe creation data sent to the API.
+ * Ingredient sections contain structured ingredient arrays.
+ */
+export const createRecipeSchema = z.object({
+  ...recipeBaseFields,
   ingredientSections: z
     .array(
       z.object({
@@ -44,23 +57,28 @@ export const createRecipeSchema = z.object({
       }),
     )
     .min(1, "At least one ingredient section is required"),
-  instructionSections: z
-    .array(
-      z.object({
-        name: z.string().min(1, "Section name is required"),
-        instructions: z
-          .array(
-            z.object({
-              text: z.string().min(1, "Instruction cannot be empty"),
-            }),
-          )
-          .min(1, "At least one instruction is required"),
-      }),
-    )
-    .min(1, "At least one instruction section is required"),
 });
 
 export type CreateRecipeInput = z.infer<typeof createRecipeSchema>;
+
+/**
+ * Zod schema for the recipe form UI. Ingredient sections use a freeform
+ * textarea (one ingredient per line) instead of structured fields.
+ * Text is parsed into structured data on submit.
+ */
+export const recipeFormSchema = z.object({
+  ...recipeBaseFields,
+  ingredientSections: z
+    .array(
+      z.object({
+        name: z.string().min(1, "Section name is required"),
+        ingredientText: z.string().min(1, "Enter at least one ingredient"),
+      }),
+    )
+    .min(1, "At least one ingredient section is required"),
+});
+
+export type RecipeFormInput = z.infer<typeof recipeFormSchema>;
 
 /**
  * Zod schema for validating image file uploads.

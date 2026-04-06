@@ -21,10 +21,10 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useIsMdUp } from "@/lib/hooks/use-is-md-up";
 import { cn } from "@/lib/utils";
-import type { CreateRecipeInput } from "@/lib/validation";
+import type { RecipeFormInput } from "@/lib/validation";
 
 interface TipsSectionProps {
-  control: Control<CreateRecipeInput>;
+  control: Control<RecipeFormInput>;
 }
 
 export function TipsSection({ control }: TipsSectionProps) {
@@ -104,7 +104,7 @@ export function TipsSection({ control }: TipsSectionProps) {
 }
 
 interface SortableTipRowProps {
-  control: Control<CreateRecipeInput>;
+  control: Control<RecipeFormInput>;
   tipFieldId: string;
   tipIndex: number;
   isMdUp: boolean;

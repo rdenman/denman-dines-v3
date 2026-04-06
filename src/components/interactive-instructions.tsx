@@ -2,7 +2,6 @@
 
 import { Check, ChevronDown, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Collapsible,
   CollapsibleContent,
@@ -103,6 +102,8 @@ export function InteractiveInstructions({
                         >
                           <button
                             type="button"
+                            id={`instruction-${instruction.id}`}
+                            aria-pressed={checked}
                             onClick={() =>
                               toggleItem(section.id, instruction.id)
                             }
@@ -114,15 +115,6 @@ export function InteractiveInstructions({
                             )}
                             aria-label={`Step ${index + 1}: ${checked ? "completed" : "not completed"}`}
                           >
-                            <Checkbox
-                              id={`instruction-${instruction.id}`}
-                              checked={checked}
-                              onCheckedChange={() =>
-                                toggleItem(section.id, instruction.id)
-                              }
-                              className="sr-only"
-                              tabIndex={-1}
-                            />
                             {checked ? (
                               <Check className="size-3 text-primary-foreground" />
                             ) : (

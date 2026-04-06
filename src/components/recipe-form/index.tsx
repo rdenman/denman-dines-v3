@@ -20,7 +20,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { type CreateRecipeInput, createRecipeSchema } from "@/lib/validation";
+import { parseIngredientText } from "@/lib/parse-ingredient";
+import { type RecipeFormInput, recipeFormSchema } from "@/lib/validation";
 
 type RecipeFormProps =
   | {
@@ -29,26 +30,21 @@ type RecipeFormProps =
     }
   | {
       mode: "edit";
-      initialData: CreateRecipeInput & { id: string; slug: string };
+      initialData: RecipeFormInput & { id: string; slug: string };
     };
 
 export function RecipeForm({ mode, initialData }: RecipeFormProps) {
   const router = useRouter();
   const isEditMode = mode === "edit";
 
-  const form = useForm<CreateRecipeInput>({
-    resolver: zodResolver(createRecipeSchema),
+  const form = useForm<RecipeFormInput>({
+    resolver: zodResolver(recipeFormSchema),
     defaultValues: initialData || {
       title: "",
       description: "",
       photo: "",
       tips: [],
-      ingredientSections: [
-        {
-          name: "Ingredients",
-          ingredients: [{ name: "", amount: "", preparation: "" }],
-        },
-      ],
+      ingredientSections: [{ name: "Ingredients", ingredientText: "" }],
       instructionSections: [
         { name: "Instructions", instructions: [{ text: "" }] },
       ],
@@ -56,7 +52,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
   });
 
   async function onSubmit(
-    data: CreateRecipeInput,
+    formData: RecipeFormInput,
     event?: React.BaseSyntheticEvent,
   ) {
     try {
@@ -65,11 +61,11 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
       const input = event?.target.photoFile as HTMLInputElement | undefined;
       const file = input?.files?.[0];
       if (file) {
-        const formData = new FormData();
-        formData.append("file", file);
+        const fd = new FormData();
+        fd.append("file", file);
         const uploadResponse = await fetch("/api/upload", {
           method: "POST",
-          body: formData,
+          body: fd,
         });
 
         if (!uploadResponse.ok) {
@@ -80,6 +76,15 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
         photoUrl = url;
       }
 
+      const apiData = {
+        ...formData,
+        photo: photoUrl,
+        ingredientSections: formData.ingredientSections.map((section) => ({
+          name: section.name,
+          ingredients: parseIngredientText(section.ingredientText),
+        })),
+      };
+
       const endpoint = isEditMode
         ? `/api/recipes/${initialData.id}`
         : "/api/recipes";
@@ -87,7 +92,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
 
       const response = await fetch(endpoint, {
         method,
-        body: JSON.stringify({ ...data, photo: photoUrl }),
+        body: JSON.stringify(apiData),
       });
 
       if (!response.ok) {
