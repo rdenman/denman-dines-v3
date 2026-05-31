@@ -11,16 +11,19 @@ interface OwnerEditButtonProps {
 }
 
 export function OwnerEditButton({ recipeUserId, slug }: OwnerEditButtonProps) {
-  const { data } = useSession();
-  if (data?.user?.id !== recipeUserId) {
+  const { data, isPending } = useSession();
+
+  if (isPending || data?.user?.id !== recipeUserId) {
     return null;
   }
 
   return (
-    <Button asChild size="sm" variant="outline">
-      <Link href={`/recipes/${slug}/edit`} className="flex items-center gap-2">
-        <SquarePen className="h-4 w-4" />
-        Edit Recipe
+    <Button asChild size="icon" variant="ghost" className="shrink-0">
+      <Link
+        href={`/recipes/${slug}/edit`}
+        aria-label="Edit recipe"
+      >
+        <SquarePen className="size-4" />
       </Link>
     </Button>
   );

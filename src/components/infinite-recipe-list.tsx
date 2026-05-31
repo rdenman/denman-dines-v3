@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { RecipeCard } from "@/components/recipe-card";
+import { useSession } from "@/lib/auth";
 import type { Recipe } from "../../prisma/generated/client";
 
 interface InfiniteRecipeListProps {
@@ -308,14 +310,40 @@ export function InfiniteRecipeList({
         )}
 
         {hasReachedEnd && recipes.length > 0 && (
-          <p
-            data-testid="end-message"
-            className="text-center text-sm text-muted-foreground"
-          >
-            You&apos;ve viewed all {recipes.length} recipes
-          </p>
+          <EndOfListMessage count={recipes.length} />
         )}
       </div>
     </>
+  );
+}
+
+function EndOfListMessage({ count }: { count: number }) {
+  const { data: session, isPending } = useSession();
+
+  return (
+    <div data-testid="end-message" className="text-center text-sm">
+      <p className="text-muted-foreground">
+        You&apos;ve viewed all {count} recipes
+      </p>
+      <div className="mt-2 flex flex-wrap items-center justify-center gap-x-1">
+        <Link
+          href="/?q="
+          className="font-medium text-primary underline-offset-4 hover:underline"
+        >
+          Search for something specific
+        </Link>
+        {!isPending && session?.user && (
+          <>
+            <span className="text-muted-foreground">or</span>
+            <Link
+              href="/recipes/new"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              create a new recipe
+            </Link>
+          </>
+        )}
+      </div>
+    </div>
   );
 }

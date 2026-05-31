@@ -126,34 +126,23 @@ export default async function RecipePage({ params }: RecipePageProps) {
       <PageContainer size="narrow">
         {/* Header */}
         <header className="mb-5 sm:mb-8">
-          <h1
-            data-testid="recipe-title"
-            className="font-serif text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl"
-          >
-            {recipe.title}
-          </h1>
+          <div className="flex items-start justify-between gap-3">
+            <h1
+              data-testid="recipe-title"
+              className="font-serif text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl"
+            >
+              {recipe.title}
+            </h1>
+            <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
+          </div>
           {recipe.description && (
             <p className="mt-1.5 text-base text-muted-foreground sm:mt-2 sm:text-lg">
               {recipe.description}
             </p>
           )}
 
-          {/* Photo */}
-          {recipe.photo && (
-            <div className="relative mt-4 aspect-4/3 w-full overflow-hidden rounded-lg sm:mt-6 sm:aspect-video sm:rounded-xl">
-              <Image
-                src={recipe.photo}
-                alt={recipe.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
-                priority
-              />
-            </div>
-          )}
-
-          {/* Meta */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs sm:mt-6 sm:gap-x-6 sm:gap-y-2 sm:text-sm">
+          {/* Meta — above photo so it's visible without scrolling on mobile */}
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs sm:mt-4 sm:gap-x-6 sm:gap-y-2 sm:text-sm">
             {exists(recipe.servings) && (
               <div className="flex items-center gap-1 sm:gap-1.5">
                 <Users className="size-3.5 text-muted-foreground sm:size-4" />
@@ -192,6 +181,20 @@ export default async function RecipePage({ params }: RecipePageProps) {
               </div>
             )}
           </div>
+
+          {/* Photo — constrained on mobile to keep recipe content closer */}
+          {recipe.photo && (
+            <div className="relative mt-4 aspect-video max-h-52 w-full overflow-hidden rounded-lg sm:mt-6 sm:max-h-none sm:aspect-video sm:rounded-xl">
+              <Image
+                src={recipe.photo}
+                alt={recipe.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 896px"
+                priority
+              />
+            </div>
+          )}
         </header>
 
         {/* Content — stacked on mobile, side-by-side on desktop */}
@@ -238,10 +241,6 @@ export default async function RecipePage({ params }: RecipePageProps) {
           </section>
         )}
 
-        {/* Edit Button */}
-        <div className="mt-6 flex justify-end sm:mt-8">
-          <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
-        </div>
       </PageContainer>
     </>
   );

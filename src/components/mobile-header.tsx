@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { AuthSection } from "@/components/auth-section";
-import { ModeToggle } from "@/components/mode-toggle";
 import { RecipeSearch } from "@/components/recipe-search";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -72,7 +71,6 @@ function MobileHeaderInner() {
             <span className="absolute top-1.5 right-1.5 size-2 rounded-full bg-primary" />
           )}
         </Button>
-        <ModeToggle />
         <AuthSection />
       </div>
     </div>
@@ -89,7 +87,6 @@ export function MobileHeader() {
             <Skeleton className="h-5 w-28" />
           </div>
           <div className="flex items-center gap-1">
-            <Skeleton className="size-9 rounded-md" />
             <Skeleton className="size-9 rounded-md" />
             <Skeleton className="h-9 w-20 rounded-md" />
           </div>

@@ -56,6 +56,19 @@ export function formatFraction(num: number): string {
 export function formatIngredientAmount(amount: string | null): string {
   if (!amount) return "";
 
+  // Match fractions/mixed numbers (e.g. "1/2", "1 1/2", "3/4 tsp")
+  const fractionMatch = amount.match(/^(\d+\s+\d+\/\d+|\d+\/\d+)\s*(.*)/);
+  if (fractionMatch) {
+    const [, fractionStr, rest] = fractionMatch;
+    try {
+      const parsed = new Fraction(fractionStr);
+      const formatted = parsed.toFraction(true);
+      return rest ? `${formatted} ${rest}` : formatted;
+    } catch {
+      return amount;
+    }
+  }
+
   // Match decimal numbers at the start of the string
   const decimalMatch = amount.match(/^(\d+\.?\d*)\s*(.*)/);
 

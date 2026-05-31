@@ -113,8 +113,9 @@ export function InteractiveIngredients({
                           <Label
                             htmlFor={`ingredient-${ingredient.id}`}
                             className={cn(
-                              "text-sm leading-relaxed",
-                              checked && "text-muted-foreground line-through",
+                              "text-sm leading-relaxed transition-all duration-200",
+                              checked &&
+                                "text-muted-foreground line-through opacity-60",
                             )}
                           >
                             {formatIngredient(ingredient)}

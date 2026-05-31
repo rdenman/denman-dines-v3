@@ -1,4 +1,5 @@
 import { SearchX, UtensilsCrossed } from "lucide-react";
+import { CreateRecipeFab } from "@/components/create-recipe-fab";
 import { EmptyState } from "@/components/empty-state";
 import { InfiniteRecipeList } from "@/components/infinite-recipe-list";
 import { RecipeSort } from "@/components/recipe-sort";
@@ -58,6 +59,8 @@ export async function RecipeContent({ searchParams }: RecipeContentProps) {
         query={q}
         pageSize={size ?? DEFAULT_RECIPES_PER_PAGE}
       />
+
+      <CreateRecipeFab />
     </>
   );
 }

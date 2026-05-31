@@ -1,7 +1,8 @@
 "use client";
 
 import type { User } from "better-auth";
-import { LogOut, Plus, SquarePen } from "lucide-react";
+import { LogOut, Moon, Plus, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -10,6 +11,10 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "@/lib/auth";
@@ -20,6 +25,7 @@ interface UserMenuProps {
 
 export function UserMenu({ user }: UserMenuProps) {
   const { refresh } = useRouter();
+  const { setTheme } = useTheme();
 
   const initials = user.name
     ? user.name
@@ -52,12 +58,26 @@ export function UserMenu({ user }: UserMenuProps) {
             <span>Create Recipe</span>
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href="/recipes" className="flex items-center">
-            <SquarePen className="mr-2 h-4 w-4" />
-            <span>My Recipes</span>
-          </Link>
-        </DropdownMenuItem>
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger className="flex items-center">
+            <Sun className="mr-2 h-4 w-4 dark:hidden" />
+            <Moon className="mr-2 hidden h-4 w-4 dark:block" />
+            <span>Theme</span>
+          </DropdownMenuSubTrigger>
+          <DropdownMenuPortal>
+            <DropdownMenuSubContent>
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
+                System
+              </DropdownMenuItem>
+            </DropdownMenuSubContent>
+          </DropdownMenuPortal>
+        </DropdownMenuSub>
         <DropdownMenuItem
           onClick={() => signOut({ fetchOptions: { onSuccess: refresh } })}
         >

@@ -126,8 +126,9 @@ export function InteractiveInstructions({
                           <Label
                             htmlFor={`instruction-${instruction.id}`}
                             className={cn(
-                              "min-w-0 flex-1 text-sm leading-relaxed",
-                              checked && "text-muted-foreground line-through",
+                              "min-w-0 flex-1 text-sm leading-relaxed transition-all duration-200",
+                              checked &&
+                                "text-muted-foreground line-through opacity-60",
                             )}
                           >
                             {checked ? (
