@@ -7,6 +7,9 @@
     "node": ">=24.0.0",
     "bun": ">=1.0.0"
   },
+  "overrides": {
+    "kysely": "0.28.17"
+  },
   "scripts": {
     "dev": "next dev --experimental-https",
     "prebuild": "prisma migrate deploy",
