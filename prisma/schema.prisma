@@ -38,7 +38,11 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  refreshTokenExpiresAt DateTime?
+  password              String?
+
   @@unique([providerId, accountId])
+  @@index([userId])
 }
 
 model Session {
@@ -53,6 +57,8 @@ model Session {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model Verification {
@@ -63,6 +69,8 @@ model Verification {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([identifier])
 }
 
 model Recipe {
