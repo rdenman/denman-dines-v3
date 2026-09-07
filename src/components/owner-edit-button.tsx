@@ -19,10 +19,7 @@ export function OwnerEditButton({ recipeUserId, slug }: OwnerEditButtonProps) {
 
   return (
     <Button asChild size="icon" variant="ghost" className="shrink-0">
-      <Link
-        href={`/recipes/${slug}/edit`}
-        aria-label="Edit recipe"
-      >
+      <Link href={`/recipes/${slug}/edit`} aria-label="Edit recipe">
         <SquarePen className="size-4" />
       </Link>
     </Button>

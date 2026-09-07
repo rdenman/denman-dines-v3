@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const blobHostname = process.env.BLOB_HOSTNAME;
+
 const nextConfig: NextConfig = {
   experimental: {
     authInterrupts: true,
@@ -7,14 +9,15 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react"],
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: process.env.BLOB_HOSTNAME!,
-        port: "",
-        pathname: "/**",
-      },
-    ],
+    remotePatterns: blobHostname
+      ? [
+          {
+            protocol: "https",
+            hostname: blobHostname,
+            pathname: "/**",
+          },
+        ]
+      : [],
   },
 };
 

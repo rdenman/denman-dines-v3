@@ -240,7 +240,6 @@ export default async function RecipePage({ params }: RecipePageProps) {
             </Card>
           </section>
         )}
-
       </PageContainer>
     </>
   );
