@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { InteractiveIngredients } from "@/components/interactive-ingredients";
 import { InteractiveInstructions } from "@/components/interactive-instructions";
+import { KeepAwakeToggle } from "@/components/keep-awake-toggle";
 import { OwnerEditButton } from "@/components/owner-edit-button";
 import { PageContainer } from "@/components/page-container";
 import { Card, CardContent } from "@/components/ui/card";
@@ -133,7 +134,10 @@ export default async function RecipePage({ params }: RecipePageProps) {
             >
               {recipe.title}
             </h1>
-            <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
+            <div className="flex shrink-0 items-center">
+              <KeepAwakeToggle />
+              <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
+            </div>
           </div>
           {recipe.description && (
             <p className="mt-1.5 text-base text-muted-foreground sm:mt-2 sm:text-lg">

@@ -104,3 +104,39 @@ test("recipe page has correct title in browser", async ({ page }) => {
   // Verify the browser title matches the recipe title
   await expect(page).toHaveTitle(`${titleText} | Denman Dines`);
 });
+
+test("recipe page keep-awake toggle can be flipped", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "wakeLock", {
+      configurable: true,
+      value: {
+        request: async () => {
+          const sentinel = {
+            released: false,
+            type: "screen" as const,
+            onrelease: null,
+            release: async () => {
+              sentinel.released = true;
+            },
+            addEventListener: () => {},
+            removeEventListener: () => {},
+            dispatchEvent: () => false,
+          };
+          return sentinel;
+        },
+      },
+    });
+  });
+
+  await navigateToFirstRecipe(page);
+
+  const toggle = page.getByTestId("keep-awake-toggle");
+  await expect(toggle).toBeVisible({ timeout: 10000 });
+  await expect(toggle).toHaveAttribute("aria-pressed", "true");
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-pressed", "false");
+
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-pressed", "true");
+});
