@@ -107,6 +107,10 @@ export function RecipeSearch({
           placeholder={placeholder}
           value={query}
           onChange={handleInputChange}
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="none"
+          spellCheck={false}
           className="h-10 w-full pl-10 pr-10 sm:h-9"
         />
         {query && (
