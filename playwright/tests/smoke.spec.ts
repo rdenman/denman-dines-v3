@@ -27,9 +27,7 @@ test("unknown recipe slug shows not found page", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Page not found" }),
   ).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: "Back to Home" }),
-  ).toBeVisible();
+  await expect(page.getByRole("link", { name: "Back to Home" })).toBeVisible();
 });
 
 test("create recipe requires sign in when unauthenticated", async ({
