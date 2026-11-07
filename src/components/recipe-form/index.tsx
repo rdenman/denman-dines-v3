@@ -1,12 +1,15 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { upload } from "@vercel/blob/client";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { clearAllRecipeListCaches } from "@/components/infinite-recipe-list";
 import { LoadingOverlay } from "@/components/loading-overlay";
 import { IngredientSections } from "@/components/recipe-form/ingredient-sections";
 import { InstructionSections } from "@/components/recipe-form/instruction-sections";
+import { PhotoField } from "@/components/recipe-form/photo-field";
 import { TipsSection } from "@/components/recipe-form/tips-section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -51,29 +54,29 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
     },
   });
 
-  async function onSubmit(
-    formData: RecipeFormInput,
-    event?: React.BaseSyntheticEvent,
-  ) {
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [isPhotoProcessing, setIsPhotoProcessing] = useState(false);
+
+  async function onSubmit(formData: RecipeFormInput) {
     try {
       let photoUrl: string | undefined;
 
-      const input = event?.target.photoFile as HTMLInputElement | undefined;
-      const file = input?.files?.[0];
-      if (file) {
-        const fd = new FormData();
-        fd.append("file", file);
-        const uploadResponse = await fetch("/api/upload", {
-          method: "POST",
-          body: fd,
-        });
-
-        if (!uploadResponse.ok) {
-          throw new Error("Failed to upload file");
+      if (photoFile) {
+        try {
+          const blob = await upload(photoFile.name, photoFile, {
+            access: "public",
+            handleUploadUrl: "/api/upload",
+            contentType: photoFile.type,
+          });
+          photoUrl = blob.url;
+        } catch (error) {
+          console.error("Error uploading photo:", error);
+          form.setError("photo", {
+            message:
+              "Photo upload failed. Please try again or use a different image.",
+          });
+          return;
         }
-
-        const { url } = await uploadResponse.json();
-        photoUrl = url;
       }
 
       const apiData = {
@@ -233,24 +236,10 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
                 />
               </div>
 
-              <FormField
-                control={form.control}
-                name="photo"
-                render={() => (
-                  <FormItem>
-                    <FormLabel>Photo</FormLabel>
-                    <FormControl>
-                      <Input type="file" accept="image/*" name="photoFile" />
-                    </FormControl>
-                    {/* TODO add photo preview */}
-                    {initialData?.photo && (
-                      <p className="text-sm text-muted-foreground">
-                        Current photo: {initialData.photo}
-                      </p>
-                    )}
-                    <FormMessage />
-                  </FormItem>
-                )}
+              <PhotoField
+                existingPhoto={initialData?.photo || undefined}
+                onPhotoChange={setPhotoFile}
+                onProcessingChange={setIsPhotoProcessing}
               />
             </CardContent>
           </Card>
@@ -278,7 +267,7 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
               type="submit"
               size="lg"
               className="w-full sm:w-auto"
-              disabled={form.formState.isSubmitting}
+              disabled={form.formState.isSubmitting || isPhotoProcessing}
             >
               {isEditMode ? "Update Recipe" : "Create Recipe"}
             </Button>

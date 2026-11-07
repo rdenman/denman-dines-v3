@@ -1,38 +1,38 @@
-import { put } from "@vercel/blob";
+import { type HandleUploadBody, handleUpload } from "@vercel/blob/client";
 import { type NextRequest, NextResponse } from "next/server";
-import z from "zod";
 import { getSession } from "@/lib/auth.server";
-import { imageFileSchema } from "@/lib/validation";
+import {
+  ALLOWED_IMAGE_TYPES,
+  MAX_IMAGE_UPLOAD_BYTES,
+} from "@/lib/image-upload";
 
 export async function POST(request: NextRequest) {
+  const body = (await request.json()) as HandleUploadBody;
+
   try {
-    const session = await getSession();
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: "Unauthenticated" }, { status: 401 });
-    }
+    const result = await handleUpload({
+      body,
+      request,
+      onBeforeGenerateToken: async () => {
+        const session = await getSession();
+        if (!session?.user?.id) {
+          throw new Error("Unauthenticated");
+        }
 
-    const form = await request.formData();
-    const file = imageFileSchema.parse(form.get("file"));
-
-    const blob = await put(file.name, file, {
-      access: "public",
-      addRandomSuffix: true,
+        return {
+          allowedContentTypes: ALLOWED_IMAGE_TYPES,
+          maximumSizeInBytes: MAX_IMAGE_UPLOAD_BYTES,
+          addRandomSuffix: true,
+        };
+      },
     });
 
-    return NextResponse.json(blob);
+    return NextResponse.json(result);
   } catch (error) {
     console.error("Error uploading image:", error);
-
-    if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { error: "Invalid data", details: error.issues },
-        { status: 400 },
-      );
-    }
-
     return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
+      { error: error instanceof Error ? error.message : "Upload failed" },
+      { status: 400 },
     );
   }
 }

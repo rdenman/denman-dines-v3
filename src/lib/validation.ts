@@ -79,16 +79,3 @@ export const recipeFormSchema = z.object({
 });
 
 export type RecipeFormInput = z.infer<typeof recipeFormSchema>;
-
-/**
- * Zod schema for validating image file uploads.
- *
- * This schema ensures that:
- * - The input is a valid File instance
- * - The file has content (size > 0)
- * - The file is an image type (MIME type starts with "image/")
- */
-export const imageFileSchema = z
-  .instanceof(File)
-  .refine((file) => file.size > 0, "File cannot be empty")
-  .refine((file) => file.type.startsWith("image/"), "Must be an image");
