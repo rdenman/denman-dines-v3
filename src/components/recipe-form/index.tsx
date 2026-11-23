@@ -5,6 +5,7 @@ import { upload } from "@vercel/blob/client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { clearAllRecipeListCaches } from "@/components/infinite-recipe-list";
 import { LoadingOverlay } from "@/components/loading-overlay";
 import { IngredientSections } from "@/components/recipe-form/ingredient-sections";
@@ -110,7 +111,9 @@ export function RecipeForm({ mode, initialData }: RecipeFormProps) {
         `Error ${isEditMode ? "updating" : "creating"} recipe:`,
         error,
       );
-      // TODO: Add toast notification for error
+      toast.error(
+        `Couldn't ${isEditMode ? "update" : "create"} recipe. Please try again.`,
+      );
     }
   }
 

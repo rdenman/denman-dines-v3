@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { InteractiveIngredients } from "@/components/interactive-ingredients";
 import { InteractiveInstructions } from "@/components/interactive-instructions";
 import { KeepAwakeToggle } from "@/components/keep-awake-toggle";
+import { OwnerDeleteButton } from "@/components/owner-delete-button";
 import { OwnerEditButton } from "@/components/owner-edit-button";
 import { PageContainer } from "@/components/page-container";
 import { Card, CardContent } from "@/components/ui/card";
@@ -137,6 +138,11 @@ export default async function RecipePage({ params }: RecipePageProps) {
             <div className="flex shrink-0 items-center">
               <KeepAwakeToggle />
               <OwnerEditButton recipeUserId={recipe.userId} slug={slug} />
+              <OwnerDeleteButton
+                recipeId={recipe.id}
+                recipeUserId={recipe.userId}
+                recipeTitle={recipe.title}
+              />
             </div>
           </div>
           {recipe.description && (
