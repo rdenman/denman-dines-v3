@@ -1,12 +1,7 @@
-import { type ClassValue, clsx } from "clsx";
 import Fraction from "fraction.js";
-import { twMerge } from "tailwind-merge";
 import type { Ingredient } from "../../prisma/generated/client";
 
-/** Combines and merges CSS class names using clsx and tailwind-merge. */
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+export { cn } from "cn";
 
 /** Type guard that checks if a value is not null or undefined. */
 export function exists<T>(value: T | null | undefined): value is T {
