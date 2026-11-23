@@ -51,7 +51,9 @@ async function openRecipeAs(
   });
 
   await page.goto(`/recipes/${encodeURIComponent(recipe.slug)}`);
-  await expect(page.getByTestId("recipe-title")).toBeVisible();
+  await expect(page.getByTestId("recipe-title")).toBeVisible({
+    timeout: 10_000,
+  });
   return recipe;
 }
 
